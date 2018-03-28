@@ -5,6 +5,12 @@ function addBaseCSS(){
 ';
 }
 
+function redirectIfNotLogon(){
+  if(!isset($_SESSION["authenticated"])){
+    header("Location: login.php");
+  }
+}
+
 function addMaterialize(){
   echo '<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">

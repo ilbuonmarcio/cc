@@ -1,9 +1,5 @@
 <?php include('utils.php'); ?>
-<?php
-  if(!isset($_SESSION["authenticated"])){
-    header("Location: login.php");
-  }
-?>
+<?php redirectIfNotLogon(); ?>
 
 <!DOCTYPE html>
 
