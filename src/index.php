@@ -20,7 +20,5 @@
 
     <h3 class="center-align">Home Page</h3>
 
-    <?php addFooter(); ?>
-
   </body>
 </html>
