@@ -14,17 +14,9 @@
 
   <body>
 
-    <?php addHeader(); ?>
+    <?php addHeader("Home"); ?>
 
-    <div class="section">
-      <div class="row">
-        <div class="col s12 red">
-          <p>
-
-          </p>
-        </div>
-      </div>
-    </div>
+    <h3 class="center-align">Content</h3>
 
     <?php addFooter(); ?>
 
