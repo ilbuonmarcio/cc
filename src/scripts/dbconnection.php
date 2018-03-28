@@ -1,9 +1,6 @@
  <?php
- 
-	define("HOST", "");
-	define("DB_USER", "");
-	define("DB_PASSWORD", "");
-	define("DB_NAME", "");
+
+  include('../config/dbconfig.php');
 
 	function dbconnection() {
 		$conn = new mysqli(HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -15,4 +12,4 @@
 
 		return $conn;
 	}
-?> 
+?>
