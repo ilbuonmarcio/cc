@@ -6,8 +6,8 @@ function addBaseCSS(){
 }
 
 function redirectIfNotLogon(){
-  if(!isset($_SESSION["authenticated"])){
-    header("Location: login.php");
+  if(!isset($_SESSION["authenticated"]) || $_SESSION["authenticated"] == 0){
+    header("Location: login.php?noauth=1");
   }
 }
 

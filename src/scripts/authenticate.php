@@ -1,4 +1,6 @@
-<?
+<?php
+
+  session_start();
 
   include("dbconnection.php");
 
@@ -8,17 +10,17 @@
   $conn = connectdb();
 
   if($conn){
-    $query = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "';";
-    echo $query;
-    $result = $conn->query($query);
+    $sql = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "';";
+
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
+      $_SESSION["authenticated"] = 1;
       header("Location: ../index.php");
     } else {
-        header("Location: ../login.php");
+        header("Location: ../login.php?usernotfound=1");
     }
-    $conn->close();
   } else{
-    header("Location: ../login.php");
+    header("Location: ../login.php?nodbconnection=1");
   }
 ?>
