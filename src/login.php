@@ -1,5 +1,4 @@
 <?php include('utils.php'); ?>
-<?php session_start(); ?>
 
 <!DOCTYPE html>
 
@@ -19,17 +18,17 @@
 
     <div class="container">
       <div class="row">
-        <form class="col s12 login-form" action="scripts/authenticate.php" method="post">
+        <form class="col s12 login-form" action="./scripts/authenticate.php" method="get">
           <h3 class="center-align">Login</h3>
           <div class="row">
             <div class="input-field col s12 m6 offset-m3">
               <i class="material-icons prefix">account_circle</i>
-              <input placeholder="Inserisci nome utente" id="username" type="text" class="validate">
+              <input placeholder="Inserisci nome utente" id="username" name="username" type="text" class="validate">
               <label for="username">Nome Utente</label>
             </div>
             <div class="input-field col s12 m6 offset-m3">
                 <i class="material-icons prefix">security</i>
-              <input placeholder="Inserisci password" id="password" type="password" class="validate">
+              <input placeholder="Inserisci password" id="password" name="password" type="password" class="validate">
               <label for="password">Password</label>
             </div>
             <div class="input-field col s12 m6 offset-m3 center-align">
