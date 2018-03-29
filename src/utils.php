@@ -5,10 +5,30 @@ function addBaseCSS(){
 ';
 }
 
+function addAlertCSS(){
+  echo '<link href="css/alert.css" type="text/css" rel="stylesheet"/>
+';
+}
+
 function redirectIfNotLogon(){
   if(!isset($_SESSION["authenticated"]) || $_SESSION["authenticated"] == 0){
     header("Location: login.php?noauth=1");
   }
+}
+
+function addAlertScript(){
+  echo '<script>
+	var close = document.getElementsByClassName("closebtn");
+	var i;
+
+	for (i = 0; i < close.length; i++) {
+		close[i].onclick = function(){
+			var div = this.parentElement;
+			div.style.opacity = "0";
+			setTimeout(function(){ div.style.display = "none"; }, 600);
+		}
+	}
+	</script>';
 }
 
 function addMaterialize(){
@@ -19,8 +39,7 @@ function addMaterialize(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <!-- MaterializeIcons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-';
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 }
 
 function addHeader($pagetitle){
