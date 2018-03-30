@@ -16,6 +16,12 @@ function redirectIfNotLogon(){
   return;
 }
 
+function loginMessage($msg){
+  echo '<div class="row">' .
+       '<div class="col s6 offset-s3 red" style="margin-top: 60px; border-radius: 30px; opacity: 0.9; color: white;">' .
+       '<p class="center-align" style="font-size: 1.2em">' . $msg . '</p></div></div>"';
+}
+
 function addMaterialize(){
   echo '<!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">

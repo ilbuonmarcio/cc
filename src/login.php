@@ -19,6 +19,19 @@
     <?php addHeader("Login"); ?>
 
     <div class="container">
+
+      <?php
+        if(isset($_GET["noauth"])){
+          loginMessage("Sessione scaduta!");
+        }
+        if(isset($_GET["unf"])){
+          loginMessage("Utente non trovato!");
+        }
+        if(isset($_GET["nodbc"])){
+          loginMessage("Nessuna connessione disponibile al database!");
+        }
+      ?>
+
       <div class="row">
         <form class="col s12 login-form" action="./scripts/auth.php" method="post">
           <h3 class="center-align">Login</h3>
