@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php include('utils.php'); ?>
+<?php resetAuth(); ?>
 
 <!DOCTYPE html>
 

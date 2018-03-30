@@ -18,7 +18,7 @@
 
     <?php addHeader("Home"); ?>
 
-    <h3 class="center-align">Home Page</h3>=
-    
+    <h3 class="center-align">Home Page</h3>
+
   </body>
 </html>
