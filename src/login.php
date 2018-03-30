@@ -16,7 +16,11 @@
 
   <body>
 
-    <?php addHeader("Login", false); ?>
+    <div class="row">
+      <div class="col s12">
+        <h1 class="login-title center-align">CC - <a href="https://github.com/marconivr/marconicc">marconicc</a>, but <i>stronger</i></h1>
+      </div>
+    </div>
 
     <div class="container">
 
@@ -34,7 +38,7 @@
 
       <div class="row">
         <form class="col s12 login-form" action="./scripts/auth.php" method="post">
-          <h3 class="center-align">Login</h3>
+          <h4 class="center-align">Login</h4>
           <div class="row">
             <div class="input-field col s12 m6 offset-m3">
               <i class="material-icons prefix">account_circle</i>

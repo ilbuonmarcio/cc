@@ -21,7 +21,8 @@ div.header{
 }
 
 div.footer{
-  background-color: #E0EFE0;
+  background: linear-gradient(white, #E0EFE0);
+  opacity: 0.9;
   padding: 10px 10px 25px 10px !important;
 }
 
@@ -49,4 +50,12 @@ a#sidenav-trigger-button{
   right: 20px;
   background-color: #00ff00;
   opacity: 0.9;
+}
+
+p.sidenav-menu-title{
+  font-size: 1.6em;
+}
+
+.login-title{
+  margin-top: 7vh;
 }

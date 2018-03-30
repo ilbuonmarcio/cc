@@ -16,10 +16,9 @@
 
   <body>
 
-    <?php addHeader("Home"); ?>
     <?php addSidenav(); ?>
 
-    <h5 class="center-align">Home Page</h5>
+    <h3 class="center-align">Benvenuto, <?php echo $_SESSION["username"]; ?>!</h3>
 
   </body>
 </html>

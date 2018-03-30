@@ -22,13 +22,14 @@
 
           // Sessione autenticata correttamente
           $_SESSION["authenticated"] = 1;
+          $_SESSION["username"] = $username;
           header("Location: ../index.php");
 
     } else {
 
         // Sessione non autenticata, nessun match trovato
         header("Location: ../login.php?unf=1");
-        
+
     }
   } else {
 
