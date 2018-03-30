@@ -5,30 +5,11 @@ function addBaseCSS(){
 ';
 }
 
-function addAlertCSS(){
-  echo '<link href="css/alert.css" type="text/css" rel="stylesheet"/>
-';
-}
-
 function redirectIfNotLogon(){
+  session_start();
   if(!isset($_SESSION["authenticated"]) || $_SESSION["authenticated"] == 0){
     header("Location: login.php?noauth=1");
   }
-}
-
-function addAlertScript(){
-  echo '<script>
-	var close = document.getElementsByClassName("closebtn");
-	var i;
-
-	for (i = 0; i < close.length; i++) {
-		close[i].onclick = function(){
-			var div = this.parentElement;
-			div.style.opacity = "0";
-			setTimeout(function(){ div.style.display = "none"; }, 600);
-		}
-	}
-	</script>';
 }
 
 function addMaterialize(){
