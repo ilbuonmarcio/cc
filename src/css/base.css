@@ -42,3 +42,11 @@ h5.footer {
   font-size: 1.8em;
   color: white;
 }
+
+a#sidenav-trigger-button{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00ff00;
+  opacity: 0.9;
+}

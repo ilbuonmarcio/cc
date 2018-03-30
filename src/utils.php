@@ -1,7 +1,8 @@
 <?php
 
 function addBaseCSS(){
-  echo '<link href="css/base.css" type="text/css" rel="stylesheet"/>
+  echo '
+    <link href="css/base.css" type="text/css" rel="stylesheet"/>
 ';
 }
 
@@ -19,17 +20,15 @@ function redirectIfNotLogon(){
 function loginMessage($msg){
   echo '<div class="row">' .
        '<div class="col s6 offset-s3 red" style="margin-top: 60px; border-radius: 30px; opacity: 0.9; color: white;">' .
-       '<p class="center-align" style="font-size: 1.2em">' . $msg . '</p></div></div>"';
+       '<p class="center-align" style="font-size: 1.2em">' . $msg . '</p></div></div>';
 }
 
 function addMaterialize(){
   echo '<!-- Compiled and minified CSS -->
-	<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
     <!-- Compiled and minified JavaScript -->
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
     <!-- MaterializeIcons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
@@ -37,12 +36,12 @@ function addMaterialize(){
 
 function addHeader($pagetitle){
   echo '<div class="section header">
-          <div class="row">
-            <div class="col s12">
-              <h4 class="header-title">CC - ' . $pagetitle . '</h4>
-            </div>
-          </div>
-        </div>';
+      <div class="row">
+        <div class="col s12">
+          <h4 class="header-title">CC - ' . $pagetitle . '</h4>
+        </div>
+      </div>
+    </div>';
 }
 
 function addFooter(){
@@ -87,14 +86,28 @@ function addFooter(){
 }
 
 function addSidenav(){
-  echo '<nav>
-		  <ul id="slide-out" class="side-nav">
-			<li><a href="#!">First Sidebar Link</a></li>
-			<li><a href="#!">Second Sidebar Link</a></li>
-		  </ul>
-		  <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="mdi-navigation-menu"></i></a>
-		</nav>
-		<script  src="scripts/sidenav.js"></script>';
+    echo '
+
+    <ul id="slide-out" class="sidenav " style="background-color: #eeeeee;">
+      <li>
+        <a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a>
+      </li>
+      <li>
+        <a href="#!">Second Link</a>
+      </li>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <li>
+        <a class="subheader">Subheader</a>
+      </li>
+      <li>
+        <a class="waves-effect" href="#!">Third Link With Waves</a>
+      </li>
+    </ul>
+    <a href="#" id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green"><i class="material-icons">menu</i></a>
+    <script src="scripts/sidenav.js"></script>';
 }
+
 
 ?>

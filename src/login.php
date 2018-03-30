@@ -16,7 +16,7 @@
 
   <body>
 
-    <?php addHeader("Login"); ?>
+    <?php addHeader("Login", false); ?>
 
     <div class="container">
 
