@@ -1,3 +1,23 @@
+@media only screen and (max-device-width: 480px) {
+  a#sidenav-trigger-button{
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media only screen and (min-device-width: 481px) {
+  a#sidenav-trigger-button{
+    top: 20px;
+    left: 20px;
+  }
+}
+
+a#sidenav-trigger-button{
+  position: fixed;
+  background-color: #00ff00;
+  opacity: 0.9;
+}
+
 div.header, div.footer{
   padding: 0 !important;
 }
@@ -42,14 +62,6 @@ h5.footer {
   margin: 10px;
   font-size: 1.8em;
   color: white;
-}
-
-a#sidenav-trigger-button{
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background-color: #00ff00;
-  opacity: 0.9;
 }
 
 p.sidenav-menu-title{
