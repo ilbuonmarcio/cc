@@ -12,7 +12,7 @@
   // Creo un istanza di connessione al database
   $conn = connectdb();
 
-  // Controllo se la connessione non é disponibile
+  // Controllo se la connessione é disponibile
   if($conn){
 
     $sql = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "';";
