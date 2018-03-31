@@ -87,7 +87,7 @@ function addSidenav(){
         <p class="sidenav-menu-title center-align">Menu - CC</p>
       </li>
       <li>
-        <a href="#!" class="waves-effect"><i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
+        <a onclick="createUserModal.open();" href="#!" class="waves-effect"><i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
       </li>
       <li>
         <div class="divider"></div>
@@ -115,8 +115,11 @@ function addSidenav(){
       </li>
     </ul>
     <a href="#" id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green"><i class="material-icons">menu</i></a>
-    <script src="scripts/sidenav.js"></script>';
+    ';
 }
 
+function addFunctionalScripts(){
+  echo '<script src="scripts/scripts.js"></script>';
+}
 
 ?>
