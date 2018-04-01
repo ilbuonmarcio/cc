@@ -11,7 +11,7 @@ e il "modulo per la creazione degli account", con relative funzioni e controlli;
 
 - Creazione *login.php*: pagina, personalizzata con Materialize e CSS, che ha la funzione di effettuare il login e controllare se tutto avviene in maniera corretta;
 
-- Creazione *login.php*: file, personalizzato con Materialize e CSS, che contiene tutte le funzioni, che verranno poi richiamate ed utilizzate negli altri scripts;
+- Creazione *utils.php*: file, personalizzato con Materialize e CSS, che contiene tutte le funzioni, che verranno poi richiamate ed utilizzate negli altri scripts;
 
 - In **setup**, Creazione *createdb.sql*: file di prova che contiene la tabella utenti, utilizzata come prova di login;
 
