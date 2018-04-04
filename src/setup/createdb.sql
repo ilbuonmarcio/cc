@@ -4,7 +4,7 @@ CREATE DATABASE composizioneclassi;
 
 USE composizioneclassi;
 
-CREATE TABLE users(
+CREATE TABLE utenti(
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
   password VARCHAR(64) NOT NULL,
@@ -28,6 +28,12 @@ CREATE TABLE indirizzi(
   nome VARCHAR(50) NOT NULL
 );
 
+CREATE TABLE gruppi(
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) NOT NULL,
+  descrizione VARCHAR(256) DEFAULT NULL
+);
+
 CREATE TABLE alunni(
   id INT AUTO_INCREMENT PRIMARY KEY,
   cognome VARCHAR(128) NOT NULL,
@@ -47,12 +53,14 @@ CREATE TABLE alunni(
   scelta_indirizzo INT NOT NULL,
   cod_cat CHAR(4) NOT NULL,
   voto INT(2) NOT NULL,
+  id_gruppo INT NOT NULL,
+  FOREIGN KEY (id_gruppo) REFERENCES gruppi(id),
   FOREIGN KEY (classe_precedente) REFERENCES classi(id),
   FOREIGN KEY (classe_successiva) REFERENCES classi(id),
   FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id)
 );
 
-CREATE TABLE configurazione(
+CREATE TABLE configurazioni(
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(64) NOT NULL,
   min_alunni INT(3) NOT NULL,
@@ -64,3 +72,25 @@ CREATE TABLE configurazione(
   max_naz INT(3) NOT NULL,
   num_104 INT(3) NOT NULL
 );
+
+INSERT INTO utenti (
+  id,
+  username,
+  password,
+  diritti
+) VALUES (1, 'root', '123', 0);
+
+INSERT INTO gruppi (
+  id,
+  nome
+) VALUES (NULL, 'Gruppo 1');
+
+INSERT INTO gruppi (
+  id,
+  nome
+) VALUES (NULL, 'Gruppo 2');
+
+INSERT INTO gruppi (
+  id,
+  nome
+) VALUES (NULL, 'Gruppo 3');
