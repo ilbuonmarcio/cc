@@ -110,13 +110,13 @@
       <div class="modal-content">
         <h4 class="center-align">Carica CSV Alunni</h4>
 
-        <form class="col s12 uploadcsv-form" action="./utils/uploadcsv.php" method="post">
+        <form class="col s12 uploadcsv-form" action="utils/uploadcsv.php" method="post" enctype="multipart/form-data">
 
           <div class="row">
             <div class="file-field input-field">
               <div class="btn">
                 <span>Apri</span>
-                <input type="file">
+                <input type="file" name="csv-to-upload" id="csv-to-upload">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
