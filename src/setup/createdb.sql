@@ -8,7 +8,7 @@ CREATE TABLE users(
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
   password VARCHAR(64) NOT NULL,
-  priviledges INT(1) NOT NULL
+  diritti INT(1) NOT NULL
 );
 
 CREATE TABLE classi(
@@ -47,7 +47,9 @@ CREATE TABLE alunni(
   scelta_indirizzo INT NOT NULL,
   cod_cat CHAR(4) NOT NULL,
   voto INT(2) NOT NULL,
-  proprietario INT NOT NULL
+  FOREIGN KEY (classe_precedente) REFERENCES classi(id),
+  FOREIGN KEY (classe_successiva) REFERENCES classi(id),
+  FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id)
 );
 
 CREATE TABLE configurazione(
@@ -62,5 +64,3 @@ CREATE TABLE configurazione(
   max_naz INT(3) NOT NULL,
   num_104 INT(3) NOT NULL
 );
-
-
