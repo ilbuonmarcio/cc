@@ -157,7 +157,7 @@
               <input type="file" name="csv" id="csv" value="">
             </div>
             <div class="file-path-wrapper">
-              <input class="file-path validate" type="text">
+              <input required placeholder="Seleziona un file CSV" class="file-path validate" type="text">
             </div>
           </div>
 
