@@ -1,8 +1,12 @@
-var elem = document.querySelector('.sidenav');
-var sidenavInstance = M.Sidenav.init(elem, {'edge' : 'left'});
+var sidenavElem = document.querySelector('.sidenav');
+var sidenavInstance = M.Sidenav.init(sidenavElem, {'edge' : 'left'});
 
-var elem = document.querySelector('.modal');
-var createUserModal = M.Modal.init(elem);
+// JS for user creation modal
+var createUserElem = document.querySelector('.createuser-modal');
+var createUserModal = M.Modal.init(createUserElem);
+var createUserModalSelect = document.querySelector('createuser-modal-select');
+var createUserModelPriviledgesSelector = M.FormSelect.init(createUserModalSelect);
 
-var elem = document.querySelector('select');
-var createUserModelPriviledgesSelector = M.FormSelect.init(elem);
+// JS for CSV upload modal
+var uploadCSVElem = document.querySelector('.uploadcsv-modal');
+var uploadCSVModal = M.Modal.init(uploadCSVElem);

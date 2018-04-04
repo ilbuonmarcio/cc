@@ -20,7 +20,7 @@
 
 
     <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>'
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <link href="css/base.css" type="text/css" rel="stylesheet"/>
 
@@ -39,7 +39,7 @@
         <div class="divider"></div>
       </li>
       <li>
-        <a href="#!" class="waves-effect"><i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
+        <a onclick="uploadCSVModal.open();" href="#!" class="waves-effect"><i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
       </li>
       <li>
         <a href="#!" class="waves-effect"><i class="material-icons">settings</i>Configura Parametri CC</a>
@@ -101,9 +101,46 @@
 
       <div class="modal-footer">
         <a href="#!" onclick="createUserModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
-    </div>
+      </div>
     </div>
     <!-- Fine modulo per la creazione degli account -->
+
+    <!-- Modulo per il caricamento dei file CSV -->
+    <div id="upload-csv-panel" onclick="uploadCSVModal.open();" class="modal modal-fixed-footer uploadcsv-modal">
+      <div class="modal-content">
+        <h4 class="center-align">Carica CSV Alunni</h4>
+
+        <form class="col s12 uploadcsv-form" action="./utils/uploadcsv.php" method="post">
+
+          <div class="row">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Apri</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button class="btn waves-effect waves-light" type="submit" name="action">
+              Carica CSV Alunni
+            </button>
+          </div>
+
+          </form>
+      </div>
+
+      <div class="modal-footer">
+        <a href="#!" onclick="uploadCSVModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+      </div>
+
+      </div>
+
+    </div>
+    <!-- Fine modulo per il caricamento dei file CSV -->
 
     <h3 class="center-align">Benvenuto, <?php echo $_SESSION["username"]; ?>!</h3>
 
