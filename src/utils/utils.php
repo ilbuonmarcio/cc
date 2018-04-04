@@ -1,10 +1,5 @@
 <?php
 
-function addBaseCSS(){
-  echo '
-';
-}
-
 function resetAuth(){
   $_SESSION["authenticated"] = 0;
 }

@@ -1,7 +1,11 @@
  <?php
 
-  // Carico le costanti per la connessione al database
-  include('../config/dbconfig.php');
+  // Definisco le costanti per la connessione al database
+
+  define("HOST", "localhost");
+  define("DB_USER", "root");
+  define("DB_PASSWORD", "");
+  define("DB_NAME", "composizioneclassi");
 
   /*
     Funzione che ritorna un istanza di connessione al database, se disponibile
