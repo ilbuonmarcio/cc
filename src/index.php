@@ -69,11 +69,13 @@
 
         <form class="col s12 createuser-form" action="./utils/createuser.php" method="post">
           <div class="row">
+
             <div class="input-field col s12">
               <i class="material-icons prefix">account_circle</i>
               <input pattern=".{3,}" required placeholder="Inserisci nome utente" id="username" name="username" type="text" class="validate">
               <label for="username">Nome Utente (Minimo 3 caratteri)</label>
             </div>
+
             <div class="input-field col s12">
                 <i class="material-icons prefix">security</i>
               <input pattern=".{3,}" required placeholder="Inserisci password" id="password" name="password" type="text" class="validate">
@@ -87,8 +89,8 @@
                 <option value="2">Visualizzatore</option>
               </select>
               <label>Seleziona Permessi</label>
-
             </div>
+
             <div class="input-field col s12 center-align">
               <button class="btn waves-effect waves-light" type="submit" name="action">
                 Crea Nuovo Account
@@ -111,16 +113,50 @@
         <h4 class="center-align">Carica CSV Alunni</h4>
 
         <form class="col s12 uploadcsv-form" action="utils/uploadcsv.php" method="post" enctype="multipart/form-data">
-
           <div class="row">
-            <div class="file-field input-field">
-              <div class="btn">
-                <span>Apri</span>
-                <input type="file" name="csv" id="csv" value="">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
+
+          <div class="input-field col s12">
+            <i class="material-icons prefix">group</i>
+            <input pattern=".{3,}" required placeholder="Inserisci Nome Gruppo" id="gruppo" name="gruppo" type="text" class="validate">
+            <label for="gruppo">Nome Gruppo (Minimo 3 caratteri)</label>
+          </div>
+
+          <div class="col s12">
+            <?php
+
+              include("utils/dbconnection.php");
+
+              $conn = connectdb();
+
+              if($conn){
+
+                $query = "SELECT * FROM gruppi;";
+
+                $result = $conn->query($query);
+
+                if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                    echo '<div class="chip">' . $row["nome"] . '</div>';
+                  }
+                }
+              } else{
+                echo "Impossibile caricare i gruppi gia' formati.";
+              }
+
+            ?>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Apri</span>
+              <input type="file" name="csv" id="csv" value="">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
             </div>
           </div>
 
@@ -130,7 +166,8 @@
             </button>
           </div>
 
-          </form>
+          </div>
+        </form>
       </div>
 
       <div class="modal-footer">
