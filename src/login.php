@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<?php include('utils.php'); ?>
+<?php include('utils/utils.php'); ?>
 <?php resetAuth(); ?>
 
 <!DOCTYPE html>
@@ -37,7 +37,7 @@
       ?>
 
       <div class="row">
-        <form class="col s12 login-form" action="./scripts/auth.php" method="post">
+        <form class="col s12 login-form" action="./utils/auth.php" method="post">
           <h4 class="center-align">Login</h4>
           <div class="row">
             <div class="input-field col s12 m6 offset-m3">
