@@ -6,7 +6,7 @@
   // Prendo in POST i valori per la creazione utente
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $priviledges = $_POST["priviledges"];
+  $diritti = $_POST["diritti"];
 
   // Creo un istanza di connessione al database
   $conn = connectdb();
@@ -14,7 +14,7 @@
   // Controllo se la connessione é disponibile
   if($conn){
 
-    $sql = "SELECT * FROM users WHERE username = '" . $username . "';";
+    $sql = "SELECT * FROM utenti WHERE username = '" . $username . "';";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -25,7 +25,7 @@
     } else {
 
       // Nessun match trovato, creazione account!
-      $sql = "INSERT INTO users (id, username, password, priviledges) VALUES (NULL, '" . $username . "', '" . $password . "', " . $priviledges . ");";
+      $sql = "INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '" . $username . "', '" . $password . "', " . $diritti . ");";
 
       if($conn->query($sql) === true){
         // Nuovo user creato, redirect in index.php
