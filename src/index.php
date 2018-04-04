@@ -83,7 +83,7 @@
             </div>
 
             <div class="input-field col s12">
-              <select id="priviledges" name="priviledges">
+              <select id="diritti" name="diritti">
                 <option value="0">Amministratore</option>
                 <option value="1" selected>Editor</option>
                 <option value="2">Visualizzatore</option>
@@ -121,7 +121,7 @@
             <label for="gruppo">Nome Gruppo (Minimo 3 caratteri)</label>
           </div>
 
-          <div class="col s12">
+          <div class="col s12 center-align">
             <?php
 
               include("utils/dbconnection.php");
@@ -135,6 +135,7 @@
                 $result = $conn->query($query);
 
                 if ($result->num_rows > 0) {
+                  echo '<p>Nomi dei gruppi gia` utilizzati: </p>';
                   while($row = $result->fetch_assoc()) {
                     echo '<div class="chip">' . $row["nome"] . '</div>';
                   }
