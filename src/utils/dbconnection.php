@@ -10,7 +10,7 @@
 		$conn = new mysqli(HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 		if ($conn->connect_error) {
-			header("Location: ../index.php?nodb=1");
+			header("Location: ../index.php?nodbc=1");
 		}
 		return $conn;
 	}

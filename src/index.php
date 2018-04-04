@@ -116,7 +116,7 @@
             <div class="file-field input-field">
               <div class="btn">
                 <span>Apri</span>
-                <input type="file" name="csv-to-upload" id="csv-to-upload">
+                <input type="file" name="csv" id="csv" value="">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
