@@ -144,11 +144,18 @@
 
                     <tbody>';
                   while($row = $result->fetch_assoc()) {
+                    if($row["tipo"] == 1){
+                      $type = "Classi Prime";
+                    } else if($row["tipo"] == 3){
+                      $type = "Classi Terze";
+                    } else {
+                      continue;
+                    }
                     echo '<tr>
                             <td>' . $row["id"]                                             . '</td>
                             <td>' . $row["nome"]                                           . '</td>
                             <td>' . $row["descrizione"]                                    . '</td>
-                            <td>' . $row["tipo"]                                           . '</td>
+                            <td>' . $type                                                  . '</td>
                             <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . '">Visualizza</a></td>
                           </tr>';
                   }
