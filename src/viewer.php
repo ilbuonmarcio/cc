@@ -27,13 +27,13 @@
   </head>
 
   <body>
-  
+
 	 <?php
-				
+
 			  if(isset($_GET["groupid"])){
-				  
+
 				  $groupid = $_GET["groupid"];
-				  
+
 				  include("utils/dbconnection.php");
 
 				  $conn = connectdb();
@@ -45,7 +45,7 @@
 					$result = $conn->query($query);
 
 					if ($result->num_rows > 0) {
-					  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered responsive-table">
+					  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
 						<thead>
 						  <tr>
 							  <th>ID</th>
@@ -83,17 +83,17 @@
 								<td>' . $row["id"]                . '</td>
 								<td>' . $row["cognome"]           . '</td>
 								<td>' . $row["nome"]              . '</td>
-								<td>' . $row["matricola"]         . '</td>				
+								<td>' . $row["matricola"]         . '</td>
 								<td>' . $row["cf"]                . '</td>
 								<td>' . $row["desiderata"]        . '</td>
 								<td>' . $row["sesso"]             . '</td>
 								<td>' . $row["data_nascita"]      . '</td>
-								<td>' . $row["cap"]               . '</td>				
+								<td>' . $row["cap"]               . '</td>
 								<td>' . $row["nazionalita"]       . '</td>
 								<td>' . $row["legge_107"]         . '</td>
 								<td>' . $row["legge_104"]         . '</td>
 								<td>' . $row["classe_precedente"] . '</td>
-								<td>' . $row["classe_successiva"]  . '</td>				
+								<td>' . $row["classe_successiva"]  . '</td>
 								<td>' . $row["anno_scolastico"]   . '</td>
 								<td>' . $row["scelta_indirizzo"]  . '</td>
 								<td>' . $row["cod_cat"]           . '</td>
@@ -109,9 +109,9 @@
 					echo '<p class="center-align" style="color: red;">Tabella non disponibile! Errore di connessione al database.</p>';
 				  }
 			  }
-              
+
 
             ?>
-  
+
   </body>
 </html>

@@ -131,7 +131,7 @@
                 $result = $conn->query($query);
 
                 if ($result->num_rows > 0) {
-                  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered responsive-table">
+                  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
                     <thead>
                       <tr>
                           <th>ID</th>
