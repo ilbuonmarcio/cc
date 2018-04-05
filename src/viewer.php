@@ -48,7 +48,6 @@
 					  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
 						<thead>
 						  <tr>
-							  <th>ID</th>
 							  <th>Cognome</th>
 							  <th>Nome</th>
 							  <th>Matricola</th>
@@ -72,15 +71,7 @@
 
 						<tbody>';
 					  while($row = $result->fetch_assoc()) {
-						if($row["id_gruppo"] == 1){
-						  $type = "Classi Prime";
-						} else if($row["id_gruppo"] == 3){
-						  $type = "Classi Terze";
-						} else {
-						  continue;
-						}
 						echo '<tr>
-								<td>' . $row["id"]                . '</td>
 								<td>' . $row["cognome"]           . '</td>
 								<td>' . $row["nome"]              . '</td>
 								<td>' . $row["matricola"]         . '</td>
