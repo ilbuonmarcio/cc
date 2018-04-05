@@ -352,22 +352,32 @@
     </div>
     <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
+    <script src="js/scripts.js"></script>
+
     <?php
       if(isset($_GET["newusercreated"])){
         echo "<script>M.toast({html: '" . "Account con nome utente `" . $_GET["newusercreated"] . "` creato!" . "', classes : 'rounded'})</script>";
       }
       if(isset($_GET["qerr"])){
-        echo "<script>M.toast({html: 'Query non funzionante. Contattare l`amministratore.'})</script>";
+        echo "<script>M.toast({html: 'Query non funzionante. Contattare l`amministratore.', classes : 'rounded'})</script>";
       }
       if(isset($_GET["uap"])){
-        echo "<script>M.toast({html: 'Username non disponibile!'})</script>";
+        echo "<script>M.toast({html: 'Username non disponibile!', classes : 'rounded'})</script>";
       }
       if(isset($_GET["nodbc"])){
-        echo "<script>M.toast({html: 'Database non disponibile!'})</script>";
+        echo "<script>M.toast({html: 'Database non disponibile!', classes : 'rounded'})</script>";
+      }
+      if(isset($_GET["opengg"])){
+        echo "<script>
+                manageGroupsModal.open();
+              </script>";
+      }
+      if(isset($_GET["gap"])){
+        echo "<script>
+                M.toast({html: 'Gruppo con lo stesso nome giá esistente!', classes : 'rounded'});
+              </script>";
       }
     ?>
-
-    <script src="js/scripts.js"></script>
 
   </body>
 </html>
