@@ -51,14 +51,13 @@ CREATE TABLE alunni(
   legge_104 CHAR(1) DEFAULT NULL,
   classe_precedente INT DEFAULT NULL,
   classe_successiva INT DEFAULT NULL,
-  anno_scolastico CHAR(9) NOT NULL,
   scelta_indirizzo INT NOT NULL,
   cod_cat CHAR(4) NOT NULL,
   voto INT(2) NOT NULL,
   id_gruppo INT NOT NULL,
   FOREIGN KEY (id_gruppo) REFERENCES gruppi(id),
   FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id),
-  UNIQUE INDEX(cf, id_gruppo)
+  UNIQUE INDEX(matricola, cf, id_gruppo)
 );
 
 CREATE TABLE configurazioni(
