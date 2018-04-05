@@ -86,5 +86,4 @@ if __name__ == "__main__":
 
     with open('alunni.csv', 'w') as output_file:
         for alunno in alunni:
-            output_file.write(alunno.__str__().replace("'", '"').replace('[', '').replace(']', '').replace('None', 'NULL') + "\n")
-                            
+            output_file.write(alunno.__str__().replace(", ", ",").replace("'", '').replace('[', '').replace(']', '').replace('None', 'NULL') + "\n")

@@ -1,500 +1,500 @@
-1, "Mirandola", "Valentina", 20001, "F4EAD8CC247950AB", "5273AB294FBA5FFA", "f", "9/11/2001", 70060, "Australiana", "n", "s", NULL, NULL, "2018/2019", 4, "3F78", 9, 1
-2, "Russo", "Giacomo", 20002, "DADFFDFF08D7CC17", "F0BECCA1B8E3EF0F", "f", "31/1/2002", 70006, "Australiana", "s", "s", NULL, NULL, "2018/2019", 2, "7E22", 8, 3
-3, "Russo", "Roberto", 20003, "CFF7B935E4B4F21E", "2BE7ABBCC55CEBAB", "m", "28/12/2000", 70029, "Albanese", "n", "n", NULL, NULL, "2018/2019", 1, "E3A7", 9, 1
-4, "Rossi", "Maria", 20004, "E15DBAA9288BA22A", "74DF8E641ADEBEBA", "m", "12/5/2007", 70005, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 1, "D3BD", 7, 1
-5, "Verdi", "Alex", 20005, "D15CFADBC8F2C9B6", "EFFD2F5B5ADEDEBE", "m", "24/7/2002", 70043, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "CD7E", 8, 2
-6, "Russo", "Tiziano", 20006, "376AAECD6BEEDCBF", "93665BE9D8A1B9CA", "m", "17/3/2010", 70061, "Francese", "s", "n", NULL, NULL, "2018/2019", 3, "11C2", 7, 3
-7, "Bianchi", "Elia", 20007, "43428AECDB5CF0E0", "BEEE6071A3B2C97C", "m", "15/3/2009", 70037, "Italiana", "s", "s", NULL, NULL, "2018/2019", 5, "EC24", 9, 2
-8, "Rossi", "Elia", 20008, "1AA0F784853C1B11", "B0BF8311EF2FFB59", "m", "31/9/2001", 70035, "Italiana", "s", "n", NULL, NULL, "2018/2019", 1, "993A", 8, 3
-9, "Rossi", "Tiziano", 20009, "82CC6C4AA7A3AA0D", "8655D7E2A7501744", "f", "17/10/2009", 70050, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 1, "91C4", 6, 2
-10, "Valentini", "Lucia", 20010, "B56FE1A4BBC96FB2", "F02B7CACEE36F8FC", "m", "6/8/2004", 70026, "Italiana", "n", "n", NULL, NULL, "2018/2019", 5, "58D0", 6, 1
-11, "Russo", "Giuseppe", 20011, "D77D63A9FE281EA8", "F8B7FCAC99A449A5", "m", "9/8/2006", 70050, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 5, "AB2E", 9, 1
-12, "Scalco", "Tiziano", 20012, "E59A0F40196CC023", "F4EAD8CC247950AB", "f", "14/5/2001", 70001, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 2, "B7FE", 6, 2
-13, "Mirandola", "Antonio", 20013, "CFFAFD1E4D78EAF6", "BC0D1701DFEF6091", "f", "26/5/2006", 70008, "Albanese", "s", "s", NULL, NULL, "2018/2019", 5, "CAD9", 10, 2
-14, "Rossi", "Antonio", 20014, "ADFFA739DD347EAF", "8B337A37DAAD273A", "f", "16/2/2001", 70016, "Francese", "n", "n", NULL, NULL, "2018/2019", 4, "8A55", 7, 1
-15, "Bianchi", "Maria", 20015, "F0539EFB3D52ADBD", "D3E28DA3D6DA5DAA", "m", "21/6/2006", 70043, "Australiana", "n", "s", NULL, NULL, "2018/2019", 1, "12FA", 9, 3
-16, "Russo", "Valentina", 20016, "AF0E2C7C2BE55AC6", "8488D92BA5EAC712", "m", "12/2/2009", 70018, "Turca", "s", "s", NULL, NULL, "2018/2019", 2, "96F7", 7, 2
-17, "Valentini", "Lucia", 20017, "74C8AE4CEBACCAD3", "2CD3BAB2D75DDF2F", "f", "12/4/2006", 70040, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 1, "6D9D", 6, 2
-18, "Bianchi", "Maria", 20018, "BAD36AA5AEC31DA1", "CC7ABE1E8C9EB1CA", "f", "11/4/2003", 70047, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 4, "0B9B", 7, 3
-19, "Rossi", "Tiziano", 20019, "3FC549C1F8EA5738", "FAFCE2DF6EA7668A", "m", "12/8/2003", 70040, "Italiana", "s", "s", NULL, NULL, "2018/2019", 1, "B50D", 10, 1
-20, "Mirandola", "Alex", 20020, "547DA9182D705759", "0BA4CAA4DDD3DFBB", "m", "29/11/2005", 70003, "Italiana", "n", "n", NULL, NULL, "2018/2019", 3, "BA2D", 10, 2
-21, "Valentini", "Fabio", 20021, "4D2B143E44FBBEEF", "6317FA062ED8600C", "f", "26/12/2008", 70027, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 5, "256A", 9, 1
-22, "Valentini", "Giacomo", 20022, "FCFBE6EEC1F1F3DF", "98B5E1071947AC9E", "m", "21/12/2005", 70022, "Turca", "s", "n", NULL, NULL, "2018/2019", 5, "EFE3", 6, 2
-23, "Russo", "Giuseppe", 20023, "3FBCBEEC72465B35", "EEAF4AA0CAABEAEE", "m", "11/1/2007", 70046, "Arabica", "s", "n", NULL, NULL, "2018/2019", 4, "187E", 10, 1
-24, "Scalco", "Fabio", 20024, "8EDF98AD45F5DE9C", "698CA30BFEBBFE1F", "m", "13/7/2005", 70006, "Francese", "s", "n", NULL, NULL, "2018/2019", 1, "173B", 8, 2
-25, "Valentini", "Maria", 20025, "EA7C1EE7CB4CDDCF", "C8C501D4EB51CF06", "f", "5/12/2004", 70056, "Arabica", "s", "n", NULL, NULL, "2018/2019", 5, "BDD9", 7, 3
-26, "Giannini", "Giacomo", 20026, "EC116A5C334DB35C", "6AF6EE9CDBC7E6F8", "f", "27/12/2004", 70056, "Polacca", "s", "n", NULL, NULL, "2018/2019", 4, "FA8F", 7, 2
-27, "Scalco", "Roberto", 20027, "DD5B6A8A29A2634A", "D77D63A9FE281EA8", "f", "18/3/2010", 70025, "Albanese", "s", "s", NULL, NULL, "2018/2019", 1, "ECCD", 10, 2
-28, "Mirandola", "Alex", 20028, "7BF9B89CC6646ADC", "CFFAFD1E4D78EAF6", "m", "11/2/2003", 70000, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "D37B", 6, 3
-29, "Rossi", "Elia", 20029, "C4BE1FDCAEFC59AA", "FAA8CF7AC4A20C30", "m", "1/3/2006", 70035, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "27C8", 9, 1
-30, "Scalco", "Fabio", 20030, "2A30EED40CAEDCAA", "13A9DBDE56B18ED1", "f", "16/7/2010", 70073, "Francese", "s", "n", NULL, NULL, "2018/2019", 4, "AEB9", 8, 3
-31, "Russo", "Tiziano", 20031, "C8C501D4EB51CF06", "C3F070F4EBCCF0DC", "f", "31/5/2006", 70019, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "7DCD", 10, 2
-32, "Bianchi", "Giacomo", 20032, "30316520A34FEBEF", "D3E20BD978E5F6F0", "f", "21/11/2004", 70063, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 5, "4ABA", 7, 3
-33, "Rossi", "Roberto", 20033, "DEB4F15BE4F9B5A8", "FF11C3CFBDEE43A6", "f", "11/2/2004", 70056, "Albanese", "n", "n", NULL, NULL, "2018/2019", 5, "89DB", 6, 3
-34, "Valentini", "Tiziano", 20034, "DCCCD2FCCEAC6CAD", "BB4FFCC46BB9B02B", "m", "22/9/2004", 70019, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "B88A", 10, 1
-35, "Roberti", "Giuseppe", 20035, "3B7ED7772AFBB033", "DCC2775605EA5ECD", "m", "30/11/2008", 70031, "Albanese", "n", "s", NULL, NULL, "2018/2019", 4, "EAD0", 7, 2
-36, "Verdi", "Maria", 20036, "AB0DBA55FC8EFCA2", "7E0E20FC01A925EB", "m", "18/9/2008", 70001, "Italiana", "n", "n", NULL, NULL, "2018/2019", 2, "D6CF", 7, 2
-37, "Roberti", "Lucia", 20037, "4A43A0A4ACA5EE3D", "8A7DCA44AB35BBFF", "m", "21/12/2008", 70062, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 5, "3AE9", 7, 3
-38, "Verdi", "Valentina", 20038, "E9AEBDD19E8FC06C", "3DAD69CCB7A7CF9D", "f", "25/5/2008", 70048, "Australiana", "s", "s", NULL, NULL, "2018/2019", 5, "7ADE", 9, 2
-39, "Rossi", "Giacomo", 20039, "3DCEEE4CB9D06155", "7B2890D6EC6B316C", "m", "19/1/2003", 70063, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "DC2D", 6, 1
-40, "Mirandola", "Giacomo", 20040, "E4DAA6EBFCDEE45E", "0EBEEFCAC25EDD92", "f", "18/3/2000", 70061, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "CF3F", 9, 2
-41, "Roberti", "Giacomo", 20041, "DEFEBF5ABE22DF41", "923EE9B6064FA5AF", "f", "16/12/2002", 70021, "Australiana", "s", "s", NULL, NULL, "2018/2019", 1, "82CE", 8, 2
-42, "Roberti", "Giuseppe", 20042, "A8715AFDE0E5E4CE", "064367A5DE9FCEA5", "f", "26/7/2009", 70069, "Albanese", "s", "n", NULL, NULL, "2018/2019", 2, "7EE8", 9, 1
-43, "Roberti", "Roberto", 20043, "2E3654D2C4C50CF1", "6AAE678CC21DEADE", "f", "3/5/2005", 70064, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 3, "C1DC", 10, 1
-44, "Mirandola", "Lucia", 20044, "8A7DCA44AB35BBFF", "BC0D1701DFEF6091", "f", "30/7/2004", 70031, "Turca", "s", "s", NULL, NULL, "2018/2019", 3, "DFFD", 9, 3
-45, "Verdi", "Giacomo", 20045, "0B740C844EDA3ACA", "CEF63FBFBD0BB205", "f", "15/2/2005", 70007, "Francese", "n", "n", NULL, NULL, "2018/2019", 2, "0EF4", 6, 2
-46, "Roberti", "Alex", 20046, "2DAABE2DFF786574", "B84ECC7CEE9FFC1D", "f", "8/1/2001", 70041, "Turca", "n", "n", NULL, NULL, "2018/2019", 3, "DFBA", 8, 3
-47, "Giannini", "Alex", 20047, "B083AEE6C09ECBFF", "24CC0D19D2BFF7E9", "f", "2/9/2007", 70043, "Australiana", "n", "s", NULL, NULL, "2018/2019", 5, "DB09", 7, 1
-48, "Roberti", "Roberto", 20048, "BAFE617CD3E9BE64", "F97DF2CAF4D3B2A7", "f", "22/9/2009", 70011, "Turca", "s", "s", NULL, NULL, "2018/2019", 2, "A504", 10, 3
-49, "Mirandola", "Antonio", 20049, "58D93948BC95EF1A", "6FE48787DC127313", "m", "18/8/2001", 70019, "Francese", "n", "n", NULL, NULL, "2018/2019", 4, "5D2C", 9, 1
-50, "Rossi", "Giacomo", 20050, "E2DCD79B361B30E6", "1F7C8A7D4CECFBAF", "f", "14/11/2010", 70073, "Arabica", "s", "s", NULL, NULL, "2018/2019", 4, "AE5C", 6, 1
-51, "Roberti", "Roberto", 20051, "1BD8C7ACDDF4FF71", "EC3BFC8A222F59BA", "m", "30/9/2006", 70054, "Turca", "s", "n", NULL, NULL, "2018/2019", 3, "C850", 10, 2
-52, "Rossi", "Lucia", 20052, "90294C2C7ADEF5C7", "7D1E5FDBAFF8AB0A", "f", "17/4/2005", 70015, "Albanese", "n", "s", NULL, NULL, "2018/2019", 5, "296E", 8, 1
-53, "Valentini", "Giuseppe", 20053, "EDEDEB416651ABDF", "AFF68FB6DA8DDAF6", "m", "13/5/2004", 70046, "Polacca", "n", "s", NULL, NULL, "2018/2019", 3, "699C", 9, 1
-54, "Valentini", "Valentina", 20054, "DB1E4E067BC1EC4A", "2204A97FE2BD9C28", "m", "17/6/2001", 70020, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "AAFB", 6, 2
-55, "Roberti", "Tiziano", 20055, "DDAC1D49BAC60DBF", "58D93948BC95EF1A", "m", "17/1/2005", 70009, "Australiana", "n", "s", NULL, NULL, "2018/2019", 3, "C5C9", 8, 1
-56, "Mirandola", "Lucia", 20056, "1ECCFA5D7D1285A3", "F9AC57DC9A1479AC", "f", "1/5/2004", 70071, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "416D", 9, 3
-57, "Scalco", "Maria", 20057, "83CACC7ADFBFEFD6", "BA1477164CD33852", "f", "9/2/2002", 70013, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "ABF4", 10, 3
-58, "Rossi", "Giuseppe", 20058, "923EE9B6064FA5AF", "BA1477164CD33852", "m", "5/8/2002", 70035, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 5, "EBDE", 7, 2
-59, "Giannini", "Fabio", 20059, "49C0ED7DAE8621B1", "0BB7A6DE78EDD9F7", "m", "1/8/2006", 70035, "Australiana", "n", "s", NULL, NULL, "2018/2019", 5, "597F", 6, 2
-60, "Russo", "Roberto", 20060, "D8DBDE3B200A6BE8", "57F76DC9F5FB712D", "m", "25/12/2005", 70017, "Arabica", "s", "n", NULL, NULL, "2018/2019", 2, "15A9", 8, 2
-61, "Russo", "Valentina", 20061, "7EA6429748A79BCD", "7ECB7DEFEF6C3ADA", "f", "4/5/2009", 70050, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "CA17", 8, 2
-62, "Valentini", "Lucia", 20062, "34FBD1A0C3968F1D", "6B062BEB2814C7F6", "m", "5/3/2002", 70062, "Turca", "n", "n", NULL, NULL, "2018/2019", 1, "F5CC", 6, 3
-63, "Verdi", "Giuseppe", 20063, "00DBBC3DB11FBB17", "DEA8B867CF0ED331", "m", "31/12/2001", 70038, "Turca", "n", "n", NULL, NULL, "2018/2019", 3, "AD5D", 10, 2
-64, "Roberti", "Emanuele", 20064, "75DBDB9FAF9FAB05", "1F60E31D17DE8BFC", "f", "26/8/2008", 70015, "Arabica", "s", "n", NULL, NULL, "2018/2019", 1, "FC3F", 6, 3
-65, "Valentini", "Alex", 20065, "C5FE9D39A26EA9B0", "698CA30BFEBBFE1F", "f", "8/10/2006", 70057, "Francese", "n", "s", NULL, NULL, "2018/2019", 4, "EAE6", 7, 3
-66, "Bianchi", "Lucia", 20066, "6D44C69D0DD43F43", "15FC8FAA88AA83D6", "m", "27/3/2010", 70029, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "9BCC", 8, 2
-67, "Valentini", "Giacomo", 20067, "698CA30BFEBBFE1F", "26DD3AF84BCD8ACD", "f", "4/9/2006", 70021, "Turca", "s", "s", NULL, NULL, "2018/2019", 1, "1122", 8, 3
-68, "Bianchi", "Elia", 20068, "83824D056D1475FB", "DD7FB7C753EC66BC", "m", "6/9/2001", 70050, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 3, "BF2C", 9, 3
-69, "Russo", "Elia", 20069, "CA8053ED3704AAFF", "DE00CAEC6AEBC6FC", "m", "23/1/2008", 70068, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "B7EA", 8, 1
-70, "Mirandola", "Giacomo", 20070, "AFF28FBF80DFA5B8", "3E6237FFECDECAA7", "f", "1/4/2007", 70002, "Arabica", "s", "s", NULL, NULL, "2018/2019", 4, "EFEF", 8, 1
-71, "Valentini", "Emanuele", 20071, "EA86F97DBEEC1A2A", "EF4F5BA630BEDB1A", "m", "23/11/2002", 70074, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 4, "0CE3", 9, 2
-72, "Verdi", "Fabio", 20072, "8B337A37DAAD273A", "DDD0DB3BB14D6EAF", "f", "1/3/2007", 70014, "Turca", "s", "s", NULL, NULL, "2018/2019", 5, "D3DF", 6, 2
-73, "Valentini", "Roberto", 20073, "CC63D4C1E7B7BDA5", "1F60E31D17DE8BFC", "f", "3/9/2004", 70025, "Polacca", "n", "s", NULL, NULL, "2018/2019", 2, "FF74", 7, 1
-74, "Valentini", "Emanuele", 20074, "DCAF5BEA7B875CBD", "CD3DCCAC7A50DA86", "f", "3/1/2006", 70054, "Francese", "s", "n", NULL, NULL, "2018/2019", 4, "5C1E", 7, 1
-75, "Giannini", "Alex", 20075, "6B8B84E7356F1C44", "DD5B6A8A29A2634A", "f", "25/12/2002", 70042, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "5C8F", 7, 2
-76, "Valentini", "Giuseppe", 20076, "8704568F8CFBAF79", "FFFC4F258C58BEA6", "f", "29/10/2009", 70013, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 5, "5B58", 9, 3
-77, "Mirandola", "Emanuele", 20077, "FD66E5F89C8EE895", "0DAAC02BB93ABC54", "m", "19/5/2003", 70010, "Albanese", "s", "n", NULL, NULL, "2018/2019", 3, "DD6E", 10, 3
-78, "Rossi", "Antonio", 20078, "FA3F5BF8CCAB0AB0", "BD97AEFDDFDDE5BD", "m", "27/11/2005", 70020, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "F93C", 9, 3
-79, "Valentini", "Alex", 20079, "FFCFC97A0B8E45EC", "EF4F5BA630BEDB1A", "f", "7/10/2006", 70028, "Arabica", "n", "n", NULL, NULL, "2018/2019", 5, "2FED", 6, 3
-80, "Scalco", "Valentina", 20080, "D2FE3EDE4846D0DD", "F9FCEF6FCBFAD80A", "m", "10/10/2009", 70038, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "CC1C", 10, 3
-81, "Giannini", "Roberto", 20081, "78CF627CFFA6D4FA", "923EE9B6064FA5AF", "f", "11/6/2005", 70054, "Francese", "s", "s", NULL, NULL, "2018/2019", 2, "AE4F", 10, 1
-82, "Russo", "Giacomo", 20082, "A44DC08EBE7C5EAE", "E5ACA4F2C53BDB0C", "f", "4/4/2000", 70025, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "3F32", 7, 2
-83, "Roberti", "Alex", 20083, "EB9ACAF4CD5495CA", "05AE7FEA7DEC2B7D", "f", "18/5/2005", 70043, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 3, "94CD", 10, 2
-84, "Russo", "Lucia", 20084, "E0B823BEC674DEA2", "2CD3BAB2D75DDF2F", "m", "3/5/2010", 70056, "Italiana", "s", "s", NULL, NULL, "2018/2019", 3, "ABBC", 10, 3
-85, "Rossi", "Lucia", 20085, "28642B3CD8F8FEAE", "BE64BEA97270EA27", "m", "11/2/2006", 70060, "Polacca", "n", "n", NULL, NULL, "2018/2019", 5, "4AAF", 7, 1
-86, "Scalco", "Lucia", 20086, "22C73FB131960EFE", "46DB1EAF467FE4F1", "m", "31/10/2010", 70038, "Turca", "s", "n", NULL, NULL, "2018/2019", 3, "AD75", 7, 3
-87, "Verdi", "Giacomo", 20087, "5F1C5F8BFEBEB149", "FD66E5F89C8EE895", "m", "18/2/2004", 70048, "Australiana", "s", "s", NULL, NULL, "2018/2019", 5, "7CD5", 8, 3
-88, "Valentini", "Tiziano", 20088, "1BAB01C4CD4AEE0D", "1F60E31D17DE8BFC", "f", "19/10/2006", 70056, "Francese", "n", "n", NULL, NULL, "2018/2019", 1, "E99A", 6, 3
-89, "Giannini", "Roberto", 20089, "8A3208ADE5C82B1F", "BBBEBDEF33EEB309", "m", "6/3/2009", 70030, "Albanese", "n", "n", NULL, NULL, "2018/2019", 5, "A3FF", 8, 2
-90, "Roberti", "Lucia", 20090, "9ADBE8DB1E2D2591", "DCAF5BEA7B875CBD", "f", "7/12/2008", 70020, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 4, "43AF", 6, 1
-91, "Scalco", "Antonio", 20091, "A5DA6CD11C61E323", "E2A0CD21ADEE8B9E", "m", "18/8/2004", 70033, "Arabica", "n", "s", NULL, NULL, "2018/2019", 5, "15FE", 6, 1
-92, "Rossi", "Emanuele", 20092, "84FAFBED7770ACEB", "8BF0A9F6619DEDDA", "f", "3/4/2000", 70020, "Albanese", "n", "n", NULL, NULL, "2018/2019", 2, "96B9", 9, 1
-93, "Giannini", "Fabio", 20093, "B39C758086A40AD9", "6CE4E2040B653047", "f", "1/12/2003", 70058, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "6AF4", 6, 2
-94, "Roberti", "Maria", 20094, "EBEFC26CA28482FB", "1573BBCAD7DBD137", "m", "29/6/2004", 70010, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "0AEE", 6, 2
-95, "Verdi", "Tiziano", 20095, "F716B7B7FD8DD3DC", "E59A0F40196CC023", "f", "26/10/2006", 70037, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 1, "CF2F", 7, 3
-96, "Valentini", "Tiziano", 20096, "E46904360CED3532", "E5ACA4F2C53BDB0C", "f", "24/11/2009", 70062, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 1, "A4FB", 10, 1
-97, "Roberti", "Giacomo", 20097, "1E6734B874AD7588", "DE9BA61E2A5FACBC", "m", "17/7/2000", 70055, "Turca", "s", "s", NULL, NULL, "2018/2019", 3, "CE9D", 6, 1
-98, "Russo", "Roberto", 20098, "F23979AA0B59F28B", "5A90BC2E7ABF6F77", "f", "25/5/2007", 70043, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "DD7B", 7, 1
-99, "Rossi", "Tiziano", 20099, "5CDC65FF40ACEB6D", "8C05CE9A464B0497", "f", "22/8/2007", 70060, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "CABD", 7, 3
-100, "Rossi", "Maria", 20100, "B47FA7E3B5FCC4B7", "B39C758086A40AD9", "f", "17/4/2005", 70007, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "8DB3", 8, 3
-101, "Valentini", "Maria", 20101, "2185CD0F7E2914D0", "FCDA3D4B2CFEB02C", "f", "3/6/2010", 70016, "Turca", "s", "n", NULL, NULL, "2018/2019", 4, "7B8D", 9, 2
-102, "Roberti", "Giacomo", 20102, "D3E20BD978E5F6F0", "4AA2F4B8AC53A23B", "m", "19/5/2010", 70060, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 3, "AA2C", 10, 3
-103, "Russo", "Giacomo", 20103, "65F62EBD6420F5ED", "DE9BA61E2A5FACBC", "f", "1/12/2009", 70033, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "CFF7", 7, 3
-104, "Mirandola", "Emanuele", 20104, "F97DF2CAF4D3B2A7", "2204A97FE2BD9C28", "f", "14/11/2002", 70069, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "E58B", 9, 1
-105, "Scalco", "Alex", 20105, "A702699BB36B6EF7", "8EDF98AD45F5DE9C", "m", "23/9/2006", 70009, "Italiana", "s", "n", NULL, NULL, "2018/2019", 4, "65F2", 6, 3
-106, "Russo", "Lucia", 20106, "F9FCEF6FCBFAD80A", "B35B4ECDC960BA2B", "f", "3/11/2010", 70041, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "CDAF", 10, 2
-107, "Giannini", "Fabio", 20107, "8E04B9C3C1CCC5FC", "62A2DDC3ECCE8D9A", "f", "3/11/2006", 70023, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 4, "82A8", 6, 2
-108, "Valentini", "Alex", 20108, "EF656A4F2F98BA1F", "DC0CC63E7F55AFF2", "m", "22/1/2004", 70048, "Albanese", "n", "n", NULL, NULL, "2018/2019", 5, "CDC1", 6, 3
-109, "Scalco", "Giuseppe", 20109, "DB0DD54B0E77BF9D", "22C73FB131960EFE", "m", "21/4/2006", 70041, "Albanese", "s", "s", NULL, NULL, "2018/2019", 1, "A0C0", 7, 3
-110, "Russo", "Elia", 20110, "22FA8DB0F15F84EA", "E9625FBF3BDE9B6F", "m", "25/9/2003", 70068, "Italiana", "n", "s", NULL, NULL, "2018/2019", 1, "5689", 9, 2
-111, "Scalco", "Tiziano", 20111, "6AAE678CC21DEADE", "40CCA665F2C9A6D6", "f", "3/7/2005", 70032, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 3, "AC42", 10, 2
-112, "Roberti", "Tiziano", 20112, "E63FBCB28AFBEFBC", "CC8C32D1F7EBBCED", "f", "13/8/2006", 70012, "Italiana", "n", "n", NULL, NULL, "2018/2019", 3, "7ECD", 7, 1
-113, "Roberti", "Emanuele", 20113, "BCE67B3DAF7EDBFC", "BD97AEFDDFDDE5BD", "f", "8/4/2009", 70005, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 1, "BCC9", 10, 2
-114, "Bianchi", "Alex", 20114, "BF65531E7BA15841", "20F2EE77F03AF18D", "m", "1/9/2002", 70024, "Italiana", "s", "s", NULL, NULL, "2018/2019", 4, "3FFB", 10, 1
-115, "Verdi", "Roberto", 20115, "C3F070F4EBCCF0DC", "61B43659DF616743", "f", "17/2/2006", 70051, "Francese", "s", "s", NULL, NULL, "2018/2019", 1, "09E1", 6, 2
-116, "Scalco", "Elia", 20116, "C1B1CDE6E53F3C5C", "0BB7A6DE78EDD9F7", "f", "24/12/2009", 70020, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "E5DD", 8, 3
-117, "Mirandola", "Emanuele", 20117, "F7BA6FF6582636AB", "A8715AFDE0E5E4CE", "f", "29/2/2004", 70049, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "FEA6", 8, 3
-118, "Rossi", "Maria", 20118, "B0CEF91ED5642E37", "5E23C5B8D7DEF693", "m", "15/12/2007", 70061, "Francese", "s", "n", NULL, NULL, "2018/2019", 3, "A3EC", 10, 3
-119, "Valentini", "Elia", 20119, "AC42AB9C63B1965C", "7D30FF4B291BA6DA", "m", "22/11/2006", 70006, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 4, "0DC5", 8, 2
-120, "Russo", "Lucia", 20120, "5FE9BC3C6568E1B1", "5A90BC2E7ABF6F77", "f", "13/9/2004", 70020, "Italiana", "s", "n", NULL, NULL, "2018/2019", 5, "AD2A", 7, 3
-121, "Bianchi", "Giacomo", 20121, "09BABAF8EE6793B0", "510BAAD91FC21D2C", "m", "15/4/2010", 70073, "Turca", "n", "n", NULL, NULL, "2018/2019", 4, "3B4C", 8, 1
-122, "Rossi", "Maria", 20122, "7C68E2774FE5918E", "5CDC65FF40ACEB6D", "f", "12/5/2009", 70036, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 1, "CBD3", 8, 3
-123, "Giannini", "Lucia", 20123, "72E49BCB6D1651CC", "FAFCE2DF6EA7668A", "m", "12/3/2008", 70033, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "0FC0", 7, 3
-124, "Russo", "Elia", 20124, "D9EEAA19ABDC5FCA", "2A30EED40CAEDCAA", "m", "3/4/2009", 70059, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "2D75", 9, 3
-125, "Bianchi", "Giuseppe", 20125, "C6626C4FBBDA3FEA", "EA86F97DBEEC1A2A", "m", "9/11/2008", 70063, "Turca", "n", "n", NULL, NULL, "2018/2019", 2, "905E", 9, 2
-126, "Mirandola", "Elia", 20126, "EF4F5BA630BEDB1A", "05A61B741F0D2BD8", "m", "9/3/2003", 70064, "Francese", "s", "s", NULL, NULL, "2018/2019", 4, "CACF", 9, 3
-127, "Mirandola", "Fabio", 20127, "6B062BEB2814C7F6", "A31F30CAC34B79DE", "m", "1/8/2008", 70024, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "ACEA", 7, 1
-128, "Bianchi", "Antonio", 20128, "E5ACA4F2C53BDB0C", "0BB7A6DE78EDD9F7", "f", "30/10/2001", 70014, "Albanese", "n", "n", NULL, NULL, "2018/2019", 2, "2194", 7, 1
-129, "Bianchi", "Alex", 20129, "BEEE6071A3B2C97C", "18EEDDC7409DC5AD", "f", "15/7/2005", 70062, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 3, "6EAA", 10, 2
-130, "Russo", "Antonio", 20130, "CACE3DB8E2D09674", "3FC549C1F8EA5738", "m", "29/4/2008", 70060, "Arabica", "n", "n", NULL, NULL, "2018/2019", 1, "D2C2", 9, 3
-131, "Mirandola", "Valentina", 20131, "46DB1EAF467FE4F1", "FAA8CF7AC4A20C30", "m", "3/4/2006", 70034, "Australiana", "s", "s", NULL, NULL, "2018/2019", 4, "ACE5", 6, 1
-132, "Russo", "Valentina", 20132, "BEFFED73B816EDAA", "CC8C32D1F7EBBCED", "m", "15/10/2001", 70010, "Arabica", "s", "n", NULL, NULL, "2018/2019", 5, "B11B", 6, 3
-133, "Rossi", "Alex", 20133, "B68E1E69B40B45A6", "E2DAAED852EEC719", "f", "24/4/2002", 70014, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 3, "FE2C", 8, 2
-134, "Rossi", "Elia", 20134, "A7AFBF444DE6A8AD", "F7BA6FF6582636AB", "m", "10/5/2010", 70040, "Australiana", "n", "n", NULL, NULL, "2018/2019", 5, "EEB4", 8, 2
-135, "Bianchi", "Maria", 20135, "05AE7FEA7DEC2B7D", "3DF59D3F56706BE8", "f", "11/11/2007", 70063, "Francese", "n", "n", NULL, NULL, "2018/2019", 2, "CDFC", 10, 3
-136, "Verdi", "Roberto", 20136, "F0A2EFBD996C53E7", "B105A5D5CEB7140D", "m", "12/12/2003", 70066, "Australiana", "n", "n", NULL, NULL, "2018/2019", 2, "C516", 8, 1
-137, "Mirandola", "Lucia", 20137, "C9F71D40BFFF2AB9", "7456F2BBEC8C2C0F", "f", "24/10/2002", 70034, "Italiana", "n", "n", NULL, NULL, "2018/2019", 2, "5C55", 8, 2
-138, "Bianchi", "Antonio", 20138, "3DAD69CCB7A7CF9D", "EB99BACA7315ADB5", "m", "7/5/2001", 70067, "Francese", "n", "n", NULL, NULL, "2018/2019", 2, "9BD4", 10, 2
-139, "Russo", "Valentina", 20139, "ABF8BC18CFD5A147", "2AECE80426B8BADA", "m", "9/11/2004", 70017, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "D2C1", 6, 1
-140, "Giannini", "Tiziano", 20140, "C302EE0FB6A92E82", "4D8AE0DE1883D68A", "f", "1/11/2009", 70006, "Italiana", "n", "s", NULL, NULL, "2018/2019", 4, "EBAD", 6, 2
-141, "Bianchi", "Fabio", 20141, "4D331EB717A86E00", "B5B4AEA5BB2F7E5C", "f", "22/2/2009", 70006, "Albanese", "s", "s", NULL, NULL, "2018/2019", 1, "95E7", 9, 2
-142, "Giannini", "Fabio", 20142, "A2DB027B131A8EE4", "DB1E4E067BC1EC4A", "f", "7/9/2009", 70006, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 4, "9360", 8, 1
-143, "Scalco", "Antonio", 20143, "5273AB294FBA5FFA", "909EABC0A1B4879D", "m", "2/7/2001", 70069, "Arabica", "n", "s", NULL, NULL, "2018/2019", 3, "3EF4", 9, 2
-144, "Bianchi", "Emanuele", 20144, "8C05CE9A464B0497", "05AE7FEA7DEC2B7D", "m", "14/3/2003", 70047, "Francese", "s", "n", NULL, NULL, "2018/2019", 1, "FB1D", 9, 2
-145, "Valentini", "Alex", 20145, "B0EA6C54E0406CD2", "84FAFBED7770ACEB", "f", "16/6/2009", 70046, "Italiana", "s", "n", NULL, NULL, "2018/2019", 5, "530E", 10, 3
-146, "Valentini", "Alex", 20146, "4B7FF7FFFAAEB0DA", "48E1E4EBC3EA25A0", "m", "25/2/2005", 70062, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 1, "A428", 9, 2
-147, "Roberti", "Antonio", 20147, "777BBC54AF800A8C", "83824D056D1475FB", "m", "8/11/2001", 70061, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 1, "AA6A", 7, 1
-148, "Giannini", "Lucia", 20148, "E3DFA36EC39BFDD5", "6ADD06FABA900756", "f", "11/11/2009", 70002, "Arabica", "n", "s", NULL, NULL, "2018/2019", 4, "FE72", 8, 3
-149, "Mirandola", "Alex", 20149, "C7D3B02DAFAD8FCD", "4BF760B460A27BF2", "m", "12/10/2004", 70050, "Turca", "n", "s", NULL, NULL, "2018/2019", 5, "A7D6", 7, 3
-150, "Russo", "Tiziano", 20150, "DD7FB7C753EC66BC", "7CC5EBB8B326A892", "m", "11/3/2000", 70036, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 5, "B21B", 6, 1
-151, "Mirandola", "Emanuele", 20151, "A239FDEA1CA93AF2", "C3F070F4EBCCF0DC", "f", "7/10/2004", 70010, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 5, "EA4E", 6, 2
-152, "Verdi", "Elia", 20152, "B8BEA99E93EED3A6", "CA78A707EC3F49D9", "m", "31/12/2007", 70023, "Turca", "n", "s", NULL, NULL, "2018/2019", 5, "AFC8", 7, 1
-153, "Verdi", "Antonio", 20153, "DA64AD08EF4C89C2", "DDF0472C5BBCFA7E", "f", "25/9/2004", 70054, "Francese", "n", "s", NULL, NULL, "2018/2019", 1, "4B7D", 9, 3
-154, "Valentini", "Giacomo", 20154, "185FEB231CB92B3F", "D8DBDE3B200A6BE8", "f", "8/6/2001", 70034, "Australiana", "n", "n", NULL, NULL, "2018/2019", 5, "5CC1", 8, 1
-155, "Mirandola", "Lucia", 20155, "6E9FFCF7DFA78DEF", "1F60E31D17DE8BFC", "f", "26/10/2005", 70004, "Albanese", "s", "n", NULL, NULL, "2018/2019", 1, "0246", 7, 3
-156, "Mirandola", "Valentina", 20156, "7E0E20FC01A925EB", "1ECCFA5D7D1285A3", "f", "8/8/2000", 70042, "Australiana", "n", "n", NULL, NULL, "2018/2019", 5, "DEB6", 7, 2
-157, "Bianchi", "Maria", 20157, "4E4AAEE2DDECCFA3", "3BD8CB2DAC9EB0BB", "m", "15/7/2007", 70001, "Francese", "n", "s", NULL, NULL, "2018/2019", 4, "6E6F", 9, 2
-158, "Valentini", "Giacomo", 20158, "106F16FBF7CA2E4F", "FFBEE9278AF7AE12", "f", "27/1/2007", 70003, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 1, "28DF", 8, 2
-159, "Russo", "Giacomo", 20159, "3BD8CB2DAC9EB0BB", "DB0DD54B0E77BF9D", "m", "7/4/2000", 70023, "Polacca", "n", "s", NULL, NULL, "2018/2019", 5, "E0EA", 10, 3
-160, "Valentini", "Valentina", 20160, "CDE4A070FF58C79C", "7D30FF4B291BA6DA", "f", "1/3/2010", 70027, "Francese", "s", "n", NULL, NULL, "2018/2019", 4, "A9FD", 9, 3
-161, "Bianchi", "Giacomo", 20161, "E2DAAED852EEC719", "9E47FF0CCBECFC62", "f", "14/2/2002", 70065, "Australiana", "s", "n", NULL, NULL, "2018/2019", 1, "8195", 6, 2
-162, "Mirandola", "Antonio", 20162, "FFFC4F258C58BEA6", "13A9DBDE56B18ED1", "m", "18/5/2006", 70065, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 4, "4545", 10, 3
-163, "Bianchi", "Roberto", 20163, "EAEA90FDB34A1519", "FB55A8CECAEA074D", "m", "21/9/2009", 70011, "Polacca", "n", "n", NULL, NULL, "2018/2019", 1, "79BB", 9, 3
-164, "Russo", "Lucia", 20164, "1B6884A33DFE9A2B", "36A7BBCE96FC5DA0", "m", "13/5/2000", 70011, "Italiana", "n", "n", NULL, NULL, "2018/2019", 4, "399F", 7, 3
-165, "Roberti", "Elia", 20165, "8AA783ACCAFBB5C6", "BAD36AA5AEC31DA1", "m", "4/5/2007", 70032, "Polacca", "n", "s", NULL, NULL, "2018/2019", 1, "B31B", 6, 3
-166, "Rossi", "Antonio", 20166, "57F76DC9F5FB712D", "E4F4A39D7E31900B", "f", "30/11/2000", 70014, "Polacca", "n", "s", NULL, NULL, "2018/2019", 3, "FBF7", 9, 1
-167, "Russo", "Maria", 20167, "48CDBFA9D87D5874", "185FEB231CB92B3F", "f", "29/11/2007", 70018, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 1, "92EA", 8, 1
-168, "Mirandola", "Emanuele", 20168, "EC3BFC8A222F59BA", "F8F9EADC16964B9C", "m", "17/10/2005", 70004, "Turca", "s", "s", NULL, NULL, "2018/2019", 4, "5DDE", 9, 1
-169, "Russo", "Fabio", 20169, "06A3C66DFEF9D76E", "F02B7CACEE36F8FC", "f", "27/2/2000", 70023, "Australiana", "s", "s", NULL, NULL, "2018/2019", 1, "54D1", 8, 1
-170, "Giannini", "Roberto", 20170, "6A1FC130AEEFBCAA", "28642B3CD8F8FEAE", "m", "6/10/2008", 70036, "Italiana", "n", "n", NULL, NULL, "2018/2019", 1, "8ED4", 6, 1
-171, "Rossi", "Antonio", 20171, "AB5A27CE9F40CF81", "1E6734B874AD7588", "m", "28/4/2007", 70059, "Albanese", "n", "n", NULL, NULL, "2018/2019", 4, "52F2", 9, 2
-172, "Verdi", "Maria", 20172, "AABA18A4C271140A", "7B2890D6EC6B316C", "f", "3/7/2000", 70054, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "E4F4", 7, 2
-173, "Scalco", "Lucia", 20173, "E3CC1A4EBD23690B", "F8F9EADC16964B9C", "m", "22/11/2004", 70073, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "39BA", 8, 1
-174, "Bianchi", "Alex", 20174, "D4FB1CCBAEA2C3EC", "4F3CBB02DFEDE6CB", "m", "15/3/2008", 70035, "Francese", "n", "n", NULL, NULL, "2018/2019", 1, "DF90", 6, 1
-175, "Valentini", "Maria", 20175, "C2BEA08F1D8ABABA", "C48C7EB37EE961DB", "m", "26/7/2001", 70010, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "E91A", 7, 3
-176, "Bianchi", "Emanuele", 20176, "45C2B3DCB84A2B4F", "EE71FCF30EF6BEBE", "m", "20/11/2009", 70020, "Turca", "n", "s", NULL, NULL, "2018/2019", 4, "DC6F", 6, 3
-177, "Bianchi", "Emanuele", 20177, "E41F662BA176529A", "1573BBCAD7DBD137", "m", "13/1/2001", 70057, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "3BFC", 9, 3
-178, "Roberti", "Roberto", 20178, "6DBEA55FFF5AF88E", "BA1477164CD33852", "f", "18/12/2002", 70061, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "AA35", 6, 3
-179, "Roberti", "Giuseppe", 20179, "DAC86E1C4B161628", "A83BECB7EBF1B845", "f", "13/9/2000", 70043, "Turca", "n", "s", NULL, NULL, "2018/2019", 3, "7A9D", 8, 2
-180, "Scalco", "Antonio", 20180, "1573BBCAD7DBD137", "5E23C5B8D7DEF693", "f", "11/6/2003", 70059, "Arabica", "s", "n", NULL, NULL, "2018/2019", 5, "B1EB", 7, 3
-181, "Verdi", "Giuseppe", 20181, "D4A89A7F2FDC30D9", "A93C4DE6C949AD0B", "f", "28/8/2009", 70011, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 1, "9A8F", 6, 3
-182, "Verdi", "Antonio", 20182, "93BBFACB49A3FC1A", "AD2AC2FAB05BFDC1", "f", "16/4/2007", 70004, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 4, "BD4D", 8, 3
-183, "Scalco", "Valentina", 20183, "AFCFE33BB79BF7CB", "AA905AE6D3188BB4", "m", "11/4/2001", 70055, "Polacca", "n", "n", NULL, NULL, "2018/2019", 3, "40B8", 10, 2
-184, "Verdi", "Giuseppe", 20184, "D53CEC79C7A75A50", "166B4DA43CB8BD3F", "f", "10/1/2003", 70070, "Arabica", "s", "s", NULL, NULL, "2018/2019", 5, "EBFF", 9, 3
-185, "Mirandola", "Alex", 20185, "3FEA2DDFE72DF6FD", "64218F3FDE04066F", "m", "23/8/2008", 70047, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 4, "91FE", 9, 2
-186, "Mirandola", "Elia", 20186, "AF4E3D3AC53D8D0A", "CA6F7CADDD7972BF", "f", "24/1/2002", 70038, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 4, "A584", 10, 2
-187, "Rossi", "Valentina", 20187, "2CDC39F4C49F5B6F", "C2C1CD8EE9AFBBEC", "f", "2/1/2002", 70048, "Arabica", "s", "s", NULL, NULL, "2018/2019", 1, "E1F5", 9, 3
-188, "Giannini", "Giuseppe", 20188, "E9348F8FCABFD3DD", "1EC19BEDD6B57A33", "m", "3/7/2006", 70065, "Albanese", "n", "n", NULL, NULL, "2018/2019", 1, "A2AC", 10, 2
-189, "Scalco", "Fabio", 20189, "DC0CC63E7F55AFF2", "BEFFED73B816EDAA", "m", "14/2/2010", 70051, "Turca", "n", "n", NULL, NULL, "2018/2019", 4, "92A9", 6, 1
-190, "Giannini", "Tiziano", 20190, "A7CE5AAEAD38D705", "9FF3A5B00D96FD6C", "f", "26/7/2002", 70073, "Francese", "s", "n", NULL, NULL, "2018/2019", 1, "7AA8", 7, 1
-191, "Bianchi", "Valentina", 20191, "B105A5D5CEB7140D", "FD6B10AE2BD0ADA6", "m", "21/6/2002", 70028, "Australiana", "n", "s", NULL, NULL, "2018/2019", 5, "BCFD", 9, 3
-192, "Russo", "Roberto", 20192, "1F1F964F60C9A88E", "FCC39BABA1FCAEDF", "f", "28/3/2009", 70023, "Polacca", "s", "n", NULL, NULL, "2018/2019", 5, "5EB4", 8, 2
-193, "Verdi", "Maria", 20193, "410019519430DC27", "1F1F964F60C9A88E", "m", "29/4/2008", 70048, "Arabica", "n", "s", NULL, NULL, "2018/2019", 1, "CDBF", 10, 3
-194, "Rossi", "Tiziano", 20194, "5AC7FE859E31CE81", "FDFB6EF49BFD4A4F", "m", "22/5/2009", 70042, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 4, "AE29", 10, 2
-195, "Russo", "Giacomo", 20195, "B5B4AEA5BB2F7E5C", "BAFE617CD3E9BE64", "m", "21/1/2010", 70062, "Arabica", "n", "n", NULL, NULL, "2018/2019", 4, "9A61", 9, 1
-196, "Scalco", "Elia", 20196, "A24245FEE2CB5D0F", "68AE3CCD4BEA448D", "m", "27/3/2003", 70038, "Francese", "s", "s", NULL, NULL, "2018/2019", 3, "9AEF", 6, 2
-197, "Rossi", "Giuseppe", 20197, "BB4FFCC46BB9B02B", "D3CF244DAFACADF9", "f", "4/2/2008", 70041, "Francese", "n", "n", NULL, NULL, "2018/2019", 1, "FD18", 10, 3
-198, "Giannini", "Giacomo", 20198, "7CE1CE5F84E9E66B", "7CC5EBB8B326A892", "f", "5/8/2010", 70012, "Francese", "s", "s", NULL, NULL, "2018/2019", 4, "FBF1", 6, 3
-199, "Roberti", "Giacomo", 20199, "5F74ECFE4EAABAA8", "DF8D7BCECA2ABDCE", "m", "29/2/2007", 70018, "Francese", "n", "n", NULL, NULL, "2018/2019", 3, "BB0C", 7, 1
-200, "Rossi", "Antonio", 20200, "C1AEBEE4E6C3CD54", "B7B41E913D1CA99C", "f", "6/7/2009", 70014, "Turca", "n", "n", NULL, NULL, "2018/2019", 5, "FFA9", 10, 3
-201, "Roberti", "Tiziano", 20201, "A33ABDB8BA816DFF", "2E4FD3021D9BB3A5", "f", "10/9/2007", 70040, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "86C4", 8, 1
-202, "Roberti", "Giacomo", 20202, "3A0FCBE4EB9DBCF6", "B39C758086A40AD9", "m", "22/7/2000", 70004, "Italiana", "s", "s", NULL, NULL, "2018/2019", 4, "DB80", 7, 3
-203, "Rossi", "Giacomo", 20203, "8FB60EABBB4BDE41", "58D93948BC95EF1A", "f", "5/11/2001", 70011, "Arabica", "n", "s", NULL, NULL, "2018/2019", 3, "494E", 7, 2
-204, "Roberti", "Fabio", 20204, "DDDFD9EBBD703FBB", "FAA8CF7AC4A20C30", "f", "10/12/2010", 70020, "Polacca", "s", "n", NULL, NULL, "2018/2019", 4, "FFFF", 10, 2
-205, "Valentini", "Lucia", 20205, "FAA0BFF61B6BEF9C", "E0B823BEC674DEA2", "m", "15/2/2010", 70071, "Arabica", "n", "s", NULL, NULL, "2018/2019", 4, "76C1", 6, 1
-206, "Mirandola", "Lucia", 20206, "DEA8B867CF0ED331", "D4A89A7F2FDC30D9", "m", "23/7/2007", 70069, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "E97B", 7, 2
-207, "Roberti", "Tiziano", 20207, "3705AF7AD7DE677C", "BE0F1EDCA019AFFB", "f", "6/10/2003", 70043, "Turca", "s", "n", NULL, NULL, "2018/2019", 3, "EE9F", 6, 3
-208, "Giannini", "Fabio", 20208, "87CCCC6BDCB6CEC9", "F0A2EFBD996C53E7", "f", "6/5/2002", 70043, "Turca", "s", "s", NULL, NULL, "2018/2019", 4, "ABDD", 8, 3
-209, "Rossi", "Alex", 20209, "AEAD9474C46BD078", "106F16FBF7CA2E4F", "m", "24/4/2000", 70027, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "FAF3", 8, 1
-210, "Russo", "Fabio", 20210, "A62FABDBCD54B758", "78CF627CFFA6D4FA", "m", "1/11/2007", 70017, "Albanese", "n", "n", NULL, NULL, "2018/2019", 2, "BA11", 9, 2
-211, "Mirandola", "Lucia", 20211, "BCE8C6AC5ED2AEED", "ADBAEAFEBA7929B3", "f", "7/2/2000", 70073, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 1, "49F1", 7, 1
-212, "Verdi", "Tiziano", 20212, "B7B41E913D1CA99C", "F7BA6FF6582636AB", "m", "14/8/2010", 70022, "Polacca", "s", "s", NULL, NULL, "2018/2019", 2, "BCEA", 8, 1
-213, "Scalco", "Roberto", 20213, "90C1BFEBF746DF20", "B5B4AEA5BB2F7E5C", "f", "20/10/2010", 70018, "Australiana", "s", "n", NULL, NULL, "2018/2019", 4, "CBC8", 9, 1
-214, "Roberti", "Maria", 20214, "D94A1381CD4BBF7F", "AF0E2C7C2BE55AC6", "f", "25/6/2003", 70036, "Polacca", "s", "n", NULL, NULL, "2018/2019", 1, "BA48", 10, 2
-215, "Rossi", "Elia", 20215, "4CFFEF7CB11F7CC5", "E3E4CBEBF8C16FEB", "f", "12/8/2009", 70074, "Francese", "s", "s", NULL, NULL, "2018/2019", 5, "D4A4", 6, 2
-216, "Scalco", "Roberto", 20216, "D1E92AF9AFC72DCC", "8A7DCA44AB35BBFF", "m", "12/9/2000", 70013, "Arabica", "s", "s", NULL, NULL, "2018/2019", 3, "21F0", 7, 1
-217, "Bianchi", "Giuseppe", 20217, "FDDFD1BCB28A445C", "A2DB027B131A8EE4", "m", "11/7/2004", 70003, "Polacca", "s", "n", NULL, NULL, "2018/2019", 4, "04BD", 10, 1
-218, "Rossi", "Elia", 20218, "13A9DBDE56B18ED1", "FDDFD1BCB28A445C", "m", "30/1/2007", 70003, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 1, "AC6F", 9, 3
-219, "Rossi", "Antonio", 20219, "BC117DCBD9ABB0A6", "44F728EF3DDEB9AE", "f", "27/8/2006", 70007, "Francese", "s", "n", NULL, NULL, "2018/2019", 4, "BA4D", 9, 1
-220, "Roberti", "Giacomo", 20220, "5BA23F5D1B6CB89B", "0CFE87CA71BEBDC8", "m", "24/6/2004", 70045, "Polacca", "s", "n", NULL, NULL, "2018/2019", 2, "1EDD", 10, 2
-221, "Verdi", "Alex", 20221, "0EBEEFCAC25EDD92", "FF5B1520FEAAA85F", "m", "14/4/2002", 70022, "Arabica", "s", "s", NULL, NULL, "2018/2019", 5, "41D8", 8, 1
-222, "Valentini", "Antonio", 20222, "D93325B9B42B5CF3", "BEEE6071A3B2C97C", "m", "22/3/2005", 70028, "Arabica", "n", "s", NULL, NULL, "2018/2019", 1, "568F", 9, 1
-223, "Rossi", "Elia", 20223, "4AA2F4B8AC53A23B", "D78B34B4B4CF3DCD", "f", "2/12/2010", 70050, "Albanese", "n", "s", NULL, NULL, "2018/2019", 2, "96B2", 9, 2
-224, "Roberti", "Giacomo", 20224, "FEFFF5B9F0483CAF", "8FB60EABBB4BDE41", "m", "14/5/2009", 70025, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 5, "C2EC", 6, 3
-225, "Scalco", "Antonio", 20225, "38535AA07EDBAAB1", "CC63D4C1E7B7BDA5", "f", "6/12/2007", 70032, "Albanese", "s", "s", NULL, NULL, "2018/2019", 4, "DBF2", 9, 1
-226, "Verdi", "Elia", 20226, "A31F4BD13BFF6489", "D94A1381CD4BBF7F", "m", "24/5/2008", 70004, "Italiana", "n", "s", NULL, NULL, "2018/2019", 3, "FBFB", 8, 3
-227, "Valentini", "Roberto", 20227, "C1FD4E6E8C6DBB82", "D93325B9B42B5CF3", "m", "15/1/2006", 70050, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "FCDE", 8, 1
-228, "Verdi", "Giuseppe", 20228, "1F60E31D17DE8BFC", "E0B823BEC674DEA2", "m", "1/2/2008", 70022, "Italiana", "s", "s", NULL, NULL, "2018/2019", 4, "B7BB", 8, 1
-229, "Verdi", "Alex", 20229, "BB635CFBAC8FCF3B", "8A5E31CD7A3EE818", "f", "30/1/2002", 70073, "Francese", "s", "s", NULL, NULL, "2018/2019", 2, "B45D", 6, 3
-230, "Scalco", "Antonio", 20230, "98B5E1071947AC9E", "5BA23F5D1B6CB89B", "m", "21/12/2003", 70060, "Polacca", "s", "s", NULL, NULL, "2018/2019", 4, "2DC6", 8, 3
-231, "Mirandola", "Emanuele", 20231, "E247F1F5B9F7AEBA", "6AF6EE9CDBC7E6F8", "m", "31/9/2006", 70051, "Albanese", "s", "n", NULL, NULL, "2018/2019", 3, "55BD", 10, 1
-232, "Valentini", "Fabio", 20232, "01F361BA0341BCE8", "06A3C66DFEF9D76E", "m", "19/5/2006", 70036, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "8BDF", 7, 3
-233, "Scalco", "Elia", 20233, "D3E28DA3D6DA5DAA", "DCF95559687BCC23", "m", "23/3/2009", 70007, "Australiana", "s", "n", NULL, NULL, "2018/2019", 2, "CF12", 7, 2
-234, "Rossi", "Giacomo", 20234, "578C45D6A2D151D4", "86281078CC94566A", "f", "11/12/2003", 70053, "Australiana", "n", "n", NULL, NULL, "2018/2019", 1, "FEAC", 10, 1
-235, "Bianchi", "Valentina", 20235, "9BBAF34CAB2EB1F7", "6ADD06FABA900756", "f", "5/2/2007", 70067, "Italiana", "s", "s", NULL, NULL, "2018/2019", 2, "98FD", 10, 3
-236, "Giannini", "Fabio", 20236, "CA78A707EC3F49D9", "578C45D6A2D151D4", "f", "8/7/2004", 70007, "Polacca", "n", "s", NULL, NULL, "2018/2019", 5, "5C75", 8, 3
-237, "Russo", "Elia", 20237, "DE9BA61E2A5FACBC", "1F7C8A7D4CECFBAF", "f", "8/1/2010", 70057, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "CE54", 10, 2
-238, "Verdi", "Giacomo", 20238, "AEA06BB1FFEDF6A3", "FEE019AC366BA8A9", "f", "7/3/2007", 70049, "Francese", "n", "n", NULL, NULL, "2018/2019", 2, "BA3F", 8, 1
-239, "Scalco", "Fabio", 20239, "CD3DCCAC7A50DA86", "DDAC1D49BAC60DBF", "f", "9/4/2005", 70020, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 4, "5EDA", 10, 2
-240, "Mirandola", "Giuseppe", 20240, "62F481BD73FB08A5", "DCC3AAAAE31AEEF5", "m", "6/4/2004", 70019, "Polacca", "n", "n", NULL, NULL, "2018/2019", 5, "2796", 6, 3
-241, "Mirandola", "Antonio", 20241, "FBEC9F43EBAAE4FE", "72E49BCB6D1651CC", "m", "1/5/2005", 70066, "Italiana", "n", "n", NULL, NULL, "2018/2019", 4, "B103", 7, 3
-242, "Scalco", "Emanuele", 20242, "48E1E4EBC3EA25A0", "B0BF8311EF2FFB59", "f", "16/9/2008", 70059, "Italiana", "n", "n", NULL, NULL, "2018/2019", 2, "4B3F", 6, 1
-243, "Bianchi", "Fabio", 20243, "F4565CA3A15C1A7A", "3DCEEE4CB9D06155", "m", "28/6/2010", 70020, "Arabica", "n", "s", NULL, NULL, "2018/2019", 3, "8AFF", 7, 3
-244, "Roberti", "Emanuele", 20244, "AABDE741E10F4AE6", "E6CB69E555C8327F", "m", "27/11/2007", 70040, "Italiana", "s", "s", NULL, NULL, "2018/2019", 1, "C97B", 6, 2
-245, "Verdi", "Valentina", 20245, "EF67BC262B6A424C", "3BFDE585E1FDEACB", "f", "10/11/2010", 70054, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "D0F4", 6, 1
-246, "Roberti", "Giuseppe", 20246, "68AE3CCD4BEA448D", "DB1E4E067BC1EC4A", "f", "6/9/2004", 70017, "Italiana", "s", "n", NULL, NULL, "2018/2019", 1, "5BAF", 9, 2
-247, "Rossi", "Maria", 20247, "5D6FADCBD19F79B8", "BAD36AA5AEC31DA1", "m", "4/6/2008", 70055, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 3, "364E", 6, 3
-248, "Giannini", "Antonio", 20248, "A5AFABB6FC82A88F", "FFBEE9278AF7AE12", "f", "12/8/2002", 70050, "Polacca", "n", "s", NULL, NULL, "2018/2019", 1, "181C", 6, 3
-249, "Mirandola", "Roberto", 20249, "ADE1FC505BA680AF", "2B4E49E9BC15F7EE", "f", "2/6/2008", 70045, "Polacca", "n", "s", NULL, NULL, "2018/2019", 3, "75DD", 9, 1
-250, "Mirandola", "Antonio", 20250, "E3BF7C57ED2AB13C", "CFF7B935E4B4F21E", "f", "22/2/2001", 70058, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 4, "5BDD", 7, 3
-251, "Valentini", "Elia", 20251, "5ED4DEDD906CE705", "13A9DBDE56B18ED1", "f", "15/7/2000", 70040, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "6ED6", 8, 1
-252, "Rossi", "Giuseppe", 20252, "CAABFB5AEC6F6AA5", "C9F71D40BFFF2AB9", "f", "23/1/2001", 70045, "Italiana", "s", "s", NULL, NULL, "2018/2019", 2, "ED85", 8, 3
-253, "Scalco", "Roberto", 20253, "EE71FCF30EF6BEBE", "2B4E49E9BC15F7EE", "m", "26/11/2007", 70014, "Arabica", "n", "n", NULL, NULL, "2018/2019", 2, "B7A3", 6, 1
-254, "Bianchi", "Giuseppe", 20254, "F85A55B316B5D1A1", "CD0CF41B9F9E04BC", "f", "8/2/2009", 70024, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 1, "A4DF", 7, 3
-255, "Roberti", "Roberto", 20255, "C606B5DF8EA2545A", "4BF760B460A27BF2", "m", "29/4/2009", 70016, "Turca", "s", "s", NULL, NULL, "2018/2019", 2, "CC5C", 7, 2
-256, "Verdi", "Fabio", 20256, "25BB7CBD4A9E9B8B", "C9F71D40BFFF2AB9", "m", "10/8/2001", 70032, "Australiana", "n", "n", NULL, NULL, "2018/2019", 2, "4F90", 9, 1
-257, "Giannini", "Giuseppe", 20257, "C1FB2D4E0BFFBDB8", "D15CFADBC8F2C9B6", "m", "25/7/2000", 70006, "Arabica", "s", "s", NULL, NULL, "2018/2019", 2, "A98E", 8, 2
-258, "Russo", "Tiziano", 20258, "4849DE2A8FDD8FAB", "3E7FAAE7DACAD2EA", "m", "1/3/2000", 70037, "Italiana", "s", "s", NULL, NULL, "2018/2019", 4, "ADAC", 7, 1
-259, "Roberti", "Fabio", 20259, "4F3CBB02DFEDE6CB", "DEFEBF5ABE22DF41", "f", "26/10/2002", 70011, "Italiana", "n", "s", NULL, NULL, "2018/2019", 5, "E160", 10, 1
-260, "Valentini", "Elia", 20260, "24CC0D19D2BFF7E9", "0B740C844EDA3ACA", "m", "26/2/2006", 70024, "Albanese", "n", "s", NULL, NULL, "2018/2019", 3, "A4E9", 6, 2
-261, "Giannini", "Elia", 20261, "0BB7A6DE78EDD9F7", "34FBD1A0C3968F1D", "f", "29/10/2004", 70059, "Francese", "n", "s", NULL, NULL, "2018/2019", 1, "BE8A", 9, 1
-262, "Rossi", "Emanuele", 20262, "FBBD163ECD9BEC42", "FEFFF5B9F0483CAF", "m", "25/12/2010", 70017, "Italiana", "s", "n", NULL, NULL, "2018/2019", 1, "323C", 6, 3
-263, "Scalco", "Tiziano", 20263, "FFBEE9278AF7AE12", "B68E1E69B40B45A6", "m", "21/5/2009", 70047, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 5, "674E", 7, 3
-264, "Bianchi", "Giacomo", 20264, "664F9BCBC2980ABD", "777BBC54AF800A8C", "m", "28/9/2006", 70049, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 5, "250D", 6, 2
-265, "Rossi", "Antonio", 20265, "F682EE2BFE7DEE2A", "AA8BC1F5C83B91AF", "m", "10/12/2010", 70063, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "C261", 7, 3
-266, "Valentini", "Roberto", 20266, "9E47FF0CCBECFC62", "4BF760B460A27BF2", "f", "11/8/2001", 70065, "Turca", "s", "s", NULL, NULL, "2018/2019", 5, "0305", 9, 3
-267, "Giannini", "Valentina", 20267, "909EABC0A1B4879D", "D3CF244DAFACADF9", "f", "9/6/2001", 70047, "Turca", "n", "s", NULL, NULL, "2018/2019", 5, "F5A3", 7, 2
-268, "Russo", "Maria", 20268, "DDF0472C5BBCFA7E", "4F39CC0A2FDFAACD", "f", "13/9/2010", 70056, "Turca", "s", "n", NULL, NULL, "2018/2019", 1, "C9EE", 6, 3
-269, "Scalco", "Tiziano", 20269, "CC7ABE1E8C9EB1CA", "DD7FB7C753EC66BC", "f", "22/8/2002", 70075, "Arabica", "n", "n", NULL, NULL, "2018/2019", 1, "EA2E", 6, 2
-270, "Verdi", "Roberto", 20270, "DEDBB1FEE5DE98EB", "49C0ED7DAE8621B1", "f", "28/2/2003", 70016, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 4, "188E", 8, 1
-271, "Bianchi", "Maria", 20271, "F02B7CACEE36F8FC", "E4F4A39D7E31900B", "m", "29/7/2003", 70046, "Turca", "s", "s", NULL, NULL, "2018/2019", 4, "D422", 6, 2
-272, "Giannini", "Emanuele", 20272, "2B4E49E9BC15F7EE", "D8DBDE3B200A6BE8", "f", "19/1/2007", 70060, "Albanese", "n", "s", NULL, NULL, "2018/2019", 4, "179C", 10, 3
-273, "Verdi", "Giuseppe", 20273, "B35B4ECDC960BA2B", "20F2EE77F03AF18D", "f", "10/2/2008", 70054, "Australiana", "s", "s", NULL, NULL, "2018/2019", 4, "3B7E", 10, 2
-274, "Scalco", "Alex", 20274, "3DF59D3F56706BE8", "A4998A4DEB6ECFDF", "m", "5/7/2005", 70006, "Arabica", "n", "s", NULL, NULL, "2018/2019", 1, "A0BA", 7, 3
-275, "Mirandola", "Giuseppe", 20275, "510BAAD91FC21D2C", "1ECCFA5D7D1285A3", "f", "3/6/2005", 70062, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 3, "82E0", 6, 2
-276, "Mirandola", "Antonio", 20276, "F8B7FCAC99A449A5", "BBBEBDEF33EEB309", "f", "18/8/2001", 70028, "Arabica", "n", "s", NULL, NULL, "2018/2019", 1, "E59D", 8, 1
-277, "Bianchi", "Valentina", 20277, "3BFDE585E1FDEACB", "CAB6EEE99CEC765D", "f", "20/1/2005", 70001, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "09B7", 9, 1
-278, "Scalco", "Fabio", 20278, "B55CE58B27EF98FF", "2F4CE67DF9C1FC2B", "f", "28/9/2008", 70058, "Polacca", "n", "n", NULL, NULL, "2018/2019", 4, "EA8B", 10, 1
-279, "Bianchi", "Giacomo", 20279, "EA35A7967C3A373C", "72E49BCB6D1651CC", "m", "20/11/2002", 70074, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "7EB3", 7, 3
-280, "Giannini", "Giuseppe", 20280, "6FE48787DC127313", "FDBE238AB0B84C62", "f", "18/2/2001", 70005, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 2, "1D6B", 9, 1
-281, "Verdi", "Maria", 20281, "A31F30CAC34B79DE", "DC6FEA6A44F9BCCD", "f", "10/8/2010", 70032, "Australiana", "s", "n", NULL, NULL, "2018/2019", 4, "E55E", 9, 3
-282, "Bianchi", "Giacomo", 20282, "CECB4C858AE500C4", "CDD5E3C2D3AE5CCE", "f", "3/6/2000", 70071, "Turca", "s", "s", NULL, NULL, "2018/2019", 4, "C5BE", 8, 1
-283, "Giannini", "Antonio", 20283, "EE55EFFD50D2DBF3", "DF8D7BCECA2ABDCE", "m", "25/12/2008", 70018, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "3AEF", 6, 2
-284, "Valentini", "Giacomo", 20284, "FEAEC0ADAEA0C604", "FB55A8CECAEA074D", "m", "7/5/2000", 70023, "Polacca", "n", "n", NULL, NULL, "2018/2019", 1, "3A9F", 9, 1
-285, "Verdi", "Giuseppe", 20285, "A6EBCEDA23B1ACE6", "A90B9D6AAC15F6B8", "f", "17/2/2010", 70047, "Italiana", "n", "s", NULL, NULL, "2018/2019", 4, "4F84", 10, 1
-286, "Bianchi", "Roberto", 20286, "69A30D540CB6A5AC", "36A7BBCE96FC5DA0", "m", "2/2/2008", 70003, "Francese", "n", "s", NULL, NULL, "2018/2019", 3, "FE79", 8, 3
-287, "Scalco", "Lucia", 20287, "8A5E31CD7A3EE818", "38535AA07EDBAAB1", "f", "4/4/2008", 70003, "Italiana", "s", "n", NULL, NULL, "2018/2019", 1, "A032", 8, 3
-288, "Russo", "Tiziano", 20288, "6317FA062ED8600C", "FE1AFCCBFFFDCFBF", "f", "29/11/2008", 70054, "Italiana", "n", "n", NULL, NULL, "2018/2019", 3, "FA41", 8, 3
-289, "Roberti", "Alex", 20289, "FF5EA29A829D4EC0", "C4DF4E62AD9EBA04", "f", "26/1/2005", 70054, "Italiana", "n", "n", NULL, NULL, "2018/2019", 4, "6524", 8, 1
-290, "Mirandola", "Giacomo", 20290, "EBEA50A868D9BB56", "C4DBDF9DBE7D9B13", "f", "10/3/2001", 70010, "Italiana", "n", "s", NULL, NULL, "2018/2019", 3, "04DE", 10, 2
-291, "Russo", "Roberto", 20291, "9AEC10CCAD5FFFDF", "87CCCC6BDCB6CEC9", "f", "20/5/2003", 70008, "Arabica", "s", "s", NULL, NULL, "2018/2019", 4, "BA43", 8, 3
-292, "Scalco", "Maria", 20292, "F6C30F0A0E9E5CEA", "A6EBCEDA23B1ACE6", "f", "11/2/2003", 70004, "Italiana", "s", "s", NULL, NULL, "2018/2019", 3, "2ACC", 8, 1
-293, "Russo", "Valentina", 20293, "2CD3BAB2D75DDF2F", "3BD8CB2DAC9EB0BB", "m", "11/3/2007", 70069, "Arabica", "s", "n", NULL, NULL, "2018/2019", 1, "0391", 10, 1
-294, "Bianchi", "Giuseppe", 20294, "6FC13372370EBE8B", "DEB4F15BE4F9B5A8", "f", "19/2/2000", 70001, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "1B3E", 9, 2
-295, "Valentini", "Maria", 20295, "62A2DDC3ECCE8D9A", "376AAECD6BEEDCBF", "m", "13/1/2005", 70067, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "A060", 9, 2
-296, "Scalco", "Roberto", 20296, "DC43FCAF68CEDCF9", "6CE4E2040B653047", "m", "24/6/2001", 70033, "Polacca", "s", "s", NULL, NULL, "2018/2019", 5, "0944", 6, 1
-297, "Roberti", "Emanuele", 20297, "EB99BACA7315ADB5", "F85A55B316B5D1A1", "m", "6/6/2008", 70009, "Francese", "n", "s", NULL, NULL, "2018/2019", 5, "3F6E", 8, 1
-298, "Rossi", "Emanuele", 20298, "9F8059BC5AD229D4", "DB0DD54B0E77BF9D", "f", "5/9/2004", 70020, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 4, "DB0C", 6, 2
-299, "Mirandola", "Giacomo", 20299, "8BF0A9F6619DEDDA", "DE6FED6EDF8BA5F4", "f", "30/1/2007", 70058, "Australiana", "n", "n", NULL, NULL, "2018/2019", 5, "D5E1", 10, 1
-300, "Rossi", "Giacomo", 20300, "DB761CAD41CBA9A0", "DDA836F700D9DDEA", "f", "6/10/2001", 70020, "Polacca", "n", "s", NULL, NULL, "2018/2019", 5, "49BB", 10, 3
-301, "Giannini", "Fabio", 20301, "7456F2BBEC8C2C0F", "3FBCBEEC72465B35", "f", "9/12/2010", 70039, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "77DA", 6, 2
-302, "Valentini", "Valentina", 20302, "15FC8FAA88AA83D6", "34FBD1A0C3968F1D", "m", "18/2/2001", 70073, "Francese", "n", "s", NULL, NULL, "2018/2019", 3, "FA0B", 7, 3
-303, "Bianchi", "Giuseppe", 20303, "EDED2C136FBD4CF9", "DA64AD08EF4C89C2", "f", "18/10/2007", 70014, "Francese", "n", "s", NULL, NULL, "2018/2019", 2, "021B", 8, 1
-304, "Russo", "Tiziano", 20304, "86281078CC94566A", "9E47FF0CCBECFC62", "m", "31/10/2007", 70046, "Italiana", "n", "n", NULL, NULL, "2018/2019", 1, "DE2B", 7, 3
-305, "Verdi", "Fabio", 20305, "971AAAAB97652CAA", "22C73FB131960EFE", "f", "15/2/2002", 70050, "Arabica", "s", "s", NULL, NULL, "2018/2019", 4, "6C5D", 7, 1
-306, "Valentini", "Giacomo", 20306, "C48C7EB37EE961DB", "EE71FCF30EF6BEBE", "f", "10/3/2008", 70050, "Turca", "s", "s", NULL, NULL, "2018/2019", 3, "FE6B", 6, 2
-307, "Mirandola", "Fabio", 20307, "DE00CAEC6AEBC6FC", "FE773FEFBC0B3EDF", "m", "3/11/2004", 70013, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 4, "25DC", 7, 2
-308, "Giannini", "Roberto", 20308, "7D30FF4B291BA6DA", "2E4FD3021D9BB3A5", "m", "12/9/2003", 70050, "Australiana", "s", "n", NULL, NULL, "2018/2019", 1, "0EE9", 9, 2
-309, "Scalco", "Roberto", 20309, "B8FDAC2A8341DA62", "3B7ED7772AFBB033", "f", "8/12/2000", 70040, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 2, "B01A", 6, 3
-310, "Valentini", "Tiziano", 20310, "D5A96DE2FFDC78FE", "44F728EF3DDEB9AE", "m", "25/9/2004", 70025, "Italiana", "n", "s", NULL, NULL, "2018/2019", 2, "DC54", 9, 2
-311, "Mirandola", "Giacomo", 20311, "FEE019AC366BA8A9", "1ECCFA5D7D1285A3", "m", "8/4/2008", 70022, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 1, "18DB", 6, 3
-312, "Giannini", "Elia", 20312, "C56ABD0EBC2DBCFD", "0CFE87CA71BEBDC8", "f", "19/1/2006", 70022, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 5, "9E88", 10, 3
-313, "Mirandola", "Tiziano", 20313, "CA4CBAE6F1DBA8DB", "2E3654D2C4C50CF1", "f", "1/3/2002", 70027, "Italiana", "n", "n", NULL, NULL, "2018/2019", 5, "08A6", 10, 3
-314, "Mirandola", "Elia", 20314, "CC8C32D1F7EBBCED", "4D8AE0DE1883D68A", "m", "10/6/2006", 70019, "Albanese", "n", "n", NULL, NULL, "2018/2019", 5, "58E8", 10, 1
-315, "Russo", "Emanuele", 20315, "BE0F1EDCA019AFFB", "57F76DC9F5FB712D", "f", "24/12/2002", 70071, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 3, "DDD7", 9, 3
-316, "Valentini", "Fabio", 20316, "CD0CF41B9F9E04BC", "BBCEFCCEC56509FB", "m", "5/5/2008", 70046, "Italiana", "s", "s", NULL, NULL, "2018/2019", 5, "A025", 6, 2
-317, "Bianchi", "Emanuele", 20317, "4D8AE0DE1883D68A", "FB03FFAEBFDB096D", "f", "23/5/2009", 70030, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "B36D", 7, 3
-318, "Scalco", "Antonio", 20318, "CAEF3CB0FDBF1EC0", "86281078CC94566A", "m", "12/1/2006", 70025, "Albanese", "n", "n", NULL, NULL, "2018/2019", 2, "FE08", 6, 1
-319, "Giannini", "Roberto", 20319, "BBCEFCCEC56509FB", "D0F135FDBCF0CCC7", "m", "3/4/2003", 70008, "Francese", "s", "s", NULL, NULL, "2018/2019", 2, "F1B7", 6, 2
-320, "Bianchi", "Giacomo", 20320, "1F7C8A7D4CECFBAF", "AF4E3D3AC53D8D0A", "m", "18/4/2005", 70073, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 2, "C3BE", 9, 3
-321, "Russo", "Antonio", 20321, "A83BECB7EBF1B845", "3BD8CB2DAC9EB0BB", "m", "1/10/2004", 70003, "Turca", "n", "s", NULL, NULL, "2018/2019", 5, "EBD2", 8, 3
-322, "Russo", "Elia", 20322, "0CFE87CA71BEBDC8", "7BF9B89CC6646ADC", "f", "11/11/2002", 70041, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 2, "4A4C", 10, 3
-323, "Scalco", "Alex", 20323, "616BEFAB4E357B0D", "EE55EFFD50D2DBF3", "m", "12/11/2006", 70073, "Francese", "n", "s", NULL, NULL, "2018/2019", 1, "D21D", 10, 1
-324, "Bianchi", "Alex", 20324, "FCFE8CB4E7F4D772", "EF4F5BA630BEDB1A", "m", "7/6/2010", 70075, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "7914", 6, 2
-325, "Scalco", "Fabio", 20325, "F6CFCE9D877CBBB8", "C52A910AD659F36E", "f", "23/10/2007", 70042, "Australiana", "s", "n", NULL, NULL, "2018/2019", 2, "DFEA", 8, 3
-326, "Verdi", "Elia", 20326, "26E52F0A1DA09BD2", "C4DBDF9DBE7D9B13", "f", "13/1/2007", 70075, "Australiana", "n", "n", NULL, NULL, "2018/2019", 1, "CB5C", 7, 2
-327, "Bianchi", "Valentina", 20327, "BD97AEFDDFDDE5BD", "3B7ED7772AFBB033", "m", "8/6/2009", 70032, "Italiana", "n", "s", NULL, NULL, "2018/2019", 3, "D0C1", 7, 1
-328, "Bianchi", "Roberto", 20328, "84AAAE3E3AF1AFC5", "65F62EBD6420F5ED", "m", "19/1/2006", 70043, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "ED73", 8, 2
-329, "Verdi", "Maria", 20329, "DCC2775605EA5ECD", "F258C28FBC5E7DAE", "m", "7/1/2008", 70058, "Australiana", "n", "s", NULL, NULL, "2018/2019", 5, "D0A1", 9, 1
-330, "Rossi", "Maria", 20330, "C058D7C88F721BCE", "CDFC240D96A9A160", "f", "21/3/2008", 70049, "Italiana", "n", "s", NULL, NULL, "2018/2019", 5, "BBB1", 9, 2
-331, "Mirandola", "Antonio", 20331, "BC4EE2A2BC0150C6", "15FC8FAA88AA83D6", "m", "15/6/2009", 70059, "Arabica", "n", "n", NULL, NULL, "2018/2019", 3, "1FC3", 7, 3
-332, "Rossi", "Elia", 20332, "241E0C0EDDF680DF", "7ECB7DEFEF6C3ADA", "m", "1/10/2008", 70006, "Francese", "s", "s", NULL, NULL, "2018/2019", 5, "CE54", 8, 2
-333, "Roberti", "Giuseppe", 20333, "64218F3FDE04066F", "BD06BD7FEAE2D89B", "m", "26/3/2006", 70027, "Arabica", "n", "s", NULL, NULL, "2018/2019", 5, "F8CF", 7, 3
-334, "Giannini", "Fabio", 20334, "B4E34575F218BAB0", "A0C128D2DBE8F5F2", "f", "24/7/2009", 70003, "Turca", "n", "s", NULL, NULL, "2018/2019", 5, "60DD", 6, 3
-335, "Bianchi", "Emanuele", 20335, "3BDCC84AE3DC02A0", "62A2DDC3ECCE8D9A", "f", "9/12/2002", 70014, "Australiana", "n", "s", NULL, NULL, "2018/2019", 3, "FBEB", 9, 2
-336, "Rossi", "Giacomo", 20336, "1D5D7BAFFF6FCDED", "FD66E5F89C8EE895", "f", "10/4/2003", 70026, "Francese", "n", "n", NULL, NULL, "2018/2019", 3, "FE7D", 9, 1
-337, "Rossi", "Giacomo", 20337, "2F4CE67DF9C1FC2B", "B7B41E913D1CA99C", "m", "16/9/2000", 70074, "Italiana", "n", "n", NULL, NULL, "2018/2019", 4, "EFF0", 7, 1
-338, "Giannini", "Tiziano", 20338, "6AF6EE9CDBC7E6F8", "FBEC9F43EBAAE4FE", "m", "27/11/2002", 70059, "Polacca", "s", "n", NULL, NULL, "2018/2019", 5, "BD74", 8, 1
-339, "Bianchi", "Fabio", 20339, "F258C28FBC5E7DAE", "FB03FFAEBFDB096D", "m", "25/7/2002", 70068, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 4, "9405", 7, 2
-340, "Verdi", "Tiziano", 20340, "7ECB7DEFEF6C3ADA", "D3E20BD978E5F6F0", "m", "11/9/2003", 70056, "Albanese", "s", "s", NULL, NULL, "2018/2019", 5, "1ACE", 10, 1
-341, "Scalco", "Alex", 20341, "8A6BC992A67994AF", "106F16FBF7CA2E4F", "m", "8/2/2010", 70012, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 3, "A498", 9, 1
-342, "Verdi", "Elia", 20342, "6CE4E2040B653047", "2AECE80426B8BADA", "f", "17/10/2007", 70009, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 5, "0FB9", 9, 1
-343, "Bianchi", "Alex", 20343, "D78B34B4B4CF3DCD", "6D44C69D0DD43F43", "f", "25/10/2004", 70010, "Australiana", "s", "s", NULL, NULL, "2018/2019", 3, "72B4", 8, 2
-344, "Scalco", "Tiziano", 20344, "FFE77BA597E5AC2F", "DAC86E1C4B161628", "m", "23/10/2007", 70005, "Australiana", "s", "s", NULL, NULL, "2018/2019", 4, "80E8", 8, 3
-345, "Giannini", "Emanuele", 20345, "D3CF244DAFACADF9", "A62FABDBCD54B758", "m", "29/1/2002", 70016, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 2, "CCD3", 6, 3
-346, "Verdi", "Emanuele", 20346, "CA6F7CADDD7972BF", "DDAC1D49BAC60DBF", "f", "3/3/2010", 70051, "Polacca", "s", "s", NULL, NULL, "2018/2019", 4, "07FD", 9, 1
-347, "Roberti", "Antonio", 20347, "CDFC240D96A9A160", "C5FE9D39A26EA9B0", "m", "21/11/2006", 70044, "Francese", "s", "n", NULL, NULL, "2018/2019", 2, "DDFA", 8, 3
-348, "Giannini", "Roberto", 20348, "BD4FAEB4DC2C6390", "DF8D7BCECA2ABDCE", "f", "23/12/2000", 70007, "Albanese", "n", "s", NULL, NULL, "2018/2019", 5, "1D1D", 9, 2
-349, "Verdi", "Roberto", 20349, "FAA8CF7AC4A20C30", "ECCD67E51F652A92", "m", "31/1/2003", 70027, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 1, "E6CD", 7, 2
-350, "Verdi", "Fabio", 20350, "AA905AE6D3188BB4", "D0F135FDBCF0CCC7", "f", "18/10/2010", 70055, "Arabica", "s", "s", NULL, NULL, "2018/2019", 3, "DDC8", 8, 2
-351, "Scalco", "Antonio", 20351, "F0BECCA1B8E3EF0F", "00DBBC3DB11FBB17", "f", "6/4/2007", 70029, "Italiana", "n", "s", NULL, NULL, "2018/2019", 1, "62CA", 10, 1
-352, "Verdi", "Alex", 20352, "660C8F16A812784F", "E442023C70EB5D3E", "f", "12/7/2004", 70010, "Australiana", "s", "s", NULL, NULL, "2018/2019", 1, "D75A", 7, 2
-353, "Valentini", "Elia", 20353, "43717C9BC7B0FDE3", "C1F6EA76E3F03FC8", "m", "31/5/2003", 70048, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "86DB", 6, 3
-354, "Russo", "Valentina", 20354, "B50337ABE466DB95", "40CCA665F2C9A6D6", "m", "8/11/2006", 70072, "Polacca", "s", "n", NULL, NULL, "2018/2019", 5, "EEF7", 8, 2
-355, "Bianchi", "Elia", 20355, "29B4DD8E4EC6AA01", "FBBD163ECD9BEC42", "f", "10/3/2009", 70051, "Australiana", "n", "n", NULL, NULL, "2018/2019", 1, "BC2E", 6, 2
-356, "Bianchi", "Antonio", 20356, "A0C128D2DBE8F5F2", "93BBFACB49A3FC1A", "f", "26/5/2007", 70006, "Arabica", "n", "s", NULL, NULL, "2018/2019", 2, "DBBB", 9, 2
-357, "Giannini", "Giuseppe", 20357, "7B2890D6EC6B316C", "2CBF22AEDC2D3E4C", "f", "8/11/2009", 70026, "Albanese", "s", "s", NULL, NULL, "2018/2019", 5, "7BCA", 9, 1
-358, "Roberti", "Fabio", 20358, "20F2EE77F03AF18D", "DDAC1D49BAC60DBF", "m", "13/11/2001", 70008, "Polacca", "s", "n", NULL, NULL, "2018/2019", 1, "7E4C", 8, 3
-359, "Roberti", "Maria", 20359, "E3E4CBEBF8C16FEB", "69A30D540CB6A5AC", "f", "2/8/2007", 70017, "Italiana", "n", "n", NULL, NULL, "2018/2019", 1, "A863", 7, 3
-360, "Rossi", "Elia", 20360, "5C0EE56AEDBE5CAD", "6DBEA55FFF5AF88E", "f", "12/3/2008", 70073, "Australiana", "n", "s", NULL, NULL, "2018/2019", 1, "1D23", 8, 1
-361, "Valentini", "Tiziano", 20361, "AFE25B2FC3004A0E", "2AECE80426B8BADA", "f", "11/5/2000", 70029, "Arabica", "s", "s", NULL, NULL, "2018/2019", 2, "F507", 8, 2
-362, "Bianchi", "Giuseppe", 20362, "D0F135FDBCF0CCC7", "BB635CFBAC8FCF3B", "f", "29/8/2008", 70007, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 2, "327E", 7, 1
-363, "Roberti", "Valentina", 20363, "FE1AFCCBFFFDCFBF", "4CFFEF7CB11F7CC5", "m", "31/11/2010", 70002, "Francese", "s", "n", NULL, NULL, "2018/2019", 5, "F64E", 9, 3
-364, "Russo", "Valentina", 20364, "F9AC57DC9A1479AC", "B5B4AEA5BB2F7E5C", "m", "17/2/2000", 70039, "Australiana", "n", "n", NULL, NULL, "2018/2019", 5, "3D91", 7, 2
-365, "Russo", "Tiziano", 20365, "8B7CBDEE94FE4DCA", "4D2B143E44FBBEEF", "m", "12/10/2002", 70041, "Australiana", "n", "s", NULL, NULL, "2018/2019", 5, "72A2", 10, 1
-366, "Mirandola", "Antonio", 20366, "DF8D7BCECA2ABDCE", "9FF3A5B00D96FD6C", "m", "21/10/2002", 70049, "Albanese", "n", "s", NULL, NULL, "2018/2019", 2, "ECCD", 7, 1
-367, "Mirandola", "Fabio", 20367, "B84ECC7CEE9FFC1D", "E41F662BA176529A", "m", "23/5/2010", 70003, "Arabica", "s", "n", NULL, NULL, "2018/2019", 3, "CDAC", 7, 1
-368, "Rossi", "Lucia", 20368, "BA1477164CD33852", "D3E28DA3D6DA5DAA", "f", "12/12/2002", 70047, "Polacca", "n", "s", NULL, NULL, "2018/2019", 3, "A6AA", 10, 3
-369, "Verdi", "Emanuele", 20369, "A0D588842AECAEF0", "DC6FEA6A44F9BCCD", "m", "21/6/2003", 70051, "Polacca", "n", "n", NULL, NULL, "2018/2019", 4, "EBC4", 10, 2
-370, "Russo", "Giuseppe", 20370, "FF11C3CFBDEE43A6", "FB03FFAEBFDB096D", "f", "17/10/2004", 70040, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "5FBB", 7, 1
-371, "Rossi", "Lucia", 20371, "DDD0DB3BB14D6EAF", "83824D056D1475FB", "m", "3/2/2003", 70049, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "A31E", 8, 3
-372, "Scalco", "Emanuele", 20372, "EFFD2F5B5ADEDEBE", "54FE70EDBBCD226D", "f", "29/3/2008", 70039, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 4, "A6B8", 9, 3
-373, "Roberti", "Alex", 20373, "ECCD67E51F652A92", "E4F4A39D7E31900B", "m", "4/8/2005", 70028, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 4, "DFE6", 7, 1
-374, "Rossi", "Giacomo", 20374, "E6CB69E555C8327F", "BF65531E7BA15841", "m", "3/11/2004", 70028, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 5, "4CAD", 7, 3
-375, "Mirandola", "Maria", 20375, "99F810C8C7A5B514", "C4DF4E62AD9EBA04", "m", "18/2/2001", 70017, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 4, "55C7", 6, 1
-376, "Bianchi", "Maria", 20376, "7CC5EBB8B326A892", "26E52F0A1DA09BD2", "f", "4/12/2004", 70062, "Turca", "n", "s", NULL, NULL, "2018/2019", 3, "B6F2", 10, 1
-377, "Rossi", "Lucia", 20377, "E1FCCCFADEAFF4F5", "CDFC240D96A9A160", "f", "22/5/2007", 70075, "Italiana", "n", "n", NULL, NULL, "2018/2019", 2, "F955", 9, 3
-378, "Rossi", "Giuseppe", 20378, "ADBAEAFEBA7929B3", "61B43659DF616743", "f", "2/2/2008", 70001, "Albanese", "n", "s", NULL, NULL, "2018/2019", 3, "77FA", 6, 3
-379, "Rossi", "Valentina", 20379, "8655D7E2A7501744", "ABF8BC18CFD5A147", "f", "24/2/2006", 70037, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "6B3A", 6, 1
-380, "Rossi", "Giuseppe", 20380, "0BF1988BDB7F679D", "A62FABDBCD54B758", "m", "19/7/2002", 70032, "Albanese", "n", "s", NULL, NULL, "2018/2019", 5, "E73A", 7, 1
-381, "Scalco", "Giacomo", 20381, "E2A0CD21ADEE8B9E", "4CFFEF7CB11F7CC5", "m", "9/2/2005", 70040, "Italiana", "n", "n", NULL, NULL, "2018/2019", 3, "97AF", 8, 1
-382, "Russo", "Antonio", 20382, "E4F4A39D7E31900B", "8488D92BA5EAC712", "f", "18/1/2004", 70029, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "D28F", 6, 1
-383, "Verdi", "Giacomo", 20383, "A93C4DE6C949AD0B", "8A6BC992A67994AF", "f", "8/2/2008", 70005, "Italiana", "n", "s", NULL, NULL, "2018/2019", 1, "32AC", 8, 3
-384, "Verdi", "Alex", 20384, "0DAAC02BB93ABC54", "F0AB41A3FD1DFBDA", "f", "13/4/2003", 70003, "Francese", "s", "s", NULL, NULL, "2018/2019", 1, "DE75", 9, 3
-385, "Russo", "Tiziano", 20385, "FB55A8CECAEA074D", "3705AF7AD7DE677C", "f", "22/3/2000", 70057, "Turca", "n", "s", NULL, NULL, "2018/2019", 1, "0F8F", 6, 1
-386, "Valentini", "Fabio", 20386, "CDD5E3C2D3AE5CCE", "E9CD6FCD0BFC68F1", "m", "6/9/2001", 70028, "Turca", "n", "s", NULL, NULL, "2018/2019", 1, "F3C5", 9, 3
-387, "Rossi", "Alex", 20387, "A90B9D6AAC15F6B8", "8704568F8CFBAF79", "m", "20/6/2004", 70008, "Turca", "n", "s", NULL, NULL, "2018/2019", 2, "F4FB", 6, 3
-388, "Bianchi", "Valentina", 20388, "C4DBDF9DBE7D9B13", "D8DBDE3B200A6BE8", "m", "31/2/2000", 70035, "Arabica", "s", "n", NULL, NULL, "2018/2019", 3, "EB47", 8, 1
-389, "Rossi", "Lucia", 20389, "B0EFDE908331D248", "E15DBAA9288BA22A", "m", "5/5/2009", 70066, "Australiana", "s", "n", NULL, NULL, "2018/2019", 3, "4F1B", 10, 1
-390, "Rossi", "Fabio", 20390, "A41F3FEE0EC29BCB", "F9FCEF6FCBFAD80A", "f", "24/12/2001", 70041, "Albanese", "n", "s", NULL, NULL, "2018/2019", 5, "BD4D", 6, 1
-391, "Verdi", "Antonio", 20391, "F8F6B4F4298FC3BA", "DEA8B867CF0ED331", "m", "25/4/2007", 70047, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "E910", 8, 1
-392, "Bianchi", "Giuseppe", 20392, "80D4F418AC48514E", "6AAE678CC21DEADE", "m", "6/5/2007", 70039, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 4, "3CB4", 6, 1
-393, "Russo", "Giuseppe", 20393, "6C1EDE6FFDA4C08A", "EEED6EA9DEF173F1", "m", "24/4/2008", 70075, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "D7FB", 8, 1
-394, "Scalco", "Emanuele", 20394, "3E7FAAE7DACAD2EA", "B0EFDE908331D248", "m", "5/9/2006", 70075, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 3, "1ABE", 6, 1
-395, "Roberti", "Giacomo", 20395, "2AFEABF43AE3B24D", "BBCEFCCEC56509FB", "m", "29/5/2000", 70022, "Polacca", "s", "s", NULL, NULL, "2018/2019", 2, "DCA9", 8, 1
-396, "Mirandola", "Giacomo", 20396, "FCC39BABA1FCAEDF", "A4998A4DEB6ECFDF", "m", "14/11/2008", 70032, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 2, "ECBC", 9, 3
-397, "Verdi", "Giuseppe", 20397, "5E23C5B8D7DEF693", "BA1477164CD33852", "m", "29/2/2008", 70023, "Italiana", "n", "n", NULL, NULL, "2018/2019", 5, "AACD", 6, 1
-398, "Roberti", "Tiziano", 20398, "F8F9EADC16964B9C", "EF656A4F2F98BA1F", "m", "12/11/2006", 70025, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 1, "BECC", 6, 3
-399, "Valentini", "Tiziano", 20399, "BBBEBDEF33EEB309", "1D5D7BAFFF6FCDED", "f", "27/2/2002", 70009, "Italiana", "n", "s", NULL, NULL, "2018/2019", 1, "4078", 9, 2
-400, "Bianchi", "Elia", 20400, "2204A97FE2BD9C28", "AFF68FB6DA8DDAF6", "m", "6/10/2003", 70046, "Turca", "n", "n", NULL, NULL, "2018/2019", 4, "ECFA", 6, 3
-401, "Mirandola", "Giacomo", 20401, "5EE96DB31CABD8FD", "3BDCC84AE3DC02A0", "f", "18/8/2009", 70016, "Tedesca", "n", "s", NULL, NULL, "2018/2019", 3, "F78A", 6, 2
-402, "Russo", "Roberto", 20402, "AFCBFFFEA7BF4FCF", "0CFDCF5634A973F2", "f", "24/4/2010", 70004, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 3, "DCA7", 9, 3
-403, "Mirandola", "Lucia", 20403, "4BF760B460A27BF2", "3FBCBEEC72465B35", "m", "19/11/2004", 70072, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 4, "AF0D", 10, 1
-404, "Rossi", "Roberto", 20404, "0BDAE3D8361163E9", "660C8F16A812784F", "m", "10/12/2002", 70074, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "AD1C", 6, 3
-405, "Valentini", "Elia", 20405, "620AF76C733C953F", "B083AEE6C09ECBFF", "f", "6/6/2006", 70067, "Australiana", "s", "s", NULL, NULL, "2018/2019", 2, "2E9A", 10, 1
-406, "Roberti", "Antonio", 20406, "FF5B1520FEAAA85F", "EF656A4F2F98BA1F", "m", "11/11/2002", 70047, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 1, "A2DA", 10, 2
-407, "Valentini", "Lucia", 20407, "DDA836F700D9DDEA", "D4A89A7F2FDC30D9", "f", "29/4/2008", 70021, "Francese", "s", "n", NULL, NULL, "2018/2019", 5, "4DBB", 8, 2
-408, "Mirandola", "Valentina", 20408, "9FF3A5B00D96FD6C", "BEFFED73B816EDAA", "m", "25/7/2001", 70003, "Francese", "n", "n", NULL, NULL, "2018/2019", 5, "A919", 10, 1
-409, "Russo", "Valentina", 20409, "7D1E5FDBAFF8AB0A", "6C1EDE6FFDA4C08A", "m", "20/10/2009", 70012, "Albanese", "n", "s", NULL, NULL, "2018/2019", 1, "BE4E", 6, 2
-410, "Verdi", "Alex", 20410, "1A33EAD35D35BD7D", "A7AFBF444DE6A8AD", "m", "4/7/2006", 70071, "Arabica", "n", "n", NULL, NULL, "2018/2019", 4, "AC2C", 8, 3
-411, "Rossi", "Roberto", 20411, "1EF1974FCE7BF79D", "064367A5DE9FCEA5", "m", "14/9/2004", 70031, "Italiana", "s", "s", NULL, NULL, "2018/2019", 1, "AAD2", 9, 3
-412, "Rossi", "Valentina", 20412, "05A61B741F0D2BD8", "36A7BBCE96FC5DA0", "f", "8/10/2005", 70002, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "DFE6", 9, 1
-413, "Scalco", "Elia", 20413, "C1F6EA76E3F03FC8", "E3CC1A4EBD23690B", "m", "5/4/2008", 70016, "Polacca", "s", "n", NULL, NULL, "2018/2019", 1, "12AB", 6, 1
-414, "Russo", "Alex", 20414, "EC87CDF5CA3E89D2", "4D331EB717A86E00", "m", "29/10/2008", 70059, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 2, "C6F0", 6, 3
-415, "Valentini", "Alex", 20415, "BDC5FEBCCEF57E5E", "26DD3AF84BCD8ACD", "m", "10/2/2004", 70029, "Albanese", "s", "n", NULL, NULL, "2018/2019", 2, "1F61", 6, 3
-416, "Russo", "Valentina", 20416, "BE64BEA97270EA27", "8A6BC992A67994AF", "f", "14/3/2010", 70024, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 3, "EF71", 9, 3
-417, "Valentini", "Alex", 20417, "D1D95F54EBBFEF5E", "18EEDDC7409DC5AD", "f", "1/12/2002", 70034, "Australiana", "s", "n", NULL, NULL, "2018/2019", 3, "86CF", 7, 2
-418, "Rossi", "Giacomo", 20418, "CCCCBF30FB9FD204", "2A30EED40CAEDCAA", "m", "30/7/2004", 70015, "Albanese", "n", "n", NULL, NULL, "2018/2019", 3, "FDF4", 8, 3
-419, "Bianchi", "Lucia", 20419, "54FE70EDBBCD226D", "AABDE741E10F4AE6", "m", "26/2/2007", 70032, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "CCD9", 9, 1
-420, "Valentini", "Antonio", 20420, "FDFB6EF49BFD4A4F", "1B6884A33DFE9A2B", "m", "7/9/2009", 70032, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "1F9B", 10, 3
-421, "Roberti", "Lucia", 20421, "BA405B806EAD6D47", "61B43659DF616743", "f", "5/4/2006", 70063, "Francese", "n", "n", NULL, NULL, "2018/2019", 3, "39A1", 10, 2
-422, "Scalco", "Alex", 20422, "40CCA665F2C9A6D6", "FFBEE9278AF7AE12", "f", "28/8/2001", 70057, "Italiana", "s", "s", NULL, NULL, "2018/2019", 5, "DA76", 6, 3
-423, "Valentini", "Giacomo", 20423, "F33EE63FEB9F614A", "4D8AE0DE1883D68A", "m", "22/8/2000", 70034, "Polacca", "n", "n", NULL, NULL, "2018/2019", 1, "A8E8", 9, 1
-424, "Russo", "Fabio", 20424, "FDC989333DA9AD80", "F4565CA3A15C1A7A", "f", "16/6/2007", 70007, "Australiana", "s", "s", NULL, NULL, "2018/2019", 1, "92CF", 10, 2
-425, "Mirandola", "Roberto", 20425, "FD6B10AE2BD0ADA6", "3801E74F8EE1BD9B", "m", "29/2/2010", 70002, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 5, "ADDF", 9, 3
-426, "Bianchi", "Valentina", 20426, "4BDACA7F0DB6AAFD", "18EEDDC7409DC5AD", "f", "3/5/2007", 70038, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 5, "960D", 6, 1
-427, "Mirandola", "Lucia", 20427, "2BE7ABBCC55CEBAB", "E6CB69E555C8327F", "m", "18/1/2004", 70072, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 2, "ED03", 6, 3
-428, "Roberti", "Alex", 20428, "4F39CC0A2FDFAACD", "4A43A0A4ACA5EE3D", "m", "12/6/2005", 70046, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 5, "DA22", 6, 3
-429, "Verdi", "Valentina", 20429, "C4DF4E62AD9EBA04", "AEA06BB1FFEDF6A3", "m", "21/6/2010", 70016, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 2, "F3F1", 6, 1
-430, "Scalco", "Giuseppe", 20430, "B5F2DBBEEDBABBD7", "30316520A34FEBEF", "f", "8/1/2002", 70031, "Italiana", "n", "n", NULL, NULL, "2018/2019", 5, "DDFC", 10, 1
-431, "Verdi", "Fabio", 20431, "0CFDCF5634A973F2", "ACB7C1AEA7D7DD5A", "f", "14/2/2004", 70027, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "018B", 6, 1
-432, "Russo", "Alex", 20432, "EEAF4AA0CAABEAEE", "3DF59D3F56706BE8", "f", "16/6/2005", 70020, "Spagnola", "s", "n", NULL, NULL, "2018/2019", 1, "8ABD", 8, 1
-433, "Valentini", "Valentina", 20433, "9C67B6CB3A78D85F", "CAABFB5AEC6F6AA5", "m", "31/12/2001", 70011, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "D06E", 9, 1
-434, "Roberti", "Alex", 20434, "47903DD20F718CD6", "68AE3CCD4BEA448D", "m", "2/4/2010", 70070, "Australiana", "n", "n", NULL, NULL, "2018/2019", 4, "7AB5", 10, 1
-435, "Russo", "Giuseppe", 20435, "36A7BBCE96FC5DA0", "D3E20BD978E5F6F0", "f", "20/8/2004", 70035, "Spagnola", "s", "s", NULL, NULL, "2018/2019", 1, "B9A5", 6, 3
-436, "Verdi", "Roberto", 20436, "064367A5DE9FCEA5", "E4DAA6EBFCDEE45E", "f", "10/6/2006", 70011, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "C732", 7, 2
-437, "Valentini", "Elia", 20437, "AFF68FB6DA8DDAF6", "3FEA2DDFE72DF6FD", "f", "5/5/2008", 70056, "Polacca", "s", "n", NULL, NULL, "2018/2019", 1, "3CA1", 9, 2
-438, "Giannini", "Giuseppe", 20438, "93665BE9D8A1B9CA", "AABA18A4C271140A", "m", "1/3/2009", 70068, "Polacca", "n", "n", NULL, NULL, "2018/2019", 3, "0E47", 7, 3
-439, "Roberti", "Antonio", 20439, "B0BF8311EF2FFB59", "7ECB7DEFEF6C3ADA", "f", "1/9/2005", 70073, "Australiana", "s", "s", NULL, NULL, "2018/2019", 2, "BB8E", 8, 1
-440, "Mirandola", "Giacomo", 20440, "AD2AC2FAB05BFDC1", "CDD5E3C2D3AE5CCE", "f", "22/7/2009", 70040, "Albanese", "s", "s", NULL, NULL, "2018/2019", 3, "85A8", 9, 1
-441, "Valentini", "Lucia", 20441, "3E6237FFECDECAA7", "29B4DD8E4EC6AA01", "m", "9/12/2004", 70064, "Albanese", "s", "s", NULL, NULL, "2018/2019", 1, "7DBF", 10, 3
-442, "Bianchi", "Lucia", 20442, "7EDB6AD72F2F501C", "B56FE1A4BBC96FB2", "f", "18/7/2001", 70072, "Turca", "n", "s", NULL, NULL, "2018/2019", 3, "AB14", 8, 1
-443, "Russo", "Alex", 20443, "589F5E1BD2DCA03A", "46DB1EAF467FE4F1", "m", "10/11/2008", 70062, "Arabica", "s", "s", NULL, NULL, "2018/2019", 5, "A867", 9, 3
-444, "Valentini", "Lucia", 20444, "7CA874D3D6E61FB1", "C52A910AD659F36E", "m", "4/5/2000", 70055, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 3, "DFD3", 9, 1
-445, "Giannini", "Tiziano", 20445, "C2C1CD8EE9AFBBEC", "6AF6EE9CDBC7E6F8", "m", "5/3/2009", 70058, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 1, "CFE0", 6, 2
-446, "Roberti", "Emanuele", 20446, "F0AB41A3FD1DFBDA", "36A7BBCE96FC5DA0", "m", "13/2/2006", 70058, "Polacca", "n", "n", NULL, NULL, "2018/2019", 2, "F57A", 7, 1
-447, "Verdi", "Maria", 20447, "BC0D1701DFEF6091", "BA405B806EAD6D47", "f", "10/4/2007", 70012, "Arabica", "s", "n", NULL, NULL, "2018/2019", 1, "4FFF", 7, 1
-448, "Verdi", "Lucia", 20448, "74DF8E641ADEBEBA", "72E49BCB6D1651CC", "f", "5/11/2000", 70061, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 4, "09CA", 6, 1
-449, "Mirandola", "Tiziano", 20449, "CAB6EEE99CEC765D", "B55CE58B27EF98FF", "m", "12/12/2008", 70057, "Polacca", "s", "s", NULL, NULL, "2018/2019", 1, "8A50", 10, 2
-450, "Bianchi", "Tiziano", 20450, "DCC3AAAAE31AEEF5", "84AAAE3E3AF1AFC5", "f", "22/10/2008", 70000, "Albanese", "s", "n", NULL, NULL, "2018/2019", 5, "50CB", 8, 3
-451, "Scalco", "Antonio", 20451, "A4998A4DEB6ECFDF", "C3F070F4EBCCF0DC", "m", "23/2/2009", 70004, "Australiana", "n", "s", NULL, NULL, "2018/2019", 4, "C592", 8, 2
-452, "Russo", "Elia", 20452, "0BCDE4DCDCB7C34C", "E3CC1A4EBD23690B", "m", "19/6/2002", 70006, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "EDE6", 10, 1
-453, "Rossi", "Alex", 20453, "DCF95559687BCC23", "B105A5D5CEB7140D", "f", "22/3/2007", 70005, "Polacca", "s", "n", NULL, NULL, "2018/2019", 3, "B00F", 7, 2
-454, "Rossi", "Giuseppe", 20454, "CEF63FBFBD0BB205", "EA86F97DBEEC1A2A", "f", "31/7/2008", 70062, "Arabica", "n", "n", NULL, NULL, "2018/2019", 1, "D18B", 8, 2
-455, "Scalco", "Elia", 20455, "6DEC50A5BE6FCDF7", "8655D7E2A7501744", "m", "15/5/2001", 70015, "Australiana", "n", "n", NULL, NULL, "2018/2019", 3, "22EC", 6, 1
-456, "Roberti", "Alex", 20456, "EEED6EA9DEF173F1", "86281078CC94566A", "m", "4/3/2004", 70001, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "8B8A", 9, 2
-457, "Bianchi", "Maria", 20457, "E9625FBF3BDE9B6F", "D9EEAA19ABDC5FCA", "f", "6/10/2006", 70003, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 3, "BF9B", 7, 2
-458, "Verdi", "Giacomo", 20458, "3801E74F8EE1BD9B", "EE71FCF30EF6BEBE", "f", "13/5/2002", 70004, "Polacca", "n", "s", NULL, NULL, "2018/2019", 2, "AE4A", 8, 1
-459, "Rossi", "Roberto", 20459, "EA3C4BE8B7DDCF3A", "AABA18A4C271140A", "m", "8/11/2008", 70063, "Albanese", "n", "n", NULL, NULL, "2018/2019", 4, "C31B", 9, 3
-460, "Rossi", "Valentina", 20460, "AA8BC1F5C83B91AF", "C1F6EA76E3F03FC8", "m", "15/12/2002", 70074, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 2, "9F2C", 6, 3
-461, "Russo", "Giuseppe", 20461, "F4C194BFF0E73AFA", "7B2890D6EC6B316C", "f", "4/5/2004", 70044, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 5, "BDE2", 8, 1
-462, "Russo", "Giacomo", 20462, "BFE6FEF14E266D1A", "99F810C8C7A5B514", "m", "25/3/2005", 70048, "Australiana", "s", "n", NULL, NULL, "2018/2019", 5, "0DBE", 8, 1
-463, "Russo", "Maria", 20463, "ACB7C1AEA7D7DD5A", "B8BEA99E93EED3A6", "m", "31/4/2002", 70037, "Francese", "s", "n", NULL, NULL, "2018/2019", 5, "EBE4", 8, 2
-464, "Giannini", "Lucia", 20464, "F6B3FB9AC59FF78F", "B083AEE6C09ECBFF", "f", "2/9/2008", 70027, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 5, "B616", 6, 2
-465, "Rossi", "Maria", 20465, "4F423F80733D08AD", "AEAD9474C46BD078", "f", "13/5/2007", 70036, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 3, "75BF", 10, 1
-466, "Russo", "Roberto", 20466, "FCDA3D4B2CFEB02C", "05AE7FEA7DEC2B7D", "f", "14/7/2003", 70013, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 3, "CA47", 6, 2
-467, "Valentini", "Giuseppe", 20467, "2AECE80426B8BADA", "3DF59D3F56706BE8", "m", "19/10/2003", 70026, "Polacca", "n", "n", NULL, NULL, "2018/2019", 4, "DDB9", 6, 3
-468, "Mirandola", "Roberto", 20468, "166B4DA43CB8BD3F", "3E6237FFECDECAA7", "f", "16/9/2009", 70064, "Tedesca", "n", "n", NULL, NULL, "2018/2019", 1, "ACBE", 10, 1
-469, "Verdi", "Fabio", 20469, "8488D92BA5EAC712", "C5FE9D39A26EA9B0", "m", "14/4/2001", 70033, "Albanese", "s", "n", NULL, NULL, "2018/2019", 1, "9B1B", 9, 1
-470, "Rossi", "Alex", 20470, "FB03FFAEBFDB096D", "BBBEBDEF33EEB309", "m", "4/4/2003", 70059, "Arabica", "n", "n", NULL, NULL, "2018/2019", 4, "DBD2", 7, 2
-471, "Scalco", "Roberto", 20471, "BD06BD7FEAE2D89B", "6DEC50A5BE6FCDF7", "f", "2/1/2007", 70057, "Polacca", "s", "s", NULL, NULL, "2018/2019", 5, "975C", 7, 3
-472, "Rossi", "Antonio", 20472, "DBD1F4FCDCAC4E5F", "18EEDDC7409DC5AD", "f", "20/3/2008", 70048, "Australiana", "s", "s", NULL, NULL, "2018/2019", 2, "96FB", 6, 3
-473, "Scalco", "Giuseppe", 20473, "61B43659DF616743", "BDC5FEBCCEF57E5E", "f", "14/9/2000", 70034, "Polacca", "n", "s", NULL, NULL, "2018/2019", 2, "048A", 10, 1
-474, "Bianchi", "Alex", 20474, "EE7CBCD04AEA5766", "0EBEEFCAC25EDD92", "m", "30/11/2002", 70069, "Australiana", "s", "s", NULL, NULL, "2018/2019", 2, "AFFA", 7, 1
-475, "Mirandola", "Alex", 20475, "C52A910AD659F36E", "F33EE63FEB9F614A", "m", "27/11/2003", 70007, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 2, "BDD6", 10, 1
-476, "Rossi", "Alex", 20476, "A21A8A9ABDA9CA5B", "DCC3AAAAE31AEEF5", "f", "28/5/2005", 70075, "Polacca", "s", "s", NULL, NULL, "2018/2019", 4, "3717", 7, 1
-477, "Mirandola", "Lucia", 20477, "EB8F89FEDE71388E", "FB55A8CECAEA074D", "f", "15/5/2007", 70005, "Polacca", "s", "s", NULL, NULL, "2018/2019", 3, "AC24", 9, 2
-478, "Rossi", "Antonio", 20478, "EFCCCFBCFB7ECAF6", "ADFFA739DD347EAF", "m", "8/2/2007", 70003, "Australiana", "s", "s", NULL, NULL, "2018/2019", 1, "4FD8", 6, 1
-479, "Verdi", "Tiziano", 20479, "C8FE64F2C1EEBC7F", "FAFCE2DF6EA7668A", "f", "24/1/2001", 70045, "Albanese", "n", "s", NULL, NULL, "2018/2019", 5, "0BFD", 7, 1
-480, "Giannini", "Emanuele", 20480, "9BCFC5C2404DEC3B", "3DAD69CCB7A7CF9D", "f", "14/11/2009", 70037, "Turca", "s", "s", NULL, NULL, "2018/2019", 3, "0EA4", 9, 3
-481, "Giannini", "Fabio", 20481, "DE6FED6EDF8BA5F4", "36A7BBCE96FC5DA0", "f", "24/11/2005", 70058, "Tedesca", "s", "s", NULL, NULL, "2018/2019", 1, "8B41", 7, 1
-482, "Russo", "Fabio", 20482, "E442023C70EB5D3E", "D9EEAA19ABDC5FCA", "f", "8/1/2006", 70063, "Spagnola", "n", "s", NULL, NULL, "2018/2019", 2, "9342", 9, 2
-483, "Mirandola", "Valentina", 20483, "5A90BC2E7ABF6F77", "F33EE63FEB9F614A", "m", "29/10/2009", 70000, "Albanese", "n", "n", NULL, NULL, "2018/2019", 5, "7A52", 6, 1
-484, "Russo", "Maria", 20484, "FAFCE2DF6EA7668A", "8A7DCA44AB35BBFF", "f", "18/1/2000", 70069, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 5, "EDEF", 7, 2
-485, "Scalco", "Valentina", 20485, "26DD3AF84BCD8ACD", "74C8AE4CEBACCAD3", "f", "22/10/2006", 70000, "Tedesca", "s", "n", NULL, NULL, "2018/2019", 5, "A5FB", 10, 1
-486, "Roberti", "Antonio", 20486, "2CBF22AEDC2D3E4C", "589F5E1BD2DCA03A", "f", "19/3/2007", 70007, "Francese", "n", "n", NULL, NULL, "2018/2019", 1, "E93B", 7, 1
-487, "Russo", "Giacomo", 20487, "6ADD06FABA900756", "8EDF98AD45F5DE9C", "f", "24/10/2002", 70053, "Polacca", "n", "s", NULL, NULL, "2018/2019", 4, "EA01", 10, 3
-488, "Giannini", "Maria", 20488, "DC6FEA6A44F9BCCD", "E4DAA6EBFCDEE45E", "f", "25/6/2000", 70037, "Spagnola", "n", "n", NULL, NULL, "2018/2019", 4, "CCAF", 7, 1
-489, "Mirandola", "Elia", 20489, "C58F14ABF20FB692", "7D1E5FDBAFF8AB0A", "m", "12/11/2004", 70054, "Italiana", "n", "s", NULL, NULL, "2018/2019", 1, "E2D0", 6, 3
-490, "Rossi", "Elia", 20490, "E9CD6FCD0BFC68F1", "CA4CBAE6F1DBA8DB", "f", "12/8/2006", 70059, "Australiana", "s", "n", NULL, NULL, "2018/2019", 3, "ABBA", 9, 2
-491, "Giannini", "Fabio", 20491, "BD9CADCC4320C6EB", "25BB7CBD4A9E9B8B", "f", "14/10/2007", 70064, "Arabica", "s", "s", NULL, NULL, "2018/2019", 4, "CFAF", 7, 3
-492, "Valentini", "Valentina", 20492, "EEBB8E342B8C4DC6", "E3DFA36EC39BFDD5", "f", "3/1/2007", 70004, "Turca", "s", "s", NULL, NULL, "2018/2019", 4, "3BF0", 10, 1
-493, "Scalco", "Antonio", 20493, "2E4FD3021D9BB3A5", "5C0EE56AEDBE5CAD", "f", "21/4/2007", 70044, "Australiana", "s", "n", NULL, NULL, "2018/2019", 3, "3C49", 9, 3
-494, "Russo", "Tiziano", 20494, "1EC19BEDD6B57A33", "5ED4DEDD906CE705", "m", "8/2/2001", 70016, "Arabica", "s", "s", NULL, NULL, "2018/2019", 1, "4CE0", 6, 2
-495, "Rossi", "Lucia", 20495, "0BA4CAA4DDD3DFBB", "6AF6EE9CDBC7E6F8", "f", "14/9/2002", 70042, "Arabica", "n", "n", NULL, NULL, "2018/2019", 5, "BBD9", 8, 2
-496, "Rossi", "Giuseppe", 20496, "E6E1B4E4FA67F0B0", "AFCBFFFEA7BF4FCF", "f", "14/1/2007", 70030, "Turca", "s", "s", NULL, NULL, "2018/2019", 3, "FB26", 7, 1
-497, "Roberti", "Roberto", 20497, "FDBE238AB0B84C62", "510BAAD91FC21D2C", "m", "21/1/2000", 70019, "Francese", "s", "s", NULL, NULL, "2018/2019", 3, "E7B2", 6, 2
-498, "Mirandola", "Giuseppe", 20498, "44F728EF3DDEB9AE", "B56FE1A4BBC96FB2", "m", "30/2/2001", 70054, "Italiana", "s", "n", NULL, NULL, "2018/2019", 3, "67B4", 6, 3
-499, "Valentini", "Valentina", 20499, "FE773FEFBC0B3EDF", "EFFD2F5B5ADEDEBE", "f", "16/9/2008", 70003, "Albanese", "n", "s", NULL, NULL, "2018/2019", 2, "C8FB", 6, 3
-500, "Mirandola", "Emanuele", 20500, "18EEDDC7409DC5AD", "DCC2775605EA5ECD", "m", "24/11/2002", 70033, "Italiana", "s", "s", NULL, NULL, "2018/2019", 2, "298E", 6, 3
+1,Scalco,Antonio,20001,48C2BC2D5245BFBD,836E6B6D1F7D8BB7,f,20/9/2008,70060,Spagnola,s,n,NULL,NULL,2018/2019,3,A433,7,3
+2,Mirandola,Giacomo,20002,BABA11E4CD251DFA,D50C4BE368CD9667,f,24/2/2010,70036,Italiana,s,n,NULL,NULL,2018/2019,3,7E7D,8,2
+3,Verdi,Tiziano,20003,FBF3DE3DBB2C5CBA,C4E3AFD7A91F7B18,m,5/5/2000,70045,Italiana,s,n,NULL,NULL,2018/2019,2,E8B0,9,1
+4,Verdi,Fabio,20004,6C3C4CAEAA60CBE3,3C2C3CCCEAC88ADA,m,12/5/2004,70049,Italiana,n,s,NULL,NULL,2018/2019,5,C342,6,2
+5,Roberti,Elia,20005,124ABCAD79F1B27B,FFECFEAC5BF2DB8B,m,4/7/2001,70032,Francese,n,n,NULL,NULL,2018/2019,1,83AA,9,1
+6,Scalco,Lucia,20006,EE8DAFAEDFC49E18,DB2DD6883C0A7F12,f,5/7/2005,70040,Turca,n,n,NULL,NULL,2018/2019,1,A45B,8,2
+7,Rossi,Emanuele,20007,E0BB5B7A9AF7EE92,EEED5FBE3DDA73D4,f,22/7/2006,70038,Italiana,s,s,NULL,NULL,2018/2019,3,EEFD,6,3
+8,Scalco,Antonio,20008,3852ABB5EF71A05D,A6AAF3FDEDBA15B7,f,17/12/2002,70041,Arabica,s,n,NULL,NULL,2018/2019,2,2FAB,8,1
+9,Giannini,Elia,20009,DB323EBA6E1C5601,FF82E6C38F7C18A6,f,19/10/2000,70017,Spagnola,n,s,NULL,NULL,2018/2019,1,8BC7,10,1
+10,Scalco,Giuseppe,20010,CCEE49397F799CFC,4E1EF872D4141B07,f,12/12/2000,70010,Tedesca,s,n,NULL,NULL,2018/2019,1,AFDE,9,2
+11,Roberti,Fabio,20011,64F813148A0FEA43,ACFC9979C1CF7599,f,3/8/2001,70034,Spagnola,s,n,NULL,NULL,2018/2019,4,8CC0,9,1
+12,Giannini,Lucia,20012,ADA3EAFFFFDADEA8,ECB5CAAB3A4AE1D4,m,28/12/2001,70067,Polacca,s,n,NULL,NULL,2018/2019,3,21EB,7,1
+13,Mirandola,Giacomo,20013,CD056D75BE983E39,3C2C3CCCEAC88ADA,m,24/7/2009,70059,Albanese,s,s,NULL,NULL,2018/2019,5,DBC5,10,2
+14,Scalco,Giacomo,20014,7FEEA39FACC23DBA,F72217FAFD6D76E8,m,4/3/2000,70069,Italiana,s,s,NULL,NULL,2018/2019,2,DE89,6,1
+15,Mirandola,Alex,20015,E5DE5AAB7DB9ED9E,E5CAFCFAB12BBE8D,m,4/1/2006,70031,Albanese,n,n,NULL,NULL,2018/2019,3,1B2E,6,1
+16,Bianchi,Valentina,20016,98722CCBC4DD0CAA,75EBD276B4B781AF,m,28/9/2010,70069,Francese,n,n,NULL,NULL,2018/2019,2,6B9F,7,1
+17,Bianchi,Maria,20017,5BCDB8272BCE141E,BF487E3CCC773A3C,m,3/3/2009,70005,Turca,s,s,NULL,NULL,2018/2019,3,BBFF,7,1
+18,Scalco,Fabio,20018,7821DBB2DC746EA3,FFECFEAC5BF2DB8B,m,5/12/2009,70036,Australiana,n,s,NULL,NULL,2018/2019,1,1C3C,6,3
+19,Rossi,Elia,20019,4ECDED1BADCD0553,4FCB45514FCB9FFD,f,12/1/2002,70068,Albanese,n,n,NULL,NULL,2018/2019,2,DFCF,9,3
+20,Scalco,Giacomo,20020,7762EA7D5A1456EB,A2C3C7CCE0EA2727,m,13/4/2002,70070,Australiana,n,n,NULL,NULL,2018/2019,5,4BAD,9,3
+21,Mirandola,Fabio,20021,C185F34F50ECBE9D,BD69B68FF120F604,m,31/5/2003,70037,Albanese,s,s,NULL,NULL,2018/2019,5,AD48,6,3
+22,Roberti,Tiziano,20022,EFDDD501EFD2953C,1FF18AD97EFB6F58,m,29/2/2010,70062,Francese,n,s,NULL,NULL,2018/2019,5,B17A,6,1
+23,Giannini,Roberto,20023,CCEB2DBBFBBF3C26,A88CE7A8E2DA76CD,f,10/7/2006,70049,Francese,s,s,NULL,NULL,2018/2019,1,7BE3,10,2
+24,Bianchi,Maria,20024,DDF6044BAECE460C,ABC4186BEC25A67F,m,14/6/2004,70000,Arabica,s,n,NULL,NULL,2018/2019,3,3F4E,9,2
+25,Roberti,Valentina,20025,9CD30E9C4EE2A1BF,D4431D2C2E5407B2,m,13/8/2010,70069,Turca,s,n,NULL,NULL,2018/2019,2,AFD7,6,1
+26,Russo,Emanuele,20026,ADB462AE41C2AF46,6CB6ADE78ABD3EF8,m,28/2/2000,70027,Italiana,s,s,NULL,NULL,2018/2019,3,C75B,10,2
+27,Mirandola,Elia,20027,D9BCEBF8FC5DF33F,4FE912EF452EC130,f,19/4/2004,70038,Arabica,n,s,NULL,NULL,2018/2019,3,C00B,8,1
+28,Mirandola,Lucia,20028,82D80EAD476E3EEC,9BC6DCB0EFFAB834,m,23/8/2006,70073,Albanese,s,n,NULL,NULL,2018/2019,4,F21D,8,1
+29,Mirandola,Alex,20029,3FC90BFCB8A69DC0,986BBB5A2DFEDDCC,f,13/2/2003,70009,Albanese,n,s,NULL,NULL,2018/2019,1,3E79,10,1
+30,Verdi,Valentina,20030,24A8114CED3DE23C,720F9D8BBF52420E,m,12/3/2008,70056,Polacca,s,n,NULL,NULL,2018/2019,5,4432,9,2
+31,Mirandola,Antonio,20031,A9AADAEB9E21BF7A,B588D54DE99498AA,f,22/8/2002,70025,Polacca,n,n,NULL,NULL,2018/2019,3,A530,10,1
+32,Giannini,Lucia,20032,DFDAFE46A7C45EB0,ADB462AE41C2AF46,m,26/2/2000,70024,Albanese,n,n,NULL,NULL,2018/2019,4,ED4E,8,1
+33,Roberti,Lucia,20033,ABC4186BEC25A67F,D24B6EF1AEB3AD9C,f,8/8/2005,70075,Francese,n,s,NULL,NULL,2018/2019,3,C73A,6,3
+34,Giannini,Roberto,20034,77A9F7DF9B74BEE1,E2692D95C1DDECF0,m,23/5/2006,70072,Polacca,n,n,NULL,NULL,2018/2019,4,2C47,9,3
+35,Bianchi,Antonio,20035,B9CFF1DEBB8BBACF,95BCFB199ED70E87,m,13/9/2004,70073,Francese,s,s,NULL,NULL,2018/2019,3,63B0,8,2
+36,Roberti,Fabio,20036,DE750643CE952BC4,ACDEC8DB8DDC5BC7,f,22/6/2007,70039,Australiana,n,s,NULL,NULL,2018/2019,4,F7CF,8,1
+37,Russo,Emanuele,20037,C4FE2FFC6E2BCA4A,DB2DD6883C0A7F12,f,6/7/2007,70014,Turca,n,s,NULL,NULL,2018/2019,4,BCD1,9,3
+38,Rossi,Tiziano,20038,58862600CACDBAB6,1FED39ECF9FC80DB,m,28/10/2000,70048,Francese,s,s,NULL,NULL,2018/2019,4,C0E6,6,2
+39,Mirandola,Tiziano,20039,36C89AAE9F45EAAA,EDD46FDFBEFF5C9F,m,15/8/2004,70037,Italiana,s,s,NULL,NULL,2018/2019,2,06CC,9,1
+40,Mirandola,Maria,20040,3CFBE4439FF5F65C,E4CEF7D7BAD89CB4,m,5/3/2002,70042,Australiana,n,n,NULL,NULL,2018/2019,2,40EE,8,1
+41,Giannini,Alex,20041,70C64552A6AA2B96,30C1B810CE4D51C8,f,6/4/2003,70025,Francese,n,n,NULL,NULL,2018/2019,4,FAFD,10,3
+42,Giannini,Antonio,20042,B4D020DDFFBEF144,BCEEABEC9A0E3BAF,f,8/4/2010,70002,Spagnola,n,n,NULL,NULL,2018/2019,1,50AC,6,2
+43,Valentini,Lucia,20043,7D7C7AE41E05CAA8,E785F7B8D3B5DE89,m,25/10/2001,70066,Spagnola,s,n,NULL,NULL,2018/2019,4,ED7B,10,3
+44,Bianchi,Fabio,20044,7E5BF54752ABDDEC,D5F0E25D095FB345,f,27/7/2007,70001,Francese,s,s,NULL,NULL,2018/2019,1,F0F6,9,3
+45,Rossi,Emanuele,20045,CFFCAACFE4F8CBE3,9BC6DCB0EFFAB834,m,14/9/2001,70049,Polacca,s,n,NULL,NULL,2018/2019,4,EEA8,9,3
+46,Verdi,Alex,20046,DB68C1327ED48FC3,50CD32AED9EE7589,f,29/8/2002,70044,Polacca,n,s,NULL,NULL,2018/2019,1,31EC,10,1
+47,Russo,Lucia,20047,E16E82AED533CF27,D5F0E25D095FB345,m,3/5/2001,70007,Albanese,s,s,NULL,NULL,2018/2019,3,1F0F,9,1
+48,Mirandola,Maria,20048,DDE3E99B7CCDECC5,5E5ADCAA21ECAABA,m,20/5/2004,70007,Turca,n,s,NULL,NULL,2018/2019,3,A550,9,2
+49,Valentini,Giacomo,20049,EB16485283CF879D,5B87FB1CB3EC4D5B,f,28/7/2010,70019,Albanese,s,s,NULL,NULL,2018/2019,5,9DED,7,3
+50,Scalco,Tiziano,20050,D15FCB27C0A72DC2,6C3C4CAEAA60CBE3,f,25/1/2006,70057,Spagnola,s,s,NULL,NULL,2018/2019,2,FFB6,8,1
+51,Valentini,Emanuele,20051,777D6F833CD7EB65,8AA7F6BAEAC04C5D,f,15/6/2006,70044,Albanese,n,n,NULL,NULL,2018/2019,2,DB4A,6,1
+52,Scalco,Giuseppe,20052,3C94BCC8FDDD38CD,5FDF5B59F82C0FDA,f,1/4/2002,70003,Albanese,s,s,NULL,NULL,2018/2019,1,D2BE,8,3
+53,Roberti,Emanuele,20053,57B5CBC484973CBA,C30CC2636E1DDBAC,f,22/10/2000,70014,Turca,s,n,NULL,NULL,2018/2019,4,FABC,9,3
+54,Russo,Elia,20054,E2BDEFCCABF9C7AE,FEFB1F4BD5BF3B0A,m,7/9/2001,70063,Italiana,n,n,NULL,NULL,2018/2019,1,BE9A,9,2
+55,Giannini,Roberto,20055,6EBBAFBA171A3B0A,299BC2AA87AAFA8B,m,10/10/2005,70071,Arabica,n,n,NULL,NULL,2018/2019,2,888F,8,3
+56,Mirandola,Tiziano,20056,9CC09EA2C34E6AA2,BD4CCAAC294E300C,f,12/11/2005,70003,Turca,s,s,NULL,NULL,2018/2019,1,9EDC,10,3
+57,Bianchi,Giuseppe,20057,DB27C2C7BABDDADD,CDADB30FCEDC8BF4,m,26/5/2007,70041,Albanese,s,s,NULL,NULL,2018/2019,3,AF50,10,2
+58,Verdi,Alex,20058,A4C47D48FEAD97A7,245EB2FF169FA3EC,f,30/1/2009,70072,Arabica,n,n,NULL,NULL,2018/2019,5,842C,7,1
+59,Mirandola,Antonio,20059,BAB99CC0B1A0E9F7,EDD46FDFBEFF5C9F,f,5/5/2002,70023,Tedesca,s,s,NULL,NULL,2018/2019,4,DC8F,8,2
+60,Rossi,Giuseppe,20060,52CD25EBEF139A23,575EAECADE8FA629,f,3/11/2000,70066,Turca,n,n,NULL,NULL,2018/2019,3,E2D8,7,1
+61,Verdi,Fabio,20061,F4FCBD2FB8A4C3AB,17C4A87AE903DCF1,f,28/6/2010,70075,Italiana,s,n,NULL,NULL,2018/2019,5,17D0,10,3
+62,Scalco,Valentina,20062,FCBCCBDE29DF6BFE,B4D020DDFFBEF144,m,31/9/2010,70065,Francese,s,s,NULL,NULL,2018/2019,2,E0AA,10,1
+63,Valentini,Roberto,20063,C23D3D5E367EF8FA,1FF18AD97EFB6F58,f,25/5/2007,70056,Tedesca,n,s,NULL,NULL,2018/2019,4,A2FA,9,2
+64,Russo,Lucia,20064,E9757179BBCF4BDB,5E5ADCAA21ECAABA,f,14/1/2000,70006,Polacca,n,s,NULL,NULL,2018/2019,4,6A2B,7,1
+65,Bianchi,Alex,20065,DECBFAEE1DF8A457,0EF5CCE1C3AB09DC,m,5/8/2002,70036,Arabica,n,s,NULL,NULL,2018/2019,3,1E1E,6,3
+66,Scalco,Antonio,20066,725AFBCED3ACE5ED,9ACFB4CBEDB60AAC,f,17/7/2001,70027,Polacca,n,s,NULL,NULL,2018/2019,3,FB8D,7,1
+67,Valentini,Elia,20067,819F79DABB56AB45,BFAD78EBF608AD8B,m,10/12/2004,70072,Tedesca,s,s,NULL,NULL,2018/2019,5,0CCC,8,2
+68,Russo,Elia,20068,3DCEDFE4BE8B180E,58862600CACDBAB6,m,1/6/2009,70069,Arabica,s,n,NULL,NULL,2018/2019,3,E2D9,9,3
+69,Bianchi,Fabio,20069,0EF5CCE1C3AB09DC,B0FCD0DECB2C941A,m,25/11/2002,70052,Tedesca,n,n,NULL,NULL,2018/2019,2,E5BA,6,2
+70,Scalco,Valentina,20070,5FDF5B59F82C0FDA,0E3D5EFCACE391EA,m,18/8/2004,70071,Francese,s,s,NULL,NULL,2018/2019,2,01CC,9,1
+71,Verdi,Fabio,20071,5F9FB93CF8AB6042,A35B1373FEEA568F,f,23/2/2004,70071,Tedesca,s,n,NULL,NULL,2018/2019,3,818D,9,2
+72,Russo,Giuseppe,20072,5E5ADCAA21ECAABA,47E9F6F18F0C6DB1,f,1/8/2004,70044,Polacca,n,n,NULL,NULL,2018/2019,1,AAE0,10,1
+73,Giannini,Tiziano,20073,C6A261EAA88ACECD,F608ACBADF2B9EE5,m,13/11/2004,70004,Albanese,s,s,NULL,NULL,2018/2019,2,CF2E,6,2
+74,Valentini,Elia,20074,E034297ED8FD31B3,FC613F92146337CB,f,28/3/2006,70052,Tedesca,s,n,NULL,NULL,2018/2019,3,2E28,9,2
+75,Valentini,Valentina,20075,6F4CDC911FC42B00,50CD32AED9EE7589,m,5/5/2004,70052,Tedesca,n,s,NULL,NULL,2018/2019,1,BCA0,6,1
+76,Roberti,Roberto,20076,E1ABAD6A6EDD831A,AB8B2E7F6D1DD3CC,f,8/2/2000,70058,Tedesca,n,s,NULL,NULL,2018/2019,3,DEAA,6,1
+77,Rossi,Giuseppe,20077,86FA7A5F9AA475C8,DAA1DE9A0D153C8C,f,22/9/2001,70031,Turca,n,s,NULL,NULL,2018/2019,2,DD4B,10,1
+78,Valentini,Maria,20078,BF487E3CCC773A3C,7FEEA39FACC23DBA,f,30/1/2000,70059,Tedesca,s,n,NULL,NULL,2018/2019,2,8AF0,8,3
+79,Bianchi,Roberto,20079,CE296FC6765CEC12,F85C4CC7BFDCAB4F,m,2/3/2002,70033,Italiana,n,n,NULL,NULL,2018/2019,5,6FC3,7,2
+80,Giannini,Alex,20080,C4E3AFD7A91F7B18,D5D5EF748F9F327C,f,14/12/2009,70055,Turca,n,s,NULL,NULL,2018/2019,2,041B,7,3
+81,Roberti,Elia,20081,A59CEAC62F3DCD8D,2B037FEF2B273D7F,m,20/6/2008,70006,Spagnola,s,s,NULL,NULL,2018/2019,1,0EAC,9,1
+82,Bianchi,Elia,20082,BD62A15B04E49D35,ABBD0F39E89B72F0,m,3/12/2005,70007,Polacca,s,s,NULL,NULL,2018/2019,2,6AFB,8,2
+83,Bianchi,Maria,20083,4DE8C3EA17E2873F,F9BA607A3D4F73C9,f,4/4/2008,70056,Francese,s,n,NULL,NULL,2018/2019,2,7FB2,7,1
+84,Scalco,Fabio,20084,B2C804CEC0BDFE29,124ABCAD79F1B27B,m,29/3/2008,70008,Italiana,n,n,NULL,NULL,2018/2019,1,EDAC,8,2
+85,Verdi,Antonio,20085,BC6BFBCBE3BAFBFC,3944E4ACCFDD117B,m,7/8/2005,70053,Albanese,n,s,NULL,NULL,2018/2019,5,F579,8,3
+86,Rossi,Maria,20086,77DA8BAE8EB442D8,F6C6DEAFEE82EE01,m,29/3/2001,70028,Arabica,s,n,NULL,NULL,2018/2019,5,52AB,7,1
+87,Roberti,Lucia,20087,5C75574BCD0381AB,ABA6DDAC60E94AED,f,5/12/2007,70033,Polacca,n,n,NULL,NULL,2018/2019,1,EACB,9,3
+88,Valentini,Giacomo,20088,1FF18AD97EFB6F58,575EAECADE8FA629,f,30/12/2009,70004,Albanese,n,n,NULL,NULL,2018/2019,1,E83B,7,2
+89,Russo,Valentina,20089,E6FD70BB22B1C4C3,EB4B318BC52ECEA7,f,10/6/2003,70054,Francese,n,s,NULL,NULL,2018/2019,1,EEAA,6,1
+90,Verdi,Valentina,20090,1BBFB3F6AE6D0BBA,D5D5EF748F9F327C,f,7/1/2004,70024,Turca,n,n,NULL,NULL,2018/2019,3,E654,7,1
+91,Rossi,Antonio,20091,575EAECADE8FA629,EB16485283CF879D,m,13/4/2003,70056,Italiana,s,n,NULL,NULL,2018/2019,4,8A8E,6,1
+92,Mirandola,Maria,20092,CC2BAA4BCAAC7CD4,FFECFEAC5BF2DB8B,m,14/9/2004,70038,Albanese,s,n,NULL,NULL,2018/2019,2,BF4D,6,1
+93,Scalco,Valentina,20093,FDF9D963EF0EE03B,AA3CAACEEE936DB9,m,12/12/2002,70067,Polacca,n,n,NULL,NULL,2018/2019,1,486A,10,2
+94,Roberti,Tiziano,20094,FD63FDA2FDD46A74,836E6B6D1F7D8BB7,f,17/11/2000,70019,Arabica,n,s,NULL,NULL,2018/2019,2,CADB,8,2
+95,Scalco,Alex,20095,B8DB92A5005D3F50,4DA16468E1C622B4,m,5/1/2006,70017,Italiana,s,n,NULL,NULL,2018/2019,4,6179,9,1
+96,Roberti,Fabio,20096,8DAE7D9FC807168C,BC3B17E1D7FA4A85,f,19/9/2004,70068,Albanese,s,n,NULL,NULL,2018/2019,3,6AFE,7,1
+97,Scalco,Elia,20097,DCCF36D31EF6B1BF,DA4E336ACFC36F59,f,1/4/2010,70053,Albanese,n,n,NULL,NULL,2018/2019,5,5DE1,8,1
+98,Giannini,Giuseppe,20098,9A9A1AC00D7F40F2,9BC6DCB0EFFAB834,f,4/7/2010,70053,Francese,s,s,NULL,NULL,2018/2019,1,E11F,6,3
+99,Rossi,Giacomo,20099,ED00AB1C63AC2A66,9CD30E9C4EE2A1BF,f,12/2/2010,70031,Tedesca,n,n,NULL,NULL,2018/2019,2,696B,10,2
+100,Mirandola,Alex,20100,EDD46FDFBEFF5C9F,72A7F84929641AFF,f,24/3/2005,70000,Francese,n,n,NULL,NULL,2018/2019,3,1F3E,9,2
+101,Scalco,Lucia,20101,27FFCA29B6B3CA67,1FED39ECF9FC80DB,f,5/1/2001,70028,Arabica,n,n,NULL,NULL,2018/2019,1,0CC6,8,3
+102,Rossi,Alex,20102,6F5C34FD78CEC17F,BAAEFE3C3BBFCFBD,m,11/12/2008,70001,Francese,s,s,NULL,NULL,2018/2019,3,45E4,8,3
+103,Rossi,Tiziano,20103,B17CAB7B1BBB09C3,54DB8BFB4C32ED7C,m,3/5/2004,70004,Francese,s,n,NULL,NULL,2018/2019,5,BAD0,8,2
+104,Mirandola,Roberto,20104,CC6587AB808B461A,81F36D41BD7D45AC,m,6/3/2010,70058,Turca,n,n,NULL,NULL,2018/2019,4,6BD8,10,3
+105,Scalco,Fabio,20105,B732FBEAAECFBEFE,5B87FB1CB3EC4D5B,f,1/8/2002,70035,Australiana,n,s,NULL,NULL,2018/2019,3,CB5D,10,3
+106,Russo,Giuseppe,20106,17FAFFB42FF90F4F,BD98DC07F7A548FA,f,17/10/2004,70037,Australiana,s,n,NULL,NULL,2018/2019,1,C0C7,8,1
+107,Giannini,Tiziano,20107,A9F8DD7B3ADDDAE6,9966BCB3D1B4A08B,f,26/3/2003,70008,Polacca,s,s,NULL,NULL,2018/2019,4,EB7A,6,1
+108,Russo,Lucia,20108,EAFB91AB27826A8A,A0F1DE2EE87EADEC,f,23/7/2006,70019,Albanese,s,s,NULL,NULL,2018/2019,3,7BA9,8,3
+109,Verdi,Valentina,20109,E6D12BEBD91FCEDD,CBDE2BAEDCAFB10A,f,28/8/2002,70003,Arabica,s,s,NULL,NULL,2018/2019,5,82E2,6,2
+110,Valentini,Tiziano,20110,D495EDAF30D2E11D,8AA7F6BAEAC04C5D,f,16/3/2003,70057,Albanese,n,s,NULL,NULL,2018/2019,2,D2CA,10,1
+111,Roberti,Giuseppe,20111,316E20C084F5BCA4,050D1E91CD8FF75E,f,21/3/2009,70011,Turca,n,n,NULL,NULL,2018/2019,5,0FA4,7,1
+112,Verdi,Antonio,20112,7ADBA3D75ED0DA59,AF3A1E4DA6EDAEEA,m,16/10/2005,70047,Turca,s,n,NULL,NULL,2018/2019,1,1E8F,6,3
+113,Bianchi,Antonio,20113,90C97ECC87FAFD7F,D5F0E25D095FB345,m,25/3/2010,70017,Australiana,s,n,NULL,NULL,2018/2019,3,5CF2,8,1
+114,Mirandola,Giacomo,20114,C85F1F6D42CC21CC,82EFBE9D7DFEABC5,m,16/5/2003,70070,Tedesca,s,s,NULL,NULL,2018/2019,4,E94B,6,3
+115,Valentini,Roberto,20115,CE5FD05F0DDEB9BA,FC613F92146337CB,m,28/4/2010,70038,Arabica,s,s,NULL,NULL,2018/2019,3,5BFF,8,1
+116,Scalco,Roberto,20116,1EB0CED18DE2DEE0,CBDE2BAEDCAFB10A,m,19/5/2001,70005,Australiana,n,s,NULL,NULL,2018/2019,1,217F,8,2
+117,Mirandola,Giuseppe,20117,1E2A61489D08062B,F9FFB035224DFB07,m,25/5/2005,70036,Francese,n,s,NULL,NULL,2018/2019,3,E4AC,8,3
+118,Rossi,Roberto,20118,BD4CCAAC294E300C,BD69B68FF120F604,m,15/12/2008,70033,Spagnola,n,s,NULL,NULL,2018/2019,1,18FA,6,3
+119,Rossi,Tiziano,20119,D3F9AC7AC975CDEC,A2C3C7CCE0EA2727,f,15/12/2000,70039,Polacca,s,s,NULL,NULL,2018/2019,5,A5AF,7,2
+120,Giannini,Giuseppe,20120,4054920721DB1781,9B9C1E709DD5074F,f,6/8/2007,70048,Turca,n,n,NULL,NULL,2018/2019,3,FBBC,9,2
+121,Bianchi,Giacomo,20121,6CB6ADE78ABD3EF8,B2C804CEC0BDFE29,m,5/12/2002,70012,Polacca,s,n,NULL,NULL,2018/2019,4,9A66,9,3
+122,Verdi,Elia,20122,88CB3F2FBEF2A451,A66ED2A00AA8AD1F,m,31/12/2010,70061,Polacca,s,n,NULL,NULL,2018/2019,1,3DB3,10,1
+123,Valentini,Giacomo,20123,ABBD0F39E89B72F0,F1FEEC4368ADD0A0,f,10/6/2005,70016,Italiana,n,n,NULL,NULL,2018/2019,4,6C0B,8,3
+124,Giannini,Fabio,20124,DB2DD6883C0A7F12,A018CAA1EEC82BED,m,28/1/2007,70031,Italiana,n,s,NULL,NULL,2018/2019,4,9AAF,7,3
+125,Rossi,Antonio,20125,CD3E9A0F2FBAFF87,E30F9ABFD0EBAA52,f,6/5/2008,70009,Spagnola,s,s,NULL,NULL,2018/2019,5,026C,8,2
+126,Giannini,Alex,20126,C4B48B47A8BC0A9E,D1BF059D2AE9012A,f,16/4/2002,70022,Tedesca,s,s,NULL,NULL,2018/2019,1,8213,9,2
+127,Roberti,Giuseppe,20127,40BCFDCBC7DCE4EA,72254BFD8F5E4FBD,f,20/10/2004,70038,Francese,s,n,NULL,NULL,2018/2019,5,EAC9,7,3
+128,Scalco,Maria,20128,30C1B810CE4D51C8,DBD526D9DBFD9A12,f,24/5/2009,70060,Italiana,s,s,NULL,NULL,2018/2019,5,5A7E,6,3
+129,Russo,Giuseppe,20129,BFAD78EBF608AD8B,AEF636C0A0EBD1D2,m,19/3/2002,70019,Polacca,n,n,NULL,NULL,2018/2019,5,431C,8,1
+130,Valentini,Alex,20130,0BCAAB84505366EE,17FAFFB42FF90F4F,m,31/1/2000,70068,Spagnola,s,n,NULL,NULL,2018/2019,5,E9A9,8,3
+131,Rossi,Alex,20131,C2ECA9BFC6BF9FE0,A4C47D48FEAD97A7,f,23/9/2005,70068,Albanese,n,n,NULL,NULL,2018/2019,4,1DEB,8,3
+132,Rossi,Roberto,20132,AB991F4B5283DEC4,AA3CAACEEE936DB9,f,18/5/2003,70062,Tedesca,s,s,NULL,NULL,2018/2019,4,AADB,10,1
+133,Russo,Alex,20133,ABA6DDAC60E94AED,A66ED2A00AA8AD1F,m,21/8/2003,70008,Turca,s,s,NULL,NULL,2018/2019,5,E888,9,1
+134,Scalco,Antonio,20134,6559E65836B5EDFF,575EAECADE8FA629,m,31/8/2007,70068,Turca,s,n,NULL,NULL,2018/2019,5,C4E0,8,2
+135,Roberti,Giacomo,20135,CBDE2BAEDCAFB10A,CE296FC6765CEC12,m,22/7/2000,70062,Tedesca,n,s,NULL,NULL,2018/2019,1,D115,10,3
+136,Mirandola,Antonio,20136,C6F9BAF6DB3D427C,B286EEB2E9523E4A,f,6/11/2007,70047,Italiana,n,s,NULL,NULL,2018/2019,5,3C5A,9,2
+137,Roberti,Alex,20137,213EA4EABEB4DCDA,5D8EDBFE5A7C85CE,f,25/3/2009,70033,Spagnola,s,n,NULL,NULL,2018/2019,5,FD08,7,2
+138,Roberti,Roberto,20138,71F895E5C191ACFC,DDE3E99B7CCDECC5,m,11/3/2002,70056,Turca,n,n,NULL,NULL,2018/2019,2,384B,10,2
+139,Russo,Maria,20139,2FC668EBFFAEEB18,5EDDEDCA25F9DBB6,f,25/8/2007,70005,Arabica,n,n,NULL,NULL,2018/2019,2,EF07,7,3
+140,Verdi,Valentina,20140,F5B66C6B9CEBDE74,BD69B68FF120F604,f,14/9/2010,70066,Australiana,n,s,NULL,NULL,2018/2019,4,17FE,9,2
+141,Valentini,Emanuele,20141,971FFAEC2BB6BD60,0F1C3452AE7CC0FC,f,7/11/2003,70070,Italiana,s,n,NULL,NULL,2018/2019,4,E2B9,7,3
+142,Roberti,Giacomo,20142,C21E0A872C72AA8D,5E5ADCAA21ECAABA,m,20/7/2007,70055,Turca,s,s,NULL,NULL,2018/2019,4,B3FB,9,3
+143,Scalco,Alex,20143,3B65FAF9EADCEE4F,213EA4EABEB4DCDA,m,19/4/2006,70040,Tedesca,n,s,NULL,NULL,2018/2019,3,A5E7,8,1
+144,Giannini,Lucia,20144,D475678C5C79CFEC,7D7C7AE41E05CAA8,f,29/11/2005,70070,Polacca,n,s,NULL,NULL,2018/2019,4,EBDA,10,1
+145,Mirandola,Roberto,20145,50E2CFF5AC3AA723,A59CEAC62F3DCD8D,m,21/3/2006,70007,Arabica,s,s,NULL,NULL,2018/2019,5,FC93,10,1
+146,Bianchi,Emanuele,20146,314A393C2CF6F8F1,4EFAA45EB8989314,m,22/2/2002,70054,Turca,s,n,NULL,NULL,2018/2019,1,D419,9,1
+147,Bianchi,Tiziano,20147,FFACC2BE6E19BBFD,C092DDD15F8AB876,m,22/8/2006,70055,Albanese,s,s,NULL,NULL,2018/2019,5,BF7F,8,2
+148,Scalco,Valentina,20148,2B037FEF2B273D7F,DBD8D6CFCE5E3CFE,f,23/3/2008,70010,Polacca,n,n,NULL,NULL,2018/2019,3,BAFF,10,1
+149,Valentini,Elia,20149,53FB94CBBC28682E,8F0BD9CF6B42DCCE,m,4/12/2001,70043,Turca,s,n,NULL,NULL,2018/2019,5,52CE,7,2
+150,Verdi,Giacomo,20150,EBB1A6DEFBC775F8,A88CE7A8E2DA76CD,m,17/12/2009,70004,Francese,n,n,NULL,NULL,2018/2019,4,BFE0,8,3
+151,Roberti,Lucia,20151,BCEEABEC9A0E3BAF,BAAEFE3C3BBFCFBD,m,19/1/2006,70067,Polacca,s,s,NULL,NULL,2018/2019,1,0FCC,10,2
+152,Russo,Tiziano,20152,E137B2B13E7AAC6B,C30CC2636E1DDBAC,m,7/10/2000,70042,Arabica,n,s,NULL,NULL,2018/2019,3,E717,6,1
+153,Giannini,Valentina,20153,C2DBBDA47A369F64,57B5CBC484973CBA,m,19/4/2010,70032,Turca,s,n,NULL,NULL,2018/2019,4,DDBA,7,3
+154,Russo,Fabio,20154,9B9C1E709DD5074F,B5F54AE3D3FBADE6,m,19/6/2000,70038,Spagnola,n,s,NULL,NULL,2018/2019,1,9DF0,7,2
+155,Mirandola,Giacomo,20155,D321A7FDC6AEEDF2,6F5C34FD78CEC17F,f,4/2/2008,70068,Italiana,s,s,NULL,NULL,2018/2019,5,056D,6,2
+156,Giannini,Alex,20156,83EFBA3A46D5C8C3,5BCDB8272BCE141E,f,21/10/2009,70075,Spagnola,s,n,NULL,NULL,2018/2019,5,C72B,6,2
+157,Mirandola,Roberto,20157,BD69B68FF120F604,CA7DFF0E6E32AD79,f,26/8/2005,70042,Australiana,n,s,NULL,NULL,2018/2019,2,DD3F,7,1
+158,Rossi,Lucia,20158,C3FEEA330608E301,77DA8BAE8EB442D8,f,1/12/2007,70034,Francese,s,s,NULL,NULL,2018/2019,5,7D0A,10,3
+159,Mirandola,Antonio,20159,DB53C1D82110D38C,920CF5F13E6EABB7,f,25/5/2008,70026,Arabica,n,n,NULL,NULL,2018/2019,1,AEC2,9,2
+160,Bianchi,Alex,20160,A9EED2DB6F3329F0,BA0CBDFAE4DB1CCF,f,18/12/2007,70065,Polacca,n,n,NULL,NULL,2018/2019,1,AF7B,6,3
+161,Verdi,Lucia,20161,63C4A4ED7ECAEFD7,3B80A6D6ED68E6E8,m,9/8/2006,70019,Australiana,s,n,NULL,NULL,2018/2019,1,ECD7,10,3
+162,Bianchi,Tiziano,20162,EFE50B4E2A3E19FE,C23D3D5E367EF8FA,m,31/8/2010,70004,Arabica,s,s,NULL,NULL,2018/2019,2,5D25,9,1
+163,Russo,Giacomo,20163,CEE2CCE205E5CDD5,BD69B68FF120F604,m,7/6/2010,70062,Turca,n,n,NULL,NULL,2018/2019,2,1748,10,1
+164,Valentini,Fabio,20164,FB18C7CDAD3C32E7,D0BC2E2AAD259F3F,f,22/1/2009,70031,Italiana,n,n,NULL,NULL,2018/2019,4,27EA,7,2
+165,Valentini,Lucia,20165,ECB5CAAB3A4AE1D4,3944E4ACCFDD117B,m,9/8/2008,70015,Tedesca,s,n,NULL,NULL,2018/2019,3,BFC1,9,2
+166,Bianchi,Giuseppe,20166,BFF99E05EB78DCAA,C2DBBDA47A369F64,f,21/3/2005,70050,Francese,s,n,NULL,NULL,2018/2019,4,FC1B,8,3
+167,Mirandola,Elia,20167,3B80A6D6ED68E6E8,314A393C2CF6F8F1,m,16/9/2002,70044,Turca,s,n,NULL,NULL,2018/2019,5,9EFE,7,2
+168,Bianchi,Tiziano,20168,DBD526D9DBFD9A12,6998FCC0646BEBF2,f,15/11/2002,70064,Albanese,n,n,NULL,NULL,2018/2019,2,6CAD,8,2
+169,Scalco,Maria,20169,1A38ACCADFBE7EBB,5C75574BCD0381AB,m,12/5/2003,70009,Spagnola,s,s,NULL,NULL,2018/2019,2,EA1B,7,2
+170,Verdi,Giuseppe,20170,F4CFF85DFDABD426,72254BFD8F5E4FBD,m,20/1/2002,70013,Arabica,n,n,NULL,NULL,2018/2019,5,EE5C,7,3
+171,Scalco,Elia,20171,6931DB9DA0319AEE,8DD1DFE0F9F29C34,f,16/5/2004,70065,Francese,n,s,NULL,NULL,2018/2019,5,F5BF,7,2
+172,Russo,Emanuele,20172,A6AAF3FDEDBA15B7,E6D12BEBD91FCEDD,f,28/12/2009,70068,Albanese,n,n,NULL,NULL,2018/2019,4,C0E0,8,2
+173,Verdi,Valentina,20173,FFECFEAC5BF2DB8B,ACEEEFB8258BCDD3,m,27/4/2002,70009,Spagnola,s,s,NULL,NULL,2018/2019,4,1C7F,10,1
+174,Roberti,Elia,20174,7DC0EADFDEDAE329,8AE769BD1F2279BB,m,13/2/2009,70020,Tedesca,n,s,NULL,NULL,2018/2019,2,4A42,8,2
+175,Valentini,Valentina,20175,C73FBCEF8FADAD50,AABF97C7A19ED7DA,m,2/1/2010,70024,Italiana,s,s,NULL,NULL,2018/2019,4,B4DA,10,1
+176,Russo,Elia,20176,A66ED2A00AA8AD1F,5EDDEDCA25F9DBB6,m,19/2/2009,70041,Turca,n,n,NULL,NULL,2018/2019,2,2FF3,8,2
+177,Scalco,Elia,20177,DA41EEF85F1DEABC,E6453EFBCC6AC022,f,1/11/2004,70060,Australiana,n,s,NULL,NULL,2018/2019,3,A308,7,2
+178,Bianchi,Lucia,20178,CA7DFF0E6E32AD79,3D3BF204E9AF7BE2,f,7/7/2000,70031,Italiana,s,n,NULL,NULL,2018/2019,3,7C30,6,1
+179,Rossi,Roberto,20179,EEED5FBE3DDA73D4,7762EA7D5A1456EB,f,7/5/2005,70024,Albanese,s,n,NULL,NULL,2018/2019,1,ECCD,7,3
+180,Giannini,Tiziano,20180,BADDCFA82EE5D8E6,BC3B17E1D7FA4A85,m,15/7/2010,70031,Francese,n,s,NULL,NULL,2018/2019,2,DC1F,8,3
+181,Roberti,Antonio,20181,9ACFB4CBEDB60AAC,F608ACBADF2B9EE5,f,13/12/2009,70047,Albanese,s,s,NULL,NULL,2018/2019,5,6CCD,9,1
+182,Bianchi,Emanuele,20182,6ABEAE24EDD2DA7B,AA3CAACEEE936DB9,f,18/8/2005,70032,Arabica,s,n,NULL,NULL,2018/2019,4,69CB,6,1
+183,Mirandola,Giuseppe,20183,D24B6EF1AEB3AD9C,C9AF6A9BDBBE5EFE,m,1/5/2009,70061,Arabica,n,n,NULL,NULL,2018/2019,1,0C0E,9,1
+184,Mirandola,Elia,20184,CEFACF2EA39EBECB,FD1CC96BFB0BB050,f,25/12/2007,70018,Francese,s,s,NULL,NULL,2018/2019,5,54AA,8,1
+185,Valentini,Giacomo,20185,FD1CC96BFB0BB050,48C2BC2D5245BFBD,f,1/4/2006,70011,Albanese,n,n,NULL,NULL,2018/2019,2,4524,10,3
+186,Scalco,Antonio,20186,3C2C3CCCEAC88ADA,725AFBCED3ACE5ED,f,26/5/2001,70026,Francese,n,s,NULL,NULL,2018/2019,1,ADD2,8,1
+187,Mirandola,Fabio,20187,8AE769BD1F2279BB,9A9A1AC00D7F40F2,m,11/9/2009,70062,Albanese,s,n,NULL,NULL,2018/2019,4,D76B,10,2
+188,Russo,Giacomo,20188,1255C0EC001E8F5B,FB18C7CDAD3C32E7,f,22/5/2007,70011,Turca,s,s,NULL,NULL,2018/2019,2,86AE,10,3
+189,Valentini,Emanuele,20189,245EB2FF169FA3EC,FCBCCBDE29DF6BFE,f,14/3/2001,70032,Polacca,s,s,NULL,NULL,2018/2019,5,76FD,6,3
+190,Verdi,Fabio,20190,F92AC3FC8ECAF191,8AE769BD1F2279BB,f,19/12/2004,70014,Spagnola,s,n,NULL,NULL,2018/2019,4,FAFB,6,2
+191,Mirandola,Elia,20191,87EEEBBD9579AD80,FD11DB6DE0E08633,m,8/3/2004,70068,Italiana,s,n,NULL,NULL,2018/2019,5,68BB,6,2
+192,Scalco,Maria,20192,6998FCC0646BEBF2,17C4A87AE903DCF1,f,24/3/2003,70044,Albanese,s,s,NULL,NULL,2018/2019,4,CF5C,6,1
+193,Mirandola,Roberto,20193,BFCB73DFAB6CDDE2,D0BC2E2AAD259F3F,m,8/8/2008,70027,Tedesca,s,n,NULL,NULL,2018/2019,1,60B5,7,1
+194,Verdi,Valentina,20194,806B5C43A7BBB1EE,A45D555CD22F7FDF,f,14/11/2010,70028,Italiana,n,n,NULL,NULL,2018/2019,5,C1DD,9,3
+195,Mirandola,Giacomo,20195,BD6C432F888C28EF,A9F8DD7B3ADDDAE6,f,7/5/2002,70022,Australiana,s,n,NULL,NULL,2018/2019,5,6187,9,1
+196,Roberti,Valentina,20196,4CB2D4A8FDAF7DEF,E82E8581AEC13A2C,f,15/2/2009,70067,Australiana,s,s,NULL,NULL,2018/2019,2,196E,6,2
+197,Verdi,Elia,20197,75EBD276B4B781AF,465EE0BC806D86C8,f,11/8/2001,70051,Italiana,s,n,NULL,NULL,2018/2019,5,FFE0,8,3
+198,Rossi,Roberto,20198,5C250D69CCABA0CC,A6AAF3FDEDBA15B7,f,2/12/2002,70014,Polacca,n,n,NULL,NULL,2018/2019,5,B55B,7,3
+199,Valentini,Giuseppe,20199,BBC75ECA8EC6BEFA,F85C4CC7BFDCAB4F,m,31/11/2003,70014,Polacca,n,s,NULL,NULL,2018/2019,4,E6ED,10,1
+200,Bianchi,Emanuele,20200,E7B94C9FBD5BCD53,3DCEDFE4BE8B180E,f,2/4/2007,70047,Tedesca,n,s,NULL,NULL,2018/2019,2,20A8,9,3
+201,Mirandola,Maria,20201,FA6AD3A1AADDC4D3,F5B66C6B9CEBDE74,m,31/10/2001,70023,Tedesca,n,s,NULL,NULL,2018/2019,5,F7D7,8,3
+202,Verdi,Antonio,20202,DD58DD1EEE15552C,FDF9D963EF0EE03B,m,23/2/2002,70016,Italiana,n,s,NULL,NULL,2018/2019,1,D4A3,9,2
+203,Scalco,Emanuele,20203,BC447EB1DC9AAA5F,9ACFB4CBEDB60AAC,f,14/8/2009,70052,Polacca,s,n,NULL,NULL,2018/2019,2,71C2,6,3
+204,Mirandola,Valentina,20204,673BBEDFFDBDFEBC,FAE147BEFD1BAB5B,f,11/5/2009,70032,Francese,n,s,NULL,NULL,2018/2019,4,ADF0,6,1
+205,Scalco,Tiziano,20205,5146F26EF8240B5D,1FF18AD97EFB6F58,m,30/7/2000,70074,Francese,n,n,NULL,NULL,2018/2019,3,BF5D,7,2
+206,Giannini,Giacomo,20206,DAF63B6C0443DA0F,3D3BF204E9AF7BE2,m,4/8/2003,70010,Spagnola,s,n,NULL,NULL,2018/2019,2,5FF0,6,3
+207,Roberti,Valentina,20207,EE623C5C63C94D5B,8A468AD11CB1FC07,m,15/10/2007,70024,Turca,s,n,NULL,NULL,2018/2019,4,2ED9,10,3
+208,Mirandola,Giuseppe,20208,38EF568E177770DD,ABBD0F39E89B72F0,m,8/7/2004,70072,Australiana,s,n,NULL,NULL,2018/2019,1,DADE,7,2
+209,Bianchi,Emanuele,20209,F6C6DEAFEE82EE01,8AA7F6BAEAC04C5D,f,31/12/2007,70008,Turca,n,s,NULL,NULL,2018/2019,1,ABBD,7,2
+210,Valentini,Lucia,20210,9E90EE14BE569F50,3F59EECFFCABD5EF,f,12/1/2003,70064,Polacca,n,s,NULL,NULL,2018/2019,4,FA3C,7,1
+211,Valentini,Fabio,20211,7DA0EEC7E6DC4589,E5CAFCFAB12BBE8D,m,27/1/2004,70071,Polacca,s,n,NULL,NULL,2018/2019,4,65BB,9,1
+212,Russo,Emanuele,20212,1EEDE87038B7DDB4,DCCF36D31EF6B1BF,f,27/12/2002,70010,Tedesca,s,n,NULL,NULL,2018/2019,2,A6AC,7,1
+213,Valentini,Maria,20213,3FFCC99F9DDB7A7F,785AD654FEA7BABF,f,7/10/2000,70019,Spagnola,n,s,NULL,NULL,2018/2019,1,4D21,10,2
+214,Bianchi,Fabio,20214,BC5C40CEFBB96C8B,FE03D24312B531A2,m,8/8/2010,70056,Francese,s,s,NULL,NULL,2018/2019,4,2005,10,1
+215,Russo,Lucia,20215,AA6A99BA8AE890B1,86FA7A5F9AA475C8,m,23/2/2002,70051,Arabica,s,s,NULL,NULL,2018/2019,2,A758,10,3
+216,Scalco,Giacomo,20216,AABF97C7A19ED7DA,DBEC08FF7B06D13C,m,26/3/2008,70049,Australiana,n,n,NULL,NULL,2018/2019,4,9E70,10,2
+217,Rossi,Maria,20217,F93860BFC408FFCA,82D80EAD476E3EEC,m,13/5/2006,70032,Tedesca,n,s,NULL,NULL,2018/2019,4,3B90,7,2
+218,Scalco,Fabio,20218,79EAEF28C1B5DEAE,1E2A61489D08062B,f,28/10/2009,70027,Albanese,n,n,NULL,NULL,2018/2019,4,BFFC,9,1
+219,Roberti,Lucia,20219,EBBEBAC8C7EDDB1F,4ECDED1BADCD0553,f,6/3/2000,70029,Polacca,n,n,NULL,NULL,2018/2019,5,FACA,10,1
+220,Mirandola,Maria,20220,82EFBE9D7DFEABC5,245EB2FF169FA3EC,m,12/6/2004,70063,Spagnola,n,n,NULL,NULL,2018/2019,5,FDD2,6,3
+221,Bianchi,Alex,20221,EB4B318BC52ECEA7,B5E7E0C8BA8E67F2,m,24/5/2010,70000,Turca,s,s,NULL,NULL,2018/2019,1,EFC1,7,2
+222,Bianchi,Elia,20222,B286EEB2E9523E4A,64F813148A0FEA43,f,14/3/2002,70021,Turca,s,n,NULL,NULL,2018/2019,2,6605,6,3
+223,Roberti,Antonio,20223,B68CAFD2895E4BEE,DCCC16B16AAEB0FF,f,5/8/2006,70029,Turca,n,n,NULL,NULL,2018/2019,2,FE1E,8,1
+224,Mirandola,Elia,20224,F72217FAFD6D76E8,7731BB7ADAB7F8F3,m,11/2/2002,70051,Albanese,n,n,NULL,NULL,2018/2019,2,AFAB,8,2
+225,Giannini,Maria,20225,6E3E67BC6F19CEE0,E0BB5B7A9AF7EE92,m,9/12/2001,70069,Francese,n,s,NULL,NULL,2018/2019,2,F5E9,7,2
+226,Roberti,Tiziano,20226,AA320B82DDECAD10,C2DBBDA47A369F64,m,8/7/2000,70043,Italiana,n,s,NULL,NULL,2018/2019,2,B8CD,7,2
+227,Verdi,Roberto,20227,E0ECFFCBD47FCADE,E6FD70BB22B1C4C3,f,17/1/2008,70033,Polacca,n,s,NULL,NULL,2018/2019,1,A668,10,3
+228,Russo,Maria,20228,F774DCDF89FDD7ED,DA41EEF85F1DEABC,m,10/2/2006,70006,Tedesca,n,s,NULL,NULL,2018/2019,5,8C16,8,1
+229,Mirandola,Alex,20229,A740C5EA33BA2BDC,4E1EF872D4141B07,m,24/11/2008,70006,Albanese,n,s,NULL,NULL,2018/2019,3,0707,7,2
+230,Scalco,Emanuele,20230,5D8D9C1BEB23E63F,5E5ADCAA21ECAABA,m,15/11/2002,70058,Albanese,s,n,NULL,NULL,2018/2019,1,8FCC,6,2
+231,Giannini,Tiziano,20231,ACFC9979C1CF7599,9ACFB4CBEDB60AAC,m,18/12/2002,70059,Spagnola,s,s,NULL,NULL,2018/2019,3,87EF,9,3
+232,Scalco,Fabio,20232,D4431D2C2E5407B2,AA320B82DDECAD10,m,10/10/2003,70066,Australiana,n,s,NULL,NULL,2018/2019,2,0DA2,10,3
+233,Rossi,Emanuele,20233,14EAFAD50EAF7368,D8864CCB7AF19E75,m,4/1/2000,70060,Spagnola,s,s,NULL,NULL,2018/2019,4,27DC,6,2
+234,Rossi,Antonio,20234,8EEA4B5AE0CE6FC6,5BCDB8272BCE141E,f,23/7/2009,70066,Arabica,s,s,NULL,NULL,2018/2019,3,AD3F,6,3
+235,Mirandola,Antonio,20235,BAAEFE3C3BBFCFBD,6E41831AAA5DE1C8,f,19/3/2003,70074,Turca,n,s,NULL,NULL,2018/2019,2,04C8,8,3
+236,Rossi,Giuseppe,20236,0A9CA5D01CC4AEA9,22BCB4BE1BDDA6B5,f,24/10/2008,70019,Polacca,n,n,NULL,NULL,2018/2019,4,36E6,7,3
+237,Scalco,Antonio,20237,B5E7E0C8BA8E67F2,6C3C4CAEAA60CBE3,f,1/5/2001,70059,Italiana,s,n,NULL,NULL,2018/2019,4,1580,7,2
+238,Roberti,Emanuele,20238,AF3A1E4DA6EDAEEA,EE8DAFAEDFC49E18,m,17/12/2002,70042,Arabica,n,n,NULL,NULL,2018/2019,4,4BF3,9,3
+239,Valentini,Antonio,20239,A4AE8F5328041B7A,DAF63B6C0443DA0F,f,14/6/2005,70056,Francese,s,n,NULL,NULL,2018/2019,1,ECDA,8,1
+240,Verdi,Fabio,20240,0EC2ED98B4AC2C82,ACDEC8DB8DDC5BC7,f,20/5/2001,70046,Australiana,n,n,NULL,NULL,2018/2019,1,DD72,6,3
+241,Bianchi,Fabio,20241,E2692D95C1DDECF0,4CB2D4A8FDAF7DEF,f,31/3/2007,70074,Turca,n,n,NULL,NULL,2018/2019,5,3A1C,8,1
+242,Mirandola,Maria,20242,8AFB171B6C783E64,AF3A1E4DA6EDAEEA,m,25/11/2006,70053,Italiana,n,s,NULL,NULL,2018/2019,4,E5BA,7,1
+243,Roberti,Emanuele,20243,B57FEF2E2F1C2A89,8AA7F6BAEAC04C5D,m,19/5/2002,70018,Albanese,n,s,NULL,NULL,2018/2019,2,BF0E,9,3
+244,Mirandola,Alex,20244,9966BCB3D1B4A08B,9D7CCB6B86D4BD3A,f,29/2/2004,70057,Australiana,s,s,NULL,NULL,2018/2019,2,A6FA,8,1
+245,Giannini,Emanuele,20245,36646B7F1818BD8C,A35B1373FEEA568F,f,19/11/2000,70063,Turca,s,s,NULL,NULL,2018/2019,5,E6FF,8,1
+246,Verdi,Tiziano,20246,A30AF1B3AA2E01D3,5F9FB93CF8AB6042,m,4/12/2009,70035,Australiana,n,n,NULL,NULL,2018/2019,5,50FA,8,3
+247,Mirandola,Elia,20247,4D84E28FEC605C64,16E1AD57DC9E5BCC,f,8/2/2004,70063,Turca,n,n,NULL,NULL,2018/2019,2,BCBC,7,1
+248,Bianchi,Valentina,20248,4F88A2D5536F782A,DC6A36BA6EBB8E1E,m,26/6/2009,70022,Arabica,n,s,NULL,NULL,2018/2019,5,BCC6,10,2
+249,Valentini,Alex,20249,77929B7B07C5B5EE,A66ED2A00AA8AD1F,m,17/12/2007,70070,Arabica,s,s,NULL,NULL,2018/2019,2,65CB,7,1
+250,Russo,Elia,20250,DDD57BCA759F12EC,DAF63B6C0443DA0F,m,9/8/2000,70027,Francese,n,s,NULL,NULL,2018/2019,5,0B4A,7,1
+251,Verdi,Fabio,20251,A737C62ABAF3C37B,9E90EE14BE569F50,f,24/8/2004,70034,Tedesca,n,n,NULL,NULL,2018/2019,3,39DD,10,2
+252,Mirandola,Valentina,20252,06A059231F937BDE,AB991F4B5283DEC4,f,26/11/2005,70064,Francese,s,n,NULL,NULL,2018/2019,4,9B2C,7,1
+253,Mirandola,Giuseppe,20253,4DA16468E1C622B4,FD1CC96BFB0BB050,m,30/10/2000,70061,Turca,s,s,NULL,NULL,2018/2019,5,8F09,6,3
+254,Giannini,Alex,20254,48CEE76AD9941C8A,EB16485283CF879D,f,11/3/2006,70037,Francese,s,s,NULL,NULL,2018/2019,1,E714,10,3
+255,Roberti,Giacomo,20255,CC30EB1B58F1B587,CD056D75BE983E39,f,4/11/2003,70043,Arabica,n,s,NULL,NULL,2018/2019,5,85EC,7,3
+256,Verdi,Emanuele,20256,E9D3DAE98D75D7FF,49D9BACE8C03E6FB,f,9/1/2001,70064,Turca,n,s,NULL,NULL,2018/2019,2,95BF,6,1
+257,Roberti,Giuseppe,20257,050D1E91CD8FF75E,CEB63AEBF3ABADDA,m,10/8/2003,70000,Albanese,n,s,NULL,NULL,2018/2019,5,C5D4,10,3
+258,Bianchi,Fabio,20258,465EE0BC806D86C8,CBAFDEAC5CD1FFCD,f,26/10/2007,70039,Turca,s,n,NULL,NULL,2018/2019,2,0ECE,10,2
+259,Rossi,Emanuele,20259,075DD9EA46712EAB,82EFBE9D7DFEABC5,m,20/3/2002,70052,Spagnola,s,n,NULL,NULL,2018/2019,2,1ED8,10,1
+260,Verdi,Giuseppe,20260,DA4E336ACFC36F59,4120D25D3CFEDB7A,f,24/4/2007,70072,Turca,n,s,NULL,NULL,2018/2019,4,8BF0,6,1
+261,Bianchi,Tiziano,20261,DDBBEC5F2C5A0BED,1FF18AD97EFB6F58,f,20/12/2008,70013,Tedesca,s,n,NULL,NULL,2018/2019,5,9B2A,9,3
+262,Valentini,Emanuele,20262,6A1DA03E441BC653,880D50AE2B6F1EAB,m,6/12/2003,70024,Albanese,s,n,NULL,NULL,2018/2019,4,CBB4,10,2
+263,Roberti,Elia,20263,CBAFDEAC5CD1FFCD,63C4A4ED7ECAEFD7,f,25/12/2001,70039,Spagnola,s,n,NULL,NULL,2018/2019,5,C37E,9,2
+264,Scalco,Fabio,20264,4FCB45514FCB9FFD,5C75574BCD0381AB,f,5/2/2000,70044,Turca,s,n,NULL,NULL,2018/2019,3,F4DA,9,3
+265,Valentini,Giacomo,20265,9CBB0B7C5EAFBFF4,B0FCD0DECB2C941A,f,7/2/2000,70053,Albanese,n,n,NULL,NULL,2018/2019,3,6EFC,8,1
+266,Scalco,Elia,20266,A35B1373FEEA568F,DD58DD1EEE15552C,f,28/6/2005,70016,Albanese,s,s,NULL,NULL,2018/2019,1,F5DE,9,1
+267,Valentini,Elia,20267,C1FC5D68CD5D7552,7762EA7D5A1456EB,f,19/2/2001,70042,Francese,n,n,NULL,NULL,2018/2019,1,CC17,8,2
+268,Scalco,Roberto,20268,2BCE3E54A8DC7A1F,7ADBA3D75ED0DA59,f,4/12/2007,70018,Albanese,n,n,NULL,NULL,2018/2019,4,EFCF,7,2
+269,Russo,Tiziano,20269,EFCBEBAB22CD8289,4D8B3D2F364F280D,f,15/5/2004,70004,Arabica,s,s,NULL,NULL,2018/2019,1,37ED,8,1
+270,Roberti,Roberto,20270,FE87D6CEA44DFAAB,70C64552A6AA2B96,f,9/9/2006,70047,Polacca,s,n,NULL,NULL,2018/2019,4,A3D7,7,1
+271,Verdi,Antonio,20271,25DAD2CC8CDCCFED,DECA36618E8CE0BB,f,20/5/2001,70027,Francese,n,s,NULL,NULL,2018/2019,5,2C6F,10,2
+272,Giannini,Lucia,20272,CEB63AEBF3ABADDA,BC1EC4D33423AE9C,m,30/6/2006,70014,Turca,s,s,NULL,NULL,2018/2019,2,71E0,8,2
+273,Scalco,Antonio,20273,FC613F92146337CB,95BCFB199ED70E87,m,27/6/2001,70067,Albanese,s,s,NULL,NULL,2018/2019,5,A0AB,10,2
+274,Bianchi,Antonio,20274,E6B048B4FE9DF6C4,DB2DD6883C0A7F12,f,24/10/2005,70075,Italiana,s,s,NULL,NULL,2018/2019,5,CE8D,7,3
+275,Giannini,Maria,20275,DAAD0CEBECA2DBD9,9A9A1AC00D7F40F2,f,29/3/2001,70019,Arabica,s,s,NULL,NULL,2018/2019,2,ECAF,6,1
+276,Bianchi,Maria,20276,E4CEF7D7BAD89CB4,D495EDAF30D2E11D,f,4/1/2008,70073,Spagnola,s,n,NULL,NULL,2018/2019,3,EC48,6,1
+277,Rossi,Fabio,20277,FAE147BEFD1BAB5B,DD58DD1EEE15552C,f,19/2/2000,70071,Australiana,n,n,NULL,NULL,2018/2019,2,53F0,9,1
+278,Verdi,Maria,20278,F9BA607A3D4F73C9,B588D54DE99498AA,m,22/12/2005,70016,Albanese,s,s,NULL,NULL,2018/2019,3,8CA2,8,2
+279,Giannini,Lucia,20279,5D8EDBFE5A7C85CE,2B037FEF2B273D7F,f,27/2/2006,70056,Spagnola,n,s,NULL,NULL,2018/2019,1,7BA6,9,2
+280,Roberti,Elia,20280,3F59EECFFCABD5EF,D8864CCB7AF19E75,m,3/2/2007,70044,Polacca,s,n,NULL,NULL,2018/2019,2,3EBD,6,1
+281,Scalco,Giacomo,20281,EAA3ACAABDC11B9F,9CBB0B7C5EAFBFF4,f,20/3/2004,70051,Tedesca,n,s,NULL,NULL,2018/2019,4,F9C0,8,2
+282,Mirandola,Maria,20282,D790BEF1AF5ECA1E,C30CC2636E1DDBAC,m,7/8/2008,70041,Italiana,s,s,NULL,NULL,2018/2019,5,7D44,10,2
+283,Rossi,Giuseppe,20283,BA0CBDFAE4DB1CCF,A9F8DD7B3ADDDAE6,f,6/5/2002,70032,Australiana,n,n,NULL,NULL,2018/2019,4,D4FB,9,2
+284,Mirandola,Emanuele,20284,DAA1DE9A0D153C8C,CFFCAACFE4F8CBE3,f,18/3/2008,70052,Arabica,n,n,NULL,NULL,2018/2019,2,4F08,6,3
+285,Verdi,Roberto,20285,AB8B2E7F6D1DD3CC,CCEE49397F799CFC,m,23/6/2010,70065,Polacca,n,s,NULL,NULL,2018/2019,1,CEE9,8,2
+286,Russo,Elia,20286,B5F54AE3D3FBADE6,C0534FCCBFBED542,f,15/10/2004,70035,Polacca,s,n,NULL,NULL,2018/2019,5,844A,6,1
+287,Mirandola,Alex,20287,AECDE2A97F78AEF9,BBEDCA6CA06F8BB2,m,22/2/2007,70029,Turca,n,n,NULL,NULL,2018/2019,2,96D7,9,1
+288,Rossi,Tiziano,20288,D8EBACABDA3F01FA,480C3C6A37AB0F06,m,26/12/2005,70068,Turca,s,n,NULL,NULL,2018/2019,1,CEFE,6,2
+289,Scalco,Alex,20289,C092DDD15F8AB876,BC82A2CAAC20981E,f,29/9/2002,70052,Spagnola,s,s,NULL,NULL,2018/2019,5,9BDE,10,1
+290,Russo,Lucia,20290,8D2AC5BDBCBBD385,6104515ACDE7ECFF,m,22/3/2001,70031,Turca,s,n,NULL,NULL,2018/2019,1,BFA5,6,1
+291,Giannini,Roberto,20291,8C6E381B6D29340F,DDE3E99B7CCDECC5,f,21/5/2006,70057,Italiana,s,n,NULL,NULL,2018/2019,3,2E1C,6,1
+292,Giannini,Giacomo,20292,8A468AD11CB1FC07,FEFB1F4BD5BF3B0A,m,3/8/2000,70054,Arabica,n,n,NULL,NULL,2018/2019,2,52CF,10,1
+293,Bianchi,Roberto,20293,E785F7B8D3B5DE89,A4AE8F5328041B7A,m,26/8/2010,70010,Polacca,s,s,NULL,NULL,2018/2019,2,C2BE,8,1
+294,Mirandola,Antonio,20294,54DB8BFB4C32ED7C,316E20C084F5BCA4,f,28/5/2004,70022,Francese,s,s,NULL,NULL,2018/2019,4,FCBC,8,1
+295,Giannini,Giacomo,20295,6CFFAEEEEC0F0ED1,B588D54DE99498AA,f,1/7/2005,70043,Polacca,s,n,NULL,NULL,2018/2019,2,ECFB,8,1
+296,Bianchi,Giacomo,20296,5B87FB1CB3EC4D5B,B2C804CEC0BDFE29,m,23/7/2003,70072,Tedesca,n,n,NULL,NULL,2018/2019,3,38AF,9,1
+297,Valentini,Giuseppe,20297,D5F0E25D095FB345,F1FEEC4368ADD0A0,f,18/7/2003,70057,Albanese,s,s,NULL,NULL,2018/2019,5,DC3D,8,2
+298,Roberti,Antonio,20298,BC82A2CAAC20981E,DAAD0CEBECA2DBD9,m,15/11/2005,70049,Australiana,n,s,NULL,NULL,2018/2019,5,C20A,6,3
+299,Valentini,Giacomo,20299,85DDDF5EC4B077CE,7DC0EADFDEDAE329,m,24/11/2004,70049,Italiana,n,s,NULL,NULL,2018/2019,3,464E,10,1
+300,Scalco,Emanuele,20300,72254BFD8F5E4FBD,BF487E3CCC773A3C,f,28/4/2004,70012,Turca,s,s,NULL,NULL,2018/2019,3,BE88,7,2
+301,Rossi,Giuseppe,20301,836E6B6D1F7D8BB7,EB16485283CF879D,f,11/1/2010,70066,Albanese,s,s,NULL,NULL,2018/2019,3,42FE,9,3
+302,Scalco,Giuseppe,20302,50CD32AED9EE7589,90DFA63CEFDC8DCD,f,10/7/2010,70070,Italiana,s,n,NULL,NULL,2018/2019,3,5F3D,9,2
+303,Verdi,Giuseppe,20303,83D23D2BC0DAE263,B732FBEAAECFBEFE,f,12/10/2009,70040,Australiana,s,n,NULL,NULL,2018/2019,1,F36D,8,3
+304,Bianchi,Alex,20304,D1BF059D2AE9012A,777D6F833CD7EB65,m,13/6/2002,70013,Polacca,n,n,NULL,NULL,2018/2019,1,FEFC,10,2
+305,Roberti,Giacomo,20305,81F36D41BD7D45AC,95BCFB199ED70E87,f,28/7/2002,70048,Arabica,n,n,NULL,NULL,2018/2019,5,0314,7,2
+306,Russo,Elia,20306,FCFB10B1DF50FD7D,6998FCC0646BEBF2,f,24/6/2008,70066,Turca,n,n,NULL,NULL,2018/2019,3,B6B0,6,1
+307,Roberti,Emanuele,20307,FB2AFCEFDFEA82E4,DCCF36D31EF6B1BF,m,23/10/2007,70017,Australiana,s,s,NULL,NULL,2018/2019,1,BA90,7,1
+308,Roberti,Alex,20308,D44DB8A8BF2AB7EF,DB68C1327ED48FC3,m,10/4/2008,70004,Polacca,n,s,NULL,NULL,2018/2019,5,17CD,9,3
+309,Bianchi,Lucia,20309,720F9D8BBF52420E,E10D6D2E96A4E08D,m,6/8/2008,70002,Albanese,s,s,NULL,NULL,2018/2019,4,F442,6,2
+310,Scalco,Alex,20310,3944E4ACCFDD117B,316E20C084F5BCA4,m,17/2/2003,70067,Turca,s,s,NULL,NULL,2018/2019,4,0CF0,6,2
+311,Bianchi,Antonio,20311,51DCADEA9D37DD5D,77A9F7DF9B74BEE1,f,22/1/2004,70033,Francese,n,s,NULL,NULL,2018/2019,4,E799,8,3
+312,Mirandola,Lucia,20312,BEE4A7DBBAF8EC8D,B17CAB7B1BBB09C3,f,31/1/2007,70020,Turca,s,s,NULL,NULL,2018/2019,2,077F,10,1
+313,Russo,Antonio,20313,F7B202500F06465F,A88CE7A8E2DA76CD,m,3/1/2009,70026,Australiana,n,s,NULL,NULL,2018/2019,2,06D1,9,3
+314,Rossi,Alex,20314,F00C65CD4ACD20AA,0EC2ED98B4AC2C82,m,20/4/2007,70064,Francese,n,s,NULL,NULL,2018/2019,2,E9C1,10,1
+315,Bianchi,Valentina,20315,70BE26BEF5BD05E1,CDADB30FCEDC8BF4,m,11/2/2006,70074,Australiana,n,s,NULL,NULL,2018/2019,2,98C1,9,2
+316,Scalco,Valentina,20316,0A04C313DEBDBAF4,D24B6EF1AEB3AD9C,f,9/10/2009,70038,Turca,n,n,NULL,NULL,2018/2019,2,BF37,8,3
+317,Valentini,Maria,20317,F5F853541ECB4FCC,5EDDEDCA25F9DBB6,m,13/3/2008,70069,Polacca,n,s,NULL,NULL,2018/2019,2,5D95,8,3
+318,Rossi,Elia,20318,CD4EF8CDC3E3C24E,B9CFF1DEBB8BBACF,f,6/2/2001,70031,Australiana,s,n,NULL,NULL,2018/2019,1,2B5A,10,1
+319,Roberti,Giacomo,20319,87FFF3C256DC4ABF,BFBDDCEE2DC62C5E,f,25/11/2003,70036,Italiana,n,n,NULL,NULL,2018/2019,4,C141,6,1
+320,Bianchi,Lucia,20320,BE0CDFDB8DC6E0A8,BADDCFA82EE5D8E6,f,3/11/2001,70037,Tedesca,n,s,NULL,NULL,2018/2019,1,D0BA,7,1
+321,Mirandola,Roberto,20321,43C08F7BAADC2BF3,8A468AD11CB1FC07,f,18/10/2010,70051,Francese,s,s,NULL,NULL,2018/2019,4,27D6,7,2
+322,Roberti,Elia,20322,FE03D24312B531A2,E6D12BEBD91FCEDD,f,3/1/2000,70073,Arabica,n,n,NULL,NULL,2018/2019,1,E6D1,10,1
+323,Roberti,Giacomo,20323,E82E8581AEC13A2C,38EF568E177770DD,f,13/9/2005,70044,Spagnola,n,n,NULL,NULL,2018/2019,5,54DF,6,2
+324,Roberti,Giuseppe,20324,0F1C3452AE7CC0FC,7FEEA39FACC23DBA,m,14/6/2002,70006,Albanese,s,n,NULL,NULL,2018/2019,5,D953,10,1
+325,Verdi,Lucia,20325,5711FFEEFADBE7E1,50CD32AED9EE7589,f,21/11/2002,70062,Spagnola,s,s,NULL,NULL,2018/2019,3,0C8C,7,1
+326,Verdi,Fabio,20326,BB36721AE4BCD986,A4C47D48FEAD97A7,f,16/1/2006,70000,Francese,s,s,NULL,NULL,2018/2019,3,DF35,8,2
+327,Bianchi,Alex,20327,986BBB5A2DFEDDCC,F5F853541ECB4FCC,m,20/4/2000,70003,Arabica,n,s,NULL,NULL,2018/2019,4,AB1D,7,2
+328,Bianchi,Giacomo,20328,6104515ACDE7ECFF,B5DD35F1F6CAFB3E,f,2/11/2002,70067,Arabica,s,s,NULL,NULL,2018/2019,4,AA67,9,2
+329,Roberti,Tiziano,20329,49CB4D3FF29CDBCD,57B5CBC484973CBA,f,1/12/2001,70070,Polacca,s,n,NULL,NULL,2018/2019,5,29DC,6,1
+330,Giannini,Fabio,20330,017FE8DD6F22CEF4,A4AE8F5328041B7A,m,8/10/2002,70064,Tedesca,s,s,NULL,NULL,2018/2019,2,FEC5,9,2
+331,Giannini,Emanuele,20331,B5DD35F1F6CAFB3E,F00C65CD4ACD20AA,m,4/4/2000,70015,Spagnola,n,n,NULL,NULL,2018/2019,4,6CEB,6,2
+332,Scalco,Antonio,20332,3AED87730DACA9B2,836E6B6D1F7D8BB7,m,29/2/2006,70070,Australiana,s,s,NULL,NULL,2018/2019,2,9B36,10,2
+333,Scalco,Valentina,20333,F024A01D67CC0437,2BCE3E54A8DC7A1F,f,4/6/2009,70061,Francese,s,s,NULL,NULL,2018/2019,5,CE8F,10,2
+334,Valentini,Lucia,20334,A018CAA1EEC82BED,DECBFAEE1DF8A457,m,24/4/2000,70059,Polacca,s,s,NULL,NULL,2018/2019,4,20A5,8,2
+335,Roberti,Maria,20335,1CDDF5BBEE7AD8A6,B286EEB2E9523E4A,f,8/5/2000,70017,Polacca,n,s,NULL,NULL,2018/2019,2,BC62,6,3
+336,Scalco,Antonio,20336,74ABA6FAA722D6DD,9CBB0B7C5EAFBFF4,f,21/7/2002,70012,Turca,s,s,NULL,NULL,2018/2019,5,9855,8,3
+337,Valentini,Lucia,20337,EBFA36B26DDDE2EC,DDD57BCA759F12EC,f,31/3/2000,70062,Spagnola,n,n,NULL,NULL,2018/2019,4,FF4B,8,2
+338,Scalco,Giacomo,20338,FD20AA287A8BA3FF,DDBBEC5F2C5A0BED,f,26/8/2004,70057,Tedesca,s,s,NULL,NULL,2018/2019,2,7EA6,8,1
+339,Bianchi,Emanuele,20339,C30CC2636E1DDBAC,DF5CFADCCFDEB7EF,m,24/2/2000,70070,Arabica,n,n,NULL,NULL,2018/2019,5,FED4,9,2
+340,Scalco,Fabio,20340,CDADB30FCEDC8BF4,16ACACD5BE8CD1FC,m,23/12/2008,70007,Spagnola,s,n,NULL,NULL,2018/2019,5,8BF1,9,1
+341,Bianchi,Tiziano,20341,B53AF2B560B5F4F1,6104515ACDE7ECFF,m,15/6/2001,70030,Australiana,s,s,NULL,NULL,2018/2019,5,BBBB,6,2
+342,Verdi,Antonio,20342,A45D555CD22F7FDF,316E20C084F5BCA4,f,15/11/2002,70028,Arabica,n,n,NULL,NULL,2018/2019,4,907E,8,2
+343,Giannini,Lucia,20343,C2FEA7DFFFBDB648,7821DBB2DC746EA3,f,29/5/2008,70059,Albanese,s,s,NULL,NULL,2018/2019,4,C6ED,7,2
+344,Roberti,Maria,20344,CCB9777D2A032CC2,CCEE49397F799CFC,m,25/6/2000,70017,Albanese,n,n,NULL,NULL,2018/2019,1,1B55,10,3
+345,Roberti,Maria,20345,E2D2DEEEF3EBBEC9,B53AF2B560B5F4F1,m,26/10/2004,70047,Spagnola,s,n,NULL,NULL,2018/2019,4,E5E7,10,2
+346,Rossi,Tiziano,20346,BE207B9BAE771E5D,DB27C2C7BABDDADD,f,1/3/2006,70033,Tedesca,s,n,NULL,NULL,2018/2019,5,F9E4,6,3
+347,Bianchi,Alex,20347,4EFAA45EB8989314,5C75574BCD0381AB,f,25/9/2006,70042,Tedesca,n,n,NULL,NULL,2018/2019,2,D7C1,9,2
+348,Bianchi,Antonio,20348,D50C4BE368CD9667,88CB3F2FBEF2A451,f,30/12/2001,70013,Albanese,n,n,NULL,NULL,2018/2019,5,29A1,9,3
+349,Mirandola,Antonio,20349,FFEFA7F85DE1BBA1,EDD46FDFBEFF5C9F,f,6/6/2000,70048,Australiana,n,s,NULL,NULL,2018/2019,3,396C,6,1
+350,Mirandola,Giacomo,20350,BD98DC07F7A548FA,E034297ED8FD31B3,m,2/1/2001,70049,Arabica,s,n,NULL,NULL,2018/2019,2,40C1,8,2
+351,Scalco,Giuseppe,20351,6EDDAEDCAC292D51,90C97ECC87FAFD7F,f,26/4/2001,70047,Australiana,s,s,NULL,NULL,2018/2019,2,0DB5,8,2
+352,Scalco,Emanuele,20352,D8864CCB7AF19E75,7E5BF54752ABDDEC,m,28/9/2009,70046,Tedesca,s,s,NULL,NULL,2018/2019,5,9AA7,9,3
+353,Scalco,Antonio,20353,16ACACD5BE8CD1FC,DB323EBA6E1C5601,m,7/7/2002,70047,Tedesca,s,s,NULL,NULL,2018/2019,5,EA3A,6,3
+354,Roberti,Emanuele,20354,8BBADBDBE2EDCFD8,4DA16468E1C622B4,m,24/10/2008,70072,Tedesca,s,s,NULL,NULL,2018/2019,3,0F1E,10,3
+355,Scalco,Elia,20355,D6363CF3DBA417BF,6827BA5085B468BA,m,10/7/2006,70022,Francese,s,n,NULL,NULL,2018/2019,1,CDA5,6,3
+356,Mirandola,Maria,20356,8DD1DFE0F9F29C34,98AB606DC2CB1FF9,f,23/7/2006,70023,Turca,s,s,NULL,NULL,2018/2019,5,BE05,8,3
+357,Verdi,Roberto,20357,6E41831AAA5DE1C8,720F9D8BBF52420E,m,19/8/2004,70023,Tedesca,n,n,NULL,NULL,2018/2019,2,F2CA,7,3
+358,Valentini,Elia,20358,E5CEC80CF3BB5A4B,16ACACD5BE8CD1FC,f,29/5/2010,70029,Australiana,s,s,NULL,NULL,2018/2019,3,FD2F,9,3
+359,Rossi,Valentina,20359,F8ADF75C6C96CE74,A59CEAC62F3DCD8D,f,10/12/2005,70063,Francese,n,s,NULL,NULL,2018/2019,5,6EFB,7,1
+360,Russo,Antonio,20360,785AD654FEA7BABF,2BCE3E54A8DC7A1F,f,10/3/2009,70052,Arabica,s,s,NULL,NULL,2018/2019,4,C9DA,7,1
+361,Roberti,Antonio,20361,D5D5EF748F9F327C,1CDDF5BBEE7AD8A6,f,25/1/2002,70013,Arabica,n,n,NULL,NULL,2018/2019,5,5B49,6,3
+362,Russo,Fabio,20362,CCC76A3D8CBED3D0,C2F8A7FE29E5AEAD,f,20/11/2004,70059,Spagnola,s,s,NULL,NULL,2018/2019,2,FBFD,8,1
+363,Russo,Elia,20363,B20BAFC0F1A8C706,8A468AD11CB1FC07,m,1/2/2006,70007,Italiana,n,s,NULL,NULL,2018/2019,3,A9D3,8,2
+364,Mirandola,Elia,20364,8D1A9DD9FAD6D7F8,29AF0D2EF3B68CDD,f,21/2/2010,70004,Arabica,s,n,NULL,NULL,2018/2019,4,151F,6,1
+365,Mirandola,Giuseppe,20365,545DAB54D99BDDED,465EE0BC806D86C8,f,16/3/2010,70070,Arabica,n,n,NULL,NULL,2018/2019,1,5FA7,9,1
+366,Rossi,Alex,20366,06C4C3FA55EE75D5,C2F8A7FE29E5AEAD,f,6/9/2008,70050,Polacca,s,n,NULL,NULL,2018/2019,4,B4C4,9,3
+367,Roberti,Roberto,20367,FC856DD26EFF7EDB,E6FD70BB22B1C4C3,f,6/1/2005,70037,Australiana,n,n,NULL,NULL,2018/2019,4,F1BB,6,2
+368,Giannini,Elia,20368,9FC0D5B5744EFFF2,EFCBEBAB22CD8289,f,29/4/2005,70075,Arabica,n,s,NULL,NULL,2018/2019,4,CB1B,9,2
+369,Roberti,Lucia,20369,F85C4CC7BFDCAB4F,77A9F7DF9B74BEE1,f,22/12/2007,70015,Arabica,n,n,NULL,NULL,2018/2019,1,3BC4,7,2
+370,Scalco,Valentina,20370,EA30ADA629CBAEE6,A59CEAC62F3DCD8D,f,22/8/2010,70058,Albanese,s,n,NULL,NULL,2018/2019,5,FA28,10,2
+371,Verdi,Valentina,20371,E30F9ABFD0EBAA52,EB4B318BC52ECEA7,f,6/4/2000,70034,Turca,s,n,NULL,NULL,2018/2019,2,7C8C,9,1
+372,Scalco,Giacomo,20372,880D50AE2B6F1EAB,BCEEABEC9A0E3BAF,f,26/1/2000,70039,Italiana,s,n,NULL,NULL,2018/2019,2,DF70,9,3
+373,Scalco,Alex,20373,47E9F6F18F0C6DB1,5E5ADCAA21ECAABA,f,31/11/2003,70003,Arabica,s,n,NULL,NULL,2018/2019,3,D87F,6,1
+374,Valentini,Giuseppe,20374,E6453EFBCC6AC022,3AED87730DACA9B2,m,29/2/2000,70000,Italiana,s,n,NULL,NULL,2018/2019,5,88B1,9,1
+375,Mirandola,Elia,20375,16E1AD57DC9E5BCC,EEED5FBE3DDA73D4,m,2/7/2000,70028,Australiana,s,n,NULL,NULL,2018/2019,2,CC27,9,3
+376,Roberti,Alex,20376,22BCB4BE1BDDA6B5,316E20C084F5BCA4,f,2/9/2001,70073,Polacca,s,s,NULL,NULL,2018/2019,3,37A1,10,1
+377,Russo,Giacomo,20377,8F6EF9B5B1E2FBFF,F65B851FDAB778AE,m,6/11/2003,70067,Italiana,n,n,NULL,NULL,2018/2019,3,BF8C,6,2
+378,Mirandola,Roberto,20378,AC1B6D2E5F21C341,30C1B810CE4D51C8,f,21/7/2005,70066,Francese,s,s,NULL,NULL,2018/2019,3,9052,10,2
+379,Rossi,Giuseppe,20379,AAF5E3BEFCF9F1AF,C2F8A7FE29E5AEAD,m,7/6/2000,70031,Francese,n,s,NULL,NULL,2018/2019,5,3CDA,7,3
+380,Valentini,Giuseppe,20380,C9AF6A9BDBBE5EFE,FB2AFCEFDFEA82E4,f,25/1/2004,70058,Turca,n,s,NULL,NULL,2018/2019,3,E555,6,1
+381,Rossi,Emanuele,20381,00085AF2EB9F7D2B,BFBDDCEE2DC62C5E,f,10/1/2005,70045,Turca,n,n,NULL,NULL,2018/2019,5,B3D7,6,3
+382,Valentini,Fabio,20382,52CC7A2B6A15FECD,FFEFA7F85DE1BBA1,m,17/7/2006,70058,Turca,n,n,NULL,NULL,2018/2019,5,FEDF,9,3
+383,Roberti,Elia,20383,29AF0D2EF3B68CDD,E2692D95C1DDECF0,m,1/8/2003,70010,Spagnola,n,s,NULL,NULL,2018/2019,4,DABA,10,1
+384,Scalco,Maria,20384,4E1EF872D4141B07,25DAD2CC8CDCCFED,m,16/4/2009,70059,Tedesca,n,s,NULL,NULL,2018/2019,4,D61B,10,3
+385,Rossi,Giacomo,20385,BD007BCAF8ED0333,CCEE49397F799CFC,f,14/9/2010,70072,Tedesca,s,s,NULL,NULL,2018/2019,3,BE9A,8,1
+386,Russo,Tiziano,20386,0EFB33EB6EF725E2,3FC90BFCB8A69DC0,m,31/11/2001,70069,Albanese,n,n,NULL,NULL,2018/2019,3,5C4C,6,2
+387,Russo,Valentina,20387,8F0BD9CF6B42DCCE,880D50AE2B6F1EAB,f,29/8/2001,70020,Spagnola,s,n,NULL,NULL,2018/2019,4,0EA3,7,3
+388,Mirandola,Fabio,20388,AEF636C0A0EBD1D2,8AE769BD1F2279BB,f,19/9/2007,70071,Tedesca,s,n,NULL,NULL,2018/2019,4,47B5,8,1
+389,Verdi,Tiziano,20389,C6F9428C1E8EB59B,CCEB2DBBFBBF3C26,f,29/5/2002,70061,Arabica,n,s,NULL,NULL,2018/2019,4,B21B,10,3
+390,Rossi,Maria,20390,7731BB7ADAB7F8F3,D4431D2C2E5407B2,f,28/5/2005,70072,Arabica,n,s,NULL,NULL,2018/2019,2,F42A,6,1
+391,Rossi,Valentina,20391,920CF5F13E6EABB7,3B15D4AAAE6EBF57,f,5/5/2005,70061,Arabica,n,n,NULL,NULL,2018/2019,3,488C,7,1
+392,Valentini,Elia,20392,4D8B3D2F364F280D,E6EEDCEDFCA2A6C9,m,27/10/2001,70066,Australiana,s,n,NULL,NULL,2018/2019,2,BE3F,8,1
+393,Russo,Antonio,20393,1FED39ECF9FC80DB,90C97ECC87FAFD7F,f,8/6/2001,70005,Francese,n,s,NULL,NULL,2018/2019,1,FDE2,8,2
+394,Verdi,Roberto,20394,BE337FCDD7F3E809,FD11DB6DE0E08633,f,18/6/2008,70046,Italiana,s,s,NULL,NULL,2018/2019,4,BCE2,6,3
+395,Bianchi,Elia,20395,E5CAFCFAB12BBE8D,C1CA2845A4CAA19D,m,14/7/2000,70066,Polacca,s,s,NULL,NULL,2018/2019,4,F7F7,9,2
+396,Valentini,Alex,20396,CDEEF4C83529B5F7,777D6F833CD7EB65,m,4/6/2010,70034,Turca,s,n,NULL,NULL,2018/2019,4,43AA,10,3
+397,Verdi,Emanuele,20397,F00DB581FAC1FD15,3C2C3CCCEAC88ADA,m,27/12/2001,70069,Albanese,s,n,NULL,NULL,2018/2019,4,B1F1,9,1
+398,Roberti,Antonio,20398,EADDBAC3ABC0B977,9ACFB4CBEDB60AAC,m,3/4/2009,70062,Arabica,n,n,NULL,NULL,2018/2019,1,BCBA,10,3
+399,Rossi,Giuseppe,20399,9BC6DCB0EFFAB834,B17CAB7B1BBB09C3,m,14/5/2000,70028,Tedesca,n,n,NULL,NULL,2018/2019,5,A2F1,7,1
+400,Verdi,Tiziano,20400,D5AA258BB0FD802C,E6453EFBCC6AC022,m,21/2/2010,70044,Tedesca,s,n,NULL,NULL,2018/2019,5,998F,9,3
+401,Valentini,Valentina,20401,B0FCD0DECB2C941A,DB53C1D82110D38C,f,16/3/2009,70034,Arabica,s,s,NULL,NULL,2018/2019,5,FEA2,10,2
+402,Mirandola,Tiziano,20402,98AB606DC2CB1FF9,3AED87730DACA9B2,f,15/3/2008,70004,Spagnola,s,n,NULL,NULL,2018/2019,3,800A,8,1
+403,Valentini,Tiziano,20403,DC6A36BA6EBB8E1E,C23D3D5E367EF8FA,m,12/10/2005,70070,Francese,s,s,NULL,NULL,2018/2019,4,7D8E,8,2
+404,Roberti,Emanuele,20404,FCFE4EB42BDCBACA,EBFA36B26DDDE2EC,m,7/6/2000,70063,Polacca,s,n,NULL,NULL,2018/2019,4,1DB0,9,1
+405,Roberti,Lucia,20405,480C3C6A37AB0F06,4054920721DB1781,f,15/6/2005,70031,Albanese,n,s,NULL,NULL,2018/2019,3,BB8E,10,3
+406,Verdi,Tiziano,20406,4BAFF99374EE79CD,FC856DD26EFF7EDB,f,4/3/2002,70018,Italiana,s,n,NULL,NULL,2018/2019,4,EED0,8,1
+407,Russo,Fabio,20407,79E2EB99DB2BB042,DB68C1327ED48FC3,m,6/8/2007,70018,Australiana,n,s,NULL,NULL,2018/2019,4,9EBC,6,1
+408,Valentini,Giuseppe,20408,0E3D5EFCACE391EA,82EFBE9D7DFEABC5,m,14/7/2006,70012,Tedesca,s,n,NULL,NULL,2018/2019,1,BAAE,7,1
+409,Scalco,Roberto,20409,F9FFB035224DFB07,F00C65CD4ACD20AA,m,21/9/2005,70029,Arabica,s,s,NULL,NULL,2018/2019,4,0E0E,8,2
+410,Verdi,Tiziano,20410,72A7F84929641AFF,3B15D4AAAE6EBF57,m,2/3/2009,70058,Australiana,s,n,NULL,NULL,2018/2019,1,8B14,10,3
+411,Verdi,Valentina,20411,C2F8A7FE29E5AEAD,D8864CCB7AF19E75,f,27/8/2008,70052,Francese,n,n,NULL,NULL,2018/2019,5,E3B3,8,2
+412,Giannini,Elia,20412,DE2CEAE5DC3D1DE7,C89F84E55BEEBCA7,f,24/8/2005,70066,Spagnola,n,n,NULL,NULL,2018/2019,4,73E0,7,3
+413,Mirandola,Fabio,20413,A88CE7A8E2DA76CD,AAF5E3BEFCF9F1AF,f,21/11/2006,70031,Italiana,s,s,NULL,NULL,2018/2019,4,BECB,7,2
+414,Scalco,Alex,20414,F2C3E025AD6518DF,E5CEC80CF3BB5A4B,m,7/4/2000,70006,Spagnola,s,n,NULL,NULL,2018/2019,5,FB92,8,1
+415,Verdi,Roberto,20415,2C2EC9FCB814ABBA,06C4C3FA55EE75D5,f,17/12/2001,70009,Turca,n,s,NULL,NULL,2018/2019,4,221E,7,3
+416,Giannini,Lucia,20416,AA3CAACEEE936DB9,CE296FC6765CEC12,f,13/11/2009,70005,Arabica,n,s,NULL,NULL,2018/2019,1,17A6,6,1
+417,Mirandola,Maria,20417,CC9E7CBA72DD484A,63C4A4ED7ECAEFD7,m,11/12/2000,70042,Tedesca,n,n,NULL,NULL,2018/2019,2,D59F,9,3
+418,Valentini,Giuseppe,20418,93D02CDD08D24C3D,28FBA25D725CBF6A,f,1/9/2005,70006,Italiana,s,s,NULL,NULL,2018/2019,5,D3AF,8,3
+419,Scalco,Fabio,20419,FEFB1F4BD5BF3B0A,DAAD0CEBECA2DBD9,f,28/6/2004,70072,Italiana,n,s,NULL,NULL,2018/2019,1,9450,10,3
+420,Russo,Giacomo,20420,B8BB82BCAFFC532B,7D7C7AE41E05CAA8,m,12/1/2003,70001,Italiana,s,s,NULL,NULL,2018/2019,3,BEAE,9,3
+421,Roberti,Elia,20421,FB9DB433335A5DC0,720F9D8BBF52420E,f,3/10/2007,70067,Tedesca,s,s,NULL,NULL,2018/2019,1,DADB,9,2
+422,Scalco,Giuseppe,20422,158918BECADE3235,1CDDF5BBEE7AD8A6,m,18/1/2010,70037,Turca,s,n,NULL,NULL,2018/2019,4,CAF1,9,3
+423,Giannini,Valentina,20423,95BCFB199ED70E87,4DA16468E1C622B4,f,1/12/2004,70016,Arabica,s,s,NULL,NULL,2018/2019,2,2FB2,8,2
+424,Valentini,Maria,20424,54B4A13FBBCCFCDF,F4FCBD2FB8A4C3AB,f,5/6/2007,70018,Arabica,s,n,NULL,NULL,2018/2019,5,751B,10,1
+425,Valentini,Maria,20425,BBEDCA6CA06F8BB2,3FFCC99F9DDB7A7F,f,7/2/2004,70015,Francese,n,n,NULL,NULL,2018/2019,2,6C3C,7,3
+426,Verdi,Tiziano,20426,F608ACBADF2B9EE5,6EDDAEDCAC292D51,f,11/8/2006,70005,Arabica,s,s,NULL,NULL,2018/2019,5,B5F8,8,2
+427,Russo,Roberto,20427,DCE9BEBB8C19F3FC,8DD1DFE0F9F29C34,m,15/12/2009,70035,Arabica,n,s,NULL,NULL,2018/2019,1,39B8,7,3
+428,Verdi,Valentina,20428,BC1EC4D33423AE9C,785AD654FEA7BABF,f,11/9/2008,70067,Italiana,n,n,NULL,NULL,2018/2019,4,FA5F,9,2
+429,Russo,Emanuele,20429,90DFA63CEFDC8DCD,16E1AD57DC9E5BCC,m,21/7/2007,70012,Australiana,n,n,NULL,NULL,2018/2019,3,382C,7,3
+430,Russo,Elia,20430,B7DA4F3EF002A0F8,ADB462AE41C2AF46,m,26/8/2003,70037,Arabica,n,s,NULL,NULL,2018/2019,5,E836,8,3
+431,Verdi,Fabio,20431,EC46B13FEA62481A,DE2CEAE5DC3D1DE7,m,1/4/2008,70051,Albanese,s,s,NULL,NULL,2018/2019,4,F217,8,3
+432,Rossi,Lucia,20432,4FE912EF452EC130,050D1E91CD8FF75E,f,16/2/2004,70071,Turca,n,n,NULL,NULL,2018/2019,5,60FF,9,3
+433,Mirandola,Tiziano,20433,DECA36618E8CE0BB,E5DE5AAB7DB9ED9E,f,12/5/2005,70060,Albanese,n,n,NULL,NULL,2018/2019,4,8ADD,10,1
+434,Russo,Valentina,20434,ACDEC8DB8DDC5BC7,BC1EC4D33423AE9C,m,2/12/2005,70000,Italiana,s,s,NULL,NULL,2018/2019,3,062C,7,2
+435,Scalco,Tiziano,20435,ACEEEFB8258BCDD3,FC613F92146337CB,m,27/6/2001,70029,Arabica,s,s,NULL,NULL,2018/2019,2,5CED,6,3
+436,Bianchi,Maria,20436,75F5CFFF5CD63A46,EBFA36B26DDDE2EC,f,23/1/2009,70062,Turca,n,n,NULL,NULL,2018/2019,3,638B,6,3
+437,Rossi,Lucia,20437,299BC2AA87AAFA8B,1BBFB3F6AE6D0BBA,m,25/5/2004,70039,Francese,n,s,NULL,NULL,2018/2019,2,4EA2,10,1
+438,Roberti,Emanuele,20438,BEB3AE245D84F49B,FCFE4EB42BDCBACA,m,9/9/2000,70067,Italiana,n,s,NULL,NULL,2018/2019,1,CF4B,9,3
+439,Giannini,Giacomo,20439,0D909902F8A0DB4D,47E9F6F18F0C6DB1,f,16/6/2008,70061,Italiana,s,n,NULL,NULL,2018/2019,2,8302,7,3
+440,Mirandola,Antonio,20440,A2C3C7CCE0EA2727,4E1EF872D4141B07,m,5/5/2009,70003,Spagnola,s,n,NULL,NULL,2018/2019,4,DFEE,6,2
+441,Scalco,Elia,20441,3A2CA7AF7AE17318,BC6BFBCBE3BAFBFC,f,22/11/2004,70010,Spagnola,n,s,NULL,NULL,2018/2019,1,52C7,7,3
+442,Rossi,Giacomo,20442,C1CA2845A4CAA19D,BB36721AE4BCD986,m,29/3/2008,70059,Turca,s,n,NULL,NULL,2018/2019,1,295B,10,1
+443,Giannini,Alex,20443,6CFCD4FEAFF81EC9,5146F26EF8240B5D,f,8/3/2001,70074,Albanese,s,n,NULL,NULL,2018/2019,4,19BC,10,3
+444,Scalco,Emanuele,20444,B7DC906CE970E533,63C4A4ED7ECAEFD7,m,30/5/2009,70013,Italiana,s,s,NULL,NULL,2018/2019,5,B4A3,7,2
+445,Roberti,Emanuele,20445,17C4A87AE903DCF1,C89F84E55BEEBCA7,f,14/6/2001,70034,Tedesca,n,n,NULL,NULL,2018/2019,2,37EF,9,3
+446,Giannini,Antonio,20446,FF82E6C38F7C18A6,6998FCC0646BEBF2,f,22/3/2002,70055,Italiana,s,n,NULL,NULL,2018/2019,2,EFB5,6,1
+447,Rossi,Giacomo,20447,D0BC2E2AAD259F3F,C2DBBDA47A369F64,m,6/8/2007,70073,Arabica,s,s,NULL,NULL,2018/2019,1,10B9,10,1
+448,Roberti,Giacomo,20448,DAB7FCC7DF858B11,9D7CCB6B86D4BD3A,m,6/8/2006,70012,Spagnola,s,s,NULL,NULL,2018/2019,4,18BD,7,1
+449,Mirandola,Antonio,20449,FEFE61B1BEAC52B3,0A04C313DEBDBAF4,m,7/5/2003,70013,Albanese,n,s,NULL,NULL,2018/2019,5,DB1F,7,3
+450,Mirandola,Giuseppe,20450,E27D162803C492EB,E0BB5B7A9AF7EE92,f,7/1/2010,70044,Arabica,n,n,NULL,NULL,2018/2019,3,14CD,7,2
+451,Mirandola,Antonio,20451,C0534FCCBFBED542,FE87D6CEA44DFAAB,m,28/7/2002,70069,Francese,s,s,NULL,NULL,2018/2019,3,C39C,10,2
+452,Bianchi,Tiziano,20452,3B15D4AAAE6EBF57,1CDDF5BBEE7AD8A6,f,7/8/2001,70024,Australiana,n,s,NULL,NULL,2018/2019,1,A1DD,8,2
+453,Valentini,Roberto,20453,A63CAC037A93CE44,5D8EDBFE5A7C85CE,m,7/1/2005,70053,Polacca,s,s,NULL,NULL,2018/2019,1,B35D,7,2
+454,Mirandola,Elia,20454,EF6F8ADEBA1FB91A,AB991F4B5283DEC4,f,2/8/2001,70057,Arabica,n,n,NULL,NULL,2018/2019,5,E12B,9,3
+455,Bianchi,Lucia,20455,DCCC16B16AAEB0FF,36646B7F1818BD8C,m,26/12/2007,70037,Albanese,s,n,NULL,NULL,2018/2019,5,B0AB,7,2
+456,Roberti,Valentina,20456,F65B851FDAB778AE,F2C3E025AD6518DF,f,16/5/2006,70010,Tedesca,s,n,NULL,NULL,2018/2019,2,FCB9,7,3
+457,Mirandola,Fabio,20457,BFBDDCEE2DC62C5E,C4FE2FFC6E2BCA4A,f,22/2/2009,70033,Albanese,s,n,NULL,NULL,2018/2019,2,E7AA,10,2
+458,Russo,Tiziano,20458,EDB2DF8E3D12D9BC,E10D6D2E96A4E08D,m,14/11/2001,70024,Polacca,s,n,NULL,NULL,2018/2019,2,5B6C,8,2
+459,Verdi,Elia,20459,567BF535CDB2EFAE,BE207B9BAE771E5D,f,24/1/2004,70023,Tedesca,n,n,NULL,NULL,2018/2019,4,EB3C,10,2
+460,Rossi,Giacomo,20460,DBEC08FF7B06D13C,DCCC16B16AAEB0FF,m,16/8/2010,70069,Turca,s,s,NULL,NULL,2018/2019,1,54D0,7,1
+461,Russo,Emanuele,20461,9F7D7DB15C75DB25,FB9DB433335A5DC0,f,25/11/2001,70010,Albanese,s,n,NULL,NULL,2018/2019,3,434F,8,1
+462,Giannini,Lucia,20462,D80FBC15D8AC59F9,49CB4D3FF29CDBCD,m,16/7/2006,70010,Tedesca,n,n,NULL,NULL,2018/2019,2,CEF3,10,1
+463,Russo,Giacomo,20463,1377C40AEDED426F,A9EED2DB6F3329F0,f,23/11/2010,70024,Tedesca,n,n,NULL,NULL,2018/2019,3,D9BA,10,2
+464,Bianchi,Giuseppe,20464,DA1A16FEC440381A,2B037FEF2B273D7F,f,11/11/2007,70045,Polacca,n,s,NULL,NULL,2018/2019,2,06AE,7,1
+465,Mirandola,Valentina,20465,BA4EE61E17CD4E70,54DB8BFB4C32ED7C,m,9/12/2006,70005,Polacca,s,n,NULL,NULL,2018/2019,4,46B5,7,2
+466,Roberti,Lucia,20466,407D2BFE7BCD7ADF,EAFB91AB27826A8A,f,10/9/2006,70059,Francese,n,n,NULL,NULL,2018/2019,1,B470,8,2
+467,Russo,Alex,20467,1B0C0E90C9C53AB9,B8BB82BCAFFC532B,m,7/5/2000,70065,Arabica,n,n,NULL,NULL,2018/2019,3,AA23,8,1
+468,Roberti,Alex,20468,CBC3CE67CE093C2C,C2ECA9BFC6BF9FE0,f,23/12/2001,70004,Francese,s,n,NULL,NULL,2018/2019,3,A7F3,8,1
+469,Mirandola,Valentina,20469,FD11DB6DE0E08633,7821DBB2DC746EA3,m,5/1/2010,70024,Turca,s,s,NULL,NULL,2018/2019,3,C93B,6,2
+470,Rossi,Roberto,20470,A9CC2C9A32BAFC14,3B65FAF9EADCEE4F,m,31/1/2010,70038,Spagnola,s,n,NULL,NULL,2018/2019,2,EE27,10,1
+471,Roberti,Elia,20471,CDDAEA0C694AECE4,C23D3D5E367EF8FA,f,24/9/2004,70039,Spagnola,n,n,NULL,NULL,2018/2019,4,0ECC,7,2
+472,Verdi,Roberto,20472,08BDBEF2CC1FAFC5,F608ACBADF2B9EE5,m,2/6/2003,70005,Arabica,n,s,NULL,NULL,2018/2019,2,347A,10,3
+473,Giannini,Tiziano,20473,2959CEE0FD697A09,BF487E3CCC773A3C,f,18/10/2005,70034,Francese,n,n,NULL,NULL,2018/2019,4,77F8,10,2
+474,Rossi,Roberto,20474,C2E7CD69FD0DE6F1,48C2BC2D5245BFBD,f,10/9/2010,70046,Australiana,s,n,NULL,NULL,2018/2019,3,CFCE,6,2
+475,Rossi,Valentina,20475,5EDDEDCA25F9DBB6,BADDCFA82EE5D8E6,f,21/1/2007,70046,Australiana,n,s,NULL,NULL,2018/2019,4,6E8F,10,2
+476,Mirandola,Fabio,20476,61A3655BDDB617BB,5EDDEDCA25F9DBB6,m,30/5/2003,70005,Italiana,n,s,NULL,NULL,2018/2019,1,B1C9,10,3
+477,Verdi,Antonio,20477,9D7CCB6B86D4BD3A,4ECDED1BADCD0553,m,2/5/2000,70002,Tedesca,s,n,NULL,NULL,2018/2019,4,BCFF,7,2
+478,Bianchi,Valentina,20478,B588D54DE99498AA,87EEEBBD9579AD80,f,14/9/2010,70045,Arabica,n,s,NULL,NULL,2018/2019,3,FB90,8,3
+479,Mirandola,Giuseppe,20479,BC3B17E1D7FA4A85,47E5CB73CE48B927,m,8/12/2002,70064,Francese,n,n,NULL,NULL,2018/2019,2,16F7,6,2
+480,Roberti,Lucia,20480,DBD8D6CFCE5E3CFE,BC3B17E1D7FA4A85,m,27/11/2000,70055,Italiana,n,n,NULL,NULL,2018/2019,1,95F9,8,3
+481,Roberti,Maria,20481,49D9BACE8C03E6FB,777D6F833CD7EB65,f,7/7/2010,70015,Tedesca,s,n,NULL,NULL,2018/2019,1,A78B,9,2
+482,Russo,Valentina,20482,3AFA8FEDE7DD21AA,40BCFDCBC7DCE4EA,f,25/6/2001,70060,Francese,s,n,NULL,NULL,2018/2019,3,9DCD,8,3
+483,Valentini,Antonio,20483,EA85EA809CF3BEAB,B0FCD0DECB2C941A,f,18/8/2000,70056,Francese,s,s,NULL,NULL,2018/2019,3,FD8F,8,3
+484,Russo,Elia,20484,E6EEDCEDFCA2A6C9,EADDBAC3ABC0B977,f,3/3/2006,70060,Australiana,s,s,NULL,NULL,2018/2019,1,EE75,10,1
+485,Verdi,Antonio,20485,3D3BF204E9AF7BE2,B5DD35F1F6CAFB3E,m,14/1/2000,70004,Francese,s,n,NULL,NULL,2018/2019,4,E7B6,6,1
+486,Bianchi,Giacomo,20486,F0B16D31C49895E6,16E1AD57DC9E5BCC,f,6/5/2009,70011,Francese,s,s,NULL,NULL,2018/2019,5,D4EF,9,1
+487,Rossi,Alex,20487,DF5CFADCCFDEB7EF,EFE50B4E2A3E19FE,f,29/3/2000,70008,Australiana,s,n,NULL,NULL,2018/2019,2,93CA,6,3
+488,Giannini,Antonio,20488,8F166F874F5ADE5E,64F813148A0FEA43,m,16/11/2010,70061,Albanese,s,s,NULL,NULL,2018/2019,4,2458,9,2
+489,Verdi,Valentina,20489,A0F1DE2EE87EADEC,E4CEF7D7BAD89CB4,f,26/8/2005,70000,Italiana,n,n,NULL,NULL,2018/2019,2,D7DF,7,1
+490,Rossi,Alex,20490,E10D6D2E96A4E08D,1BBFB3F6AE6D0BBA,m,5/8/2008,70041,Tedesca,s,s,NULL,NULL,2018/2019,1,DA0A,10,1
+491,Verdi,Giuseppe,20491,8AA7F6BAEAC04C5D,409F38CE64ECD67A,f,31/11/2007,70039,Arabica,s,s,NULL,NULL,2018/2019,3,F2DC,6,2
+492,Scalco,Roberto,20492,28FBA25D725CBF6A,EA85EA809CF3BEAB,f,9/2/2010,70001,Australiana,s,s,NULL,NULL,2018/2019,5,A32C,6,3
+493,Bianchi,Alex,20493,47E5CB73CE48B927,A2C3C7CCE0EA2727,f,27/3/2004,70060,Polacca,n,s,NULL,NULL,2018/2019,5,8C13,10,3
+494,Mirandola,Lucia,20494,C89F84E55BEEBCA7,777D6F833CD7EB65,m,30/10/2002,70011,Arabica,s,n,NULL,NULL,2018/2019,2,ACEB,10,3
+495,Mirandola,Maria,20495,4120D25D3CFEDB7A,CC6587AB808B461A,m,20/1/2004,70061,Polacca,s,n,NULL,NULL,2018/2019,2,2BEB,9,2
+496,Bianchi,Maria,20496,F1FEEC4368ADD0A0,E6B048B4FE9DF6C4,f,25/9/2003,70012,Arabica,s,s,NULL,NULL,2018/2019,3,662B,6,1
+497,Giannini,Emanuele,20497,6827BA5085B468BA,9BC6DCB0EFFAB834,f,8/11/2007,70054,Polacca,n,s,NULL,NULL,2018/2019,1,7CDF,10,3
+498,Roberti,Tiziano,20498,409F38CE64ECD67A,F93860BFC408FFCA,f,25/9/2010,70059,Albanese,s,s,NULL,NULL,2018/2019,5,D5EF,6,1
+499,Mirandola,Roberto,20499,666FF0DAFC73D7C6,EBB1A6DEFBC775F8,f,6/6/2000,70067,Polacca,n,s,NULL,NULL,2018/2019,4,A163,6,3
+500,Russo,Fabio,20500,D588BE6814C7F0C6,A45D555CD22F7FDF,m,15/10/2009,70057,Italiana,s,s,NULL,NULL,2018/2019,4,DADD,6,3
