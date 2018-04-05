@@ -96,7 +96,7 @@
   				    </table>';
 
         } else {
-          echo '<p class="center-align" style="color: red;">Tabella vuota! <a href="index.php">Clicca qui per tornare alla home</a></p>';
+          echo '<p class="center-align" style="color: red;">Tabella vuota!</p>';
         }
 			} else{
 			  echo '<p class="center-align" style="color: red;">Tabella non disponibile! Errore di connessione al database.</p>';
