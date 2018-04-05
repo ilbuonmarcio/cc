@@ -282,31 +282,52 @@
         <form class="col s12 uploadcsv-form" action="utils/uploadcsv.php" method="post" enctype="multipart/form-data">
           <div class="row">
 
-          <div class="input-field col s12">
-            <i class="material-icons prefix">group</i>
-            <input pattern=".{3,}" required placeholder="Inserisci Nome Gruppo" id="gruppo" name="gruppo" type="text" class="validate">
-            <label for="gruppo">Nome Gruppo (Minimo 3 caratteri)</label>
-          </div>
+            <div class="input-field col s12">
+              <select id="uploadcsv-select" name="uploadcsv-select">
+                <?php
 
-        </div>
+                  if($conn){
 
-        <div class="row">
+                    $query = "SELECT * FROM gruppi;";
 
-          <div class="file-field input-field">
-            <div class="btn">
-              <span>Apri</span>
-              <input type="file" name="csv" id="csv" value="">
+                    $result = $conn->query($query);
+
+                    if ($result->num_rows > 0) {
+                      while($row = $result->fetch_assoc()){
+                        if($row["tipo"] == 1){
+                          $type = "Classi Prime";
+                        } else if($row["tipo"] == 3){
+                          $type = "Classi Terze";
+                        } else {
+                          continue;
+                        }
+                        echo '<option value="' . $row["id"] . '">' . $row["nome"] . ' - ' . $type . '</option>';
+                      }
+                    }
+                  } else {
+                    echo '<option value="0" disabled>Impossibile connettersi al database.</option>';
+                  }
+
+                ?>
+              </select>
+              <label>Seleziona Gruppo</label>
             </div>
-            <div class="file-path-wrapper">
-              <input required placeholder="Seleziona un file CSV" class="file-path validate" type="text">
-            </div>
-          </div>
 
-          <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" type="submit" name="action">
-              Carica CSV Alunni
-            </button>
-          </div>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Apri</span>
+                <input type="file" name="csv" id="csv" value="">
+              </div>
+              <div class="file-path-wrapper">
+                <input required placeholder="Seleziona un file CSV" class="file-path validate" type="text">
+              </div>
+            </div>
+
+            <div class="input-field col s12 center-align">
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+                Carica CSV Alunni
+              </button>
+            </div>
 
           </div>
         </form>
