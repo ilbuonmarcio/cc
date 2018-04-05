@@ -99,11 +99,12 @@ INSERT INTO indirizzi (
 
 INSERT INTO gruppi (
   id,
-  nome
+  nome,
+  tipo
 ) VALUES (
-  NULL, 'Gruppo 1'
+  NULL, 'Gruppo 1', 3
 ), (
-  NULL, 'Gruppo 2'
+  NULL, 'Gruppo 2', 1
 ), (
-  NULL, 'Gruppo 3'
+  NULL, 'Gruppo 3', 3
 );
