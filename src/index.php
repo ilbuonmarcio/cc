@@ -115,51 +115,143 @@
       <div class="modal-content">
         <h4 class="center-align">Gestisci Gruppi</h4>
 
-        <form class="col s12 managegroups-form" action="./utils/managegroups.php" method="post">
-          <div class="row">
+        <div class="row">
+          <div id="managegroups-table" class="col s12 center-align">
+            <h6 class="center-align">Lista Gruppi</h6>
+            <?php
 
-            <div class="col s12 center-align">
-              <?php
+              include("utils/dbconnection.php");
 
-                include("utils/dbconnection.php");
+              $conn = connectdb();
 
-                $conn = connectdb();
+              if($conn){
 
-                if($conn){
+                $query = "SELECT * FROM gruppi;";
 
-                  $query = "SELECT * FROM gruppi;";
+                $result = $conn->query($query);
 
-                  $result = $conn->query($query);
+                if ($result->num_rows > 0) {
+                  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered responsive-table">
+                    <thead>
+                      <tr>
+                          <th>ID</th>
+                          <th>Nome</th>
+                          <th>Descrizione</th>
+                          <th>Tipo</th>
+                          <th>Link</th>
+                      </tr>
+                    </thead>
 
-                  if ($result->num_rows > 0) {
-                    echo '<p>Nomi dei gruppi gia` utilizzati: </p>';
-                    while($row = $result->fetch_assoc()) {
-                      echo '<div class="chip">' . $row["nome"] . '</div>';
-                    }
+                    <tbody>';
+                  while($row = $result->fetch_assoc()) {
+                    echo '<tr>
+                            <td>' . $row["id"]                                             . '</td>
+                            <td>' . $row["nome"]                                           . '</td>
+                            <td>' . $row["descrizione"]                                    . '</td>
+                            <td>' . $row["tipo"]                                           . '</td>
+                            <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . '">Visualizza</a></td>
+                          </tr>';
                   }
-                } else{
-                  echo "Impossibile caricare i gruppi gia' formati.";
+                  echo '
+                </tbody>
+              </table>';
                 }
+              } else{
+                echo '<p class="center-align" style="color: red;">Tabella non disponibile! Errore di connessione al database.</p>';
+              }
 
-              ?>
+            ?>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+
+        <form class="col s12 creategroup-form" action="./utils/creategroup.php" method="post">
+          <div class="row">
+            <h6 class="center-align">Crea Nuovo Gruppo</h6>
+
+            <div class="input-field col s12">
+              <i class="material-icons prefix">group</i>
+              <input pattern=".{3,}" required placeholder="Inserisci nome nuovo gruppo" id="groupname" name="groupname" type="text" class="validate">
+              <label for="groupname">Nome Gruppo (Minimo 3 caratteri)</label>
             </div>
 
             <div class="input-field col s12">
-              <select id="managegroups-modal-list-group-selector" name="diritti">
-                <option value="0">Amministratore</option>
-                <option value="1" selected>Editor</option>
-                <option value="2">Visualizzatore</option>
+              <i class="material-icons prefix">description</i>
+              <input placeholder="Inserisci descrizione (facoltativa)" id="description" name="description" type="text" class="validate">
+              <label for="description">Descrizione (facoltativa)</label>
+            </div>
+
+            <div class="input-field col s12">
+              <select id="creategroup-type" name="creategroup-type">
+                <option value="1" selected>Classi Prime</option>
+                <option value="3">Classi Terze</option>
               </select>
-              <label>Seleziona Permessi</label>
+              <label>Seleziona Tipo</label>
             </div>
 
             <div class="input-field col s12 center-align">
               <button class="btn waves-effect waves-light" type="submit" name="action">
-                BOH
+                Crea Gruppo
               </button>
             </div>
+
           </div>
         </form>
+
+      </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+
+        <form class="col s12 deletegroup-form" action="./utils/deletegroup.php" method="post">
+          <div class="row">
+            <h6 class="center-align">Elimina Gruppo</h6>
+
+            <div class="input-field col s9">
+              <select id="deletegroup-type" name="deletegroup-type">
+                <?php
+
+                  if($conn){
+
+                    $query = "SELECT * FROM gruppi;";
+
+                    $result = $conn->query($query);
+
+                    if ($result->num_rows > 0) {
+                      while($row = $result->fetch_assoc()){
+                        if($row["tipo"] == 1){
+                          $type = "Classi Prime";
+                        } else if($row["tipo"] == 3){
+                          $type = "Classi Terze";
+                        } else {
+                          continue;
+                        }
+                        echo '<option value="' . $row["id"] . '">' . $row["nome"] . ' - ' . $type . '</option>';
+                      }
+                    }
+                  } else {
+                    echo '<option value="0" disabled>Impossibile connettersi al database.</option>';
+                  }
+
+                ?>
+              </select>
+              <label>Seleziona Gruppo</label>
+            </div>
+
+            <div class="input-field col s3 center-align">
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+                Cancella Gruppo
+              </button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
 
       </div>
 
