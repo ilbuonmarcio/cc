@@ -44,7 +44,7 @@ if __name__ == "__main__":
         c_legge_104 = choice(['s', 'n'])
         c_classe_precedente = None
         c_classe_successiva = None
-        c_anno_scolastico = "2018/2019"
+        c_anno_scolastico = None
         c_scelta_indirizzo = choice([x for x in range(1, 6)])
         c_cod_cat = "".join(
             [
@@ -56,25 +56,24 @@ if __name__ == "__main__":
         c_id_gruppo = choice([1, 2, 3])
 
         alunni.append([
-            c_id,
-            c_cognome,
-            c_nome,
-            c_matricola,
-            c_cf,
-            c_desiderata,
-            c_sesso,
-            c_data_nascita,
-            c_cap,
-            c_nazionalita,
-            c_legge_107,
-            c_legge_104,
-            c_classe_precedente,
-            c_classe_successiva,
-            c_anno_scolastico,
-            c_scelta_indirizzo,
-            c_cod_cat,
-            c_voto,
-            c_id_gruppo
+            c_id, #0
+            c_cognome, #1
+            c_nome, #2
+            c_matricola, #3
+            c_cf, #4
+            c_desiderata, #5
+            c_sesso, #6
+            c_data_nascita, #7
+            c_cap, #8
+            c_nazionalita, #9
+            c_legge_107, #10
+            c_legge_104, #11
+            c_classe_precedente, #12
+            c_classe_successiva, #13
+            c_scelta_indirizzo, #14
+            c_cod_cat, #15
+            c_voto, #16
+            c_id_gruppo #17
         ])
 
     for alunno in alunni:
@@ -84,6 +83,18 @@ if __name__ == "__main__":
                 alunno[5] = c
                 break
 
-    with open('alunni.csv', 'w') as output_file:
+    with open('alunni_MYSQL.csv', 'w') as output_file:
         for alunno in alunni:
             output_file.write(alunno.__str__().replace(", ", ",").replace("'", '').replace('[', '').replace(']', '').replace('None', 'NULL') + "\n")
+
+    with open('alunni_UPLOAD.csv', 'w') as output_file:
+        for alunno in alunni:
+            s = ""
+            for i in range(0, len(alunno)):
+                if i in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16): # Valori interessanti per il modello di upload
+                    if alunno[i] != None:
+                        s += str(alunno[i])
+                    s += ","
+            s = s[:len(s)-1]
+            print(s)
+            output_file.write(s + "\n")
