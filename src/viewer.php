@@ -45,7 +45,7 @@
 				$result = $conn->query($query);
 
 				if ($result->num_rows > 0) {
-				  echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
+				  echo '<table class="striped centered box-shadow">
       						<thead>
       						  <tr>
       							  <th>Cognome</th>
@@ -95,13 +95,13 @@
   			  echo '</tbody>
   				    </table>';
 
-        } else {
-          echo '<h2 class="center-align" style="color: red;">Tabella vuota!</h2>';
-        }
-			} else{
-			  echo '<h2 class="center-align" style="color: red;">Tabella non disponibile! Errore di connessione al database.</h2>';
-			}
-		}
+				} else {
+					echo '<h2 class="center-align error-message">Tabella vuota!</h2>';
+				}
+		  } else{
+		    echo '<h2 class="center-align error-message">Tabella non disponibile! Errore di connessione al database.</h2>';
+		  }
+	  }
 
   ?>
 
