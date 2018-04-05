@@ -32,7 +32,8 @@ CREATE TABLE gruppi(
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
   tipo INT(1) DEFAULT 0,
-  descrizione VARCHAR(256) DEFAULT NULL
+  descrizione VARCHAR(256) DEFAULT ''
+  UNIQUE INDEX(nome)
 );
 
 CREATE TABLE alunni(

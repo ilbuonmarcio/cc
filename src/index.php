@@ -126,7 +126,7 @@
 
               if($conn){
 
-                $query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(*) as numero_alunni FROM alunni LEFT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;";
+                $query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(*) - 1 as numero_alunni FROM alunni RIGHT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;";
 
                 $result = $conn->query($query);
 
@@ -375,6 +375,11 @@
       if(isset($_GET["gap"])){
         echo "<script>
                 M.toast({html: 'Gruppo con lo stesso nome giá esistente!', classes : 'rounded'});
+              </script>";
+      }
+      if(isset($_GET["newgroupcreated"])){
+        echo "<script>
+                M.toast({html: 'Gruppo con nome `" . $_GET["newgroupcreated"] . "` creato!', classes : 'rounded'});
               </script>";
       }
     ?>
