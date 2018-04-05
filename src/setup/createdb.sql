@@ -31,6 +31,7 @@ CREATE TABLE indirizzi(
 CREATE TABLE gruppi(
   id INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(50) NOT NULL,
+  tipo INT(1) NOT NULL,
   descrizione VARCHAR(256) DEFAULT NULL
 );
 
