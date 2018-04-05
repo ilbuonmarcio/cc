@@ -126,7 +126,7 @@
 
               if($conn){
 
-                $query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(*) - 1 as numero_alunni FROM alunni RIGHT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;";
+                $query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(*) as numero_alunni FROM alunni RIGHT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;";
 
                 $result = $conn->query($query);
 
@@ -283,7 +283,7 @@
           <div class="row">
 
             <div class="input-field col s12">
-              <select id="uploadcsv-select" name="uploadcsv-select">
+              <select required id="uploadcsv-select" name="uploadcsv-select">
                 <?php
 
                   if($conn){
@@ -305,7 +305,7 @@
                       }
                     }
                   } else {
-                    echo '<option value="0" disabled>Impossibile connettersi al database.</option>';
+                    echo '<option required value="0" disabled>Impossibile connettersi al database.</option>';
                   }
 
                 ?>
@@ -400,6 +400,12 @@
       if(isset($_GET["opengg"])){
         echo "<script>
                 manageGroupsModal.open();
+              </script>";
+      }
+      if(isset($_GET["openccsv"]) && isset($_GET["r"]) && isset($_GET["w"])){
+        echo "<script>
+                uploadCSVModal.open();
+                M.toast({html: 'Status caricamento: " . $_GET["r"] . " inserimenti corretti, " . $_GET["w"] . " inserimenti con errori!', classes : 'rounded'});
               </script>";
       }
       if(isset($_GET["gap"])){
