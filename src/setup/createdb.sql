@@ -56,8 +56,6 @@ CREATE TABLE alunni(
   voto INT(2) NOT NULL,
   id_gruppo INT NOT NULL,
   FOREIGN KEY (id_gruppo) REFERENCES gruppi(id),
-  FOREIGN KEY (classe_precedente) REFERENCES classi(id),
-  FOREIGN KEY (classe_successiva) REFERENCES classi(id),
   FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id),
   UNIQUE INDEX(cf, id_gruppo)
 );
