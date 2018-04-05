@@ -5,3 +5,12 @@ h2.error-message{
 table.box-shadow{
 	box-shadow: 1px 1px 10px #BBBBBB;
 }
+
+th{
+	color: #fff;
+	background: #4CAF50;
+}
+
+tr:nth-child(even) {
+	background: #ceffe1
+}
