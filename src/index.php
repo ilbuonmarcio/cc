@@ -39,7 +39,7 @@
         <div class="divider"></div>
       </li>
       <li>
-        <a href="#!" class="waves-effect"><i class="material-icons">group</i>Gestisci Gruppi</a>
+        <a onclick="manageGroupsModal.open();" href="#!" class="waves-effect"><i class="material-icons">group</i>Gestisci Gruppi</a>
       </li>
       <li>
         <a onclick="uploadCSVModal.open();" href="#!" class="waves-effect"><i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
@@ -110,6 +110,65 @@
     </div>
     <!-- Fine modulo per la creazione degli account -->
 
+    <!-- Modulo per la gestione dei gruppi -->
+    <div id="manage-groups-panel" onclick="manageGroupsModal.open();" class="modal modal-fixed-footer managegroups-modal">
+      <div class="modal-content">
+        <h4 class="center-align">Gestisci Gruppi</h4>
+
+        <form class="col s12 managegroups-form" action="./utils/managegroups.php" method="post">
+          <div class="row">
+
+            <div class="col s12 center-align">
+              <?php
+
+                include("utils/dbconnection.php");
+
+                $conn = connectdb();
+
+                if($conn){
+
+                  $query = "SELECT * FROM gruppi;";
+
+                  $result = $conn->query($query);
+
+                  if ($result->num_rows > 0) {
+                    echo '<p>Nomi dei gruppi gia` utilizzati: </p>';
+                    while($row = $result->fetch_assoc()) {
+                      echo '<div class="chip">' . $row["nome"] . '</div>';
+                    }
+                  }
+                } else{
+                  echo "Impossibile caricare i gruppi gia' formati.";
+                }
+
+              ?>
+            </div>
+
+            <div class="input-field col s12">
+              <select id="managegroups-modal-list-group-selector" name="diritti">
+                <option value="0">Amministratore</option>
+                <option value="1" selected>Editor</option>
+                <option value="2">Visualizzatore</option>
+              </select>
+              <label>Seleziona Permessi</label>
+            </div>
+
+            <div class="input-field col s12 center-align">
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+                BOH
+              </button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+      <div class="modal-footer">
+        <a href="#!" onclick="manageGroupsModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+      </div>
+    </div>
+    <!-- Fine modulo per la gestione dei gruppi -->
+
     <!-- Modulo per il caricamento dei file CSV -->
     <div id="upload-csv-panel" onclick="uploadCSVModal.open();" class="modal modal-fixed-footer uploadcsv-modal">
       <div class="modal-content">
@@ -122,32 +181,6 @@
             <i class="material-icons prefix">group</i>
             <input pattern=".{3,}" required placeholder="Inserisci Nome Gruppo" id="gruppo" name="gruppo" type="text" class="validate">
             <label for="gruppo">Nome Gruppo (Minimo 3 caratteri)</label>
-          </div>
-
-          <div class="col s12 center-align">
-            <?php
-
-              include("utils/dbconnection.php");
-
-              $conn = connectdb();
-
-              if($conn){
-
-                $query = "SELECT * FROM gruppi;";
-
-                $result = $conn->query($query);
-
-                if ($result->num_rows > 0) {
-                  echo '<p>Nomi dei gruppi gia` utilizzati: </p>';
-                  while($row = $result->fetch_assoc()) {
-                    echo '<div class="chip">' . $row["nome"] . '</div>';
-                  }
-                }
-              } else{
-                echo "Impossibile caricare i gruppi gia' formati.";
-              }
-
-            ?>
           </div>
 
         </div>
