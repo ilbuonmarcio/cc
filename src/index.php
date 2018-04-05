@@ -134,7 +134,6 @@
                   echo '<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
                     <thead>
                       <tr>
-                          <th>ID</th>
                           <th>Nome</th>
                           <th>Descrizione</th>
                           <th>Tipo</th>
@@ -152,7 +151,6 @@
                       continue;
                     }
                     echo '<tr>
-                            <td>' . $row["id"]                                             . '</td>
                             <td>' . $row["nome"]                                           . '</td>
                             <td>' . $row["descrizione"]                                    . '</td>
                             <td>' . $type                                                  . '</td>
