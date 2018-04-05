@@ -10,9 +10,9 @@ var createUserModalPriviledgesSelector = M.FormSelect.init(createUserModalPrivil
 // JS for managing groups modal
 var manageGroupsElem = document.querySelector('.managegroups-modal');
 var manageGroupsModal = M.Modal.init(manageGroupsElem);
-var manageGroupsModalNewTypeSelect = document.querySelector('#creategroup-type');
+var manageGroupsModalNewTypeSelect = document.querySelector('#creategroup-select');
 var manageGroupsModalNewTypeSelector = M.FormSelect.init(manageGroupsModalNewTypeSelect);
-var manageGroupsModalDelTypeSelect = document.querySelector('#deletegroup-type');
+var manageGroupsModalDelTypeSelect = document.querySelector('#deletegroup-select');
 var manageGroupsModalDelTypeSelector = M.FormSelect.init(manageGroupsModalDelTypeSelect);
 
 // JS for CSV upload modal

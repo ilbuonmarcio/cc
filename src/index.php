@@ -192,7 +192,7 @@
             </div>
 
             <div class="input-field col s12">
-              <select id="creategroup-type" name="creategroup-type">
+              <select id="creategroup-select" name="creategroup-select">
                 <option value="1" selected>Classi Prime</option>
                 <option value="3">Classi Terze</option>
               </select>
@@ -219,7 +219,7 @@
             <h6 class="center-align">Elimina Gruppo</h6>
 
             <div class="input-field col s9">
-              <select id="deletegroup-type" name="deletegroup-type">
+              <select id="deletegroup-select" name="deletegroup-select">
                 <?php
 
                   if($conn){
@@ -253,6 +253,12 @@
               <button class="btn waves-effect waves-light" type="submit" name="action">
                 Cancella Gruppo
               </button>
+            </div>
+
+            <div class="col s12 center-align">
+              <p style="color: red;">
+                Attenzione! Questa azione eliminera anche tutti gli alunni associati a quello specifico gruppo!
+              </p>
             </div>
 
           </div>
@@ -363,6 +369,9 @@
       }
       if(isset($_GET["uap"])){
         echo "<script>M.toast({html: 'Username non disponibile!', classes : 'rounded'})</script>";
+      }
+      if(isset($_GET["gr"])){
+        echo "<script>M.toast({html: 'Gruppo rimosso con successo!', classes : 'rounded'})</script>";
       }
       if(isset($_GET["nodbc"])){
         echo "<script>M.toast({html: 'Database non disponibile!', classes : 'rounded'})</script>";

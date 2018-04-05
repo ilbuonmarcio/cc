@@ -6,7 +6,7 @@
   // Prendo in POST i valori per la creazione gruppo
   $groupname = $_POST["groupname"];
   $description = $_POST["description"];
-  $creategroup_type = $_POST["creategroup-type"];
+  $creategroup_select = $_POST["creategroup-select"];
 
   // Creo un istanza di connessione al database
   $conn = connectdb();
@@ -15,16 +15,16 @@
   if($conn){
 
     // Nessun match trovato, creazione account!
-    $sql = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" . $groupname . "', " . $creategroup_type . ", '" . $description . "');";
+    $sql = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" . $groupname . "', " . $creategroup_select . ", '" . $description . "');";
 
     if($conn->query($sql) === true){
       // Nuovo user creato, redirect in index.php
-      header("Location: ../index.php?opengg=1&newgroupcreated=" . $groupname);
+      header("Location: ../index.php?newgroupcreated=" . $groupname);
     } else{
       // Username giá in uso! redirect in index.php
-      header("Location: ../index.php?opengg=1&gap=1&qerr=1");
+      header("Location: ../index.php?opengg=1&gap=1");
     }
-    
+
   } else {
 
     // Impossibile instaurare una connessione al database
