@@ -126,7 +126,7 @@
 
               if($conn){
 
-                $query = "SELECT * FROM gruppi;";
+                $query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(*) as numero_alunni FROM alunni LEFT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;";
 
                 $result = $conn->query($query);
 
@@ -137,6 +137,7 @@
                           <th>Nome</th>
                           <th>Descrizione</th>
                           <th>Tipo</th>
+                          <th>Numero Alunni</th>
                           <th>Link</th>
                       </tr>
                     </thead>
@@ -154,6 +155,7 @@
                             <td>' . $row["nome"]                                           . '</td>
                             <td>' . $row["descrizione"]                                    . '</td>
                             <td>' . $type                                                  . '</td>
+                            <td>' . $row["numero_alunni"]                                  . '</td>
                             <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . '">Visualizza</a></td>
                           </tr>';
                   }
