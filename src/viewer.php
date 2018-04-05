@@ -61,7 +61,6 @@
       							  <th>Legge 104</th>
       							  <th>Classe precedente</th>
       							  <th>Classe sucessiva</th>
-      							  <th>Anno scolastico</th>
       							  <th>Scelta indirizzo</th>
       							  <th>Codice catastale</th>
       							  <th>Voto</th>
@@ -85,7 +84,6 @@
 							<td>' . $row["legge_104"]         . '</td>
 							<td>' . $row["classe_precedente"] . '</td>
 							<td>' . $row["classe_successiva"] . '</td>
-							<td>' . $row["anno_scolastico"]   . '</td>
 							<td>' . $row["scelta_indirizzo"]  . '</td>
 							<td>' . $row["cod_cat"]           . '</td>
 							<td>' . $row["voto"]              . '</td>
