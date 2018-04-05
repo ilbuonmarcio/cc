@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+ <?php session_start(); ?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
 
@@ -37,6 +37,9 @@
       </li>
       <li>
         <div class="divider"></div>
+      </li>
+      <li>
+        <a href="#!" class="waves-effect"><i class="material-icons">group</i>Gestisci Gruppi</a>
       </li>
       <li>
         <a onclick="uploadCSVModal.open();" href="#!" class="waves-effect"><i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
@@ -188,6 +191,10 @@
         <div class="col s12 m6 offset-m3 center-align feature-block">
           <i class="large material-icons">person_add</i>
           <h5>Aggiungi Nuovo Account</h5>
+        </div>
+        <div class="col s12 m6 offset-m3 center-align feature-block">
+          <i class="large material-icons">group</i>
+          <h5>Gestisci Gruppi</h5>
         </div>
         <div class="col s12 m6 offset-m3 center-align feature-block">
           <i class="large material-icons">cloud_upload</i>
