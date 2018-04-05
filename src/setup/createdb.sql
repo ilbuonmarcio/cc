@@ -57,7 +57,8 @@ CREATE TABLE alunni(
   FOREIGN KEY (id_gruppo) REFERENCES gruppi(id),
   FOREIGN KEY (classe_precedente) REFERENCES classi(id),
   FOREIGN KEY (classe_successiva) REFERENCES classi(id),
-  FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id)
+  FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id),
+  UNIQUE INDEX(cf, id_gruppo)
 );
 
 CREATE TABLE configurazioni(
@@ -80,17 +81,28 @@ INSERT INTO utenti (
   diritti
 ) VALUES (1, 'root', '123', 0);
 
-INSERT INTO gruppi (
+INSERT INTO indirizzi (
   id,
   nome
-) VALUES (NULL, 'Gruppo 1');
+) VALUES (
+  1, 'Informatica'
+), (
+  2, 'Elettronica'
+), (
+  3, 'Logistica'
+), (
+  4, 'Telecomunicazioni'
+), (
+  5, 'Costruzione del Mezzo'
+);
 
 INSERT INTO gruppi (
   id,
   nome
-) VALUES (NULL, 'Gruppo 2');
-
-INSERT INTO gruppi (
-  id,
-  nome
-) VALUES (NULL, 'Gruppo 3');
+) VALUES (
+  NULL, 'Gruppo 1'
+), (
+  NULL, 'Gruppo 2'
+), (
+  NULL, 'Gruppo 3'
+);
