@@ -361,11 +361,36 @@
    <div id="configcc-panel" onclick="configCCModal.open();" class="modal modal-fixed-footer configcc-modal">
      <div class="modal-content">
        <h4 class="center-align">Configurazione Parametri CC</h4>
-       <div id="slider"></div>
+
+      <div class="col s12 loadcc-form">
+        <!-- Select + button load TODO -->
+      </div>
+
+       <div class="col s12 configcc-form">
+
+         <div class="input-field col s12">
+           <i class="material-icons prefix">account_circle</i>
+           <input placeholder="Inserisci nome configurazione" id="name" name="name" type="text" class="validate">
+           <label for="description">Nome Configurazione</label>
+         </div>
+
+         <div class="row">
+           <div class="col s3">
+             <p>Range Alunni:</p>
+           </div>
+
+           <div class="col s9">
+             <div id="slider"></div>
+           </div>
+         </div>
+
+
+       </div>
+
      </div>
 
      <div class="modal-footer">
-       <a href="#!" onclick="uploadCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+       <a href="#!" onclick="configCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
      </div>
 
      </div>
