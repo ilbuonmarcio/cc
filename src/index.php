@@ -362,7 +362,7 @@
      <div class="modal-content">
        <h4 class="center-align">Configura Parametri CC</h4>
 
-       <form class="col s12 configcc-form" action="./utils/createconfig.php" method="post">
+       <div class="col s12 configcc-form">
 
       <div class="col s12 loadcc-form">
         <!-- Select + button load TODO -->
@@ -373,8 +373,8 @@
          <div class="row">
            <div class="input-field col s10 offset-s1">
              <i class="material-icons prefix">settings</i>
-             <input placeholder="Inserisci nome configurazione" id="name" name="name" type="text" class="validate">
-             <label for="name">Nome Configurazione</label>
+             <input required placeholder="Inserisci nome configurazione" id="configname" name="configname" type="text" class="validate">
+             <label for="configname">Nome Configurazione</label>
            </div>
          </div>
 
@@ -387,44 +387,44 @@
 
          <div class="row">
            <div class="input-field col s5 offset-s1">
-             <input placeholder="Inserisci numero bilanciato di maschi" id="num-males" name="num-males" type="number" class="validate">
+             <input required placeholder="Inserisci numero bilanciato di maschi" id="num-males" name="num-males" type="number" class="validate">
              <label for="num-males">Numero Maschi</label>
            </div>
            <div class="input-field col s5">
-             <input placeholder="Inserisci numero bilanciato di femmine" id="num-females" name="num-females" type="number" class="validate">
+             <input required placeholder="Inserisci numero bilanciato di femmine" id="num-females" name="num-females" type="number" class="validate">
              <label for="num-females">Numero Femmine</label>
            </div>
          </div>
 
          <div class="row">
            <div class="input-field col s5 offset-s1">
-             <input placeholder="Inscerisci numero massimo di CAP per gruppo" id="num-cap" name="num-cap" type="number" class="validate">
+             <input required placeholder="Inscerisci numero massimo di CAP per gruppo" id="num-cap" name="num-cap" type="number" class="validate">
              <label for="num-cap">Numero CAP per Gruppo</label>
            </div>
            <div class="input-field col s5">
-             <input placeholder="Inserisci numero massimo di alunni 170 per classe" id="num-170" name="num-170" type="number" class="validate">
+             <input required placeholder="Inserisci numero massimo di alunni 170 per classe" id="num-170" name="num-170" type="number" class="validate">
              <label for="num-170">Numero Alunni 170</label>
            </div>
          </div>
 
          <div class="row">
            <div class="input-field col s5 offset-s1">
-             <input placeholder="Inserisci numero massimo nazionalita'" id="num-naz" name="num-naz" type="number" class="validate">
+             <input required placeholder="Inserisci numero massimo nazionalita'" id="num-naz" name="num-naz" type="number" class="validate">
              <label for="num-naz">Numero Massimo Nazionalita'</label>
            </div>
            <div class="input-field col s5">
-             <input placeholder="Inserisci numero massimo di alunni per nazionalita'" id="num-x-naz" name="num-x-naz" type="number" class="validate">
+             <input required placeholder="Inserisci numero massimo di alunni per nazionalita'" id="num-x-naz" name="num-x-naz" type="number" class="validate">
              <label for="description">Numero Massimo Alunni per Nazionalita'</label>
            </div>
          </div>
 
          <div class="input-field col s12 center-align">
-           <button class="btn waves-effect waves-light" type="submit" name="action">
+           <button class="btn waves-effect waves-light" type="submit" name="action" onclick="loadAndSendConfigCCData();">
              Carica Configurazione
            </button>
          </div>
        </div>
-     </form>
+     </div>
      </div>
      <div class="modal-footer">
        <a href="#!" onclick="configCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
@@ -441,7 +441,7 @@
        <h4 class="center-align">Genera CC</h4>
        <!-- da modificare il form -->
         <form class="col s12 configcc-form" action="./utils/genera.php" method="post">
-
+          <div class="row">
          <div class="input-field col s12">
            <i class="material-icons prefix">settings</i>
            <select required id="genconfigcc-select" name="genconfigcc-select">
@@ -466,7 +466,8 @@
            </select>
            <label>Seleziona Configurazione</label>
          </div>
-         <div class="input-field col s9">
+
+         <div class="input-field col s12">
            <i class="material-icons prefix">group</i>
            <select id="genGroup-select" name="genGroup-select">
              <?php
@@ -497,11 +498,14 @@
            </select>
            <label>Seleziona Gruppo</label>
          </div>
-         <div class="input-field col s12 center-align">
-           <button class="btn waves-effect waves-light" type="submit" name="action">
-             Genera
-           </button>
-         </div>
+
+           <div class="input-field col s12 center-align">
+             <button class="btn waves-effect waves-light" type="submit" name="action">
+               Genera
+             </button>
+           </div>
+
+       </div>
        </form>
      </div>
      <div class="modal-footer">
