@@ -21,6 +21,22 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<style>
+		#group-label{
+		  bottom: 20px;
+		  right: 20px;
+		  position: fixed;
+		  background-color: #CCCCCC;
+		  opacity: 0.9;
+		}
+		
+		#group-label > #label {
+			color: white;
+			font-size: 2em;
+			padding: 0px 20px;
+		}
+	</style>
 
   </head>
 
@@ -89,7 +105,12 @@
 						  </tr>';
 				  }
   			  echo '</tbody>
-  				    </table>';
+  				    </table>
+					
+					
+					 <div id="group-label">
+						<p id="label">' . $_GET["groupname"] . '</p> 
+					 </div>';
 
 				} else {
 					echo '<h2 style="color: red;" class="center-align error-message">Tabella vuota!</h2>';

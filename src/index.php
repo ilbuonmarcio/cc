@@ -156,7 +156,7 @@
                             <td>' . $row["descrizione"]                                    . '</td>
                             <td>' . $type                                                  . '</td>
                             <td>' . $row["numero_alunni"]                                  . '</td>
-                            <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . '">Visualizza</a></td>
+                            <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . '&groupname=' . $row["nome"] . '">Visualizza</a></td>
                           </tr>';
                   }
                   echo '
