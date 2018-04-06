@@ -24,3 +24,7 @@ var uploadCSVModalSelector = M.FormSelect.init(uploadCSVModalSelect);
 // JS for configuring cc parameters modal
 var configCCElem = document.querySelector('.configcc-modal');
 var configCCModal = M.Modal.init(configCCElem);
+
+// JS for generate cc modal
+var genCCElem = document.querySelector('.gencc-modal');
+var genCCModal = M.Modal.init(genCCElem);

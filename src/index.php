@@ -58,7 +58,7 @@
        <a onclick="configCCModal.open();"href="#!" class="waves-effect"><i class="material-icons">settings</i>Configura Parametri CC</a>
      </li>
      <li>
-       <a href="#!" class="waves-effect"><i class="material-icons">control_point</i>Genera CC</a>
+       <a onclick="genCCModal.open();" href="#!" class="waves-effect"><i class="material-icons">control_point</i>Genera CC</a>
      </li>
      <li>
        <div class="divider"></div>
@@ -386,6 +386,21 @@
    </div>
    <!-- Fine modulo per la configurazione dei Parametri -->
 
+   <!-- Modulo per la Generazione CC -->
+   <div id="gencc-panel" onclick="genCCModal.open();" class="modal modal-fixed-footer gencc-modal">
+     <div class="modal-content">
+       <h4 class="center-align">Generazione CC</h4>
+ </div>
+     <div class="modal-footer">
+       <a href="#!" onclick="genCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+     </div>
+
+     </div>
+
+   </div>
+   <!-- Fine modulo per la Generazione CC -->
+
+
    <h3 class="center-align">Benvenuto, <?php echo $_SESSION["username"]; ?>!</h3>
 
    <!-- Contenitore con le informazioni per l'utilizzo -->
@@ -460,6 +475,11 @@
      if(isset($_GET["openccc"])){
        echo "<script>
                configCCModal.open();
+             </script>";
+     }
+     if(isset($_GET["gencc"])){
+       echo "<script>
+               genCCModal.open();
              </script>";
      }
      if(isset($_GET["gap"])){
