@@ -20,3 +20,7 @@ var uploadCSVElem = document.querySelector('.uploadcsv-modal');
 var uploadCSVModal = M.Modal.init(uploadCSVElem);
 var uploadCSVModalSelect = document.querySelector('#uploadcsv-select');
 var uploadCSVModalSelector = M.FormSelect.init(uploadCSVModalSelect);
+
+// JS for configuring cc parameters modal
+var configCCElem = document.querySelector('.configcc-modal');
+var configCCModal = M.Modal.init(configCCElem);
