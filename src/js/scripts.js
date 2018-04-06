@@ -24,6 +24,26 @@ var uploadCSVModalSelector = M.FormSelect.init(uploadCSVModalSelect);
 // JS for configuring cc parameters modal
 var configCCElem = document.querySelector('.configcc-modal');
 var configCCModal = M.Modal.init(configCCElem);
+var slider = document.getElementById('slider');
+
+noUiSlider.create(slider, {
+ start: [15, 30],
+ connect: true,
+ step: 1,
+ range: {
+   'min': 10,
+   'max': 35
+ },
+ format: wNumb({
+     decimals: 0
+   }),
+ // Show a scale with the slider
+	pips: {
+		mode: 'range',
+		stepped: false,
+		density: 10
+	}
+});
 
 // JS for generate cc modal
 var genCCElem = document.querySelector('.gencc-modal');
