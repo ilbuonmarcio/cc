@@ -368,10 +368,12 @@
 
        <div class="col s12 configcc-form">
 
-         <div class="input-field col s12">
-           <i class="material-icons prefix">account_circle</i>
-           <input placeholder="Inserisci nome configurazione" id="name" name="name" type="text" class="validate">
-           <label for="name">Nome Configurazione</label>
+         <div class="row">
+           <div class="input-field col s10 offset-s1">
+             <i class="material-icons prefix">settings</i>
+             <input placeholder="Inserisci nome configurazione" id="name" name="name" type="text" class="validate">
+             <label for="name">Nome Configurazione</label>
+           </div>
          </div>
 
          <div class="row">

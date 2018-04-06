@@ -115,3 +115,11 @@ div.uploadcsv-modal {
 .modal .row {
   padding: 10px 0px 0px 0px;
 }
+
+.configcc-modal {
+  max-height: 600px;
+}
+
+#slider{
+  margin: 10px 0px 30px 0px;
+}
