@@ -18,6 +18,16 @@
    <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
+   <!-- Compiled and minified jQuery -->
+   <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <!-- Compiled and minified noUISlider -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/11.1.0/nouislider.min.js"></script>
+
 
    <!--Let browser know website is optimized for mobile-->
    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -351,7 +361,20 @@
    <div id="configcc-panel" onclick="configCCModal.open();" class="modal modal-fixed-footer configcc-modal">
      <div class="modal-content">
        <h4 class="center-align">Configurazione Parametri CC</h4>
+       <div id="slider"></div>
 
+       <script>
+       var slider = document.getElementById('slider');
+
+      noUiSlider.create(slider, {
+      	start: [20, 80],
+      	connect: true,
+      	range: {
+      		'min': 0,
+      		'max': 100
+      	}
+      });
+       </script>
      </div>
 
      <div class="modal-footer">
