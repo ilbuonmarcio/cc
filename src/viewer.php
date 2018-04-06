@@ -113,10 +113,10 @@
 					 </div>';
 
 				} else {
-					echo '<h2 style="color: red;" class="center-align error-message">Tabella vuota!</h2>';
+					echo '<h2 style="color: red;" class="center-align">Tabella vuota!</h2>';
 				}
 		  } else{
-		    echo '<h2 style="color: red;" class="center-align error-message">Tabella non disponibile! Errore di connessione al database.</h2>';
+		    echo '<h2 style="color: red;" class="center-align">Tabella non disponibile! Errore di connessione al database.</h2>';
 		  }
 	  }
 
