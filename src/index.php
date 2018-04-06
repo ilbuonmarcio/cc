@@ -362,7 +362,7 @@
      <div class="modal-content">
        <h4 class="center-align">Configura Parametri CC</h4>
 
-       <form class="col s12 deletegroup-form" action="./utils/deletegroup.php" method="post">
+       <form class="col s12 configcc-form" action="./utils/createconfig.php" method="post">
 
       <div class="col s12 loadcc-form">
         <!-- Select + button load TODO -->
