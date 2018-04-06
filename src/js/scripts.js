@@ -48,3 +48,7 @@ noUiSlider.create(slider, {
 // JS for generate cc modal
 var genCCElem = document.querySelector('.gencc-modal');
 var genCCModal = M.Modal.init(genCCElem);
+var genConfigCCModalSelect = document.querySelector('#genconfigcc-select');
+var genConfigCCModalSelector = M.FormSelect.init(genConfigCCModalSelect);
+var genGroupsModalSelect = document.querySelector('#genGroup-select');
+var genGroupsModalSelector = M.FormSelect.init(genGroupsModalSelect);

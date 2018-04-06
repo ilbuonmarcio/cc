@@ -423,15 +423,9 @@
              Carica Configurazione
            </button>
          </div>
-
-
-
        </div>
-
      </form>
-
      </div>
-
      <div class="modal-footer">
        <a href="#!" onclick="configCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
      </div>
@@ -445,7 +439,71 @@
    <div id="gencc-panel" onclick="genCCModal.open();" class="modal modal-fixed-footer gencc-modal">
      <div class="modal-content">
        <h4 class="center-align">Genera CC</h4>
- </div>
+       <!-- da modificare il form -->
+        <form class="col s12 configcc-form" action="./utils/genera.php" method="post">
+
+         <div class="input-field col s12">
+           <i class="material-icons prefix">settings</i>
+           <select required id="genconfigcc-select" name="genconfigcc-select">
+             <?php
+
+               if($conn){
+
+                 $query = "SELECT * FROM configurazioni;";
+
+                 $result = $conn->query($query);
+
+                 if ($result->num_rows > 0) {
+                   while($row = $result->fetch_assoc()){
+                     echo '<option value="' . $row["id"] . '">' . $row["nome"] . '</option>';
+                   }
+                 }
+               } else {
+                 echo '<option required value="0" disabled>Impossibile connettersi al database.</option>';
+               }
+
+             ?>
+           </select>
+           <label>Seleziona Configurazione</label>
+         </div>
+         <div class="input-field col s9">
+           <i class="material-icons prefix">group</i>
+           <select id="genGroup-select" name="genGroup-select">
+             <?php
+
+               if($conn){
+
+                 $query = "SELECT * FROM gruppi;";
+
+                 $result = $conn->query($query);
+
+                 if ($result->num_rows > 0) {
+                   while($row = $result->fetch_assoc()){
+                     if($row["tipo"] == 1){
+                       $type = "Classi Prime";
+                     } else if($row["tipo"] == 3){
+                       $type = "Classi Terze";
+                     } else {
+                       continue;
+                     }
+                     echo '<option value="' . $row["id"] . '">' . $row["nome"] . ' - ' . $type . '</option>';
+                   }
+                 }
+               } else {
+                 echo '<option value="0" disabled>Impossibile connettersi al database.</option>';
+               }
+
+             ?>
+           </select>
+           <label>Seleziona Gruppo</label>
+         </div>
+         <div class="input-field col s12 center-align">
+           <button class="btn waves-effect waves-light" type="submit" name="action">
+             Genera
+           </button>
+         </div>
+       </form>
+     </div>
      <div class="modal-footer">
        <a href="#!" onclick="genCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
      </div>
