@@ -360,7 +360,7 @@
    <!-- Modulo per la configurazione dei Parametri -->
    <div id="configcc-panel" onclick="configCCModal.open();" class="modal modal-fixed-footer configcc-modal">
      <div class="modal-content">
-       <h4 class="center-align">Configurazione Parametri CC</h4>
+       <h4 class="center-align">Configura Parametri CC</h4>
 
       <div class="col s12 loadcc-form">
         <!-- Select + button load TODO -->
@@ -371,19 +371,54 @@
          <div class="input-field col s12">
            <i class="material-icons prefix">account_circle</i>
            <input placeholder="Inserisci nome configurazione" id="name" name="name" type="text" class="validate">
-           <label for="description">Nome Configurazione</label>
+           <label for="name">Nome Configurazione</label>
          </div>
 
          <div class="row">
-           <div class="col s3">
-             <p>Range Alunni:</p>
-           </div>
-
-           <div class="col s9">
+           <div class="col s10 offset-s1">
+             <p>Numero Alunni per Classe</p>
              <div id="slider"></div>
            </div>
          </div>
 
+         <div class="row">
+           <div class="input-field col s5 offset-s1">
+             <input placeholder="Inserisci numero bilanciato di maschi" id="num-males" name="num-males" type="number" class="validate">
+             <label for="num-males">Numero Maschi</label>
+           </div>
+           <div class="input-field col s5">
+             <input placeholder="Inserisci numero bilanciato di femmine" id="num-females" name="num-females" type="number" class="validate">
+             <label for="num-females">Numero Femmine</label>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="input-field col s5 offset-s1">
+             <input placeholder="Inscerisci numero massimo di CAP per gruppo" id="num-cap" name="num-cap" type="number" class="validate">
+             <label for="num-cap">Numero CAP per Gruppo</label>
+           </div>
+           <div class="input-field col s5">
+             <input placeholder="Inserisci numero massimo di alunni 170 per classe" id="num-170" name="num-170" type="number" class="validate">
+             <label for="num-170">Numero Alunni 170</label>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="input-field col s5 offset-s1">
+             <input placeholder="Inserisci numero massimo nazionalita'" id="num-naz" name="num-naz" type="number" class="validate">
+             <label for="num-naz">Numero Massimo Nazionalita'</label>
+           </div>
+           <div class="input-field col s5">
+             <input placeholder="Inserisci numero massimo di alunni per nazionalita'" id="num-x-naz" name="num-x-naz" type="number" class="validate">
+             <label for="description">Numero Massimo Alunni per Nazionalita'</label>
+           </div>
+         </div>
+
+         <div class="input-field col s12 center-align">
+           <button class="btn waves-effect waves-light" type="submit" name="action">
+             Carica Configurazione
+           </button>
+         </div>
 
        </div>
 
@@ -401,7 +436,7 @@
    <!-- Modulo per la Generazione CC -->
    <div id="gencc-panel" onclick="genCCModal.open();" class="modal modal-fixed-footer gencc-modal">
      <div class="modal-content">
-       <h4 class="center-align">Generazione CC</h4>
+       <h4 class="center-align">Genera CC</h4>
  </div>
      <div class="modal-footer">
        <a href="#!" onclick="genCCModal.close();" class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
