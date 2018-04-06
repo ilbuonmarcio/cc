@@ -156,8 +156,13 @@
                            <td>' . $row["descrizione"]                                    . '</td>
                            <td>' . $type                                                  . '</td>
                            <td>' . $row["numero_alunni"]                                  . '</td>
-                           <td><a target="_blank" href="viewer.php?groupid=' . $row["id"] . "&groupname=" . $row["nome"] . '">Visualizza</a></td>
-                         </tr>';
+                           <td>';
+
+                           if($row["numero_alunni"] > 0){
+                             echo '<a target="_blank" href="viewer.php?groupid=' . $row["id"] . "&groupname=" . $row["nome"] . '">Visualizza</a>';
+                           }
+                    echo '</td>
+                        </tr>';
                  }
                  echo '
                </tbody>
