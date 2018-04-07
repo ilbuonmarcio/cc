@@ -70,7 +70,8 @@ CREATE TABLE configurazioni(
   max_per_cap INT(3) NOT NULL,
   max_per_naz INT(3) NOT NULL,
   max_naz INT(3) NOT NULL,
-  num_104 INT(3) NOT NULL
+  num_170 INT(3) NOT NULL,
+  UNIQUE INDEX(nome)
 );
 
 INSERT INTO utenti (

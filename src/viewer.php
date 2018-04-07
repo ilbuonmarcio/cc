@@ -1,4 +1,4 @@
- <?php session_start(); ?>
+<?php session_start(); ?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
 
@@ -6,27 +6,41 @@
 
 <html>
 
-  <head>
-    <title>Home - CC</title>
+<head>
+	<title>Home - CC</title>
 
-    <!-- MaterializeIcons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- MaterializeIcons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link href="css/viewer.css" type="text/css" rel="stylesheet"/>
+	<style>
+		#group-label {
+			bottom: 20px;
+			right: 20px;
+			position: fixed;
+			background-color: #CCCCCC;
+			opacity: 0.9;
+		}
 
-  </head>
+		#group-label>#label {
+			color: white;
+			font-size: 2em;
+			padding: 0px 20px;
+		}
+	</style>
 
-  <body>
+</head>
+
+<body>
 
 	<?php
 
@@ -91,17 +105,23 @@
 						  </tr>';
 				  }
   			  echo '</tbody>
-  				    </table>';
+  				    </table>
+					
+					
+					 <div id="group-label">
+						<p id="label">' . $_GET["groupname"] . '</p> 
+					 </div>';
 
 				} else {
-					echo '<h2 class="center-align error-message">Tabella vuota!</h2>';
+					echo '<h2 style="color: red;" class="center-align">Tabella vuota!</h2>';
 				}
 		  } else{
-		    echo '<h2 class="center-align error-message">Tabella non disponibile! Errore di connessione al database.</h2>';
+		    echo '<h2 style="color: red;" class="center-align">Tabella non disponibile! Errore di connessione al database.</h2>';
 		  }
 	  }
 
   ?>
 
-  </body>
+</body>
+
 </html>
