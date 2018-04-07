@@ -15,15 +15,26 @@
   // Controllo se la connessione é disponibile
   if($conn){
 
-    $sql = "SELECT * FROM utenti WHERE username = '" . $username . "' AND password = '" . $password . "';";
+    $sql = "SELECT * FROM utenti WHERE username = '" . $username . "';";
     $result = $conn->query($sql);
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows == 1) {
+
+        $row = $result->fetch_assoc();
+
+        if(password_verify($password, $row["password"])){
 
           // Sessione autenticata correttamente
           $_SESSION["authenticated"] = 1;
           $_SESSION["username"] = $username;
           header("Location: ../index.php");
+          
+        } else{
+
+            // Sessione non autenticata, nessun match trovato
+            header("Location: ../login.php?wp=1");
+            
+        }
 
     } else {
 
