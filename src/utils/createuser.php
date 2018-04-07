@@ -25,7 +25,7 @@
     } else {
 
       // Nessun match trovato, creazione account!
-      $sql = "INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '" . $username . "', '" . $password . "', " . $diritti . ");";
+      $sql = "INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '" . $username . "', '" . password_hash($password, PASSWORD_DEFAULT) . "', " . $diritti . ");";
 
       if($conn->query($sql) === true){
         // Nuovo user creato, redirect in index.php
