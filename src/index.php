@@ -560,7 +560,8 @@
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
-  <script src="js/scripts.js"></script>
+  <script src="js/generatemodals.js"></script>
+  <script src="js/formcontroller.js"></script>
 
   <?php
      if(isset($_GET["newusercreated"])){
