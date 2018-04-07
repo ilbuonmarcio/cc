@@ -446,7 +446,7 @@
     <div class="modal-content">
       <h4 class="center-align">Genera CC</h4>
       <!-- da modificare il form -->
-      <form class="col s12 configcc-form" action="./utils/genera.php" method="post">
+      <form class="col s12 configcc-form" action="./utils/gencc.php" method="post">
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">settings</i>
