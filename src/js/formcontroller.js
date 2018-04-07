@@ -12,7 +12,7 @@ function loadConfigCCData() {
         num_170: document.getElementById("num-170").value,
         num_naz: document.getElementById("num-naz").value,
         num_x_naz: document.getElementById("num-x-naz").value
-    });
+    };
 
 }
 
