@@ -1,4 +1,4 @@
- <?php session_start(); ?>
+<?php session_start(); ?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
 
@@ -6,41 +6,41 @@
 
 <html>
 
-  <head>
-    <title>Home - CC</title>
+<head>
+	<title>Home - CC</title>
 
-    <!-- MaterializeIcons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- MaterializeIcons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<style>
-		#group-label{
-		  bottom: 20px;
-		  right: 20px;
-		  position: fixed;
-		  background-color: #CCCCCC;
-		  opacity: 0.9;
+		#group-label {
+			bottom: 20px;
+			right: 20px;
+			position: fixed;
+			background-color: #CCCCCC;
+			opacity: 0.9;
 		}
-		
-		#group-label > #label {
+
+		#group-label>#label {
 			color: white;
 			font-size: 2em;
 			padding: 0px 20px;
 		}
 	</style>
 
-  </head>
+</head>
 
-  <body>
+<body>
 
 	<?php
 
@@ -122,5 +122,6 @@
 
   ?>
 
-  </body>
+</body>
+
 </html>
