@@ -1,5 +1,5 @@
 <?php session_start();
-      include("utils/dbconnection.php");
+      include("utils/db.php");
 ?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
@@ -32,7 +32,7 @@
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="css/base.css" type="text/css" rel="stylesheet" />
+  <link href="css/index.css" type="text/css" rel="stylesheet" />
 
 </head>
 
