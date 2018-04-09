@@ -39,14 +39,14 @@
       <p class="sidenav-menu-title center-align">Menu - CC</p>
     </li>
     <li>
-      <a onclick="createuserpanel.open();" class="waves-effect">
+      <a onclick="createuserpanel.openPanel();" class="waves-effect">
         <i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="managegroupspanel.open();" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
@@ -285,6 +285,7 @@
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
+  <script src="js/SideNavController.js"></script>
   <script src="js/Panel.js"></script>
   <script src="js/CreateUserPanel.js"></script>
 
