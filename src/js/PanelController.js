@@ -81,6 +81,11 @@ class CreateUserPanel extends Panel{
             html: 'Utente inserito con successo!',
             classes: 'rounded'
         });
+
+        $.post('items/usertable.php', {standalone : true}, function(data){
+          document.getElementById('managegroups-table').innerHTML = data;
+        });
+
     }
     if (response.querystatus === "bad") {
         M.toast({

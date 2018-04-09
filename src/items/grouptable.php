@@ -1,8 +1,8 @@
 <?php
 
-   include("utils/dbconnection.php");
-
-   $conn = connectdb();
+  if(!isset($conn)){
+     $conn = connectdb();
+  }
 
    if($conn){
 

@@ -1,8 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
+      include("utils/dbconnection.php");
+?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
 
 <!DOCTYPE html>
+
 
 <html>
 
@@ -23,8 +26,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
   <!-- Compiled and minified jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 
   <!--Let browser know website is optimized for mobile-->
@@ -83,9 +85,148 @@
     <i class="material-icons">menu</i>
   </a>
 
-  <?php
-    include("items/sidenav.php");
-  ?>
+
+
+
+
+  <!-- Pannello per la creazione di un utente -->
+  <div id="createuser-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Aggiungi Nuovo Account</h4>
+
+      <h6 class="center-align">Lista Utenti</h6>
+      <div id="managegroups-table" class="col s12 center-align">
+        <?php include("items/usertable.php"); ?>
+      </div>
+
+      <div id="createuser-form">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Inserisci username" id="createuser-username" name="createuser-username" type="text" class="validate">
+            <label for="createuser-username">Nome Utente</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci password" id="createuser-password" name="createuser-password" type="text" class="validate">
+            <label for="createuser-password">Password</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select id="createuser-priviledges" name="createuser-priviledges">
+              <option value="0">Amministratore</option>
+              <option value="1" selected>Editor</option>
+              <option value="2">Visualizzatore</option>
+            </select>
+            <label>Seleziona Permessi</label>
+          </div>
+
+          <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn" onclick="createuserpanel.submit();">Invia</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
+  <!-- fine creazione di un utente -->
+
+
+  <!-- Pannello per la gestione dei gruppi -->
+  <div id="managegroups-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Gestisci Gruppi</h4>
+
+      <div id="managegroups-table" class="col s12 center-align">
+        <h6 class="center-align">Lista Gruppi</h6>
+        <?php include("items/grouptable.php"); ?>
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="managegroupscreate-form">
+
+        <h6 class="center-align">Crea Nuovo Gruppo</h6>
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci Nome del gruppo" id="managegroupscreate-groupname" name="managegroupscreate-groupname" type="text" class="validate">
+            <label for="managegroupscreate-groupname">Nome gruppo</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci Descrizione del gruppo" id="managegroupscreate-groupdesc" name="managegroupscreate-groupdesc" type="text" class="validate">
+            <label for="managegroupscreate-groupdesc">Descrizione gruppo</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select id="managegroupscreate-grouptype" name="managegroupscreate-grouptype">
+              <option value="1" selected>Classi Prime</option>
+              <option value="3">Classi Terze</option>
+            </select>
+            <label>Seleziona Tipo</label>
+          </div>
+
+          <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn" onclick="managegroupspanel.submit();">
+              Crea Gruppo
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="divider"></div>
+
+        <div id="managegroupsdelete-form">
+
+          <h6 class="center-align">Elimina Gruppo</h6>
+
+          <div class="row">
+
+            <div class="input-field col s9">
+              <select id="managegroupsdelete-groupname" name="managegroupsdelete-groupname">
+                <?php //include("deletegroup_select.php"); ?>
+              </select>
+              <label>Seleziona Gruppo</label>
+            </div>
+
+            <div class="input-field col s3 center-align">
+              <button onclick="managegroupsdelete.submit();" class="btn waves-effect waves-light">
+                Cancella Gruppo
+              </button>
+            </div>
+
+            <div class="col s12 center-align">
+              <p id="managegroupsdelete-warning" style="color: red;">
+                Attenzione! Questa azione eliminera anche tutti gli alunni associati a quello specifico gruppo!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
+  <!-- fine gestione gruppi -->
+
+
 
   <h3 class="center-align">Benvenuto,
     <?php echo $_SESSION["username"]; ?>!</h3>
@@ -146,8 +287,7 @@
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
-  <!--<script src="js/generatemodals.js"></script>
-  <script src="js/formcontroller.js"></script> -->
+  <script src="js/PanelController.js"></script>
 
 </body>
 
