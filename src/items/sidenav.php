@@ -7,12 +7,12 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="Inserisci username" id="createuser-username" type="text" class="validate">
+          <input placeholder="Inserisci username" id="createuser-username" name="createuser-username" type="text" class="validate">
           <label for="createuser-username">Nome Utente</label>
         </div>
 
         <div class="input-field col s12">
-          <input placeholder="Inserisci password" id="createuser-password" type="text" class="validate">
+          <input placeholder="Inserisci password" id="createuser-password" name="createuser-password" type="text" class="validate">
           <label for="createuser-password">Password</label>
         </div>
 

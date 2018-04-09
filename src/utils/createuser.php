@@ -6,7 +6,7 @@
   // Prendo in POST i valori per la creazione utente
   $username = $_POST["username"];
   $password = $_POST["password"];
-  $diritti = $_POST["diritti"];
+  $priviledges = $_POST["priviledges"];
 
   // Creo un istanza di connessione al database
   $conn = connectdb();
@@ -19,26 +19,33 @@
 
     if ($result->num_rows > 0) {
 
-      // Username giá in uso! redirect in index.php
-      header("Location: ../index.php?uap=1");
+      echo "{
+        status: 'Username already present!',
+        querystatus: 'bad'
+      }";
 
     } else {
 
       // Nessun match trovato, creazione account!
-      $sql = "INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '" . $username . "', '" . password_hash($password, PASSWORD_DEFAULT) . "', " . $diritti . ");";
+      $sql = "INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '" . $username . "', '" . password_hash($password, PASSWORD_DEFAULT) . "', " . $priviledges . ");";
 
-      if($conn->query($sql) === true){
-        // Nuovo user creato, redirect in index.php
-        header("Location: ../index.php?newusercreated=" . $username);
-      } else{
-        // Errore nella query, redirect in index.php
-        header("Location: ../index.php?qerr=1");
+      if ($conn->query($sql) === true) {
+        echo "{
+          status: 'Query Executed',
+          querystatus : 'good'
+        }";
+      } else {
+        echo '{
+          status: "Query Executed",
+          querystatus : "bad",
+          executedquery : "' . $sql . '"
+        }';
       }
     }
   } else {
-
-    // Impossibile instaurare una connessione al database
-    header("Location: ../login.php?nodbc=1");
-
+    echo "{
+      status: 'No Database Connection',
+      querystatus: 'bad'
+    }";
   }
 ?>
