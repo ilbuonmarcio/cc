@@ -83,6 +83,10 @@
     <i class="material-icons">menu</i>
   </a>
 
+  <?php
+    include("items/sidenav.php");
+  ?>
+
   <h3 class="center-align">Benvenuto,
     <?php echo $_SESSION["username"]; ?>!</h3>
 

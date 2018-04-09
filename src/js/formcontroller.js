@@ -1,3 +1,21 @@
+class FormController {
+
+  constructor() {}
+
+
+
+}
+
+class FieldLoader {
+
+  constructor() {}
+
+}
+
+
+
+
+
 function loadConfigCCData() {
 
     var slider_value = slider.noUiSlider.get();
