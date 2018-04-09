@@ -91,9 +91,86 @@ class CreateUserPanel extends Panel{
   }
 }
 
+// Pannello per Gestione Gruppi
+class ManageGroupsPanel extends Panel{
+
+  constructor(id){
+    super(id);
+    this.createphpformfile = 'creategroup.php';
+    this.deletephpformfile = 'deletegroup.php';
+  }
+
+  initFields(){
+    this.groupTypeSelector = M.FormSelect.init(
+      document.querySelector('#managegroupscreate-grouptype'));
+    this.groupDeleteSelector = M.FormSelect.init(
+      document.querySelector('#managegroupsdelete-groupname'));
+
+  }
+
+  loadFields(){
+    var fieldsData = {
+      groupname : document.getElementById('managegroupscreate-groupname').value,
+      description : document.getElementById('managegroupscreate-groupdesc').value,
+      grouptype : document.getElementById('managegroupscreate-grouptype').value
+    };
+
+    if(fieldsData.groupname.length < 1) {
+      throw new InvalidFormValueError();
+      M.toast({
+          html: 'Form inviato!',
+          classes: 'rounded'
+      });
+    }
+    return fieldsData;
+  }
+
+  submit(){
+    try{
+      var data = this.loadFields();
+      console.log(data);
+    } catch (e){
+      if(e instanceof InvalidFormValueError){
+        M.toast({
+          html: 'Errore, inserire un nome valido per il gruppo!',
+          classes: 'rounded'
+        })
+      }
+      return;
+    }
+
+    $.post("utils/" + this.createphpformfile, data, this.onSubmitReturn);
+
+    M.toast({
+        html: 'Form inviato!',
+        classes: 'rounded'
+    });
+  }
+
+  onSubmitReturn(response, status){
+    response = JSON.parse(JSON.stringify(eval("(" + response + ")")));
+    if (response.querystatus === "good") {
+        M.toast({
+            html: 'Gruppo inserito con successo!',
+            classes: 'rounded'
+        });
+    }
+    if (response.querystatus === "bad") {
+        M.toast({
+            html: 'Gruppo già inserito! Cambia il nome!',
+            classes: 'rounded'
+        });
+    }
+  }
+}
+
+
+
+
 var sidenavElem = document.querySelector('.sidenav');
 var sidenavInstance = M.Sidenav.init(sidenavElem, {
   'edge': 'left'
 });
 
 createuserpanel = new CreateUserPanel('#createuser-panel');
+managegroupspanel = new  ManageGroupsPanel('#managegroups-panel');

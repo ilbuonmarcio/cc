@@ -48,7 +48,7 @@
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="managegroupspanel.open();" class="waves-effect">
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
@@ -146,8 +146,8 @@
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
-  <script src="js/generatemodals.js"></script>
-  <script src="js/formcontroller.js"></script>
+  <!--<script src="js/generatemodals.js"></script>
+  <script src="js/formcontroller.js"></script> -->
 
 </body>
 

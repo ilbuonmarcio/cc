@@ -4,7 +4,7 @@
 
   define("HOST", "localhost");
   define("DB_USER", "root");
-  define("DB_PASSWORD", "123");
+  define("DB_PASSWORD", "30760");
   define("DB_NAME", "composizioneclassi");
 
   /*
