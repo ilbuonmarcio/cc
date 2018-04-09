@@ -41,7 +41,7 @@
       <p class="sidenav-menu-title center-align">Menu - CC</p>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="createuserpanel.open();" class="waves-effect">
         <i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
     </li>
     <li>
@@ -97,7 +97,7 @@
         <i class="large material-icons">person_add</i>
         <h5>Aggiungi Nuovo Account</h5>
         <br>
-        <em> Modulo che permette di creare un nuovo account, inserendo un nome utente, una password e la tipologia desiderata 
+        <em> Modulo che permette di creare un nuovo account, inserendo un nome utente, una password e la tipologia desiderata
         </em>
       </div>
       <div class="col s12 m6 offset-m3 center-align feature-block">
@@ -119,7 +119,7 @@
         <h5>Configura Parametri CC</h5>
         <br>
         <em> Modulo che permette di creare una configurazione, inserendo dei parametri (numero alunni per classe, numero maschi, femmine, numero cap per gruppo, numero alunni con legge 170, numero massimo di nazionalità e numero massimo di alunni con la stessa nazionalità)
-        </em> 
+        </em>
       </div>
       <div class="col s12 m6 offset-m3 center-align feature-block">
         <i class="large material-icons">control_point</i>
@@ -139,7 +139,7 @@
         <i class="large material-icons">file_download</i>
         <h5>Scarica CC</h5>
         <br>
-        <em> Modulo che permette di scaricare un file in formato .x contenente le classi composte 
+        <em> Modulo che permette di scaricare un file in formato .x contenente le classi composte
         </em>
       </div>
     </div>
