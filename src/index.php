@@ -36,42 +36,42 @@
 
 <body>
 
-  <ul id="slide-out" class="sidenav " style="background-color: #eeeeee;">
+  <ul id="slide-out" class="sidenav" style="background-color: #eeeeee;">
     <li>
       <p class="sidenav-menu-title center-align">Menu - CC</p>
     </li>
     <li>
-      <a onclick="createUserModal.open();" href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="manageGroupsModal.open();" href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
-      <a onclick="uploadCSVModal.open();" href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
     </li>
     <li>
-      <a onclick="configCCModal.open();" href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">settings</i>Configura Parametri CC</a>
     </li>
     <li>
-      <a onclick="genCCModal.open();" href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">control_point</i>Genera CC</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a href="#!" class="waves-effect">
+      <a class="waves-effect">
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
-      <a href="#!" class="waves-effect">
+      <a onclick="" class="waves-effect">
         <i class="material-icons">file_download</i>Scarica CC</a>
     </li>
     <li>
@@ -79,7 +79,7 @@
         <i class="material-icons">exit_to_app</i>Esci</a>
     </li>
   </ul>
-  <a href="#" id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green">
+  <a id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green">
     <i class="material-icons">menu</i>
   </a>
 
