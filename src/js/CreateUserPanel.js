@@ -64,6 +64,11 @@ class CreateUserPanel extends Panel {
         html: 'Nuovo utente creato correttamente!',
         classes: 'rounded'
       });
+
+      $.post("components/usertableview.php", { ajax: true }, function(data){
+        document.querySelector('#createuser-table').innerHTML = data;
+      });
+
     } else if(response.querystatus == "bad"){
       M.toast({
         html: 'Utente giá esistente!',

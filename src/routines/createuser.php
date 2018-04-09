@@ -6,7 +6,7 @@
   $password = $_POST["password"];
   $priviledges = $_POST["priviledges"];
 
-  $conn = connectdb();
+  $conn = connectDB();
 
   if($conn){
 

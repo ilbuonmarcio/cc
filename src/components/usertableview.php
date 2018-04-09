@@ -1,7 +1,7 @@
 <?php
 
-    if(isset($_POST["standalone"]) && $_POST["standalone"] == true){
-      include('utils/db.php');
+    if(isset($_POST["ajax"]) && $_POST["ajax"] == true){
+      include('../utils/db.php');
     }
 
     if(!isset($conn)){
