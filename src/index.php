@@ -12,10 +12,6 @@
 <head>
   <title>Home - CC</title>
 
-  <!-- Compiled and minified noUISlider -->
-  <link rel="stylesheet" href="css/nouislider.css">
-  <script src="js/nouislider.min.js"></script>
-
   <!-- MaterializeIcons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -286,6 +282,9 @@
     </div>
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
+
+  <script src="js/Panel.js"></script>
+  <script src="js/CreateUserPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 
