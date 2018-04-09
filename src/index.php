@@ -92,10 +92,12 @@
 
       <h4 class="center-align">Aggiungi Nuovo Account</h4>
 
-      <h6 class="center-align">Lista Utenti</h6>
-      <div id="managegroups-table" class="col s12 center-align">
-        <?php include("items/usertable.php"); ?>
+      <h6 class="panel-subtitle center-align">Lista Utenti</h6>
+      <div id="createuser-table" class="col s12 center-align">
+        <?php include("components/usertableview.php"); ?>
       </div>
+
+      <h6 class="panel-subtitle center-align">Crea Nuovo Utente</h6>
 
       <div id="createuser-form">
 
@@ -144,7 +146,7 @@
 
       <div id="managegroups-table" class="col s12 center-align">
         <h6 class="center-align">Lista Gruppi</h6>
-        <?php include("items/grouptable.php"); ?>
+        <?php include("components/grouptable.php"); ?>
       </div>
 
       <div class="divider"></div>

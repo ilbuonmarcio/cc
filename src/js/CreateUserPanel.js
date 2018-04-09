@@ -8,6 +8,10 @@ class InvalidUsernameOrPasswordLengthException extends Error{
 class CreateUserPanel extends Panel {
   constructor(id){
     super(id);
+    this.createUserPriviledgesSelectElement = document.querySelector('#createuser-priviledges');
+    this.createUserPriviledgesSelectInstance = M.FormSelect.init(
+      this.createUserPriviledgesSelectElement
+    );
   }
 
   loadFieldsData(){
