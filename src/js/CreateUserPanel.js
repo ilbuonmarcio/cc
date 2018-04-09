@@ -65,7 +65,7 @@ class CreateUserPanel extends Panel {
         classes: 'rounded'
       });
 
-      $.post("components/usertableview.php", { ajax: true }, function(data){
+      $.post("components/usertableview.php", { ajaxrefreshrequest : true }, function(data){
         document.querySelector('#createuser-table').innerHTML = data;
       });
 

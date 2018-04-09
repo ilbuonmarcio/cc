@@ -1,6 +1,6 @@
 <?php
 
-    if(isset($_POST["ajax"]) && $_POST["ajax"] == true){
+    if(isset($_POST["ajaxrefreshrequest"]) && $_POST["ajaxrefreshrequest"] == true){
       include('../utils/db.php');
     }
 
