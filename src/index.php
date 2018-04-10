@@ -144,8 +144,9 @@
 
       <h4 class="center-align">Gestisci Gruppi</h4>
 
+
+      <h6 class="panel-subtitle center-align">Lista Gruppi</h6>
       <div id="managegroups-table" class="col s12 center-align">
-        <h6 class="center-align panel-subtitle">Lista Gruppi</h6>
         <?php include("components/grouptableview.php"); ?>
       </div>
 
@@ -195,7 +196,7 @@
 
             <div class="input-field col s9">
               <select id="managegroupsdelete-groupname" name="managegroupsdelete-groupname">
-                <?php include("deletegroup_select.php"); ?>
+                <?php include("components/deletegroup_select.php"); ?>
               </select>
               <label>Seleziona Gruppo</label>
             </div>

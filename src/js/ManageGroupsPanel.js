@@ -27,7 +27,7 @@ class ManageGroupsPanel extends Panel {
 
   loadFieldsDeleteData(){
     var data = {
-
+      groupname : document.querySelector('#managegroupsdelete-groupname').value
     };
 
     return data;
@@ -52,19 +52,7 @@ class ManageGroupsPanel extends Panel {
   }
 
   submitDelete(){
-    try{
-      var data = this.loadFieldsDeleteData();
-    } catch (error){
-      if(error instanceof InvalidUsernameOrPasswordLengthException){
-        M.toast(
-          {
-            html : 'Criteri di input non rispettati!',
-            classes: 'rounded'
-          }
-        );
-      }
-      return;
-    }
+    var data = this.loadFieldsDeleteData();
 
     $.post('routines/deletegroup.php', data, this.callbackOnDeleteSubmit);
   }
@@ -116,6 +104,13 @@ class ManageGroupsPanel extends Panel {
         html: 'Gruppo eliminato correttamente!',
         classes: 'rounded'
       });
+
+      // Reload table on submit
+      // TODO make it a function
+      $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
+        document.querySelector('#managegroups-table').innerHTML = data;
+      });
+
 
     } else if(response.querystatus == "bad"){
       M.toast({
