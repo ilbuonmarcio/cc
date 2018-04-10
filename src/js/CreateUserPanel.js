@@ -57,6 +57,10 @@ class CreateUserPanel extends Panel {
         classes: 'rounded'
       });
 
+      self = this;
+
+      // Reload table on submit
+      // TODO make it a function
       $.post("components/usertableview.php", { ajaxrefreshrequest : true }, function(data){
         document.querySelector('#createuser-table').innerHTML = data;
       });
