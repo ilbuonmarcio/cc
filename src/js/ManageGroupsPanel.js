@@ -74,11 +74,8 @@ class ManageGroupsPanel extends Panel {
         classes: 'rounded'
       });
 
-      // Reload table on submit
-      // TODO make it a function
-      $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
-        document.querySelector('#managegroups-table').innerHTML = data;
-      });
+      ManageGroupsPanel.tableReload();
+      ManageGroupsPanel.selectReload();
 
     } else if(response.querystatus == "bad"){
       M.toast({
@@ -105,12 +102,8 @@ class ManageGroupsPanel extends Panel {
         classes: 'rounded'
       });
 
-      // Reload table on submit
-      // TODO make it a function
-      $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
-        document.querySelector('#managegroups-table').innerHTML = data;
-      });
-
+      ManageGroupsPanel.tableReload();
+      ManageGroupsPanel.selectReload();
 
     } else if(response.querystatus == "bad"){
       M.toast({
@@ -118,5 +111,21 @@ class ManageGroupsPanel extends Panel {
         classes: 'rounded'
       });
     }
+  }
+
+  static tableReload(){
+    $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
+      document.querySelector('#managegroups-table').innerHTML = data;
+    });
+  }
+
+  static selectReload(){
+
+    $.post("components/deletegroup_select.php", { ajaxrefreshrequest : true }, function(data){
+      document.querySelector('#managegroupsdelete-groupname').innerHTML = data;
+      M.FormSelect.getInstance(document.querySelector('#managegroupsdelete-groupname')).destroy();
+      M.FormSelect.init(document.querySelector('#managegroupsdelete-groupname'));
+    });
+
   }
 }
