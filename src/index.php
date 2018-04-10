@@ -145,7 +145,7 @@
       <h4 class="center-align">Gestisci Gruppi</h4>
 
       <div id="managegroups-table" class="col s12 center-align">
-        <h6 class="center-align">Lista Gruppi</h6>
+        <h6 class="center-align panel-subtitle">Lista Gruppi</h6>
         <?php include("components/grouptableview.php"); ?>
       </div>
 
@@ -153,7 +153,7 @@
 
       <div id="managegroupscreate-form">
 
-        <h6 class="center-align">Crea Nuovo Gruppo</h6>
+        <h6 class="center-align panel-subtitle">Crea Nuovo Gruppo</h6>
 
         <div class="row">
 
@@ -176,7 +176,7 @@
           </div>
 
           <div class="col s12 center-align">
-            <a class="waves-effect waves-light btn" onclick="managegroupspanel.submit();">
+            <a class="waves-effect waves-light btn" onclick="managegroupspanel.submitCreate();">
               Crea Gruppo
             </a>
           </div>
@@ -189,19 +189,19 @@
 
         <div id="managegroupsdelete-form">
 
-          <h6 class="center-align">Elimina Gruppo</h6>
+          <h6 class="center-align panel-subtitle">Elimina Gruppo</h6>
 
           <div class="row">
 
             <div class="input-field col s9">
               <select id="managegroupsdelete-groupname" name="managegroupsdelete-groupname">
-                <?php //include("deletegroup_select.php"); ?>
+                <?php include("deletegroup_select.php"); ?>
               </select>
               <label>Seleziona Gruppo</label>
             </div>
 
             <div class="input-field col s3 center-align">
-              <button onclick="managegroupsdelete.submit();" class="btn waves-effect waves-light">
+              <button onclick="managegroupspanel.submitDelete();" class="btn waves-effect waves-light">
                 Cancella Gruppo
               </button>
             </div>

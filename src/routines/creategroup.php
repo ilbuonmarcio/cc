@@ -1,12 +1,12 @@
 <?php
 
-  // Includo il file per la connessione al dabatase
-  include("dbconnection.php");
+
+  include("../utils/db.php");
 
   // Prendo in POST i valori per la creazione gruppo
   $groupname = $_POST["groupname"];
-  $description = $_POST["description"];
-  $creategroup_select = $_POST["grouptype"];
+  $groupdesc = $_POST["groupdesc"];
+  $grouptype = $_POST["grouptype"];
 
   // Creo un istanza di connessione al database
   $conn = connectdb();
@@ -15,7 +15,7 @@
   if($conn){
 
     // Nessun match trovato, creazione account!
-    $sql = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" . $groupname . "', " . $creategroup_select . ", '" . $description . "');";
+    $sql = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" . $groupname . "', " . $grouptype . ", '" . $groupdesc . "');";
 
     if ($conn->query($sql) === true) {
       echo "{
