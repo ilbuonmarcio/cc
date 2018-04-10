@@ -72,4 +72,9 @@ class CreateUserPanel extends Panel {
       document.querySelector('#createuser-table').innerHTML = data;
     });
   }
+
+  openPanel(){
+    CreateUserPanel.tableReload();
+    super.openPanel();
+  }
 }

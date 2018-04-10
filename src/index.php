@@ -50,7 +50,7 @@
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="uploadcsvpanel.openPanel();" class="waves-effect">
         <i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
     </li>
     <li>
@@ -94,7 +94,7 @@
 
       <h6 class="panel-subtitle center-align">Lista Utenti</h6>
       <div id="createuser-table" class="col s12 center-align">
-        <?php include("components/usertableview.php"); ?>
+
       </div>
 
       <h6 class="panel-subtitle center-align">Crea Nuovo Utente</h6>
@@ -147,7 +147,7 @@
 
       <h6 class="panel-subtitle center-align">Lista Gruppi</h6>
       <div id="managegroups-table" class="col s12 center-align">
-        <?php include("components/grouptableview.php"); ?>
+
       </div>
 
       <div class="divider"></div>
@@ -196,7 +196,7 @@
 
             <div class="input-field col s9">
               <select id="managegroupsdelete-groupname" name="managegroupsdelete-groupname">
-                <?php include("components/deletegroup_select.php"); ?>
+
               </select>
               <label>Seleziona Gruppo</label>
             </div>
@@ -223,9 +223,52 @@
     </div>
 
   </div>
-  <!-- fine gestione gruppi -->
 
 
+
+
+  <div id="uploadcsv-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Carica CSV Alunni</h4>
+
+      <div id="uploadcsv-form">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <select id="uploadcsv-groupname" name="uploadcsv-groupname">
+
+            </select>
+            <label>Seleziona Gruppo</label>
+          </div>
+
+          <div class="file-field input-field col s12">
+            <div class="btn">
+              <span>Apri</span>
+              <input id="uploadcsv-filepath" name="uploadcsv-filepath" type="file">
+            </div>
+            <div class="file-path-wrapper">
+              <input placeholder="Seleziona file" class="file-path validate" type="text">
+            </div>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button onclick="uploadcsvpanel.submit();" class="btn waves-effect waves-light">
+              Carica CSV
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
 
   <h3 class="center-align">Benvenuto,
     <?php echo $_SESSION["username"]; ?>!</h3>
@@ -291,6 +334,7 @@
   <script src="js/Panel.js"></script>
   <script src="js/CreateUserPanel.js"></script>
   <script src="js/ManageGroupsPanel.js"></script>
+  <script src="js/UploadCSVPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 

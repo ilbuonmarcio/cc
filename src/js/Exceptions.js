@@ -11,3 +11,10 @@ class GroupNameTooSmallException extends Error{
     this.name = 'GroupNameTooSmallException';
   }
 }
+
+class FilePathTooSmallException extends Error{
+  constructor(msg){
+    super(msg);
+    this.name = 'FilePathTooSmallException';
+  }
+}

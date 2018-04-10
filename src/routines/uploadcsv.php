@@ -1,8 +1,8 @@
 <?php
 
-  include("dbconnection.php");
+  include("../utils/db.php");
 
-  $uploadcsv_select = $_POST["uploadcsv-select"];
+  $uploadcsv_select = $_POST["groupname"];
 
   $tmpName = $_FILES['csv']['tmp_name'];
   $csvAsArray = array_map('str_getcsv', file($tmpName));
@@ -44,11 +44,17 @@
         $wrong += 1;
       }
     }
-    
-    header("Location: ../index.php?openccsv=1&r=" . $right . "&w=" . $wrong);
+
+    echo "{
+      status: 'Query Executed',
+      querystatus : 'good'
+    }";
 
   } else{
-    header("Location: ../index.php?nodbc=1");
+    echo "{
+      status: 'No Database Connection',
+      querystatus: 'bad'
+    }";
   }
 
 ?>
