@@ -1,10 +1,3 @@
-class InvalidUsernameOrPasswordLengthException extends Error{
-  constructor(msg){
-    super(msg);
-    this.name = 'InvalidUsernameOrPasswordLengthException';
-  }
-}
-
 class CreateUserPanel extends Panel {
   constructor(id){
     super(id);
@@ -32,7 +25,6 @@ class CreateUserPanel extends Panel {
   submit(){
     try{
       var data = this.loadFieldsData();
-      console.log(data);
     } catch (error){
       if(error instanceof InvalidUsernameOrPasswordLengthException){
         M.toast(

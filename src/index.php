@@ -285,6 +285,7 @@
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
+  <script src="js/Exceptions.js"></script>
   <script src="js/SideNavController.js"></script>
   <script src="js/Panel.js"></script>
   <script src="js/CreateUserPanel.js"></script>
