@@ -46,7 +46,7 @@
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="managegroupspanel.openPanel();" class="waves-effect">
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
@@ -146,7 +146,7 @@
 
       <div id="managegroups-table" class="col s12 center-align">
         <h6 class="center-align">Lista Gruppi</h6>
-        <?php include("components/grouptable.php"); ?>
+        <?php include("components/grouptableview.php"); ?>
       </div>
 
       <div class="divider"></div>
@@ -289,6 +289,7 @@
   <script src="js/SideNavController.js"></script>
   <script src="js/Panel.js"></script>
   <script src="js/CreateUserPanel.js"></script>
+  <script src="js/ManageGroupsPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 

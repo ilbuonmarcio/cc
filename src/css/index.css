@@ -22,23 +22,22 @@ a#sidenav-trigger-button {
   margin: 28px;
 }
 
-#createuser-table>table>tbody {
+#createuser-table>table>tbody, #managegroups-table>tbody {
   display: block;
   max-height: 300px;
   overflow: auto;
 }
 
-#createuser-table>table>thead,
-tbody tr {
+#createuser-table>table>thead, tbody tr, #managegroups-table>table>thead, tbody, tr {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
 
-#createuser-table>table>thead {
+#createuser-table>table>thead, #managegroups-table>table>thead {
   width: calc( 100% - 1em)
 }
 
-#createuser-table>table {
+#createuser-table>table, #managegroups-table>table {
   width: 100%;
 }
