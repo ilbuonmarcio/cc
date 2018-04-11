@@ -1,13 +1,9 @@
 class ConfigureCCPanel extends Panel {
   constructor(id){
     super(id);
-    this.manageGroupsOnCreateSelectGroupTypeElement = document.querySelector('#managegroupscreate-grouptype');
-    this.manageGroupsOnCreateSelectGroupTypeInstance = M.FormSelect.init(
-      this.manageGroupsOnCreateSelectGroupTypeElement
-    );
-    this.manageGroupsOnDeleteSelectGroupNameElement = document.querySelector('#managegroupsdelete-groupname');
-    this.manageGroupsOnDeleteSelectGroupNameInstance = M.FormSelect.init(
-      this.manageGroupsOnDeleteSelectGroupNameElement
+    this.configureCCOnLoadSelectConfigNameElement = document.querySelector('#configureccload-configname');
+    this.configureCCOnLoadSelectConfigNameInstance = M.FormSelect.init(
+      this.configureCCOnLoadSelectConfigNameElement
     );
 
     this.slider = document.querySelector('#configureccsave-rangeslider');
@@ -22,13 +18,13 @@ class ConfigureCCPanel extends Panel {
       },
       format: wNumb({
         decimals: 0
-      }),
+      })/*,
       // Show a scale with the slider
       pips: {
         mode: 'range',
         stepped: false,
         density: 10
-      }
+      }*/
     });
   }
 

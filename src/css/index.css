@@ -81,8 +81,13 @@ a#sidenav-trigger-button {
   width: 100%;
 }
 
+#configureccsave-rangesliderlabel {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 #configureccsave-rangeslider {
-  margin-top: 30px;
+  margin: 25px 10px 50px 10px;
 }
 
 #configureccsave-switchtitle {

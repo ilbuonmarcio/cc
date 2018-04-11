@@ -308,12 +308,19 @@
 
         <div class="row">
 
-          <div class="input-field col s12">
-            <input placeholder="Inserisci nome configurazione" id="configureccsave-configname" name="configureccsave-configname" type="text" class="validate">
-            <label for="configureccsave-configname">Nome Configurazione</label>
+          <div class="row">
+
+            <div class="input-field col s12">
+              <input placeholder="Inserisci nome configurazione" id="configureccsave-configname" name="configureccsave-configname" type="text" class="validate">
+              <label for="configureccsave-configname">Nome Configurazione</label>
+            </div>
+
           </div>
 
-          <div id="configureccsave-rangeslider"></div>
+          <div class="row">
+            <label id="configureccsave-rangesliderlabel" for="configureccsave-rangeslider">Range Numero Alunni per Classe</label>
+            <div id="configureccsave-rangeslider"></div>
+          </div>
 
           <div class="row">
 
