@@ -18,13 +18,12 @@ class ConfigureCCPanel extends Panel {
       },
       format: wNumb({
         decimals: 0
-      })/*,
-      // Show a scale with the slider
+      }),
       pips: {
         mode: 'range',
         stepped: false,
         density: 10
-      }*/
+      }
     });
   }
 
