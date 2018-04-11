@@ -17,9 +17,7 @@ class UploadCSVPanel extends Panel {
     formData.append('groupname', document.querySelector("#uploadcsv-groupname").value);
     formData.append('filepath', document.querySelector('#uploadcsv-filepath').files[0]);
 
-    console.log(formData);
-
-    if(formData.get('filepath').name === "" || formData.get('filepath') === undefined) {
+    if(formData.get('filepath').name === "" || formData.get('filepath').name === undefined) {
       throw new FilePathTooSmallException();
     }
 
@@ -29,8 +27,6 @@ class UploadCSVPanel extends Panel {
   submit(){
     try{
       var data = this.loadFieldsData();
-      console.log("Sending UploadCSVPanel submit with this data object:");
-      console.log(data);
     } catch (error){
       if(error instanceof FilePathTooSmallException){
         M.toast(
@@ -42,6 +38,11 @@ class UploadCSVPanel extends Panel {
       }
       return;
     }
+
+    M.toast({
+      html: 'In attesa di upload completato...',
+      classes: 'rounded'
+    });
 
     $.ajax({
         url: 'routines/uploadcsv.php',
@@ -59,9 +60,7 @@ class UploadCSVPanel extends Panel {
   callbackOnSubmit(data){
     try{
       var response = JSON.parse(JSON.stringify(eval("(" + data + ")")));
-      console.log(response);
     } catch (error){
-      console.log(data);
       M.toast({
         html: 'Messaggio di risposta dal database non compatibile!',
         classes: 'rounded'
@@ -72,6 +71,16 @@ class UploadCSVPanel extends Panel {
     if(response.querystatus == "good"){
       M.toast({
         html: 'File caricato correttamente!',
+        classes: 'rounded'
+      });
+
+      M.toast({
+        html: 'Record inseriti correttamente: ' + response.right,
+        classes: 'rounded'
+      });
+
+      M.toast({
+        html: 'Record inseriti erratamente: ' + response.wrong,
         classes: 'rounded'
       });
 
