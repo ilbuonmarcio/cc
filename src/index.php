@@ -12,6 +12,10 @@
 <head>
   <title>Home - CC</title>
 
+  <!-- Compiled and minified noUISlider -->
+  <link rel="stylesheet" href="css/nouislider.css">
+  <script src="js/nouislider.min.js"></script>
+
   <!-- MaterializeIcons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -53,7 +57,7 @@
         <i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="configureccpanel.openPanel();" class="waves-effect">
         <i class="material-icons">settings</i>Configura Parametri CC</a>
     </li>
     <li>
@@ -269,6 +273,117 @@
 
   </div>
 
+
+
+
+
+  <div id="configurecc-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Configura Parametri CC</h4>
+
+      <div id="configureccload-form">
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <select id="configureccload-configname" name="configurecc-configname">
+
+            </select>
+            <label>Seleziona Configurazione</label>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.submitLoad();">
+              Carica Configurazione Selezionata
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="configureccsave-form">
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci nome configurazione" id="configureccsave-configname" name="configureccsave-configname" type="text" class="validate">
+            <label for="configureccsave-configname">Nome Configurazione</label>
+          </div>
+
+          <div id="configureccsave-rangeslider"></div>
+
+          <div class="row">
+
+            <div class="input-field col s5">
+              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="0" class="validate">
+              <label for="configureccsave-nummales">Numero Ideale Maschi per Classe</label>
+            </div>
+
+            <div class="switch col s2 center-align">
+              <h6 id="configureccsave-switchtitle" class="center-align">Minoranza</h6><br>
+              <label>
+                M
+                <input type="checkbox">
+                <span class="lever"></span>
+                F
+              </label>
+            </div>
+
+            <div class="input-field col s5">
+              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="0" class="validate">
+              <label for="configureccsave-numfemales">Numero Ideale Femmine per Classe</label>
+            </div>
+
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero CAP" id="configureccsave-numcap" name="configureccsave-numcap" type="number" min="0" class="validate">
+            <label for="configureccsave-numcap">Numero CAP per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero 170" id="configureccsave-num170" name="configureccsave-num170" type="number" min="0" class="validate">
+            <label for="configureccsave-num170">Numero 170 per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero massimo Nazionalitá" id="configureccsave-numnaz" name="configureccsave-numnaz" type="number" min="0" class="validate">
+            <label for="configureccsave-numnaz">Numero Nazionalitá per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero massimo per Nazionalitá" id="configureccsave-nummaxforeachnaz" name="configureccsave-nummaxforeachnaz" type="number" min="0" class="validate">
+            <label for="configureccsave-nummaxforeachnaz">Numero Alunni per Nazionalitá</label>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.submitSave();">
+              Salva Configurazione
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
   <h3 class="center-align">Benvenuto,
     <?php echo $_SESSION["username"]; ?>!</h3>
 
@@ -334,6 +449,7 @@
   <script src="js/CreateUserPanel.js"></script>
   <script src="js/ManageGroupsPanel.js"></script>
   <script src="js/UploadCSVPanel.js"></script>
+  <script src="js/ConfigureCCPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 

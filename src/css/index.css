@@ -80,3 +80,11 @@ a#sidenav-trigger-button {
 #createuser-table>table, #managegroups-table>table {
   width: 100%;
 }
+
+#configureccsave-rangeslider {
+  margin-top: 30px;
+}
+
+#configureccsave-switchtitle {
+  margin: 0;
+}
