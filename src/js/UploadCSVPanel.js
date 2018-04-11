@@ -11,25 +11,25 @@ class UploadCSVPanel extends Panel {
 
   loadFieldsData(){
 
-    var data = {
-      groupname: document.querySelector('#uploadcsv-groupname').value,
-      csv: document.querySelector('#uploadcsv-filepath').value
-    };
+    var form = document.querySelector('#uploadcsv-form');
+    var formData = new FormData(form);
 
-    console.log(data);
+    formData.append('groupname', document.querySelector("#uploadcsv-groupname").value);
+    formData.append('filepath', document.querySelector('#uploadcsv-filepath').files[0]);
 
-    return;
+    console.log(formData);
 
-    if(data.csv === "") {
+    if(formData.get('filepath').name === "" || formData.get('filepath') === undefined) {
       throw new FilePathTooSmallException();
     }
 
-    return data;
+    return formData;
   }
 
   submit(){
     try{
       var data = this.loadFieldsData();
+      console.log("Sending UploadCSVPanel submit with this data object:");
       console.log(data);
     } catch (error){
       if(error instanceof FilePathTooSmallException){
@@ -43,13 +43,25 @@ class UploadCSVPanel extends Panel {
       return;
     }
 
-    $.post('routines/uploadcsv.php', data, this.callbackOnSubmit);
+    $.ajax({
+        url: 'routines/uploadcsv.php',
+        data: data,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+    }).always(
+      this.callbackOnSubmit
+    );
+
+    // $.post('routines/uploadcsv.php', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
     try{
       var response = JSON.parse(JSON.stringify(eval("(" + data + ")")));
+      console.log(response);
     } catch (error){
+      console.log(data);
       M.toast({
         html: 'Messaggio di risposta dal database non compatibile!',
         classes: 'rounded'

@@ -1,10 +1,14 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
   include("../utils/db.php");
 
   $uploadcsv_select = $_POST["groupname"];
 
-  $tmpName = $_FILES['csv']['tmp_name'];
+  $tmpName = $_FILES["filepath"]["tmp_name"];
   $csvAsArray = array_map('str_getcsv', file($tmpName));
 
   $conn = connectdb();
@@ -20,6 +24,7 @@
     $stringarraypositions = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14);
 
     foreach($csvAsArray as $row){
+
       $query = "INSERT INTO alunni VALUES ";
       $query .= "(NULL,";
 
@@ -47,13 +52,17 @@
 
     echo "{
       status: 'Query Executed',
-      querystatus : 'good'
+      querystatus : 'good',
+      right : " . $right . ",
+      wrong : " . $wrong . "
     }";
 
-  } else{
+  } else {
     echo "{
       status: 'No Database Connection',
       querystatus: 'bad'
+      right : " . $right . ",
+      wrong : " . $wrong . "
     }";
   }
 

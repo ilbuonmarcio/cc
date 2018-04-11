@@ -232,32 +232,34 @@
 
       <h4 class="center-align">Carica CSV Alunni</h4>
 
-      <div id="uploadcsv-form">
+      <div class="col s12" id="uploadcsv-form">
+         <div class="row">
 
-        <div class="input-field col s12">
-          <select id="uploadcsv-groupname" name="uploadcsv-groupname">
+           <div class="input-field col s12">
+             <select id="uploadcsv-groupname" name="uploadcsv-groupname">
 
-          </select>
-          <label>Seleziona Gruppo</label>
-        </div>
+             </select>
+             <label>Seleziona Gruppo</label>
+           </div>
 
-        <div class="file-field input-field">
-          <div class="btn">
-            <span>Apri</span>
-            <input type="file" id="uploadcsv-filepath">
-          </div>
-          <div class="file-path-wrapper">
-            <input class="file-path validate" type="text">
-          </div>
-        </div>
+           <div class="file-field input-field">
+             <div class="btn">
+               <span>Apri</span>
+               <input type="file" name="uploadcsv-filepath" id="uploadcsv-filepath" value="">
+             </div>
+             <div class="file-path-wrapper">
+               <input placeholder="Seleziona un file CSV" class="file-path validate" type="text">
+             </div>
+           </div>
 
-        <div class="input-field col s12 center-align">
-          <button onclick="uploadcsvpanel.submit();" class="btn waves-effect waves-light">
-            Carica CSV
-          </button>
-        </div>
+           <div class="input-field col s12 center-align">
+             <button class="btn waves-effect waves-light" onclick="uploadcsvpanel.submit();">
+               Carica CSV
+             </button>
+           </div>
 
-      </div>
+         </div>
+       </div>
 
     </div>
 
