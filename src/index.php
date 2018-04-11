@@ -24,7 +24,6 @@
   <!-- Compiled and minified jQuery -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -235,31 +234,29 @@
 
       <div id="uploadcsv-form">
 
-        <div class="row">
-          <div class="input-field col s12">
-            <select id="uploadcsv-groupname" name="uploadcsv-groupname">
+        <div class="input-field col s12">
+          <select id="uploadcsv-groupname" name="uploadcsv-groupname">
 
-            </select>
-            <label>Seleziona Gruppo</label>
-          </div>
-
-          <div class="file-field input-field col s12">
-            <div class="btn">
-              <span>Apri</span>
-              <input id="uploadcsv-filepath" name="uploadcsv-filepath" type="file">
-            </div>
-            <div class="file-path-wrapper">
-              <input placeholder="Seleziona file" class="file-path validate" type="text">
-            </div>
-          </div>
-
-          <div class="input-field col s12 center-align">
-            <button onclick="uploadcsvpanel.submit();" class="btn waves-effect waves-light">
-              Carica CSV
-            </button>
-          </div>
-
+          </select>
+          <label>Seleziona Gruppo</label>
         </div>
+
+        <div class="file-field input-field">
+          <div class="btn">
+            <span>Apri</span>
+            <input type="file" id="uploadcsv-filepath">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <div class="input-field col s12 center-align">
+          <button onclick="uploadcsvpanel.submit();" class="btn waves-effect waves-light">
+            Carica CSV
+          </button>
+        </div>
+
       </div>
 
     </div>

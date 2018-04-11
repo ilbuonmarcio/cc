@@ -18,6 +18,8 @@ class UploadCSVPanel extends Panel {
 
     console.log(data);
 
+    return;
+
     if(data.csv === "") {
       throw new FilePathTooSmallException();
     }
@@ -28,6 +30,7 @@ class UploadCSVPanel extends Panel {
   submit(){
     try{
       var data = this.loadFieldsData();
+      console.log(data);
     } catch (error){
       if(error instanceof FilePathTooSmallException){
         M.toast(
