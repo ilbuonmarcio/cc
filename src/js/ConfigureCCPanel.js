@@ -6,7 +6,7 @@ class ConfigureCCPanel extends Panel {
       this.configureCCOnLoadSelectConfigNameElement
     );
 
-    this.slider = document.querySelector('#configureccsave-rangeslider');
+    this.slider = document.getElementById('configureccsave-rangeslider');
 
     noUiSlider.create(this.slider, {
       start: [15, 30],
@@ -25,6 +25,55 @@ class ConfigureCCPanel extends Panel {
         density: 10
       }
     });
+  }
+
+  loadFieldsLoadData(){
+    var configid = document.querySelector('#configureccload-configname').value;
+
+    var data = {
+      configid : configid
+    };
+
+    M.toast({
+      html: 'Caricamento configurazione in corso...',
+      classes: 'rounded'
+    })
+
+    $.post('routines/loadconfig.php', data, this.loadDataIntoFieldsCallback);
+  }
+
+  loadDataIntoFieldsCallback(data){
+    try{
+      var response = JSON.parse(JSON.stringify(eval("(" + data + ")")));
+    } catch (error){
+      M.toast({
+        html: 'Impossibile caricare la configurazione!',
+        classes: 'rounded'
+      })
+      console.log(data);
+      return;
+    }
+
+    console.log(response);
+
+    // Caricare i dati disponibili nel form
+    document.querySelector('#configureccsave-configname').value = response.values.configname;
+    document.querySelector('#configureccsave-rangeslider').noUiSlider.set([response.values.min_alunni, response.values.max_alunni]);
+    document.querySelector('#configureccsave-nummales').value = response.values.numero_maschi;
+    document.querySelector('#configureccsave-numfemales').value = response.values.numero_femmine;
+    document.querySelector('#configureccsave-numcap').value = response.values.max_per_cap;
+    document.querySelector('#configureccsave-num170').value = response.values.num_170;
+    document.querySelector('#configureccsave-numnaz').value = response.values.max_naz;
+    document.querySelector('#configureccsave-nummaxforeachnaz').value = response.values.max_per_naz;
+
+    M.toast({
+      html: 'Dati caricati nel form!',
+      classes: 'rounded'
+    })
+  }
+
+  submitLoad(){
+    this.loadFieldsLoadData();
   }
 
   static selectReload(){
