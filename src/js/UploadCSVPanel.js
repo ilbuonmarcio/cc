@@ -49,12 +49,10 @@ class UploadCSVPanel extends Panel {
         data: data,
         type: 'POST',
         contentType: false,
-        processData: false,
+        processData: false
     }).always(
       this.callbackOnSubmit
     );
-
-    // $.post('routines/uploadcsv.php', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
