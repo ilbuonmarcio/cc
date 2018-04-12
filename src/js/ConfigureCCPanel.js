@@ -50,11 +50,8 @@ class ConfigureCCPanel extends Panel {
         html: 'Impossibile caricare la configurazione!',
         classes: 'rounded'
       })
-      console.log(data);
       return;
     }
-
-    console.log(response);
 
     // Caricare i dati disponibili nel form
     document.querySelector('#configureccsave-configname').value = response.values.configname;
