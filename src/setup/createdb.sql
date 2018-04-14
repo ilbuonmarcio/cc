@@ -65,8 +65,8 @@ CREATE TABLE configurazioni(
   nome VARCHAR(64) NOT NULL,
   min_alunni INT(3) NOT NULL,
   max_alunni INT(3) NOT NULL,
-  numero_femmine INT(3) NOT NULL,
-  numero_maschi INT(3) NOT NULL,
+  numero_femmine INT(3) DEFAULT NULL,
+  numero_maschi INT(3) DEFAULT NULL,
   max_per_cap INT(3) NOT NULL,
   max_per_naz INT(3) NOT NULL,
   max_naz INT(3) NOT NULL,
@@ -80,6 +80,19 @@ INSERT INTO utenti (
   password,
   diritti
 ) VALUES (1, 'root', '$2y$10$Zl0xCv5YSf/6HFF53VxJlORx5APtdmAZBJTdy3ciAnwF68AdKabtG', 0);
+
+INSERT INTO `configurazioni` (
+  `id`,
+  `nome`,
+  `min_alunni`,
+  `max_alunni`,
+  `numero_femmine`,
+  `numero_maschi`,
+  `max_per_cap`,
+  `max_per_naz`,
+  `max_naz`,
+  `num_170`
+) VALUES (NULL, 'Configurazione di Default', '16', '28', '3', NULL, '6', '6', '5', '2');
 
 INSERT INTO indirizzi (
   id,

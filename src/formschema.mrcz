@@ -89,7 +89,7 @@ div #generatecc-panel
     div .modal-content
 
         div #generatecc-form
-            
+
             div .row
                 select #generatecc-configname s12
                 select #generatecc-groupname s12
@@ -104,7 +104,5 @@ div #visualizecc-panel
     !TODO
 
 !-- Scarica CC --!
-div #downloadcc-modal
+div #downloadcc-panel
     !TODO
-
-

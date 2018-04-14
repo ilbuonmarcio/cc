@@ -1,7 +1,7 @@
 <?php
 
-    if(isset($_POST["standalone"]) && $_POST["standalone"] == true){
-      include('../utils/dbconnection.php');
+    if(isset($_POST["ajaxrefreshrequest"]) && $_POST["ajaxrefreshrequest"] == true){
+      include('../utils/db.php');
     }
 
     if(!isset($conn)){

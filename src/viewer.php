@@ -28,7 +28,7 @@
 			right: 20px;
 			position: fixed;
 			background-color: #CCCCCC;
-			opacity: 0.9;
+			opacity: 0.6;
 		}
 
 		#group-label>#label {
@@ -48,7 +48,7 @@
 
 		  $groupid = $_GET["groupid"];
 
-		  include("utils/dbconnection.php");
+		  include("utils/db.php");
 
 		  $conn = connectdb();
 
@@ -106,10 +106,10 @@
 				  }
   			  echo '</tbody>
   				    </table>
-					
-					
+
+
 					 <div id="group-label">
-						<p id="label">' . $_GET["groupname"] . '</p> 
+						<p id="label">' . $_GET["groupname"] . '</p>
 					 </div>';
 
 				} else {

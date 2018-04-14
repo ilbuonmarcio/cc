@@ -1,12 +1,10 @@
 <?php
 
   // Includo il file per la connessione al dabatase
-  include("dbconnection.php");
+  include("../utils/db.php");
 
   // Prendo in POST i valori per la creazione gruppo
   $groupname = $_POST["groupname"];
-  $description = $_POST["description"];
-  $creategroup_select = $_POST["grouptype"];
 
   // Creo un istanza di connessione al database
   $conn = connectdb();
@@ -14,10 +12,10 @@
   // Controllo se la connessione é disponibile
   if($conn){
 
-    // Nessun match trovato, creazione account!
-    $sql = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" . $groupname . "', " . $creategroup_select . ", '" . $description . "');";
+    $removeAlumni = "DELETE FROM alunni WHERE alunni.id_gruppo = " . $groupname . ";";
+    $removeGroup = "DELETE FROM gruppi WHERE gruppi.id = " . $groupname . ";";
 
-    if ($conn->query($sql) === true) {
+    if($conn->query($removeAlumni) === true && $conn->query($removeGroup)){
       echo "{
         status: 'Query Executed',
         querystatus : 'good'
@@ -29,11 +27,11 @@
         executedquery : "' . $sql . '"
       }';
     }
-  }
-  else {
+
+  } else {
     echo "{
       status: 'No Database Connection',
       querystatus: 'bad'
-      }";
+    }";
   }
 ?>
