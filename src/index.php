@@ -295,7 +295,7 @@
           </div>
 
           <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" onclick="configureccpanel.submitLoad();">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.fillFieldsDataFromDB();">
               Carica Configurazione Selezionata
             </button>
           </div>
@@ -325,7 +325,7 @@
           <div class="row">
 
             <div class="input-field col s5">
-              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="0">
+              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="1" value="1">
               <label for="configureccsave-nummales">Numero Ideale Maschi per Classe</label>
             </div>
 
@@ -340,7 +340,7 @@
             </div>
 
             <div class="input-field col s5">
-              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="0">
+              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="1" disabled>
               <label for="configureccsave-numfemales">Numero Ideale Femmine per Classe</label>
             </div>
 
@@ -367,7 +367,7 @@
           </div>
 
           <div class="input-field col s12 center-align">
-            <button class="btn waves-effect waves-light" onclick="configureccpanel.submitSave();">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.submit();">
               Salva Configurazione
             </button>
           </div>

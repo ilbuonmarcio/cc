@@ -32,14 +32,16 @@ class ConfigureCCPanel extends Panel {
       document.querySelector('#configureccsave-nummales').disabled = true;
       document.querySelector('#configureccsave-numfemales').disabled = false;
       document.querySelector('#configureccsave-nummales').value = "";
+      document.querySelector('#configureccsave-numfemales').value = "1";
     } else{
       document.querySelector('#configureccsave-nummales').disabled = false;
       document.querySelector('#configureccsave-numfemales').disabled = true;
       document.querySelector('#configureccsave-numfemales').value = "";
+      document.querySelector('#configureccsave-nummales').value = "1";
     }
   }
 
-  loadFieldsLoadData(){
+  fillFieldsDataFromDB(){
     var configid = document.querySelector('#configureccload-configname').value;
 
     var data = {
@@ -51,10 +53,10 @@ class ConfigureCCPanel extends Panel {
       classes: 'rounded'
     })
 
-    $.post('routines/loadconfig.php', data, this.loadDataIntoFieldsCallback);
+    $.post('routines/loadconfig.php', data, this.fillFieldsDataFromDBCallback);
   }
 
-  loadDataIntoFieldsCallback(data){
+  fillFieldsDataFromDBCallback(data){
     try{
       var response = JSON.parse(JSON.stringify(eval("(" + data + ")")));
     } catch (error){
@@ -68,18 +70,22 @@ class ConfigureCCPanel extends Panel {
     // Caricare i dati disponibili nel form
     document.querySelector('#configureccsave-configname').value = response.values.configname;
     document.querySelector('#configureccsave-rangeslider').noUiSlider.set([response.values.min_alunni, response.values.max_alunni]);
+    document.querySelector('#configureccsave-nummales').value = response.values.numero_maschi;
+    document.querySelector('#configureccsave-numfemales').value = response.values.numero_femmine;
     if(response.values.numero_maschi !== "" && response.values.numero_femmine === ""){
       document.querySelector('#configureccsave-checkboxmf').checked = false;
+      document.querySelector('#configureccsave-nummales').disabled = false;
+      document.querySelector('#configureccsave-numfemales').disabled = true;
     } else if(response.values.numero_maschi === "" && response.values.numero_femmine !== ""){
       document.querySelector('#configureccsave-checkboxmf').checked = true;
+      document.querySelector('#configureccsave-nummales').disabled = true;
+      document.querySelector('#configureccsave-numfemales').disabled = false;
     } else{
       M.toast({
         html: 'Numero maschi e femmine non consistenti nel database!',
         classes: 'rounded'
       });
     }
-    document.querySelector('#configureccsave-nummales').value = response.values.numero_maschi;
-    document.querySelector('#configureccsave-numfemales').value = response.values.numero_femmine;
     document.querySelector('#configureccsave-numcap').value = response.values.max_per_cap;
     document.querySelector('#configureccsave-num170').value = response.values.num_170;
     document.querySelector('#configureccsave-numnaz').value = response.values.max_naz;
@@ -91,8 +97,86 @@ class ConfigureCCPanel extends Panel {
     })
   }
 
-  submitLoad(){
-    this.loadFieldsLoadData();
+  loadFieldsData(){
+    var data = {
+      configname : document.querySelector('#configureccsave-configname').value,
+      rangeslider_down : this.slider.noUiSlider.get()[0],
+      rangeslider_up : this.slider.noUiSlider.get()[1],
+      nummales : document.querySelector('#configureccsave-nummales').value,
+      numfemales : document.querySelector('#configureccsave-numfemales').value,
+      numcap : document.querySelector('#configureccsave-numcap').value,
+      num170 : document.querySelector('#configureccsave-num170').value,
+      numnaz : document.querySelector('#configureccsave-numnaz').value,
+      nummaxforeachnaz : document.querySelector('#configureccsave-nummaxforeachnaz').value
+    };
+
+    if(
+      data.configname === "" ||
+      data.rangeslider_up === "" || data.rangeslider_up > 35 || data.rangeslider_up < data.rangeslider_down ||
+      data.rangeslider_down === "" || data.rangeslider_down < 10 || data.rangeslider_down > data.rangeslider_up ||
+      data.numcap === "" ||
+      data.num170 === "" ||
+      data.numnaz === "" ||
+      data.nummaxforeachnaz === "") {
+        throw new EmptyFieldsOnConfigureCCPanelUpload();
+    }
+
+    if(
+      document.querySelector('#configureccsave-checkboxmf').checked &&
+      document.querySelector('#configureccsave-numfemales').value === ""){
+        throw new EmptyFieldsOnConfigureCCPanelUpload();
+    }
+
+    if(
+      !document.querySelector('#configureccsave-checkboxmf').checked &&
+      document.querySelector('#configureccsave-nummales').value === ""){
+        throw new EmptyFieldsOnConfigureCCPanelUpload();
+    }
+
+    return data;
+  }
+
+  submit(){
+    try{
+      var data = this.loadFieldsData();
+    } catch (error){
+      if(error instanceof EmptyFieldsOnConfigureCCPanelUpload){
+        M.toast(
+          {
+            html : 'Sono presenti dei campi vuoti!',
+            classes: 'rounded'
+          }
+        );
+      }
+      return;
+    }
+
+    $.post('routines/createconfig.php', data, this.callbackOnSubmit);
+  }
+
+  callbackOnSubmit(data){
+    try{
+      var response = JSON.parse(JSON.stringify(eval("(" + data + ")")));
+    } catch (error){
+      M.toast({
+        html: 'Messaggio di risposta dal database non compatibile!',
+        classes: 'rounded'
+      })
+      return;
+    }
+
+    if(response.querystatus == "good"){
+      M.toast({
+        html: 'Configurazione inserita e/o aggiornata correttamente!',
+        classes: 'rounded'
+      });
+
+    } else if(response.querystatus == "bad"){
+      M.toast({
+        html: 'Errore di query del database!',
+        classes: 'rounded'
+      });
+    }
   }
 
   static selectReload(){

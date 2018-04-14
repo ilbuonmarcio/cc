@@ -18,3 +18,10 @@ class FilePathTooSmallException extends Error{
     this.name = 'FilePathTooSmallException';
   }
 }
+
+class EmptyFieldsOnConfigureCCPanelUpload extends Error{
+  constructor(msg){
+    super(msg);
+    this.name = 'EmptyFieldsOnConfigureCCPanelUpload';
+  }
+}
