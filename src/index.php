@@ -61,18 +61,18 @@
         <i class="material-icons">settings</i>Configura Parametri CC</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">control_point</i>Genera CC</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">file_download</i>Scarica CC</a>
     </li>
     <li>
