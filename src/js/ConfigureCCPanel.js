@@ -171,6 +171,8 @@ class ConfigureCCPanel extends Panel {
         classes: 'rounded'
       });
 
+      ConfigureCCPanel.selectReload();
+
     } else if(response.querystatus == "bad"){
       M.toast({
         html: 'Errore di query del database!',
