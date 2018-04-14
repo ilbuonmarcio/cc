@@ -325,7 +325,7 @@
           <div class="row">
 
             <div class="input-field col s5">
-              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="0" class="validate">
+              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="0">
               <label for="configureccsave-nummales">Numero Ideale Maschi per Classe</label>
             </div>
 
@@ -333,14 +333,14 @@
               <h6 id="configureccsave-switchtitle" class="center-align">Minoranza</h6><br>
               <label>
                 M
-                <input type="checkbox">
+                <input onclick="configureccpanel.toggleMFSwitch();" type="checkbox" id="configureccsave-checkboxmf">
                 <span class="lever"></span>
                 F
               </label>
             </div>
 
             <div class="input-field col s5">
-              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="0" class="validate">
+              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="0">
               <label for="configureccsave-numfemales">Numero Ideale Femmine per Classe</label>
             </div>
 

@@ -27,6 +27,18 @@ class ConfigureCCPanel extends Panel {
     });
   }
 
+  toggleMFSwitch(){
+    if(document.querySelector('#configureccsave-checkboxmf').checked){
+      document.querySelector('#configureccsave-nummales').disabled = true;
+      document.querySelector('#configureccsave-numfemales').disabled = false;
+      document.querySelector('#configureccsave-nummales').value = "";
+    } else{
+      document.querySelector('#configureccsave-nummales').disabled = false;
+      document.querySelector('#configureccsave-numfemales').disabled = true;
+      document.querySelector('#configureccsave-numfemales').value = "";
+    }
+  }
+
   loadFieldsLoadData(){
     var configid = document.querySelector('#configureccload-configname').value;
 
@@ -56,6 +68,16 @@ class ConfigureCCPanel extends Panel {
     // Caricare i dati disponibili nel form
     document.querySelector('#configureccsave-configname').value = response.values.configname;
     document.querySelector('#configureccsave-rangeslider').noUiSlider.set([response.values.min_alunni, response.values.max_alunni]);
+    if(response.values.numero_maschi !== "" && response.values.numero_femmine === ""){
+      document.querySelector('#configureccsave-checkboxmf').checked = false;
+    } else if(response.values.numero_maschi === "" && response.values.numero_femmine !== ""){
+      document.querySelector('#configureccsave-checkboxmf').checked = true;
+    } else{
+      M.toast({
+        html: 'Numero maschi e femmine non consistenti nel database!',
+        classes: 'rounded'
+      });
+    }
     document.querySelector('#configureccsave-nummales').value = response.values.numero_maschi;
     document.querySelector('#configureccsave-numfemales').value = response.values.numero_femmine;
     document.querySelector('#configureccsave-numcap').value = response.values.max_per_cap;
