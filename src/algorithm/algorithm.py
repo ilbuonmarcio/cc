@@ -11,8 +11,7 @@ import pprint
     
 # -- CLASSI
 class Alunno:
-    def __init__(self, id, cognome, nome, matricola, CF, desiderata, sesso, data_nascita, cap, nazionalita,
-                 legge_107, legge_104, classe_precedente, classe_successiva, scelta_indirizzo, cod_cat, voto, id_gruppo):
+    def __init__(self, id, cognome, nome, matricola, CF, desiderata, sesso, data_nascita, cap, nazionalita, legge_107, legge_104, classe_precedente, classe_successiva, scelta_indirizzo, cod_cat, voto, id_gruppo):
         self.id = id
         self.cognome = cognome
         self.nome = nome
@@ -36,34 +35,34 @@ class Alunno:
 def list_alunni():
     connection = mysql.connector.connect(user='root', password='', host='localhost', database='composizioneclassi')
     cursor = connection.cursor()
-    query = ("SELECT * FROM alunni WHERE id_gruppo = 3")        
+    query = ("SELECT * FROM alunni WHERE id_gruppo = 4 GROUP BY id ORDER BY id")        
     cursor.execute(query)
-    array_alunni = []
-    
-    for (id, cognome, nome, matricola, CF, desiderata, sesso, data_nascita, cap, nazionalita, legge_107, legge_104, classe_precedente,
-         classe_successiva, scelta_indirizzo, cod_cat, voto, id_gruppo) in cursor:
-         dictionary_alunni = {}
-         dictionary_alunni['id'] = id
-         dictionary_alunni['cognome'] = cognome
-         dictionary_alunni['nome'] = nome
-         dictionary_alunni['matricola'] = matricola
-         dictionary_alunni['CF'] = CF
-         dictionary_alunni['desiderata'] = desiderata
-         dictionary_alunni['sesso'] = sesso
-         dictionary_alunni['data_nascita'] = data_nascita
-         dictionary_alunni['cap'] = cap
-         dictionary_alunni['nazionalita'] = nazionalita
-         dictionary_alunni['legge_107'] = legge_107
-         dictionary_alunni['legge_104'] = legge_104
-         dictionary_alunni['classe_precedente'] = classe_precedente
-         dictionary_alunni['classe_successiva'] = classe_successiva
-         dictionary_alunni['scelta_indirizzo'] = scelta_indirizzo
-         dictionary_alunni['cod_cat'] = cod_cat
-         dictionary_alunni['voto'] = voto
-         dictionary_alunni['id_gruppo'] = id_gruppo
-         array_alunni.append(dictionary_alunni)
-         pprint.pprint((array_alunni))
+    dictionary_alunni = {}
 
+    for (id, cognome, nome, matricola, CF, desiderata, sesso, data_nascita, cap, nazionalita, legge_107, legge_104, classe_precedente, classe_successiva, scelta_indirizzo, cod_cat, voto, id_gruppo) in cursor:
+        dictionary_alunni['id'] = id
+        dictionary_alunni['cognome'] = cognome
+        dictionary_alunni['nome'] = nome
+        dictionary_alunni['matricola'] = matricola
+        dictionary_alunni['CF'] = CF
+        dictionary_alunni['desiderata'] = desiderata
+        dictionary_alunni['sesso'] = sesso
+        dictionary_alunni['data_nascita'] = data_nascita
+        dictionary_alunni['cap'] = cap
+        dictionary_alunni['nazionalita'] = nazionalita
+        dictionary_alunni['legge_107'] = legge_107
+        dictionary_alunni['legge_104'] = legge_104
+        dictionary_alunni['classe_precedente'] = classe_precedente
+        dictionary_alunni['classe_successiva'] = classe_successiva
+        dictionary_alunni['scelta_indirizzo'] = scelta_indirizzo
+        dictionary_alunni['cod_cat'] = cod_cat
+        dictionary_alunni['voto'] = voto
+        dictionary_alunni['id_gruppo'] = id_gruppo
+
+        if dictionary_alunni['id_gruppo'] == 1 or 2 or 3:        
+            print(dictionary_alunni) 
+    else:
+        print('Empty result set; the group specified does not contain any records')
     cursor.close()
     connection.close()
 
