@@ -31,6 +31,21 @@ class Alunno:
         self.voto = voto
         self.id_gruppo = id_gruppo
 
+class Config:
+    def __init__(self, id, nome, min_alunni, max_alunni, numero_femmine, numero_maschi, max_per_cap, max_per_naz, max_naz, num_170):
+        self.id = id
+        self.nome = nome
+        self.min_alunni = min_alunni
+        self.max_alunni = max_alunni
+        self.numero_femmine = numero_femmine
+        self.numero_maschi = numero_maschi
+        self.data_nascita = data_nascita
+        self.max_per_cap = max_per_cap
+        self.max_per_naz = max_per_naz
+        self.max_naz = max_naz
+        self.num_170 = num_170
+        
+
 # -- FUNZIONI
 def list_alunni():
     try:
@@ -64,11 +79,42 @@ def list_alunni():
         cursor.close()
         connection.close()
     except:
-        print('Impossible to connect to the database')    
+        print('Impossible to connect to the database')
+
+
+def list_config():
+    try:
+        connection = mysql.connector.connect(user='root', password='', host='localhost', database='composizioneclassi')
+        cursor = connection.cursor()
+        query = ("SELECT * FROM configurazioni WHERE id = 1")        
+        cursor.execute(query)
+        dictionary_configurazioni = {}
+
+        for (id, nome, min_alunni, max_alunni, numero_femmine, numero_maschi, max_per_cap, max_per_naz, max_naz, num_170) in cursor:
+            dictionary_alunni['id'] = id
+            dictionary_alunni['nome'] = nome
+            dictionary_alunni['min_alunni'] = min_alunni
+            dictionary_alunni['max_alunni'] = max_alunni
+            dictionary_alunni['numero_femmine'] = numero_femmine
+            dictionary_alunni['numero_maschi'] = numero_maschi
+            dictionary_alunni['max_per_cap'] = max_per_cap
+            dictionary_alunni['max_per_naz'] = max_per_naz
+            dictionary_alunni['max_naz'] = max_naz
+            dictionary_alunni['num_170'] = num_170
+            print(dictionary_config)
+                
+        cursor.close()
+        connection.close()
+    except:
+        print('Impossible to connect to the database')         
 
 # -- ELABORAZIONE
 if __name__ == "__main__":
     list_alunni()
+    print('\n')
+    print('\n')
+    print('\n')
+    list_config()
 
 
 
