@@ -47,7 +47,7 @@ CREATE TABLE alunni(
   data_nascita VARCHAR(15) NOT NULL,
   cap VARCHAR(5) NOT NULL,
   nazionalita VARCHAR(25) NOT NULL,
-  legge_107 CHAR(1) DEFAULT NULL,
+  legge_170 CHAR(1) DEFAULT NULL,
   legge_104 CHAR(1) DEFAULT NULL,
   classe_precedente INT DEFAULT NULL,
   classe_successiva INT DEFAULT NULL,
