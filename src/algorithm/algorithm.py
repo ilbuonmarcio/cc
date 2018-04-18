@@ -37,6 +37,7 @@ class Alunno:
         self.voto = voto
         self.id_gruppo = id_gruppo
 
+
 class Config:
     def __init__(self, id, nome, min_alunni, max_alunni, numero_femmine, numero_maschi, max_per_cap, max_per_naz, max_naz, num_170):
         self.id = id
@@ -98,20 +99,24 @@ def list_config():
         cursor = connection.cursor()
         query = ("SELECT * FROM configurazioni WHERE id = 1")        
         cursor.execute(query)
-        dictionary_configurazioni = dict()
+        dictionary_config = dict()
 
         for (id, nome, min_alunni, max_alunni, numero_femmine, numero_maschi, max_per_cap, max_per_naz, max_naz, num_170) in cursor:
-            dictionary_alunni['id'] = id
-            dictionary_alunni['nome'] = nome
-            dictionary_alunni['min_alunni'] = min_alunni
-            dictionary_alunni['max_alunni'] = max_alunni
-            dictionary_alunni['numero_femmine'] = numero_femmine
-            dictionary_alunni['numero_maschi'] = numero_maschi
-            dictionary_alunni['max_per_cap'] = max_per_cap
-            dictionary_alunni['max_per_naz'] = max_per_naz
-            dictionary_alunni['max_naz'] = max_naz
-            dictionary_alunni['num_170'] = num_170
-            print(dictionary_configurazioni)
+            dictionary_config['id'] = id
+            dictionary_config['nome'] = nome
+            dictionary_config['min_alunni'] = min_alunni
+            dictionary_config['max_alunni'] = max_alunni
+            dictionary_config['numero_femmine'] = numero_femmine
+            dictionary_config['numero_maschi'] = numero_maschi
+            dictionary_config['max_per_cap'] = max_per_cap
+            dictionary_config['max_per_naz'] = max_per_naz
+            dictionary_config['max_naz'] = max_naz
+            dictionary_config['num_170'] = num_170
+            if (len(dictionary_config.keys())) != 0:
+                print(dictionary_config)
+            else:
+                # message box display
+                messagebox.showerror("Error", "Empty result set")
                 
         cursor.close()
         connection.close()
@@ -122,7 +127,8 @@ def list_config():
 if __name__ == "__main__":
     #get the result from $hello variable found in myPHPScript.php   //prendere il risultato di una variabile da un file php
     list_alunni()
-    #list_config()
+    print('\n')
+    list_config()
 
 
 
