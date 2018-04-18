@@ -1,32 +1,32 @@
 <?php
 	include("../utils/db.php");
-	
+
 	class EmptyGroupException extends Exception { }
 	class NoConfigFoundException extends Exception { }
 
 	Class Alunno{
-		
+
 		function __construct(
-						$id, 
+						$id,
 						$cognome,
-						$nome, 
-						$matricola, 
-						$cf, 
-						$desiderata, 
-						$sesso, 
+						$nome,
+						$matricola,
+						$cf,
+						$desiderata,
+						$sesso,
 						$data_nascita,
-						$cap, 
+						$cap,
 						$nazionalita,
-						$legge_170, 
-						$legge_104, 
-						$classe_precedente, 
+						$legge_170,
+						$legge_104,
+						$classe_precedente,
 						$classe_successiva,
-						$scelta_indirizzo, 
-						$cod_cat, 
-						$voto, 
+						$scelta_indirizzo,
+						$cod_cat,
+						$voto,
 						$id_gruppo
 				){
-			
+
 			$this->id = $id;
 			$this->cognome = $cognome;
 			$this->nome = $nome;
@@ -47,9 +47,9 @@
 			$this->id_gruppo = $id_gruppo;
 		}
 	}
-	
+
 	Class Alunni{
-		
+
 		function __construct($groupid){
 			try{
 				$this->fillStudentsArrayFromDB($groupid);
@@ -57,35 +57,35 @@
 				echo $e;
 			}
 		}
-		
+
 		function fillStudentsArrayFromDB($groupid){
 			$conn = connectdb();
 			$query = "SELECT * FROM alunni WHERE id_gruppo = ". $groupid .";";
 			$result = $conn->query($query);
 			$tmparray = array();
-			
+
 			if ($result->num_rows > 0) {
 				while($row = $result->fetch_assoc()){
 					array_push(
-						$tmparray, 
+						$tmparray,
 						new Alunno(
-							$row["id"], 
-							$row["cognome"], 
-							$row["nome"], 
+							$row["id"],
+							$row["cognome"],
+							$row["nome"],
 							$row["matricola"],
 							$row["cf"],
-							$row["desiderata"], 
-							$row["sesso"], 
-							$row["data_nascita"], 
-							$row["cap"], 
+							$row["desiderata"],
+							$row["sesso"],
+							$row["data_nascita"],
+							$row["cap"],
 							$row["nazionalita"],
-							$row["legge_107"], 
-							$row["legge_104"], 
-							$row["classe_precedente"], 
-							$row["classe_successiva"], 
-							$row["scelta_indirizzo"], 
-							$row["cod_cat"], 
-							$row["voto"], 
+							$row["legge_170"],
+							$row["legge_104"],
+							$row["classe_precedente"],
+							$row["classe_successiva"],
+							$row["scelta_indirizzo"],
+							$row["cod_cat"],
+							$row["voto"],
 							$row["id_gruppo"]
 						)
 					);
@@ -95,27 +95,43 @@
 				throw new EmptyGroupException("Empty result set (loadStudents)");
 			}
 		}
-		
+
+		/*
 		function getStudentsArray(){
 			return $this->students;
 		}
+		*/
 	}
-	
+
+
 	Class Classe{
-	
-		function __construct($nome){
-			$this->nome = $nome;
+
+		function __construct($classid){
+			$this->classid = $classid;
+			$this->num104 = 0;
+			$this->num170 = 0;
+			$this->numfemale = 0;
+			$this->numemale = 0;
+			$this->numnaz = 0;
+			$this->numcap = 0;
+			$this->numstudent = 0;
+			$this->average = 0;
 		}
+
+
 	}
-	
-	Class ClassiComposte{
-		/***********************************
-		*				ROBBE			   *
-		************************************/
+
+	// The old ClassiComposte
+	Class Classi{
+
+		function __construct(){
+
+		}
+
 	}
-	
+
 	Class Config{
-		
+
 		function __construct($configid){
 			try{
 				$this->loadConfigFromDB($configid);
@@ -123,13 +139,13 @@
 				echo $e;
 			}
 		}
-		
+
 		private function loadConfigFromDB($configid){
 			$conn = connectdb();
 			$query = "SELECT * FROM configurazioni WHERE id = ". $configid .";";
 
 			$result = $conn->query($query);
-			
+
 			if ($result->num_rows == 1) {
 				while($row = $result->fetch_assoc()){
 					$this->id = $row["id"];
@@ -148,17 +164,24 @@
 			}
 		}
 	}
-	
+
 	Class CC{
-		
-		function __construct($students, $config){
+
+		function __construct($students, $config, $class){
 			$this->students = $students;
 			$this->config = $config;
+			$this->class = $class;
 		}
+
+		function run(){
+
+		}
+		
 	}
-	
-	$students = new Alunni(1);	
+
+	$students = new Alunni(1);
 	$config = new Config(1);
-	$cc = new CC($students, $config);	
-	
+	$class = new Classi();
+	$cc = new CC($students, $config, $class);
+
 ?>
