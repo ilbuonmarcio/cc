@@ -19,6 +19,8 @@ cc aims at being a better implementation over the first version of the original 
 - materializecss
 - PHP7
 - MySQL
+- Python3.5+
+- `sanic` Python library
 
 ### License
 
