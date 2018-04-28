@@ -1,4 +1,4 @@
-# cc - MarconiCC, but stronger
+# cc-gestio - cc's user interface
 
 cc aims at being a better implementation over the first version of the original software, [marconicc](https://github.com/marconivr/marconicc), providing _commented code_, reliable executions and a modern & appealing design.
 
