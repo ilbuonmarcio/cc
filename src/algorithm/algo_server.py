@@ -3,8 +3,7 @@ from sanic.response import json
 
 class Algorithm:
 
-    def __init__(self, process_id, group_id, config_id):
-        self.process_id = process_id
+    def __init__(self, group_id, config_id):
         self.group_id = group_id
         self.config_id = config_id
 
@@ -12,11 +11,10 @@ class Algorithm:
         for i in range(0, 1000000000):
             yield i
 
-    def get_algo_parameters(self):
-        return f"Group id: {self.group_id} - Config id: {self.config_id}"
+    def get_algorithm_parameters(self):
+        return self.group_id, self.config_id
 
 algorithm_instances = []
-algorithm_last_id_available = 0
 
 app = Sanic()
 
@@ -28,15 +26,24 @@ async def test(request):
 async def create_algorithm_instance(request):
     if "group_id" in request.args.keys() and "config_id" in request.args.keys():
         group_id, config_id = request.args["group_id"], request.args["config_id"]
-        global algorithm_last_id_available
-        algorithm_instances.append(
-            Algorithm(algorithm_last_id_available, group_id, config_id)
-        )
-        response = {"status" : "good", "process_id" : str(algorithm_last_id_available)}
-        algorithm_last_id_available += 1
-        return json(response)
+
+        already_present = False
+        for instance in algorithm_instances:
+            if (group_id, config_id) == instance.get_algorithm_parameters():
+                already_present = True
+                break
+
+        if already_present:
+            return json({"status" : "bad", "response" : "Cannot create a duplicate Algorithm instance"})
+
+        if not already_present:
+            algorithm_instances.append(
+                Algorithm(group_id, config_id)
+            )
+            response = {"status" : "good"}
+            return json(response)
     else:
-        return json({"status" : "bad", "response" : "Cannot generate Algorithm instance!"})
+        return json({"status" : "bad", "response" : "Bad or absent Algorithm parameters"})
 
 @app.route("/get_composition_status")
 async def get_composition_status(request):
