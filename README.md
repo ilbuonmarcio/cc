@@ -1,4 +1,4 @@
-# cc-gestio - cc-gestio - Class Composition's gestionnelle
+# cc-gestio - Class Composition's gestionnelle
 
 cc-gestio is a software useful for schools that replaces manual class compositions.
 It's an evolution of [marconicc](https://github.com/marconivr/marconicc), providing a simple single-page application and an headless class generation service, in order to extend his evolution across different applications.
