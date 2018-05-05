@@ -67,10 +67,6 @@ async def create_algorithm_instance(request):
     else:
         return json({"status" : "bad", "response" : "Bad or absent Algorithm parameters"})
 
-@app.route("/get_composition_status")
-async def get_composition_status(request):
-    return json({"request" : request.args})
-
 @app.route("/get_num_running_instances")
 async def get_num_running_instances(request):
     return json({"num_running_instances" : str(len(algorithm_instances))})
