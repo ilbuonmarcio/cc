@@ -1,10 +1,11 @@
-# cc - MarconiCC, but stronger
+# cc-gestio - Class Composition's gestionnelle
 
-cc aims at being a better implementation over the first version of the original software, [marconicc](https://github.com/marconivr/marconicc), providing _commented code_, reliable executions and a modern & appealing design.
+cc-gestio is a software useful for schools that replaces manual class compositions.
+It's an evolution of [marconicc](https://github.com/marconivr/marconicc), providing a simple single-page application and an headless class generation service, in order to extend his evolution across different applications.
 
 ### Development Team
 
-- Alessandro Marchioro - [marcioz98](https://github.com/marcioz98)
+- Alessandro Marchioro (Maintainer) - [marcioz98](https://github.com/marcioz98)
 - Leonardo Bonomi - [lbonomi99](https://github.com/lbonomi99)
 - Damiano Visentini - [Spollo](https://github.com/Spollo)
 - Daniele Fava - [DanyFv](https://github.com/DanyFv)
@@ -19,6 +20,8 @@ cc aims at being a better implementation over the first version of the original 
 - materializecss
 - PHP7
 - MySQL
+- Python3.5+
+- [sanic](https://github.com/channelcat/sanic), an asynchronous Python library
 
 ### License
 

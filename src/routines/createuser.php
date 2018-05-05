@@ -1,17 +1,13 @@
 <?php
 
-  // Includo il file per la connessione al dabatase
-  include("dbconnection.php");
+  include("../utils/db.php");
 
-  // Prendo in POST i valori per la creazione utente
   $username = $_POST["username"];
   $password = $_POST["password"];
   $priviledges = $_POST["priviledges"];
 
-  // Creo un istanza di connessione al database
-  $conn = connectdb();
+  $conn = connectDB();
 
-  // Controllo se la connessione é disponibile
   if($conn){
 
     $sql = "SELECT * FROM utenti WHERE username = '" . $username . "';";

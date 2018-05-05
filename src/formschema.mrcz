@@ -1,5 +1,5 @@
 !-- Aggiungi Nuovo Account --!
-div #createuser-panel .createuser-modal
+div #createuser-panel
     div .modal-content
 
         div #createuser-form
@@ -15,7 +15,7 @@ div #createuser-panel .createuser-modal
         a .modal-action .modal-close
 
 !-- Gestisci Gruppi --!
-div #managegroups-panel .managegroups-modal
+div #managegroups-panel
     div .modal-content
 
         div #managegroups-table
@@ -42,7 +42,7 @@ div #managegroups-panel .managegroups-modal
         a .modal-action .modal-close
 
 !-- Carica CSV Alunni --!
-div #uploadcsv-panel .uploadcsv-modal
+div #uploadcsv-panel
     div .modal-content
 
         div #uploadcsv-form
@@ -57,7 +57,7 @@ div #uploadcsv-panel .uploadcsv-modal
         a .modal-action .modal-close
 
 !-- Configura Parametri CC --!
-div #configurecc-panel .configurecc-modal
+div #configurecc-panel
     div .modal-content
 
         div #configureccload-form
@@ -85,11 +85,11 @@ div #configurecc-panel .configurecc-modal
         a .modal-action .modal.close
 
 !-- Genera CC --!
-div #generatecc-panel .generatecc-modal
+div #generatecc-panel
     div .modal-content
 
         div #generatecc-form
-            
+
             div .row
                 select #generatecc-configname s12
                 select #generatecc-groupname s12
@@ -100,11 +100,9 @@ div #generatecc-panel .generatecc-modal
         a .modal-action .modal-close
 
 !-- Visualizza CC --!
-div #visualizecc-panel .visualizecc-modal
+div #visualizecc-panel
     !TODO
 
 !-- Scarica CC --!
-div #downloadcc-modal .downloadcc-modal
+div #downloadcc-panel
     !TODO
-
-

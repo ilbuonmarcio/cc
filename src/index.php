@@ -1,8 +1,11 @@
-<?php session_start(); ?>
+<?php session_start();
+      include("utils/db.php");
+?>
 <?php include('utils/utils.php'); ?>
 <?php redirectIfNotLogon(); ?>
 
 <!DOCTYPE html>
+
 
 <html>
 
@@ -23,14 +26,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
   <!-- Compiled and minified jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="css/base.css" type="text/css" rel="stylesheet" />
+  <link href="css/index.css" type="text/css" rel="stylesheet" />
 
 </head>
 
@@ -41,37 +42,37 @@
       <p class="sidenav-menu-title center-align">Menu - CC</p>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="createuserpanel.openPanel();" class="waves-effect">
         <i class="material-icons">person_add</i>Aggiungi Nuovo Account</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="managegroupspanel.openPanel();" class="waves-effect">
         <i class="material-icons">group</i>Gestisci Gruppi</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="uploadcsvpanel.openPanel();" class="waves-effect">
         <i class="material-icons">cloud_upload</i>Carica CSV Alunni</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="configureccpanel.openPanel();" class="waves-effect">
         <i class="material-icons">settings</i>Configura Parametri CC</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">control_point</i>Genera CC</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
-      <a onclick="" class="waves-effect">
+      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
         <i class="material-icons">file_download</i>Scarica CC</a>
     </li>
     <li>
@@ -83,9 +84,312 @@
     <i class="material-icons">menu</i>
   </a>
 
-  <?php
-    include("items/sidenav.php");
-  ?>
+
+
+
+
+  <!-- Pannello per la creazione di un utente -->
+  <div id="createuser-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Aggiungi Nuovo Account</h4>
+
+      <h6 class="panel-subtitle center-align">Lista Utenti</h6>
+      <div id="createuser-table" class="col s12 center-align">
+
+      </div>
+
+      <h6 class="panel-subtitle center-align">Crea Nuovo Utente</h6>
+
+      <div id="createuser-form">
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Inserisci username" id="createuser-username" name="createuser-username" type="text" class="validate">
+            <label for="createuser-username">Nome Utente</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci password" id="createuser-password" name="createuser-password" type="text" class="validate">
+            <label for="createuser-password">Password</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select id="createuser-priviledges" name="createuser-priviledges">
+              <option value="0">Amministratore</option>
+              <option value="1" selected>Editor</option>
+              <option value="2">Visualizzatore</option>
+            </select>
+            <label>Seleziona Permessi</label>
+          </div>
+
+          <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn" onclick="createuserpanel.submit();">Invia</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
+  <!-- fine creazione di un utente -->
+
+
+  <!-- Pannello per la gestione dei gruppi -->
+  <div id="managegroups-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Gestisci Gruppi</h4>
+
+
+      <h6 class="panel-subtitle center-align">Lista Gruppi</h6>
+      <div id="managegroups-table" class="col s12 center-align">
+
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="managegroupscreate-form">
+
+        <h6 class="center-align panel-subtitle">Crea Nuovo Gruppo</h6>
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci Nome del gruppo" id="managegroupscreate-groupname" name="managegroupscreate-groupname" type="text" class="validate">
+            <label for="managegroupscreate-groupname">Nome gruppo</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input placeholder="Inserisci Descrizione del gruppo" id="managegroupscreate-groupdesc" name="managegroupscreate-groupdesc" type="text" class="validate">
+            <label for="managegroupscreate-groupdesc">Descrizione gruppo</label>
+          </div>
+
+          <div class="input-field col s12">
+            <select id="managegroupscreate-grouptype" name="managegroupscreate-grouptype">
+              <option value="1" selected>Classi Prime</option>
+              <option value="3">Classi Terze</option>
+            </select>
+            <label>Seleziona Tipo</label>
+          </div>
+
+          <div class="col s12 center-align">
+            <a class="waves-effect waves-light btn" onclick="managegroupspanel.submitCreate();">
+              Crea Gruppo
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="divider"></div>
+
+        <div id="managegroupsdelete-form">
+
+          <h6 class="center-align panel-subtitle">Elimina Gruppo</h6>
+
+          <div class="row">
+
+            <div class="input-field col s9">
+              <select id="managegroupsdelete-groupname" name="managegroupsdelete-groupname">
+
+              </select>
+              <label>Seleziona Gruppo</label>
+            </div>
+
+            <div class="input-field col s3 center-align">
+              <button onclick="managegroupspanel.submitDelete();" class="btn waves-effect waves-light">
+                Cancella Gruppo
+              </button>
+            </div>
+
+            <div class="col s12 center-align">
+              <p id="managegroupsdelete-warning" style="color: red;">
+                Attenzione! Questa azione eliminera anche tutti gli alunni associati a quello specifico gruppo!
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
+
+
+
+
+  <div id="uploadcsv-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Carica CSV Alunni</h4>
+
+      <div class="col s12" id="uploadcsv-form">
+         <div class="row">
+
+           <div class="input-field col s12">
+             <select id="uploadcsv-groupname" name="uploadcsv-groupname">
+
+             </select>
+             <label>Seleziona Gruppo</label>
+           </div>
+
+           <div class="file-field input-field">
+             <div class="btn">
+               <span>Apri</span>
+               <input type="file" name="uploadcsv-filepath" id="uploadcsv-filepath" value="">
+             </div>
+             <div class="file-path-wrapper">
+               <input placeholder="Seleziona un file CSV" class="file-path validate" type="text">
+             </div>
+           </div>
+
+           <div class="input-field col s12 center-align">
+             <button class="btn waves-effect waves-light" onclick="uploadcsvpanel.submit();">
+               Carica CSV
+             </button>
+           </div>
+
+         </div>
+       </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
+
+
+
+
+
+  <div id="configurecc-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Configura Parametri CC</h4>
+
+      <div id="configureccload-form">
+
+        <div class="row">
+
+          <div class="input-field col s12">
+            <select id="configureccload-configname" name="configurecc-configname">
+
+            </select>
+            <label>Seleziona Configurazione</label>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.fillFieldsDataFromDB();">
+              Carica Configurazione Selezionata
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div id="configureccsave-form">
+
+        <div class="row">
+
+          <div class="row">
+
+            <div class="input-field col s12">
+              <input placeholder="Inserisci nome configurazione" id="configureccsave-configname" name="configureccsave-configname" type="text" class="validate">
+              <label for="configureccsave-configname">Nome Configurazione</label>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <label id="configureccsave-rangesliderlabel" for="configureccsave-rangeslider">Range Numero Alunni per Classe</label>
+            <div id="configureccsave-rangeslider"></div>
+          </div>
+
+          <div class="row">
+
+            <div class="input-field col s5">
+              <input placeholder="Inserisci numero maschi" id="configureccsave-nummales" name="configureccsave-nummales" type="number" min="1" value="1">
+              <label for="configureccsave-nummales">Numero Ideale Maschi per Classe</label>
+            </div>
+
+            <div class="switch col s2 center-align">
+              <h6 id="configureccsave-switchtitle" class="center-align">Minoranza</h6><br>
+              <label>
+                M
+                <input onclick="configureccpanel.toggleMFSwitch();" type="checkbox" id="configureccsave-checkboxmf">
+                <span class="lever"></span>
+                F
+              </label>
+            </div>
+
+            <div class="input-field col s5">
+              <input placeholder="Inserisci numero femmine" id="configureccsave-numfemales" name="configureccsave-numfemales" type="number" min="1" disabled>
+              <label for="configureccsave-numfemales">Numero Ideale Femmine per Classe</label>
+            </div>
+
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero CAP" id="configureccsave-numcap" name="configureccsave-numcap" type="number" min="0" class="validate">
+            <label for="configureccsave-numcap">Numero CAP per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero 170" id="configureccsave-num170" name="configureccsave-num170" type="number" min="0" class="validate">
+            <label for="configureccsave-num170">Numero 170 per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero massimo Nazionalitá" id="configureccsave-numnaz" name="configureccsave-numnaz" type="number" min="0" class="validate">
+            <label for="configureccsave-numnaz">Numero Nazionalitá per Classe</label>
+          </div>
+
+          <div class="input-field col s6">
+            <input placeholder="Inserisci numero massimo per Nazionalitá" id="configureccsave-nummaxforeachnaz" name="configureccsave-nummaxforeachnaz" type="number" min="0" class="validate">
+            <label for="configureccsave-nummaxforeachnaz">Numero Alunni per Nazionalitá</label>
+          </div>
+
+          <div class="input-field col s12 center-align">
+            <button class="btn waves-effect waves-light" onclick="configureccpanel.submit();">
+              Salva Configurazione
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="modal-footer">
+
+
+
+    </div>
+
+  </div>
+
+
+
+
+
 
   <h3 class="center-align">Benvenuto,
     <?php echo $_SESSION["username"]; ?>!</h3>
@@ -97,7 +401,7 @@
         <i class="large material-icons">person_add</i>
         <h5>Aggiungi Nuovo Account</h5>
         <br>
-        <em> Modulo che permette di creare un nuovo account, inserendo un nome utente, una password e la tipologia desiderata 
+        <em> Modulo che permette di creare un nuovo account, inserendo un nome utente, una password e la tipologia desiderata
         </em>
       </div>
       <div class="col s12 m6 offset-m3 center-align feature-block">
@@ -119,7 +423,7 @@
         <h5>Configura Parametri CC</h5>
         <br>
         <em> Modulo che permette di creare una configurazione, inserendo dei parametri (numero alunni per classe, numero maschi, femmine, numero cap per gruppo, numero alunni con legge 170, numero massimo di nazionalità e numero massimo di alunni con la stessa nazionalità)
-        </em> 
+        </em>
       </div>
       <div class="col s12 m6 offset-m3 center-align feature-block">
         <i class="large material-icons">control_point</i>
@@ -139,15 +443,22 @@
         <i class="large material-icons">file_download</i>
         <h5>Scarica CC</h5>
         <br>
-        <em> Modulo che permette di scaricare un file in formato .x contenente le classi composte 
+        <em> Modulo che permette di scaricare un file in formato .x contenente le classi composte
         </em>
       </div>
     </div>
   </div>
   <!-- Fine contenitore con le informazioni per l'utilizzo -->
 
-  <script src="js/generatemodals.js"></script>
-  <script src="js/formcontroller.js"></script>
+  <script src="js/Exceptions.js"></script>
+  <script src="js/SideNavController.js"></script>
+  <script src="js/Panel.js"></script>
+  <script src="js/CreateUserPanel.js"></script>
+  <script src="js/ManageGroupsPanel.js"></script>
+  <script src="js/UploadCSVPanel.js"></script>
+  <script src="js/ConfigureCCPanel.js"></script>
+
+  <script src="js/PanelController.js"></script>
 
 </body>
 

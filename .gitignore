@@ -1,2 +1,3 @@
 src/utils/dbconnection.php
 .vscode/*
+__pycache__/

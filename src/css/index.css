@@ -1,0 +1,95 @@
+@media only screen and (max-width: 600px) {
+  #toast-container {
+    min-width: 90%;
+    bottom: 5%;
+    left: 5%;
+    right: 5%;
+    top: auto;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  #toast-container {
+    top: auto !important;
+    left: auto !important;
+    bottom: 8%;
+    right: 8%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  #toast-container {
+    top: auto !important;
+    left: auto !important;
+    bottom: 8%;
+    right: 8%;
+  }
+}
+
+#toast-container {
+  display: block;
+  position: fixed;
+  z-index: 10000
+}
+
+.toast{
+  background-color: #295f29;
+  opacity: 0.9;
+}
+
+@media only screen and (max-device-width: 993px) {
+  a#sidenav-trigger-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media only screen and (min-device-width: 994px) {
+  a#sidenav-trigger-button {
+    top: 20px;
+    left: 20px;
+  }
+}
+
+a#sidenav-trigger-button {
+  position: fixed;
+  background-color: #00ff00;
+  opacity: 0.9;
+}
+
+.panel-subtitle {
+  margin: 28px;
+}
+
+#createuser-table>table>tbody, #managegroups-table>tbody {
+  display: block;
+  max-height: 300px;
+  overflow: auto;
+}
+
+#createuser-table>table>thead, tbody tr, #managegroups-table>table>thead, tbody, tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+#createuser-table>table>thead, #managegroups-table>table>thead {
+  width: calc( 100% - 1em)
+}
+
+#createuser-table>table, #managegroups-table>table {
+  width: 100%;
+}
+
+#configureccsave-rangesliderlabel {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#configureccsave-rangeslider {
+  margin: 25px 10px 50px 10px;
+}
+
+#configureccsave-switchtitle {
+  margin: 0;
+}

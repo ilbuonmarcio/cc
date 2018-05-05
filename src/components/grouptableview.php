@@ -1,8 +1,12 @@
 <?php
 
-   include("utils/dbconnection.php");
+    if(isset($_POST["ajaxrefreshrequest"]) && $_POST["ajaxrefreshrequest"] == true){
+      include('../utils/db.php');
+    }
 
-   $conn = connectdb();
+    if(!isset($conn)){
+       $conn = connectdb();
+    }
 
    if($conn){
 

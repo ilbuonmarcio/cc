@@ -28,7 +28,7 @@
 			right: 20px;
 			position: fixed;
 			background-color: #CCCCCC;
-			opacity: 0.9;
+			opacity: 0.6;
 		}
 
 		#group-label>#label {
@@ -48,7 +48,7 @@
 
 		  $groupid = $_GET["groupid"];
 
-		  include("utils/dbconnection.php");
+		  include("utils/db.php");
 
 		  $conn = connectdb();
 
@@ -71,7 +71,7 @@
       							  <th>Data di nascita</th>
       							  <th>Cap</th>
       							  <th>Nazionalita</th>
-      							  <th>Legge 107</th>
+      							  <th>Legge 170</th>
       							  <th>Legge 104</th>
       							  <th>Classe precedente</th>
       							  <th>Classe sucessiva</th>
@@ -94,7 +94,7 @@
 							<td>' . $row["data_nascita"]      . '</td>
 							<td>' . $row["cap"]               . '</td>
 							<td>' . $row["nazionalita"]       . '</td>
-							<td>' . $row["legge_107"]         . '</td>
+							<td>' . $row["legge_170"]         . '</td>
 							<td>' . $row["legge_104"]         . '</td>
 							<td>' . $row["classe_precedente"] . '</td>
 							<td>' . $row["classe_successiva"] . '</td>
@@ -106,10 +106,10 @@
 				  }
   			  echo '</tbody>
   				    </table>
-					
-					
+
+
 					 <div id="group-label">
-						<p id="label">' . $_GET["groupname"] . '</p> 
+						<p id="label">' . $_GET["groupname"] . '</p>
 					 </div>';
 
 				} else {

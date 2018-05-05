@@ -27,19 +27,19 @@
     if ($conn->query($sql) === true) {
       echo "{
         status: 'Query Executed',
-        querystatus : 'Good'
+        querystatus : 'good'
       }";
     } else {
       echo '{
         status: "Query Executed",
-        querystatus : "Bad",
+        querystatus : "bad",
         executedquery : "' . $sql . '"
       }';
     }
   } else {
     echo "{
       status: 'No Database Connection',
-      querystatus: 'Bad'
+      querystatus: 'bad'
     }";
   }
 ?>
