@@ -87,7 +87,7 @@ class StudentsManager:
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM alunni WHERE id = {group_id};"
+        query = f"SELECT * FROM alunni WHERE id_gruppo = {group_id};"
 
         cursor.execute(query)
 
