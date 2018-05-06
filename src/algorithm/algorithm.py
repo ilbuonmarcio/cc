@@ -18,7 +18,9 @@ class CC:
         self.config_id = config_id
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
-        self.containers_manager = ContainersManager()
+        self.containers_manager = ContainersManager(
+            self.students_manager.get_number_of_students() // self.configuration.min_students
+        )
 
         self.run()
 
@@ -30,7 +32,9 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
-        [print(student) for student in self.students_manager.get_remaining_students()]
+        # [print(student) for student in self.students_manager.get_remaining_students()]
+
+        print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
 
         print("Done!")
 
@@ -110,8 +114,11 @@ class StudentsManager:
 
 class ContainersManager:
 
-    def __init__(self):
-        pass
+    def __init__(self, num_of_containers):
+        self.containers = [ClassContainer() for _ in range(0, num_of_containers)]
+
+    def get_number_of_containers(self):
+        return len(self.containers)
 
 
 class ClassContainer:
