@@ -30,6 +30,8 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
+        [print(student) for student in self.students_manager.get_remaining_students()]
+
         print("Done!")
 
 
@@ -93,12 +95,17 @@ class StudentsManager:
 
         self.students = cursor.fetchall()
 
+        self.students = [Student(student_record) for student_record in self.students]
+
         cursor.close()
 
         connection.close()
 
     def get_number_of_students(self):
         return len(self.students)
+
+    def get_remaining_students(self):
+        return self.students
 
 
 class ContainersManager:
@@ -115,8 +122,28 @@ class ClassContainer:
 
 class Student:
 
-    def __init__(self):
-        pass
+    def __init__(self, student_record):
+        self.id = student_record[0]
+        self.cognome = student_record[1]
+        self.nome = student_record[2]
+        self.matricola = student_record[3]
+        self.cf = student_record[4]
+        self.desiderata = student_record[5]
+        self.sesso = student_record[6]
+        self.data_nascita = student_record[7]
+        self.cap = student_record[8]
+        self.nazionalita = student_record[9]
+        self.legge_170 = student_record[10]
+        self.legge_104 = student_record[11]
+        self.classe_precedente = student_record[12]
+        self.classe_successiva = student_record[13]
+        self.scelta_indirizzo = student_record[14]
+        self.cod_cat = student_record[15]
+        self.voto = student_record[16]
+        self.id_gruppo = student_record[17]
+
+    def __repr__(self):
+        return str(self.__dict__)
 
 
 def create_cc_instance(process_id, group_id, config_id):
