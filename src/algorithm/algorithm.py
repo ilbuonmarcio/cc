@@ -38,6 +38,9 @@ class CC:
 
         # TODO: data manipulation
 
+        print(f"Start filling Containers based on gender priority ({self.configuration.sex_priority})")
+
+
         print("Done!")
 
 
@@ -70,7 +73,7 @@ class Configuration:
             self.max_for_naz = record[7]
             self.max_naz = record[8]
             self.max_170 = record[9]
-            self.sex_priority = "m" if self.num_girls is None and self.num_boys is not None else "f"
+            self.sex_priority = "male" if self.num_girls is None and self.num_boys is not None else "female"
 
         cursor.close()
 
