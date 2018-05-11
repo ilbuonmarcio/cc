@@ -2,3 +2,4 @@ src/utils/db.php
 .vscode/*
 __pycache__/
 src/setup/spaggiari_output.csv
+src/setup/spaggiari_output_elab.csv
