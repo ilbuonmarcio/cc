@@ -139,6 +139,7 @@ class StudentsManager:
                     print("Matched!")
 
 
+
 class ContainersManager:
 
     def __init__(self, num_of_containers):
@@ -151,7 +152,13 @@ class ContainersManager:
 class ClassContainer:
 
     def __init__(self):
-        pass
+        self.num_students = 0
+        self.num_max_students = 0
+        self.num_104 = 0
+        self.num_107 = 0
+        self.num_prioritized_sex = 0
+        self.caps = []
+        self.nationalities = {}
 
 
 class Student:
