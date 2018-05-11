@@ -32,14 +32,20 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
-        [print(student) for student in self.students_manager.get_remaining_students()]
+        # [print(student) for student in self.students_manager.get_remaining_students()]
 
         print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
 
         # TODO: data manipulation
 
-        print(f"Start filling Containers based on gender priority ({self.configuration.sex_priority})")
+        print(f"Sex priority: {self.configuration.sex_priority}")
 
+        priority_set = self.students_manager.get_sex_prioritized_students_array(
+            self.configuration.sex_priority,
+            self.configuration.num_sex_priority
+        )
+
+        # self.containers_manager.distribute_randomly_into_groups(priority_set)
 
         print("Done!")
 
@@ -73,7 +79,8 @@ class Configuration:
             self.max_for_naz = record[7]
             self.max_naz = record[8]
             self.max_170 = record[9]
-            self.sex_priority = "male" if self.num_girls is None and self.num_boys is not None else "female"
+            self.sex_priority = "m" if self.num_girls is None and self.num_boys is not None else "f"
+            self.num_sex_priority = self.num_boys if self.sex_priority == "m" else self.num_girls
 
         cursor.close()
 
@@ -117,6 +124,20 @@ class StudentsManager:
     def get_remaining_students(self):
         return self.students
 
+    def get_sex_prioritized_students_array(self, sex_priority, num_sex_priority):
+        sex_priority_students = []
+        for student in self.students:
+            if student.sesso == sex_priority:
+                sex_priority_students.append(student)
+                self.students.remove(student)
+
+        # check desiderata
+
+        for student in sex_priority_students:
+            for other in sex_priority_students:
+                if student.check_desiderata(other):
+                    print("Matched!")
+
 
 class ContainersManager:
 
@@ -157,6 +178,14 @@ class Student:
 
     def __repr__(self):
         return str(self.__dict__)
+
+    def check_desiderata(self, other):
+        if self.matricola != other.matricola and \
+           self.id != other.id and \
+           self.desiderata == other.cf and \
+           other.desiderata == self.cf:
+           return True
+        return False
 
 
 def create_cc_instance(process_id, group_id, config_id):
