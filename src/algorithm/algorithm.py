@@ -32,9 +32,11 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
-        # [print(student) for student in self.students_manager.get_remaining_students()]
+        [print(student) for student in self.students_manager.get_remaining_students()]
 
         print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
+
+        # TODO: data manipulation
 
         print("Done!")
 
@@ -68,6 +70,7 @@ class Configuration:
             self.max_for_naz = record[7]
             self.max_naz = record[8]
             self.max_170 = record[9]
+            self.sex_priority = "m" if self.num_girls is None and self.num_boys is not None else "f"
 
         cursor.close()
 
