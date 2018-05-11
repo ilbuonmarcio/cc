@@ -136,7 +136,7 @@ class StudentsManager:
         for student in sex_priority_students:
             for other in sex_priority_students:
                 if student.check_desiderata(other):
-                    print("Matched!")
+                    print(f"Matched! {student.matricola} <--> {other.matricola}")
 
 
 
