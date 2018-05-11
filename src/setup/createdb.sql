@@ -58,7 +58,7 @@ CREATE TABLE alunni(
   FOREIGN KEY (id_gruppo) REFERENCES gruppi(id),
   FOREIGN KEY (scelta_indirizzo) REFERENCES indirizzi(id),
   UNIQUE INDEX(matricola, cf, id_gruppo)
-);
+); // NULL, 1, 2, AUTOINC, 0, NULL, 4, 3, 9, 10, NULL, NULL, NULL, NULL, NULL, 8, RANDOM, TEST_GROUPID
 
 CREATE TABLE configurazioni(
   id INT AUTO_INCREMENT PRIMARY KEY,
