@@ -83,6 +83,12 @@ if __name__ == "__main__":
                 alunno[5] = c
                 break
 
+    for student in alunni:
+        for other in alunni:
+            if student[4] != other[4]:
+                if student[4] == other[5] and student[5] == other[4]:
+                    print("matched")
+
     with open('alunni_MYSQL.csv', 'w') as output_file:
         for alunno in alunni:
             output_file.write(alunno.__str__().replace(", ", ",").replace("'", '').replace('[', '').replace(']', '').replace('None', 'NULL') + "\n")
