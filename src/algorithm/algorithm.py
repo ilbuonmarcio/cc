@@ -133,13 +133,10 @@ class StudentsManager:
                 sex_priority_students.append(student)
                 self.students.remove(student)
 
-        # check desiderata
-
         for student in sex_priority_students:
             for other in sex_priority_students:
                 if student.check_desiderata(other):
                     print(f"Matched! {student.matricola} <--> {other.matricola}")
-
 
 
 class ContainersManager:
