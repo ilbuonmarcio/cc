@@ -5,7 +5,7 @@ nomi = ['Antonio', 'Lucia', 'Tiziano', 'Roberto', 'Fabio', 'Valentina', 'Alex', 
 cognomi = ['Rossi', 'Verdi', 'Bianchi', 'Russo', 'Valentini', 'Roberti', 'Giannini', 'Scalco', 'Mirandola']
 cf_list = []
 
-num_campioni = 500
+num_campioni = 10
 
 alunni = []
 
