@@ -152,6 +152,7 @@ class StudentsManager:
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
 
+        othersex_to_remove_from_students = []
         for student in sex_priority_students:
             for other in othersex_students:
                 if student.check_desiderata(other):
@@ -161,14 +162,14 @@ class StudentsManager:
                         sex_priority_students_groupped["female-male"][
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
+                        othersex_to_remove_from_students.append(student)
+                        othersex_to_remove_from_students.append(other)
 
-        print(
-            len(sex_priority_students_groupped["female-female"]),
-            len(sex_priority_students_groupped["female-male"])
-        )
+        for student in othersex_to_remove_from_students:
+            if student in self.students:
+                self.students.remove(student)
+
         return sex_priority_students_groupped
-
-
 
 
 class ContainersManager:
