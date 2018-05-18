@@ -127,25 +127,45 @@ class StudentsManager:
 
     def get_sex_prioritized_students_array(self, sex_priority, num_sex_priority):
         sex_priority_students = []
+        othersex_students = []
         for student in self.students:
             if student.sesso == sex_priority:
                 sex_priority_students.append(student)
-                self.students.remove(student)
+            else:
+                othersex_students.append(student)
+
+        for student in sex_priority_students:
+            self.students.remove(student)
 
         sex_priority_students_groupped = {
             "female-female" : {},
             "female-male" : {}
         }
+
         for student in sex_priority_students:
             for other in sex_priority_students:
                 if student.check_desiderata(other):
-                    # DEBUG print(f"Matched! {student.matricola} <--> {other.matricola}")
                     if other.matricola + "-" + student.matricola \
                         not in sex_priority_students_groupped["female-female"].keys():
+                        print(f"Matched S-S! {student.matricola} <--> {other.matricola}")
                         sex_priority_students_groupped["female-female"][
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
 
+        for student in sex_priority_students:
+            for other in othersex_students:
+                if student.check_desiderata(other):
+                    if other.matricola + "-" + student.matricola \
+                        not in sex_priority_students_groupped["female-male"].keys():
+                        print(f"Matched S-O! {student.matricola} <--> {other.matricola}")
+                        sex_priority_students_groupped["female-male"][
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+
+        print(
+            len(sex_priority_students_groupped["female-female"]),
+            len(sex_priority_students_groupped["female-male"])
+        )
         return sex_priority_students_groupped
 
 
