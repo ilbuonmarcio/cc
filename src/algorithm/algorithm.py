@@ -45,6 +45,8 @@ class CC:
             self.configuration.num_sex_priority
         )
 
+        print(f"{priority_set}")
+
         # self.containers_manager.distribute_randomly_into_groups(priority_set)
 
         print("Done!")
