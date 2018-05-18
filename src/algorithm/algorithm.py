@@ -1,4 +1,5 @@
 import random
+import math
 import time
 import mysql.connector
 
@@ -19,7 +20,7 @@ class CC:
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
         self.containers_manager = ContainersManager(
-            self.students_manager.get_number_of_students() // self.configuration.min_students
+            math.ceil(self.students_manager.get_number_of_students() / self.configuration.min_students)
         )
 
         self.run()
@@ -44,8 +45,6 @@ class CC:
             self.configuration.sex_priority,
             self.configuration.num_sex_priority
         )
-
-        print(f"{priority_set}")
 
         # self.containers_manager.distribute_randomly_into_groups(priority_set)
 
@@ -133,10 +132,23 @@ class StudentsManager:
                 sex_priority_students.append(student)
                 self.students.remove(student)
 
+        sex_priority_students_groupped = {
+            "female-female" : {},
+            "female-male" : {}
+        }
         for student in sex_priority_students:
             for other in sex_priority_students:
                 if student.check_desiderata(other):
-                    print(f"Matched! {student.matricola} <--> {other.matricola}")
+                    # DEBUG print(f"Matched! {student.matricola} <--> {other.matricola}")
+                    if other.matricola + "-" + student.matricola \
+                        not in sex_priority_students_groupped["female-female"].keys():
+                        sex_priority_students_groupped["female-female"][
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+
+        return sex_priority_students_groupped
+
+
 
 
 class ContainersManager:
