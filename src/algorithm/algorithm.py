@@ -41,12 +41,26 @@ class CC:
 
         print(f"Sex priority: {self.configuration.sex_priority}")
 
-        priority_set = self.students_manager.get_sex_prioritized_students_array(
+        configured_sex_priority_array = self.students_manager.get_sex_prioritized_students_array(
             self.configuration.sex_priority,
             self.configuration.num_sex_priority
         )
 
-        # self.containers_manager.distribute_randomly_into_groups(priority_set)
+        print("Checking sex-prioritized array...")
+        for student_group in configured_sex_priority_array:
+            print(f"Student group length: {len(student_group)}", end="")
+
+            num_males, num_females = 0, 0
+            for student in student_group:
+                if student.sesso == "m":
+                    num_males += 1
+                if student.sesso == "f":
+                    num_females += 1
+
+            print(f" - M: {num_males} - F: {num_females}")
+        print("Finished checking sex-prioritized array...")
+
+        # self.containers_manager.distribute_randomly_into_groups(configured_sex_priority_array)
 
         print("Done!")
 
@@ -87,7 +101,7 @@ class Configuration:
 
         connection.close()
 
-    def dict_parameters(self):
+    def parameters(self):
         return self.__dict__
 
 
@@ -169,7 +183,27 @@ class StudentsManager:
             if student in self.students:
                 self.students.remove(student)
 
-        return sex_priority_students_groupped
+        index = 0
+        arranged_students_based_on_config = [[]]
+        for student_couple in sex_priority_students_groupped["female-female"].values():
+            if len(arranged_students_based_on_config[index]) + 2 > num_sex_priority:
+                arranged_students_based_on_config.append([])
+                index += 1
+            
+            arranged_students_based_on_config[index].append(student_couple[0])
+            arranged_students_based_on_config[index].append(student_couple[1])
+
+        index = 0
+        for student_couple in sex_priority_students_groupped["female-male"].values():
+            while len(arranged_students_based_on_config[index]) + 1 > num_sex_priority:
+                index += 1
+            arranged_students_based_on_config.append([])
+            arranged_students_based_on_config[index].append(student_couple[0])
+            arranged_students_based_on_config[index].append(student_couple[1])
+
+        arranged_students_based_on_config.pop() # Removing empty array
+
+        return arranged_students_based_on_config
 
 
 class ContainersManager:
