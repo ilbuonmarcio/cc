@@ -46,6 +46,13 @@ class CC:
             self.configuration.num_sex_priority
         )
 
+        self._DEBUG_check_sex_prioritized_array(configured_sex_priority_array)
+
+        # self.containers_manager.distribute_randomly_into_groups(configured_sex_priority_array)
+
+        print("Done!")
+
+    def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
         print("Checking sex-prioritized array...")
         for student_group in configured_sex_priority_array:
             print(f"Student group length: {len(student_group)}", end="")
@@ -59,10 +66,6 @@ class CC:
 
             print(f" - M: {num_males} - F: {num_females}")
         print("Finished checking sex-prioritized array...")
-
-        # self.containers_manager.distribute_randomly_into_groups(configured_sex_priority_array)
-
-        print("Done!")
 
 
 class Configuration:
@@ -189,7 +192,7 @@ class StudentsManager:
             if len(arranged_students_based_on_config[index]) + 2 > num_sex_priority:
                 arranged_students_based_on_config.append([])
                 index += 1
-            
+
             arranged_students_based_on_config[index].append(student_couple[0])
             arranged_students_based_on_config[index].append(student_couple[1])
 
