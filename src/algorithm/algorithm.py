@@ -204,9 +204,14 @@ class StudentsManager:
             arranged_students_based_on_config[index].append(student_couple[0])
             arranged_students_based_on_config[index].append(student_couple[1])
 
-        arranged_students_based_on_config.pop() # Removing empty array
+        result_set = []
+        for array in arranged_students_based_on_config:
+            if len(array) > 0:
+                result_set.append(array)
 
-        return arranged_students_based_on_config
+        random.shuffle(array)
+
+        return result_set
 
 
 class ContainersManager:
