@@ -209,7 +209,7 @@ class StudentsManager:
             if len(array) > 0:
                 result_set.append(array)
 
-        random.shuffle(array)
+        random.shuffle(result_set)
 
         return result_set
 
