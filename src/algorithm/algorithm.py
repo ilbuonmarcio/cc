@@ -293,26 +293,32 @@ class ClassContainer:
 
         if self.num_students >= self.db_group_configuration.max_students:
             self.maxed_out = True
+            print(f"Reached max number of students [{self.num_students}] in this container!", end=" ")
             return student
 
         if len(self.caps) >= self.db_group_configuration.max_for_cap \
             and student.cap not in self.caps:
+            print(f"Reached max number of students for this cap [{student.cap}] in this container!", end=" ")
             return student
 
         if len(self.nationalities.keys()) >= self.db_group_configuration.max_naz \
             and student.nazionalita not in self.nationalities.keys():
+            print(f"Reached max number of nationalities [{self.db_group_configuration.max_naz}] in this container!", end=" ")
             return student
 
         if student.nazionalita in self.nationalities.keys():
             if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz:
+                print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!", end=" ")
                 return student
 
         if self.db_group_configuration.num_girls is not None:
             if self.num_girls >= self.db_group_configuration.num_girls:
+                print(f"Reached max number of girls [{self.num_girls}] in this container!", end=" ")
                 return student
 
         if self.db_group_configuration.num_boys is not None:
             if self.num_boys >= self.db_group_configuration.num_boys:
+                print(f"Reached max number of boys [{self.num_boys}] in this container!", end=" ")
                 return student
 
         self.students.append(student)
