@@ -245,7 +245,7 @@ class ContainersManager:
 class ClassContainer:
 
     def __init__(self, configuration):
-        self.class_configuration = configuration
+        self.db_group_configuration = configuration
         self.num_students = 0
         self.num_max_students = 0
         self.num_girls = 0
@@ -272,30 +272,30 @@ class ClassContainer:
         print(f"Adding {student.matricola}...", end=" ")
 
         if student.legge_104:
-            self.class_configuration.max_students = 20
+            self.db_group_configuration.max_students = 20
 
-        if self.num_students >= self.class_configuration.max_students:
+        if self.num_students >= self.db_group_configuration.max_students:
             self.maxed_out = True
             return student
 
-        if len(self.caps) >= self.class_configuration.max_for_cap \
+        if len(self.caps) >= self.db_group_configuration.max_for_cap \
             and student.cap not in self.caps:
             return student
 
-        if len(self.nationalities.keys()) >= self.class_configuration.max_naz \
+        if len(self.nationalities.keys()) >= self.db_group_configuration.max_naz \
             and student.nazionalita not in self.nationalities.keys():
             return student
 
         if student.nazionalita in self.nationalities.keys():
-            if self.nationalities[student.nazionalita] >= self.class_configuration.max_for_naz:
+            if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz:
                 return student
 
-        if self.class_configuration.num_girls is not None:
-            if self.num_girls >= self.class_configuration.num_girls:
+        if self.db_group_configuration.num_girls is not None:
+            if self.num_girls >= self.db_group_configuration.num_girls:
                 return student
 
-        if self.class_configuration.num_boys is not None:
-            if self.num_boys >= self.class_configuration.num_boys:
+        if self.db_group_configuration.num_boys is not None:
+            if self.num_boys >= self.db_group_configuration.num_boys:
                 return student
 
         self.students.append(student)
