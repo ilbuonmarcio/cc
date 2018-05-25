@@ -132,8 +132,6 @@ class StudentsManager:
 
         self.students = [Student(student_record) for student_record in self.students]
 
-        random.shuffle(self.students)
-
         cursor.close()
 
         connection.close()
@@ -210,8 +208,6 @@ class StudentsManager:
         for array in arranged_students_based_on_config:
             if len(array) > 0:
                 result_set.append(array)
-
-        random.shuffle(result_set)
 
         return result_set
 
