@@ -60,6 +60,8 @@ class CC:
             print("Some students from prioritized group weren't inserted!")
             for student in students_not_inserted:
                 print(f"Student with matricola {student.matricola} was not inserted!")
+        else:
+            print("No students need to be reinserted, this is a good sign! :))")
 
         print("Done!")
 
@@ -286,7 +288,7 @@ class ClassContainer:
     def add_student(self, student):
         self.refresh_statistics()
 
-        print(f"Adding {student.matricola}...", end=" ")
+        print(f"Adding student with matricola [{student.matricola}]...", end=" ")
 
         if student.legge_104:
             self.db_group_configuration.max_students = 20
@@ -311,12 +313,12 @@ class ClassContainer:
                 print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!", end=" ")
                 return student
 
-        if self.db_group_configuration.num_girls is not None:
+        if self.db_group_configuration.num_girls is not None and student.sesso == 'f':
             if self.num_girls >= self.db_group_configuration.num_girls:
                 print(f"Reached max number of girls [{self.num_girls}] in this container!", end=" ")
                 return student
 
-        if self.db_group_configuration.num_boys is not None:
+        if self.db_group_configuration.num_boys is not None and student.sesso == 'm':
             if self.num_boys >= self.db_group_configuration.num_boys:
                 print(f"Reached max number of boys [{self.num_boys}] in this container!", end=" ")
                 return student
