@@ -242,8 +242,11 @@ class ContainersManager:
                 container_to_fill = random.choice(self.containers)
                 if container_to_fill not in containers_already_filled:
                     students_not_inserted = container_to_fill.add_students(students_array)
-                    for student in students_not_inserted:
-                        students_to_reinsert.append(student)
+
+                    if len(students_not_inserted) > 0:
+                        print("Warning! Student to reinsert found!")
+                        for student in students_not_inserted:
+                            students_to_reinsert.append(student)
                     containers_already_filled.append(container_to_fill)
                     break
 
