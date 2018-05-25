@@ -54,7 +54,12 @@ class CC:
             print('ABORT!')
             return False # TODO change return value
 
-        self.containers_manager.distribute_arrays_randomly_into_containers(configured_sex_priority_array)
+        students_not_inserted = self.containers_manager.distribute_arrays_randomly_into_containers(configured_sex_priority_array)
+
+        if len(students_not_inserted) > 0:
+            print("Some students from prioritized group weren't inserted!")
+            for student in students_not_inserted:
+                print(f"Student with matricola {student.matricola} was not inserted!")
 
         print("Done!")
 
@@ -231,15 +236,20 @@ class ContainersManager:
         print("Distributing arrays randomly into containers...")
 
         containers_already_filled = []
+        students_to_reinsert = []
         for students_array in input_array:
             while True:
                 container_to_fill = random.choice(self.containers)
                 if container_to_fill not in containers_already_filled:
-                    container_to_fill.add_students(students_array)
+                    students_not_inserted = container_to_fill.add_students(students_array)
+                    for student in students_not_inserted:
+                        students_to_reinsert.append(student)
                     containers_already_filled.append(container_to_fill)
                     break
 
         print("Finished distributing arrays randomly into containers!")
+
+        return students_to_reinsert
 
 
 class ClassContainer:
@@ -252,7 +262,6 @@ class ClassContainer:
         self.num_boys = 0
         self.num_104 = 0
         self.num_107 = 0
-        self.num_prioritized_sex = 0
         self.caps = []
         self.nationalities = {}
         self.students = []
@@ -261,10 +270,15 @@ class ClassContainer:
     def add_students(self, input_array):
         self.refresh_statistics()
 
+        students_not_inserted = []
         for student in input_array:
-            self.add_student(student)
+            addition_result = self.add_student(student)
+            if addition_result is not None:
+                students_not_inserted.append(student)
 
         self.refresh_statistics()
+
+        return students_not_inserted
 
     def add_student(self, student):
         self.refresh_statistics()
@@ -305,7 +319,22 @@ class ClassContainer:
         self.refresh_statistics()
 
     def refresh_statistics(self):
-        pass
+        self.num_students = len(self.students)
+        self.num_girls = len([s for s in self.students if s.sesso == 'f'])
+        self.num_boys = len([s for s in self.students if s.sesso == 'm'])
+        self.num_104 = len([s for s in self.students if s.legge_104 == 's'])
+        self.num_107 = len([s for s in self.students if s.legge_170 == 's'])
+        self.caps = list(set([s.cap for s in self.students]))
+
+        nationalities_with_num_of_students = {}
+        nationalities = list(set([s.nazionalita for s in self.students]))
+        for nationality in nationalities:
+            num_of_students = len([s for s in self.students if s.nazionalita == nationality])
+            nationalities_with_num_of_students[nationality] = num_of_students
+
+        self.nationalities = nationalities_with_num_of_students
+
+        self.maxed_out = self.db_group_configuration.max_students == self.num_students
 
 
 class Student:
