@@ -132,6 +132,8 @@ class StudentsManager:
 
         self.students = [Student(student_record) for student_record in self.students]
 
+        random.shuffle(self.students)
+
         cursor.close()
 
         connection.close()
