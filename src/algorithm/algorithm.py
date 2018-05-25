@@ -20,7 +20,8 @@ class CC:
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
         self.containers_manager = ContainersManager(
-            math.ceil(self.students_manager.get_number_of_students() / self.configuration.min_students)
+            math.ceil(self.students_manager.get_number_of_students() / self.configuration.min_students),
+            self.configuration
         )
 
         self.run()
@@ -48,7 +49,12 @@ class CC:
 
         self._DEBUG_check_sex_prioritized_array(configured_sex_priority_array)
 
-        # self.containers_manager.distribute_randomly_into_groups(configured_sex_priority_array)
+        if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
+            print('<---WARNING---> Sex prioritized groups are more than possible containers!')
+            print('ABORT!')
+            return False # TODO change return value
+
+        self.containers_manager.distribute_arrays_randomly_into_containers(configured_sex_priority_array)
 
         print("Done!")
 
@@ -214,23 +220,92 @@ class StudentsManager:
 
 class ContainersManager:
 
-    def __init__(self, num_of_containers):
-        self.containers = [ClassContainer() for _ in range(0, num_of_containers)]
+    def __init__(self, num_of_containers, configuration):
+        self.containers = [ClassContainer(configuration) for _ in range(0, num_of_containers)]
+        self.configuration = configuration
 
     def get_number_of_containers(self):
         return len(self.containers)
 
+    def distribute_arrays_randomly_into_containers(self, input_array):
+        print("Distributing arrays randomly into containers...")
+
+        containers_already_filled = []
+        for students_array in input_array:
+            while True:
+                container_to_fill = random.choice(self.containers)
+                if container_to_fill not in containers_already_filled:
+                    container_to_fill.add_students(students_array)
+                    containers_already_filled.append(container_to_fill)
+                    break
+
+        print("Finished distributing arrays randomly into containers!")
+
 
 class ClassContainer:
 
-    def __init__(self):
+    def __init__(self, configuration):
+        self.class_configuration = configuration
         self.num_students = 0
         self.num_max_students = 0
+        self.num_girls = 0
+        self.num_boys = 0
         self.num_104 = 0
         self.num_107 = 0
         self.num_prioritized_sex = 0
         self.caps = []
         self.nationalities = {}
+        self.students = []
+        self.maxed_out = False
+
+    def add_students(self, input_array):
+        self.refresh_statistics()
+
+        for student in input_array:
+            self.add_student(student)
+
+        self.refresh_statistics()
+
+    def add_student(self, student):
+        self.refresh_statistics()
+
+        print(f"Adding {student.matricola}...", end=" ")
+
+        if student.legge_104:
+            self.class_configuration.max_students = 20
+
+        if self.num_students >= self.class_configuration.max_students:
+            self.maxed_out = True
+            return student
+
+        if len(self.caps) >= self.class_configuration.max_for_cap \
+            and student.cap not in self.caps:
+            return student
+
+        if len(self.nationalities.keys()) >= self.class_configuration.max_naz \
+            and student.nazionalita not in self.nationalities.keys():
+            return student
+
+        if student.nazionalita in self.nationalities.keys():
+            if self.nationalities[student.nazionalita] >= self.class_configuration.max_for_naz:
+                return student
+
+        if self.class_configuration.num_girls is not None:
+            if self.num_girls >= self.class_configuration.num_girls:
+                return student
+
+        if self.class_configuration.num_boys is not None:
+            if self.num_boys >= self.class_configuration.num_boys:
+                return student
+
+        self.students.append(student)
+
+        print("Done!")
+
+        self.refresh_statistics()
+
+    def refresh_statistics(self):
+        pass
 
 
 class Student:
