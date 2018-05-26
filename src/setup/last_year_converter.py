@@ -4,13 +4,16 @@ lines_to_write = []
 with open('last_year.csv', 'r') as input_file:
 
     for line in input_file:
-        line = line.split(';')
+        line = line.replace("'", "").split(';')
         output_record = ""
-        for i in range(0, 12):
-            output_record += line[i] + ";"
+        for i in range(0, 11):
+            if i == 2 and line[i] == '':
+                line[2] = str(random.randint(50000, 99999))
+            output_record += line[i] + ","
 
-        output_record += f"{random.randint(1, 5)};"
-        output_record += line[15]
+        output_record += ",NULL,"
+        output_record += f"{random.randint(1, 5)},NULL,"
+        output_record += line[15] if line[15] in range(1, 11) else "6"
 
         output_record += "\n"
 
