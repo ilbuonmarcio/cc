@@ -362,7 +362,12 @@ class ClassContainer:
 
     def show_container_statistics(self):
         print("\n[*] Showing container statistics...")
-        [print(attribute, value) for attribute, value in self.__dict__.items() if attribute != "students"]
+        for attribute, value in self.__dict__.items():
+            if attribute == "students":
+                print(attribute, [student.matricola for student in self.students])
+            else:
+                print(attribute, value)
+
         print("[*] End of container statistics")
 
 
