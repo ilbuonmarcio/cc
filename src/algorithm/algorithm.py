@@ -63,11 +63,7 @@ class CC:
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
-        print("Actual container statistics:\n")
-
         self.containers_manager.show_containers_statistics()
-
-        print()
 
         print("Done!")
 
@@ -263,8 +259,10 @@ class ContainersManager:
         return students_to_reinsert
 
     def show_containers_statistics(self):
+        print("Showing containers statistics...\n")
         for container in self.containers:
             container.show_container_statistics()
+        print()
 
 
 class ClassContainer:
