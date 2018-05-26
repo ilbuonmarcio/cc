@@ -124,6 +124,9 @@ class Configuration:
     def parameters(self):
         return self.__dict__
 
+    def __str__(self):
+        return self.config_name
+
 
 class StudentsManager:
 
