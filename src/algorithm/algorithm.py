@@ -359,7 +359,7 @@ class ClassContainer:
 
     def show_container_statistics(self):
         print("\nShowing container statistics...")
-        [print(attribute, value) for attribute, value in self.__dict__.items()]
+        [print(attribute, value) for attribute, value in self.__dict__.items() if attribute != "students"]
         print("\nEnd of container statistics")
 
 
