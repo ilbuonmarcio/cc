@@ -9,6 +9,9 @@ It's an evolution of [marconicc](https://github.com/marconivr/marconicc), provid
 - Leonardo Bonomi - [lbonomi99](https://github.com/lbonomi99)
 - Damiano Visentini - [Spollo](https://github.com/Spollo)
 - Daniele Fava - [DanyFv](https://github.com/DanyFv)
+
+### Previous Collaborators
+
 - Mattia Carra - [mcarra99](https://github.com/mcarra99)
 
 ### Development Technologies
