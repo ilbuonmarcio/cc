@@ -63,6 +63,12 @@ class CC:
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
+        print("Actual container statistics:\n")
+
+        self.containers_manager.show_containers_statistics()
+
+        print()
+
         print("Done!")
 
     def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
@@ -256,6 +262,10 @@ class ContainersManager:
 
         return students_to_reinsert
 
+    def show_containers_statistics(self):
+        for container in self.containers:
+            container.show_container_statistics()
+
 
 class ClassContainer:
 
@@ -346,6 +356,11 @@ class ClassContainer:
         self.nationalities = nationalities_with_num_of_students
 
         self.maxed_out = self.db_group_configuration.max_students == self.num_students
+
+    def show_container_statistics(self):
+        print("\nShowing container statistics...")
+        [print(attribute, value) for attribute, value in self.__dict__.items()]
+        print("\nEnd of container statistics")
 
 
 class Student:
