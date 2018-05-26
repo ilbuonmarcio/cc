@@ -54,7 +54,9 @@ class CC:
             print('ABORT!')
             return False # TODO change return value
 
-        students_not_inserted = self.containers_manager.distribute_arrays_randomly_into_containers(configured_sex_priority_array)
+        students_not_inserted = self.containers_manager.distribute_sex_prioritized_groups_randomly_into_containers(
+            configured_sex_priority_array
+        )
 
         if len(students_not_inserted) > 0:
             print("Some students from prioritized group weren't inserted!")
@@ -236,8 +238,8 @@ class ContainersManager:
     def get_number_of_containers(self):
         return len(self.containers)
 
-    def distribute_arrays_randomly_into_containers(self, input_array):
-        print("Distributing arrays randomly into containers...")
+    def distribute_sex_prioritized_groups_randomly_into_containers(self, input_array):
+        print("Distributing sex prioritized groups randomly into containers...")
 
         containers_already_filled = []
         students_to_reinsert = []
@@ -254,7 +256,7 @@ class ContainersManager:
                     containers_already_filled.append(container_to_fill)
                     break
 
-        print("Finished distributing arrays randomly into containers!")
+        print("Finished distributing sex prioritized groups randomly into containers!")
 
         return students_to_reinsert
 
