@@ -54,7 +54,7 @@
 
 		  if($conn){
 
-				$query = "SELECT * FROM alunni WHERE id_gruppo = " . $groupid . ";";
+				$query = "SELECT * FROM alunni WHERE id_gruppo = " . $groupid . " ORDER BY sesso;";
 
 				$result = $conn->query($query);
 
@@ -84,7 +84,13 @@
       					<tbody>';
 
 			  while($row = $result->fetch_assoc()) {
-					echo '<tr>
+					if($row["sesso"] == "m" or $row["sesso"] == "M"){
+							echo '<tr style="background-color: #99ffff;">';
+					} else{
+							echo '<tr style="background-color: #ff9999">';
+					}
+
+					echo '
 							<td>' . $row["cognome"]           . '</td>
 							<td>' . $row["nome"]              . '</td>
 							<td>' . $row["matricola"]         . '</td>
