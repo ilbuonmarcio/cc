@@ -174,7 +174,7 @@
           <div class="input-field col s12">
             <select id="managegroupscreate-grouptype" name="managegroupscreate-grouptype">
               <option value="1" selected>Classi Prime</option>
-              <option value="3">Classi Terze</option>
+              <option value="3" disabled>Classi Terze</option>
             </select>
             <label>Seleziona Tipo</label>
           </div>
