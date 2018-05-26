@@ -264,10 +264,10 @@ class ContainersManager:
         return students_to_reinsert
 
     def show_containers_statistics(self):
-        print("Showing containers statistics...\n")
+        print("Showing all containers statistics...")
         for container in self.containers:
             container.show_container_statistics()
-        print()
+        print("\nFinished showing all containers statistics")
 
 
 class ClassContainer:
@@ -361,9 +361,9 @@ class ClassContainer:
         self.maxed_out = self.db_group_configuration.max_students == self.num_students
 
     def show_container_statistics(self):
-        print("\nShowing container statistics...")
+        print("\n[*] Showing container statistics...")
         [print(attribute, value) for attribute, value in self.__dict__.items() if attribute != "students"]
-        print("\nEnd of container statistics")
+        print("[*] End of container statistics")
 
 
 class Student:
