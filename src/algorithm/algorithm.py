@@ -134,6 +134,7 @@ class StudentsManager:
         self.group_id = group_id
         self.students = []
         self._load_students_from_db(self.group_id)
+        random.shuffle(self.students)
 
     def _load_students_from_db(self, group_id):
         connection = mysql.connector.connect(
