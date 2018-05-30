@@ -65,7 +65,7 @@ class CC:
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
-        self.containers_manager.show_containers_statistics()
+        # self.containers_manager.show_containers_statistics()
 
         print("Done!")
 
