@@ -67,6 +67,12 @@ class CC:
 
         # self.containers_manager.show_containers_statistics()
 
+        print("Pairing and getting remaining students, matching by desiderata when possible...", end=" ")
+
+        remaining_students_array = self.students_manager.get_remaining_students_array()
+
+        print("Done!")
+
         print("Done!")
 
     def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
@@ -160,9 +166,6 @@ class StudentsManager:
     def get_number_of_students(self):
         return len(self.students)
 
-    def get_remaining_students(self):
-        return self.students
-
     def get_sex_prioritized_students_array(self, sex_priority, num_sex_priority):
         sex_priority_students = []
         othersex_students = []
@@ -231,6 +234,11 @@ class StudentsManager:
                 result_set.append(array)
 
         return result_set
+
+
+    def get_remaining_students_array(self):
+        for student in self.students:
+            pass
 
 
 class ContainersManager:
