@@ -280,6 +280,9 @@ class StudentsManager:
     def get_remaining_students_array(self):
         result_set = []
 
+        for student in self.students:
+            result_set.append(student)
+
         return result_set
 
 
