@@ -452,13 +452,6 @@ class ClassContainer:
     def can_add_desiderata(self, desiderata_students):
         self.refresh_statistics()
 
-        if desiderata_students[0].legge_104 == "s" or desiderata_students[1].legge_104 == "s":
-            desiderata_with_104 = True
-
-        if self.num_students > self.db_group_configuration.max_students -2 and not desiderata_with_104:
-            print('Check add_desiderata exited on num_students with 104')
-            return False
-
         if desiderata_students[0].cap == desiderata_students[1].cap:
             if desiderata_students[0].cap in self.caps.keys():
                 if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -2:
@@ -531,6 +524,13 @@ class ClassContainer:
                 if desiderata_students[1].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
                     print('Check add_desiderata exited on num girls while sex is not equal n.2')
                     return False
+
+        if desiderata_students[0].legge_104 == "s" or desiderata_students[1].legge_104 == "s":
+            desiderata_with_104 = True
+
+        if self.num_students > self.db_group_configuration.max_students -2 and not desiderata_with_104:
+            print('Check add_desiderata exited on num_students with 104')
+            return False
 
         self.refresh_statistics()
 
