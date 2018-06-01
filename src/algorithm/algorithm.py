@@ -347,7 +347,8 @@ class ContainersManager:
             containers_already_filled = []
             while True:
                 container_to_fill = random.choice(self.containers)
-                if container_to_fill not in containers_already_filled:
+                if len(containers_already_filled) != len(self.containers) \
+                   and container_to_fill not in containers_already_filled:
                     student_not_inserted = container_to_fill.add_student(student)
 
                     if student_not_inserted is not None:
@@ -355,10 +356,13 @@ class ContainersManager:
                     else:
                         remaining_students -= 1
                         break
+                else:
+                    print("Cannot fill this student! Need shuffle!")
+                    students_to_reinsert.append(student)
+                    break
         print("\nFinished distributing remaining students randomly into containers!")
 
         return students_to_reinsert
-
 
     def show_containers_statistics(self):
         print("Showing all containers statistics...")
