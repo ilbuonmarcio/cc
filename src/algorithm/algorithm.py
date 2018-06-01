@@ -88,7 +88,9 @@ class CC:
 
         remaining_students_array = self.students_manager.get_remaining_students_array()
 
-        print(f"Found {len(remaining_students_array)} remaining students!")
+        remaining_students_after_random_insert = self.containers_manager.distribute_students_randomly_into_containers(remaining_students_array)
+
+        print(f"Found {len(remaining_students_after_random_insert)} remaining students!")
 
         print("Done!")
 
@@ -333,6 +335,21 @@ class ContainersManager:
         print("Finished distributing O-O couples randomly into containers!")
 
         return students_to_reinsert
+
+    def distribute_students_randomly_into_containers(self, input_array):
+        print("Distributing students randomly into containers...")
+
+        students_to_reinsert = []
+        for student in input_array:
+            while True:
+                container_to_fill = random.choice(self.containers)
+                container_to_fill.add_student(student)
+                break
+        print("Finished distributing students randomly into containers!")
+
+        return students_to_reinsert
+
+
 
     def show_containers_statistics(self):
         print("Showing all containers statistics...")
