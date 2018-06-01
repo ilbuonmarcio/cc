@@ -349,13 +349,15 @@ class ContainersManager:
                 container_to_fill = random.choice(self.containers)
                 if len(containers_already_filled) != len(self.containers) \
                    and container_to_fill not in containers_already_filled:
-                    student_not_inserted = container_to_fill.add_student(student)
 
-                    if student_not_inserted is not None:
-                        containers_already_filled.append(container_to_fill)
-                    else:
-                        remaining_students -= 1
-                        break
+                    if not container_to_fill.maxed_out:
+                        student_not_inserted = container_to_fill.add_student(student)
+
+                        if student_not_inserted is not None:
+                            containers_already_filled.append(container_to_fill)
+                        else:
+                            remaining_students -= 1
+                            break
                 else:
                     print("Cannot fill this student! Need shuffle!")
                     students_to_reinsert.append(student)
