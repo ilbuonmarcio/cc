@@ -90,7 +90,9 @@ class CC:
 
         remaining_students_after_random_insert = self.containers_manager.distribute_remaining_students_randomly_into_containers(remaining_students_array)
 
-        print(f"Found {len(remaining_students_after_random_insert)} remaining students!")
+        print(f"After random fill of remaining students, there are {len(remaining_students_after_random_insert)} students to fill, still!")
+
+        print("Next move is to implement student of different class' swapping...")
 
         print("Done!")
 
