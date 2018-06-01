@@ -92,7 +92,10 @@ class CC:
 
         print(f"After random fill of remaining students, there are {len(remaining_students_after_random_insert)} students to fill, still!")
 
-        print("Next move is to implement student of different class' swapping...")
+        if len(remaining_students_after_random_insert) == 0:
+            print("Next move is to implement student of different class' swapping...")
+        else:
+            print("Well done, there is no students to swap of classroom, there!")
 
         print("Done!")
 
