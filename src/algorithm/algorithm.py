@@ -257,6 +257,7 @@ class StudentsManager:
     def get_remaining_desiderata_students_array(self):
         result_set = {}
 
+        to_remove_from_students = []
         for student in self.students:
             for other in self.students:
                 if student.check_desiderata(other):
@@ -266,9 +267,14 @@ class StudentsManager:
                         result_set[
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
+                        to_remove_from_students.append(student)
+                        to_remove_from_students.append(other)
+
+        for student in to_remove_from_students:
+            if student in self.students:
+                self.students.remove(student)
 
         result_set = [value for value in result_set.values()]
-
         return result_set
 
     def get_remaining_students_array(self):
