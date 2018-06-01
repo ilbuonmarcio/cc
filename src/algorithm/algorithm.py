@@ -67,11 +67,22 @@ class CC:
 
         # self.containers_manager.show_containers_statistics()
 
-        print("Pairing and getting remaining students, matching by desiderata when possible...", end=" ")
+        print("Pairing and getting remaining students, matching by desiderata when possible...")
 
-        remaining_students_array = self.students_manager.get_remaining_students_array()
+        remaining_desiderata_students_array = self.students_manager.get_remaining_desiderata_students_array()
 
-        print("Done!")
+        print(f"Found {len(remaining_desiderata_students_array)} paired students!")
+
+        students_not_inserted = self.containers_manager.distribute_couples_randomly_into_containers(remaining_desiderata_students_array)
+
+        if len(students_not_inserted) > 0:
+            print("Some O-O desiderata couple weren't inserted!")
+            for couple in students_not_inserted:
+                for student in couple:
+                    print(f"Student with matricola {student.matricola} was not inserted!")
+            print(f"In total there are {len(remaining_desiderata_students_array)} paired students to be reinserted!")
+        else:
+            print("No students need to be reinserted, this is a good sign! :))")
 
         print("Done!")
 
@@ -122,6 +133,7 @@ class Configuration:
             self.max_170 = record[9]
             self.sex_priority = "m" if self.num_girls is None and self.num_boys is not None else "f"
             self.num_sex_priority = self.num_boys if self.sex_priority == "m" else self.num_girls
+            self.default_naz = "ITALIANA"
 
         cursor.close()
 
@@ -236,6 +248,25 @@ class StudentsManager:
         return result_set
 
 
+    def get_remaining_desiderata_students_array(self):
+        result_set = {}
+
+        for student in self.students:
+            for other in self.students:
+                if student.check_desiderata(other):
+                    if other.matricola + "-" + student.matricola \
+                        not in result_set.keys():
+                        print(f"Matched O-O! {student.matricola} <--> {other.matricola}")
+                        result_set[
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+
+        result_set = [value for value in result_set.values()]
+
+        return result_set
+
+
+
     def get_remaining_students_array(self):
         for student in self.students:
             pass
@@ -272,6 +303,21 @@ class ContainersManager:
 
         return students_to_reinsert
 
+    def distribute_couples_randomly_into_containers(self, input_array):
+        print("Distributing O-O couples randomly into containers...")
+
+        students_to_reinsert = []
+        for students_array in input_array:
+            while True:
+                container_to_fill = random.choice(self.containers)
+                if container_to_fill.can_add_desiderata(students_array):
+                    container_to_fill.add_students(students_array)
+                    break
+
+        print("Finished distributing O-O couples randomly into containers!")
+
+        return students_to_reinsert
+
     def show_containers_statistics(self):
         print("Showing all containers statistics...")
         for container in self.containers:
@@ -289,7 +335,7 @@ class ClassContainer:
         self.num_boys = 0
         self.num_104 = 0
         self.num_107 = 0
-        self.caps = []
+        self.caps = {}
         self.nationalities = {}
         self.students = []
         self.maxed_out = False
@@ -320,18 +366,20 @@ class ClassContainer:
             print(f"Reached max number of students [{self.num_students}] in this container!", end=" ")
             return student
 
-        if len(self.caps) >= self.db_group_configuration.max_for_cap \
-            and student.cap not in self.caps:
-            print(f"Reached max number of students for this cap [{student.cap}] in this container!", end=" ")
-            return student
+        if student.cap in self.caps.keys():
+            if self.caps[student.cap] >= self.db_group_configuration.max_for_cap:
+                print(f"Reached max number of students for this cap [{student.cap}] in this container!", end=" ")
+                return student
 
         if len(self.nationalities.keys()) >= self.db_group_configuration.max_naz \
-            and student.nazionalita not in self.nationalities.keys():
+            and student.nazionalita not in self.nationalities.keys() \
+            and student.nazionalita != self.db_group_configuration.default_naz:
             print(f"Reached max number of nationalities [{self.db_group_configuration.max_naz}] in this container!", end=" ")
             return student
 
         if student.nazionalita in self.nationalities.keys():
-            if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz:
+            if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz \
+               and student.nazionalita != self.db_group_configuration.default_naz:
                 print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!", end=" ")
                 return student
 
@@ -351,18 +399,88 @@ class ClassContainer:
 
         self.refresh_statistics()
 
+    def can_add_desiderata(self, desiderata_students):
+        self.refresh_statistics()
+
+        if desiderata_students[0].legge_104 == "s" or desiderata_students[1].legge_104 == "s":
+            desiderata_with_104 = True
+
+        if self.num_students > self.db_group_configuration.max_students -2 and not desiderata_with_104:
+            return False
+
+        if desiderata_students[0].cap == desiderata_students[1].cap:
+            if desiderata_students[0].cap in self.caps.keys():
+                if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -2:
+                    return False
+        else:
+            if desiderata_students[0].cap in self.caps.keys():
+                if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -1:
+                    return False
+            if desiderata_students[1].cap in self.caps.keys():
+                if self.caps[desiderata_students[1].cap] > self.db_group_configuration.max_for_cap -1:
+                    return False
+
+
+        if desiderata_students[0].nazionalita != self.db_group_configuration.default_naz \
+           and desiderata_students[1].nazionalita != self.db_group_configuration.default_naz:
+            if desiderata_students[0].nazionalita != desiderata_students[1].nazionalita:
+                if desiderata_students[0].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        return False
+                if desiderata_students[1].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[1].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        return False
+
+                if (desiderata_students[0].nazionalita not in self.nationalities.keys() \
+                   and desiderata_students[1].nazionalita in self.nationalities.keys()) \
+                   or (desiderata_students[0].nazionalita in self.nationalities.keys() \
+                   and desiderata_students[1].nazionalita not in self.nationalities.keys()):
+                    if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        return False
+
+            if desiderata_students[0].nazionalita == desiderata_students[1].nazionalita:
+                if desiderata_students[0].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -2:
+                        return False
+
+                if desiderata_students[0] not in self.nationalities.keys():
+                    if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        return False
+
+        if self.db_group_configuration.num_girls is not None:
+            if desiderata_students[0].sesso == desiderata_students[1].sesso:
+                if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -2:
+                    return False
+            else:
+                if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    return False
+                if desiderata_students[1].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    return False
+
+        if self.db_group_configuration.num_boys is not None:
+            if desiderata_students[0].sesso == desiderata_students[1].sesso:
+                if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -2:
+                    return False
+            else:
+                if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    return False
+                if desiderata_students[1].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    return False
+
+        self.refresh_statistics()
+
     def refresh_statistics(self):
         self.num_students = len(self.students)
         self.num_girls = len([s for s in self.students if s.sesso == 'f'])
         self.num_boys = len([s for s in self.students if s.sesso == 'm'])
         self.num_104 = len([s for s in self.students if s.legge_104 == 's'])
         self.num_107 = len([s for s in self.students if s.legge_170 == 's'])
-        self.caps = list(set([s.cap for s in self.students]))
+        self.caps = {key : len(value) for key, value in self.caps.items()}
 
         nationalities_with_num_of_students = {}
         nationalities = list(set([s.nazionalita for s in self.students]))
         for nationality in nationalities:
-            num_of_students = len([s for s in self.students if s.nazionalita == nationality])
+            num_of_students = len([s for s in self.students if s.nazionalita == nationality and s.nazionalita != self.db_group_configuration.default_naz])
             nationalities_with_num_of_students[nationality] = num_of_students
 
         self.nationalities = nationalities_with_num_of_students
