@@ -311,6 +311,7 @@ class ContainersManager:
             while True:
                 container_to_fill = random.choice(self.containers)
                 if container_to_fill.can_add_desiderata(students_array):
+                    print(f'Trying to add students {students_array}')
                     container_to_fill.add_students(students_array)
                     break
 
@@ -406,18 +407,22 @@ class ClassContainer:
             desiderata_with_104 = True
 
         if self.num_students > self.db_group_configuration.max_students -2 and not desiderata_with_104:
+            print('Check add_desiderata exited on num_students with 104')
             return False
 
         if desiderata_students[0].cap == desiderata_students[1].cap:
             if desiderata_students[0].cap in self.caps.keys():
                 if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -2:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are equal')
                     return False
         else:
             if desiderata_students[0].cap in self.caps.keys():
                 if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -1:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are diverse n.1')
                     return False
             if desiderata_students[1].cap in self.caps.keys():
                 if self.caps[desiderata_students[1].cap] > self.db_group_configuration.max_for_cap -1:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are diverse n.2')
                     return False
 
 
@@ -426,9 +431,11 @@ class ClassContainer:
             if desiderata_students[0].nazionalita != desiderata_students[1].nazionalita:
                 if desiderata_students[0].nazionalita in self.nationalities.keys():
                     if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are not equal n.1')
                         return False
                 if desiderata_students[1].nazionalita in self.nationalities.keys():
                     if self.nationalities[desiderata_students[1].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are not equal n.2')
                         return False
 
                 if (desiderata_students[0].nazionalita not in self.nationalities.keys() \
@@ -436,38 +443,49 @@ class ClassContainer:
                    or (desiderata_students[0].nazionalita in self.nationalities.keys() \
                    and desiderata_students[1].nazionalita not in self.nationalities.keys()):
                     if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        print('Check add_desiderata exited on max nationalities while one of them are not already inside')
                         return False
 
             if desiderata_students[0].nazionalita == desiderata_students[1].nazionalita:
                 if desiderata_students[0].nazionalita in self.nationalities.keys():
                     if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -2:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are equal')
                         return False
 
                 if desiderata_students[0] not in self.nationalities.keys():
                     if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are equal')
                         return False
 
         if self.db_group_configuration.num_girls is not None:
             if desiderata_students[0].sesso == desiderata_students[1].sesso:
                 if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -2:
+                    print('Check add_desiderata exited on num girls while sex is equal')
                     return False
             else:
                 if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.1')
                     return False
                 if desiderata_students[1].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.2')
                     return False
 
         if self.db_group_configuration.num_boys is not None:
             if desiderata_students[0].sesso == desiderata_students[1].sesso:
                 if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -2:
+                    print('Check add_desiderata exited on num girls while sex is equal')
                     return False
             else:
                 if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.1')
                     return False
                 if desiderata_students[1].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.2')
                     return False
 
         self.refresh_statistics()
+
+        return True
 
     def refresh_statistics(self):
         self.num_students = len(self.students)
