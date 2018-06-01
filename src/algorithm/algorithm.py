@@ -404,14 +404,6 @@ class ClassContainer:
 
         print(f"Adding student with matricola [{student.matricola}]...", end=" ")
 
-        if student.legge_104:
-            self.db_group_configuration.max_students = 20
-
-        if self.num_students >= self.db_group_configuration.max_students:
-            self.maxed_out = True
-            print(f"Reached max number of students [{self.num_students}] in this container!")
-            return student
-
         if student.cap in self.caps.keys():
             if self.caps[student.cap] >= self.db_group_configuration.max_for_cap:
                 print(f"Reached max number of students for this cap [{student.cap}] in this container!")
@@ -438,6 +430,14 @@ class ClassContainer:
             if self.num_boys >= self.db_group_configuration.num_boys:
                 print(f"Reached max number of boys [{self.num_boys}] in this container!")
                 return student
+
+        if student.legge_104 and self.num_students -1 < 20:
+            self.db_group_configuration.max_students = 20
+
+        if self.num_students >= self.db_group_configuration.max_students:
+            self.maxed_out = True
+            print(f"Reached max number of students [{self.num_students}] in this container!")
+            return student
 
         self.students.append(student)
 
