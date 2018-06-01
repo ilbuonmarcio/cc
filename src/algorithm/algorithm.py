@@ -358,8 +358,10 @@ class ContainersManager:
                         else:
                             remaining_students -= 1
                             break
+                    else:
+                        containers_already_filled.append(container_to_fill)
                 else:
-                    print("Cannot fill this student! Need shuffle!")
+                    print(f"Cannot fill this student [{student.matricola}]! Need shuffle!")
                     students_to_reinsert.append(student)
                     break
         print("\nFinished distributing remaining students randomly into containers!")
