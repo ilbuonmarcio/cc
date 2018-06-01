@@ -311,7 +311,7 @@ class ContainersManager:
             while True:
                 container_to_fill = random.choice(self.containers)
                 if container_to_fill.can_add_desiderata(students_array):
-                    print(f'Trying to add students {students_array}')
+                    print(f'Trying to add students [{students_array[0].matricola}, {students_array[1].matricola}] ...')
                     container_to_fill.add_students(students_array)
                     break
 
