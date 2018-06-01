@@ -88,7 +88,7 @@ class CC:
 
         remaining_students_array = self.students_manager.get_remaining_students_array()
 
-        remaining_students_after_random_insert = self.containers_manager.distribute_students_randomly_into_containers(remaining_students_array)
+        remaining_students_after_random_insert = self.containers_manager.distribute_remaining_students_randomly_into_containers(remaining_students_array)
 
         print(f"Found {len(remaining_students_after_random_insert)} remaining students!")
 
@@ -336,19 +336,28 @@ class ContainersManager:
 
         return students_to_reinsert
 
-    def distribute_students_randomly_into_containers(self, input_array):
-        print("Distributing students randomly into containers...")
+    def distribute_remaining_students_randomly_into_containers(self, input_array):
+        print("Distributing remaining students randomly into containers...")
+
+        remaining_students = len(input_array)
 
         students_to_reinsert = []
         for student in input_array:
+            print("Remaining students:", remaining_students)
+            containers_already_filled = []
             while True:
                 container_to_fill = random.choice(self.containers)
-                container_to_fill.add_student(student)
-                break
-        print("Finished distributing students randomly into containers!")
+                if container_to_fill not in containers_already_filled:
+                    student_not_inserted = container_to_fill.add_student(student)
+
+                    if student_not_inserted is not None:
+                        containers_already_filled.append(container_to_fill)
+                    else:
+                        remaining_students -= 1
+                        break
+        print("\nFinished distributing remaining students randomly into containers!")
 
         return students_to_reinsert
-
 
 
     def show_containers_statistics(self):
@@ -396,34 +405,34 @@ class ClassContainer:
 
         if self.num_students >= self.db_group_configuration.max_students:
             self.maxed_out = True
-            print(f"Reached max number of students [{self.num_students}] in this container!", end=" ")
+            print(f"Reached max number of students [{self.num_students}] in this container!")
             return student
 
         if student.cap in self.caps.keys():
             if self.caps[student.cap] >= self.db_group_configuration.max_for_cap:
-                print(f"Reached max number of students for this cap [{student.cap}] in this container!", end=" ")
+                print(f"Reached max number of students for this cap [{student.cap}] in this container!")
                 return student
 
         if len(self.nationalities.keys()) >= self.db_group_configuration.max_naz \
             and student.nazionalita not in self.nationalities.keys() \
             and student.nazionalita != self.db_group_configuration.default_naz:
-            print(f"Reached max number of nationalities [{self.db_group_configuration.max_naz}] in this container!", end=" ")
+            print(f"Reached max number of nationalities [{self.db_group_configuration.max_naz}] in this container!")
             return student
 
         if student.nazionalita in self.nationalities.keys():
             if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz \
                and student.nazionalita != self.db_group_configuration.default_naz:
-                print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!", end=" ")
+                print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!")
                 return student
 
         if self.db_group_configuration.num_girls is not None and student.sesso == 'f':
             if self.num_girls >= self.db_group_configuration.num_girls:
-                print(f"Reached max number of girls [{self.num_girls}] in this container!", end=" ")
+                print(f"Reached max number of girls [{self.num_girls}] in this container!")
                 return student
 
         if self.db_group_configuration.num_boys is not None and student.sesso == 'm':
             if self.num_boys >= self.db_group_configuration.num_boys:
-                print(f"Reached max number of boys [{self.num_boys}] in this container!", end=" ")
+                print(f"Reached max number of boys [{self.num_boys}] in this container!")
                 return student
 
         self.students.append(student)
