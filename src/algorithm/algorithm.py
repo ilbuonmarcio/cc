@@ -84,6 +84,12 @@ class CC:
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
+        print("Getting remaining students on the database...")
+
+        remaining_students_array = self.students_manager.get_remaining_students_array()
+
+        print(f"Found {len(remaining_students_array)} remaining students!")
+
         print("Done!")
 
     def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
@@ -265,11 +271,11 @@ class StudentsManager:
 
         return result_set
 
-
-
     def get_remaining_students_array(self):
-        for student in self.students:
-            pass
+        result_set = []
+
+        return result_set
+
 
 
 class ContainersManager:
