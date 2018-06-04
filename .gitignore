@@ -1,3 +1,7 @@
-src/utils/dbconnection.php
+src/utils/db.php
 .vscode/*
 __pycache__/
+src/setup/spaggiari_output.csv
+src/setup/spaggiari_output_elab.csv
+src/setup/last_year.csv
+src/setup/last_year_UPLOAD.csv

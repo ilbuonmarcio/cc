@@ -5,7 +5,7 @@ nomi = ['Antonio', 'Lucia', 'Tiziano', 'Roberto', 'Fabio', 'Valentina', 'Alex', 
 cognomi = ['Rossi', 'Verdi', 'Bianchi', 'Russo', 'Valentini', 'Roberti', 'Giannini', 'Scalco', 'Mirandola']
 cf_list = []
 
-num_campioni = 500
+num_campioni = 10
 
 alunni = []
 
@@ -82,6 +82,12 @@ if __name__ == "__main__":
             if c != alunno[4]:
                 alunno[5] = c
                 break
+
+    for student in alunni:
+        for other in alunni:
+            if student[4] != other[4]:
+                if student[4] == other[5] and student[5] == other[4]:
+                    print("matched")
 
     with open('alunni_MYSQL.csv', 'w') as output_file:
         for alunno in alunni:

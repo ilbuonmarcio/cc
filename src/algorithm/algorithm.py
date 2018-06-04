@@ -1,4 +1,5 @@
 import random
+import math
 import time
 import mysql.connector
 
@@ -18,7 +19,10 @@ class CC:
         self.config_id = config_id
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
-        self.containers_manager = ContainersManager()
+        self.containers_manager = ContainersManager(
+            math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
+            self.configuration
+        )
 
         self.run()
 
@@ -30,7 +34,85 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
+        # [print(student) for student in self.students_manager.get_remaining_students()]
+
+        print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
+
+        # TODO: data manipulation
+
+        print(f"Sex priority: {self.configuration.sex_priority}")
+
+        configured_sex_priority_array = self.students_manager.get_sex_prioritized_students_array(
+            self.configuration.sex_priority,
+            self.configuration.num_sex_priority
+        )
+
+        self._DEBUG_check_sex_prioritized_array(configured_sex_priority_array)
+
+        if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
+            print('<---WARNING---> Sex prioritized groups are more than possible containers!')
+            print('ABORT!')
+            return False # TODO change return value
+
+        students_not_inserted = self.containers_manager.distribute_sex_prioritized_groups_randomly_into_containers(
+            configured_sex_priority_array
+        )
+
+        if len(students_not_inserted) > 0:
+            print("Some students from prioritized group weren't inserted!")
+            for student in students_not_inserted:
+                print(f"Student with matricola {student.matricola} was not inserted!")
+        else:
+            print("No students need to be reinserted, this is a good sign! :))")
+
+        # self.containers_manager.show_containers_statistics()
+
+        print("Pairing and getting remaining students, matching by desiderata when possible...")
+
+        remaining_desiderata_students_array = self.students_manager.get_remaining_desiderata_students_array()
+
+        print(f"Found {len(remaining_desiderata_students_array)} paired students!")
+
+        students_not_inserted = self.containers_manager.distribute_couples_randomly_into_containers(remaining_desiderata_students_array)
+
+        if len(students_not_inserted) > 0:
+            print("Some O-O desiderata couple weren't inserted!")
+            for couple in students_not_inserted:
+                for student in couple:
+                    print(f"Student with matricola {student.matricola} was not inserted!")
+            print(f"In total there are {len(remaining_desiderata_students_array)} paired students to be reinserted!")
+        else:
+            print("No students need to be reinserted, this is a good sign! :))")
+
+        print("Getting remaining students on the database...")
+
+        remaining_students_array = self.students_manager.get_remaining_students_array()
+
+        remaining_students_after_random_insert = self.containers_manager.distribute_remaining_students_randomly_into_containers(remaining_students_array)
+
+        print(f"After random fill of remaining students, there are {len(remaining_students_after_random_insert)} students to fill, still!")
+
+        if len(remaining_students_after_random_insert) == 0:
+            print("Well done, there is no students to swap of classroom, there!")
+        else:
+            print("Next move is to implement student of different class' swapping...")
+
         print("Done!")
+
+    def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
+        print("Checking sex-prioritized array...")
+        for student_group in configured_sex_priority_array:
+            print(f"Student group length: {len(student_group)}", end="")
+
+            num_males, num_females = 0, 0
+            for student in student_group:
+                if student.sesso == "m":
+                    num_males += 1
+                if student.sesso == "f":
+                    num_females += 1
+
+            print(f" - M: {num_males} - F: {num_females}")
+        print("Finished checking sex-prioritized array...")
 
 
 class Configuration:
@@ -62,13 +144,19 @@ class Configuration:
             self.max_for_naz = record[7]
             self.max_naz = record[8]
             self.max_170 = record[9]
+            self.sex_priority = "m" if self.num_girls is None and self.num_boys is not None else "f"
+            self.num_sex_priority = self.num_boys if self.sex_priority == "m" else self.num_girls
+            self.default_naz = "ITALIANA"
 
         cursor.close()
 
         connection.close()
 
-    def dict_parameters(self):
+    def parameters(self):
         return self.__dict__
+
+    def __str__(self):
+        return self.config_name
 
 
 class StudentsManager:
@@ -77,6 +165,7 @@ class StudentsManager:
         self.group_id = group_id
         self.students = []
         self._load_students_from_db(self.group_id)
+        random.shuffle(self.students)
 
     def _load_students_from_db(self, group_id):
         connection = mysql.connector.connect(
@@ -87,11 +176,13 @@ class StudentsManager:
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM alunni WHERE id = {group_id};"
+        query = f"SELECT * FROM alunni WHERE id_gruppo = {group_id};"
 
         cursor.execute(query)
 
         self.students = cursor.fetchall()
+
+        self.students = [Student(student_record) for student_record in self.students]
 
         cursor.close()
 
@@ -100,23 +191,417 @@ class StudentsManager:
     def get_number_of_students(self):
         return len(self.students)
 
+    def get_sex_prioritized_students_array(self, sex_priority, num_sex_priority):
+        sex_priority_students = []
+        othersex_students = []
+        for student in self.students:
+            if student.sesso == sex_priority:
+                sex_priority_students.append(student)
+            else:
+                othersex_students.append(student)
+
+        for student in sex_priority_students:
+            self.students.remove(student)
+
+        sex_priority_students_groupped = {
+            "female-female" : {},
+            "female-male" : {}
+        }
+
+        for student in sex_priority_students:
+            for other in sex_priority_students:
+                if student.check_desiderata(other):
+                    if other.matricola + "-" + student.matricola \
+                        not in sex_priority_students_groupped["female-female"].keys():
+                        print(f"Matched S-S! {student.matricola} <--> {other.matricola}")
+                        sex_priority_students_groupped["female-female"][
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+
+        othersex_to_remove_from_students = []
+        for student in sex_priority_students:
+            for other in othersex_students:
+                if student.check_desiderata(other):
+                    if other.matricola + "-" + student.matricola \
+                        not in sex_priority_students_groupped["female-male"].keys():
+                        print(f"Matched S-O! {student.matricola} <--> {other.matricola}")
+                        sex_priority_students_groupped["female-male"][
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+                        othersex_to_remove_from_students.append(student)
+                        othersex_to_remove_from_students.append(other)
+
+        for student in othersex_to_remove_from_students:
+            if student in self.students:
+                self.students.remove(student)
+
+        index = 0
+        arranged_students_based_on_config = [[]]
+        for student_couple in sex_priority_students_groupped["female-female"].values():
+            if len(arranged_students_based_on_config[index]) + 2 > num_sex_priority:
+                arranged_students_based_on_config.append([])
+                index += 1
+
+            arranged_students_based_on_config[index].append(student_couple[0])
+            arranged_students_based_on_config[index].append(student_couple[1])
+
+        index = 0
+        for student_couple in sex_priority_students_groupped["female-male"].values():
+            while len(arranged_students_based_on_config[index]) + 1 > num_sex_priority:
+                index += 1
+            arranged_students_based_on_config.append([])
+            arranged_students_based_on_config[index].append(student_couple[0])
+            arranged_students_based_on_config[index].append(student_couple[1])
+
+        result_set = []
+        for array in arranged_students_based_on_config:
+            if len(array) > 0:
+                result_set.append(array)
+
+        return result_set
+
+
+    def get_remaining_desiderata_students_array(self):
+        result_set = {}
+
+        to_remove_from_students = []
+        for student in self.students:
+            for other in self.students:
+                if student.check_desiderata(other):
+                    if other.matricola + "-" + student.matricola \
+                        not in result_set.keys():
+                        print(f"Matched O-O! {student.matricola} <--> {other.matricola}")
+                        result_set[
+                            student.matricola + "-" + other.matricola
+                        ] = [student, other]
+                        to_remove_from_students.append(student)
+                        to_remove_from_students.append(other)
+
+        for student in to_remove_from_students:
+            if student in self.students:
+                self.students.remove(student)
+
+        result_set = [value for value in result_set.values()]
+        return result_set
+
+    def get_remaining_students_array(self):
+        result_set = []
+
+        for student in self.students:
+            result_set.append(student)
+
+        return result_set
+
+
 
 class ContainersManager:
 
-    def __init__(self):
-        pass
+    def __init__(self, num_of_containers, configuration):
+        self.containers = [ClassContainer(configuration) for _ in range(0, num_of_containers)]
+        self.configuration = configuration
+
+    def get_number_of_containers(self):
+        return len(self.containers)
+
+    def distribute_sex_prioritized_groups_randomly_into_containers(self, input_array):
+        print("Distributing sex prioritized groups randomly into containers...")
+
+        containers_already_filled = []
+        students_to_reinsert = []
+        for students_array in input_array:
+            while True:
+                container_to_fill = random.choice(self.containers)
+                if container_to_fill not in containers_already_filled:
+                    students_not_inserted = container_to_fill.add_students(students_array)
+
+                    if len(students_not_inserted) > 0:
+                        print("Warning! Student to reinsert found!")
+                        for student in students_not_inserted:
+                            students_to_reinsert.append(student)
+                    containers_already_filled.append(container_to_fill)
+                    break
+
+        print("Finished distributing sex prioritized groups randomly into containers!")
+
+        return students_to_reinsert
+
+    def distribute_couples_randomly_into_containers(self, input_array):
+        print("Distributing O-O couples randomly into containers...")
+
+        students_to_reinsert = []
+        for students_array in input_array:
+            while True:
+                container_to_fill = random.choice(self.containers)
+                if container_to_fill.can_add_desiderata(students_array):
+                    print(f'Trying to add students [{students_array[0].matricola}, {students_array[1].matricola}] ...')
+                    container_to_fill.add_students(students_array)
+                    break
+
+        print("Finished distributing O-O couples randomly into containers!")
+
+        return students_to_reinsert
+
+    def distribute_remaining_students_randomly_into_containers(self, input_array):
+        print("Distributing remaining students randomly into containers...")
+
+        remaining_students = len(input_array)
+
+        students_to_reinsert = []
+        for student in input_array:
+            print("Remaining students:", remaining_students)
+            containers_already_filled = []
+            while True:
+                container_to_fill = random.choice(self.containers)
+                if len(containers_already_filled) != len(self.containers) \
+                   and container_to_fill not in containers_already_filled:
+
+                    if not container_to_fill.maxed_out:
+                        student_not_inserted = container_to_fill.add_student(student)
+
+                        if student_not_inserted is not None:
+                            containers_already_filled.append(container_to_fill)
+                        else:
+                            remaining_students -= 1
+                            break
+                    else:
+                        containers_already_filled.append(container_to_fill)
+                else:
+                    print(f"Cannot fill this student [{student.matricola}]! Need shuffle!")
+                    students_to_reinsert.append(student)
+                    break
+        print("\nFinished distributing remaining students randomly into containers!")
+
+        return students_to_reinsert
+
+    def show_containers_statistics(self):
+        print("Showing all containers statistics...")
+        for container in self.containers:
+            container.show_container_statistics()
+        print("\nFinished showing all containers statistics")
 
 
 class ClassContainer:
 
-    def __init__(self):
-        pass
+    def __init__(self, configuration):
+        self.db_group_configuration = configuration
+        self.num_students = 0
+        self.num_max_students = 0
+        self.num_girls = 0
+        self.num_boys = 0
+        self.num_104 = 0
+        self.num_107 = 0
+        self.caps = {}
+        self.nationalities = {}
+        self.students = []
+        self.maxed_out = False
+
+    def add_students(self, input_array):
+        self.refresh_statistics()
+
+        students_not_inserted = []
+        for student in input_array:
+            addition_result = self.add_student(student)
+            if addition_result is not None:
+                students_not_inserted.append(student)
+
+        self.refresh_statistics()
+
+        return students_not_inserted
+
+    def add_student(self, student):
+        self.refresh_statistics()
+
+        print(f"Adding student with matricola [{student.matricola}]...", end=" ")
+
+        if student.cap in self.caps.keys():
+            if self.caps[student.cap] >= self.db_group_configuration.max_for_cap:
+                print(f"Reached max number of students for this cap [{student.cap}] in this container!")
+                return student
+
+        if len(self.nationalities.keys()) >= self.db_group_configuration.max_naz \
+            and student.nazionalita not in self.nationalities.keys() \
+            and student.nazionalita != self.db_group_configuration.default_naz:
+            print(f"Reached max number of nationalities [{self.db_group_configuration.max_naz}] in this container!")
+            return student
+
+        if student.nazionalita in self.nationalities.keys():
+            if self.nationalities[student.nazionalita] >= self.db_group_configuration.max_for_naz \
+               and student.nazionalita != self.db_group_configuration.default_naz:
+                print(f"Reached max number of students with the same nationality [{student.nazionalita}] in this container!")
+                return student
+
+        if self.db_group_configuration.num_girls is not None and student.sesso == 'f':
+            if self.num_girls >= self.db_group_configuration.num_girls:
+                print(f"Reached max number of girls [{self.num_girls}] in this container!")
+                return student
+
+        if self.db_group_configuration.num_boys is not None and student.sesso == 'm':
+            if self.num_boys >= self.db_group_configuration.num_boys:
+                print(f"Reached max number of boys [{self.num_boys}] in this container!")
+                return student
+
+        if student.legge_104 and self.num_students -1 < 20:
+            self.db_group_configuration.max_students = 20
+
+        if self.num_students >= self.db_group_configuration.max_students:
+            self.maxed_out = True
+            print(f"Reached max number of students [{self.num_students}] in this container!")
+            return student
+
+        self.students.append(student)
+
+        print("Done!")
+
+        self.refresh_statistics()
+
+    def can_add_desiderata(self, desiderata_students):
+        self.refresh_statistics()
+
+        if desiderata_students[0].cap == desiderata_students[1].cap:
+            if desiderata_students[0].cap in self.caps.keys():
+                if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -2:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are equal')
+                    return False
+        else:
+            if desiderata_students[0].cap in self.caps.keys():
+                if self.caps[desiderata_students[0].cap] > self.db_group_configuration.max_for_cap -1:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are diverse n.1')
+                    return False
+            if desiderata_students[1].cap in self.caps.keys():
+                if self.caps[desiderata_students[1].cap] > self.db_group_configuration.max_for_cap -1:
+                    print('Check add_desiderata exited on desiderata max for cap reached while caps are diverse n.2')
+                    return False
+
+
+        if desiderata_students[0].nazionalita != self.db_group_configuration.default_naz \
+           and desiderata_students[1].nazionalita != self.db_group_configuration.default_naz:
+            if desiderata_students[0].nazionalita != desiderata_students[1].nazionalita:
+                if desiderata_students[0].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are not equal n.1')
+                        return False
+                if desiderata_students[1].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[1].nazionalita] > self.db_group_configuration.max_for_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are not equal n.2')
+                        return False
+
+                if (desiderata_students[0].nazionalita not in self.nationalities.keys() \
+                   and desiderata_students[1].nazionalita in self.nationalities.keys()) \
+                   or (desiderata_students[0].nazionalita in self.nationalities.keys() \
+                   and desiderata_students[1].nazionalita not in self.nationalities.keys()):
+                    if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        print('Check add_desiderata exited on max nationalities while one of them are not already inside')
+                        return False
+
+            if desiderata_students[0].nazionalita == desiderata_students[1].nazionalita:
+                if desiderata_students[0].nazionalita in self.nationalities.keys():
+                    if self.nationalities[desiderata_students[0].nazionalita] > self.db_group_configuration.max_for_naz -2:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are equal')
+                        return False
+
+                if desiderata_students[0] not in self.nationalities.keys():
+                    if len(self.nationalities.keys()) > self.db_group_configuration.max_naz -1:
+                        print('Check add_desiderata exited on checking max num of nationalities while nationalities are equal')
+                        return False
+
+        if self.db_group_configuration.num_girls is not None:
+            if desiderata_students[0].sesso == desiderata_students[1].sesso:
+                if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -2:
+                    print('Check add_desiderata exited on num girls while sex is equal')
+                    return False
+            else:
+                if desiderata_students[0].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.1')
+                    return False
+                if desiderata_students[1].sesso == 'f' and self.num_girls > self.db_group_configuration.num_girls -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.2')
+                    return False
+
+        if self.db_group_configuration.num_boys is not None:
+            if desiderata_students[0].sesso == desiderata_students[1].sesso:
+                if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -2:
+                    print('Check add_desiderata exited on num girls while sex is equal')
+                    return False
+            else:
+                if desiderata_students[0].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.1')
+                    return False
+                if desiderata_students[1].sesso == 'm' and self.num_boys > self.db_group_configuration.num_boys -1:
+                    print('Check add_desiderata exited on num girls while sex is not equal n.2')
+                    return False
+
+        if desiderata_students[0].legge_104 == "s" or desiderata_students[1].legge_104 == "s":
+            desiderata_with_104 = True
+
+        if self.num_students > self.db_group_configuration.max_students -2 and not desiderata_with_104:
+            print('Check add_desiderata exited on num_students with 104')
+            return False
+
+        self.refresh_statistics()
+
+        return True
+
+    def refresh_statistics(self):
+        self.num_students = len(self.students)
+        self.num_girls = len([s for s in self.students if s.sesso == 'f'])
+        self.num_boys = len([s for s in self.students if s.sesso == 'm'])
+        self.num_104 = len([s for s in self.students if s.legge_104 == 's'])
+        self.num_107 = len([s for s in self.students if s.legge_170 == 's'])
+        self.caps = {key : len(value) for key, value in self.caps.items()}
+
+        nationalities_with_num_of_students = {}
+        nationalities = list(set([s.nazionalita for s in self.students]))
+        for nationality in nationalities:
+            num_of_students = len([s for s in self.students if s.nazionalita == nationality and s.nazionalita != self.db_group_configuration.default_naz])
+            nationalities_with_num_of_students[nationality] = num_of_students
+
+        self.nationalities = nationalities_with_num_of_students
+
+        self.maxed_out = self.db_group_configuration.max_students == self.num_students
+
+    def show_container_statistics(self):
+        print("\n[*] Showing container statistics...")
+        for attribute, value in self.__dict__.items():
+            if attribute == "students":
+                print(attribute, [student.matricola for student in self.students])
+            else:
+                print(attribute, value)
+
+        print("[*] End of container statistics")
 
 
 class Student:
 
-    def __init__(self):
-        pass
+    def __init__(self, student_record):
+        self.id = student_record[0]
+        self.cognome = student_record[1]
+        self.nome = student_record[2]
+        self.matricola = student_record[3]
+        self.cf = student_record[4]
+        self.desiderata = student_record[5]
+        self.sesso = student_record[6]
+        self.data_nascita = student_record[7]
+        self.cap = student_record[8]
+        self.nazionalita = student_record[9]
+        self.legge_170 = student_record[10]
+        self.legge_104 = student_record[11]
+        self.classe_precedente = student_record[12]
+        self.classe_successiva = student_record[13]
+        self.scelta_indirizzo = student_record[14]
+        self.cod_cat = student_record[15]
+        self.voto = student_record[16]
+        self.id_gruppo = student_record[17]
+
+    def __repr__(self):
+        return str(self.__dict__)
+
+    def check_desiderata(self, other):
+        if self.matricola != other.matricola and \
+           self.id != other.id and \
+           self.desiderata == other.cf and \
+           other.desiderata == self.cf:
+           return True
+        return False
 
 
 def create_cc_instance(process_id, group_id, config_id):

@@ -50,6 +50,8 @@ error_reporting(E_ALL);
       }
     }
 
+    $conn->query("UPDATE alunni SET sesso = LOWER(sesso)");
+
     echo "{
       status: 'Query Executed',
       querystatus : 'good',
