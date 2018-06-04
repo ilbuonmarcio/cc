@@ -27,18 +27,18 @@ class CC:
         self.run()
 
     def run(self):
-        print("Running")
+        print("Running CC...")
+
+        self.total_number_of_students = self.students_manager.get_number_of_students()
+
 
         print(f"Loaded students from db with id {self.students_manager.group_id}:",
-              self.students_manager.get_number_of_students())
+              self.total_number_of_students)
+
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
-        # [print(student) for student in self.students_manager.get_remaining_students()]
-
         print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
-
-        # TODO: data manipulation
 
         print(f"Sex priority: {self.configuration.sex_priority}")
 
@@ -47,7 +47,7 @@ class CC:
             self.configuration.num_sex_priority
         )
 
-        self._DEBUG_check_sex_prioritized_array(configured_sex_priority_array)
+        self.check_sex_prioritized_array(configured_sex_priority_array)
 
         if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
             print('<---WARNING---> Sex prioritized groups are more than possible containers!')
@@ -97,9 +97,21 @@ class CC:
         else:
             print("Next move is to implement student of different class' swapping...")
 
+        self.optimize()
+
         print("Done!")
 
-    def _DEBUG_check_sex_prioritized_array(self, configured_sex_priority_array):
+    def optimize(self):
+        current_optimize_index = 0
+        optimize_index_limit = self.total_number_of_students**2
+        while True:
+            print(f"Optimizing [{current_optimize_index}]")
+            current_optimize_index += 1
+            if current_optimize_index == optimize_index_limit:
+                break
+        print("Finished optimizing!\nIt should be done!")
+
+    def check_sex_prioritized_array(self, configured_sex_priority_array):
         print("Checking sex-prioritized array...")
         for student_group in configured_sex_priority_array:
             print(f"Student group length: {len(student_group)}", end="")
