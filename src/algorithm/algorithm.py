@@ -104,8 +104,9 @@ class CC:
     def optimize(self):
         current_optimize_index = 0
         optimize_index_limit = self.total_number_of_students**2
+        print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
-            print(f"Optimizing [{current_optimize_index}]")
+            print(f"Optimizing [{current_optimize_index + 1}]")
             current_optimize_index += 1
             if current_optimize_index == optimize_index_limit:
                 break
