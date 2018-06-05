@@ -2,6 +2,8 @@ import random
 import math
 import time
 import mysql.connector
+import copy
+
 
 class DBConfig:
 
@@ -104,9 +106,17 @@ class CC:
     def optimize(self):
 
         def optimize_containers_on_final_exam_mark(index):
-            print("Optimizing on final exam mark...")
+            # print("Optimizing on final exam mark...")
 
-            # select two containers based on index % num_of_containers
+            first_index = index % self.containers_manager.get_number_of_containers()
+            second_index = (index + 1) % self.containers_manager.get_number_of_containers()
+
+            # print(f"Currently trying with containers at index [{first_index} - {second_index}]")
+
+            first_container = self.containers_manager.clone_container_at_index(first_index)
+            second_container = self.containers_manager.clone_container_at_index(first_index)
+
+            print(id(first_container) == id(second_container))
 
             # copy all students into two new containers
 
@@ -410,6 +420,15 @@ class ContainersManager:
         print("\nFinished distributing remaining students randomly into containers!")
 
         return students_to_reinsert
+
+
+    def get_container_at_index(self, index):
+        return self.containers[index]
+
+
+    def clone_container_at_index(self, index):
+        return copy.copy(self.get_container_at_index(index))
+
 
     def show_containers_statistics(self):
         print("Showing all containers statistics...")
