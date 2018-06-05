@@ -128,7 +128,7 @@ class CC:
 
             # optimize code init
 
-            optimize_containers_on_final_exam_mark()
+            optimize_containers_on_final_exam_mark(current_optimize_index)
 
             # optimize code end
 
