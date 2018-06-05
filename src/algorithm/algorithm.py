@@ -102,11 +102,36 @@ class CC:
         print("Done!")
 
     def optimize(self):
+
+        def optimize_containers_on_final_exam_mark(index):
+            print("Optimizing on final exam mark...")
+
+            # select two containers based on index % num_of_containers
+
+            # copy all students into two new containers
+
+            # collect one student for each class
+
+            # swap them if possible
+
+            # check if std is better now than before for both containers
+
+            # if so, substitute the two new containers to the old containers
+
+
+
         current_optimize_index = 0
         optimize_index_limit = self.total_number_of_students**2
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
             print(f"Optimizing [{current_optimize_index + 1}]")
+
+            # optimize code init
+
+            optimize_containers_on_final_exam_mark()
+
+            # optimize code end
+
             current_optimize_index += 1
             if current_optimize_index == optimize_index_limit:
                 break
