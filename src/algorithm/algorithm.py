@@ -106,17 +106,14 @@ class CC:
     def optimize(self):
 
         def optimize_containers_on_final_exam_mark(index):
-            # print("Optimizing on final exam mark...")
 
             first_index = index % self.containers_manager.get_number_of_containers()
             second_index = (index + 1) % self.containers_manager.get_number_of_containers()
 
-            # print(f"Currently trying with containers at index [{first_index} - {second_index}]")
+            print(f"Containers indexes: [{first_index} - {second_index}]")
 
             first_container = self.containers_manager.clone_container_at_index(first_index)
             second_container = self.containers_manager.clone_container_at_index(first_index)
-
-            print(id(first_container) == id(second_container))
 
             # copy all students into two new containers
 
@@ -134,7 +131,7 @@ class CC:
         optimize_index_limit = self.total_number_of_students**2
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
-            print(f"Optimizing [{current_optimize_index + 1}]")
+            print(f"Optimize cycle: {current_optimize_index + 1}")
 
             # optimize code init
 
