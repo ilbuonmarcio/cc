@@ -112,14 +112,14 @@ class CC:
             first_index = index % self.containers_manager.get_number_of_containers()
             second_index = (index + 1) % self.containers_manager.get_number_of_containers()
 
-            print(f"Containers indexes: [{first_index} - {second_index}]")
-
             previous_std = self.containers_manager.get_std()
 
             first_container_original = self.containers_manager.get_container_at_index(first_index)
             first_container_copied = self.containers_manager.clone_container_at_index(first_index)
+            first_container_backup = self.containers_manager.clone_container_at_index(first_index)
             second_container_original = self.containers_manager.get_container_at_index(second_index)
             second_container_copied = self.containers_manager.clone_container_at_index(second_index)
+            second_container_backup = self.containers_manager.clone_container_at_index(second_index)
 
             while True:
                 first_container_student = first_container_copied.get_random_student()
@@ -139,22 +139,20 @@ class CC:
             second_result = second_container_copied.add_student(first_container_student)
 
             if first_result is None and second_result is None:
-                print("Student swapping worked as intended!")
-                print("Hey", self.containers_manager.get_std(), previous_std)
-                if self.containers_manager.get_std() < previous_std:
-                    print("SWAPPINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
-                    self.containers_manager.set_container_at_index(first_container_copied, first_index)
-                    self.containers_manager.set_container_at_index(second_container_copied, second_index)
-            else:
-                print(f"One or more students cannot be reinserted into cloned containers! [{first_result}, {second_result}]")
+                self.containers_manager.set_container_at_index(first_container_copied, first_index)
+                self.containers_manager.set_container_at_index(second_container_copied, second_index)
+                print(f"STD: [{self.containers_manager.get_std()} - {previous_std}]")
+                if self.containers_manager.get_std() >= previous_std:
+                    self.containers_manager.set_container_at_index(first_container_backup, first_index)
+                    self.containers_manager.set_container_at_index(second_container_backup, second_index)
 
 
         current_optimize_index = 0
-        optimize_index_limit = min([self.total_number_of_students**2, 100000])
+        optimize_index_limit = min([self.total_number_of_students**2, 250000])
 
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
-            print(f"Optimize cycle: {current_optimize_index + 1}")
+            print(f"OPTCYCLE: {current_optimize_index + 1}")
 
             # optimize code init
 
