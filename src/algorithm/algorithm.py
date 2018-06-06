@@ -21,6 +21,8 @@ class CC:
         self.config_id = config_id
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
+        global configuration
+        configuration = self.configuration
         self.containers_manager = ContainersManager(
             math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
             self.configuration
@@ -112,12 +114,20 @@ class CC:
 
             print(f"Containers indexes: [{first_index} - {second_index}]")
 
-            first_container = self.containers_manager.clone_container_at_index(first_index)
-            second_container = self.containers_manager.clone_container_at_index(first_index)
+            first_container_original = self.containers_manager.get_container_at_index(first_index)
+            first_container_copied = self.containers_manager.clone_container_at_index(first_index)
+            second_container_original = self.containers_manager.get_container_at_index(second_index)
+            second_container_copied = self.containers_manager.clone_container_at_index(second_index)
 
-            # copy all students into two new containers
+            while True:
+                first_container_student = first_container_copied.get_random_student()
+                second_container_student = second_container_copied.get_random_student()
 
-            # collect one student for each class
+                if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                    and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                    and not first_container_copied.has_desiderata(first_container_student) \
+                    and not second_container_copied.has_desiderata(second_container_student):
+                        break
 
             # swap them if possible
 
@@ -128,7 +138,8 @@ class CC:
 
 
         current_optimize_index = 0
-        optimize_index_limit = self.total_number_of_students**2
+        optimize_index_limit = min([self.total_number_of_students**2, 100000])
+
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
             print(f"Optimize cycle: {current_optimize_index + 1}")
@@ -426,6 +437,8 @@ class ContainersManager:
     def clone_container_at_index(self, index):
         return copy.copy(self.get_container_at_index(index))
 
+    def set_container_at_index(self, container, index):
+        self.containers[index] = container
 
     def show_containers_statistics(self):
         print("Showing all containers statistics...")
@@ -595,6 +608,15 @@ class ClassContainer:
 
         return True
 
+    def get_random_student(self):
+        return random.choice(self.students)
+
+    def has_desiderata(self, student):
+        for other in self.students:
+            if student.check_desiderata(other):
+                return True
+        return False
+
     def refresh_statistics(self):
         self.num_students = len(self.students)
         self.num_girls = len([s for s in self.students if s.sesso == 'f'])
@@ -656,6 +678,9 @@ class Student:
            other.desiderata == self.cf:
            return True
         return False
+
+    def eligible_to_swap(self, sex_priority):
+        return self.legge_104 != "s" and self.legge_170 != "s" and self.sesso != sex_priority
 
 
 def create_cc_instance(process_id, group_id, config_id):
