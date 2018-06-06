@@ -121,52 +121,53 @@ class CC:
 
         print("Done!")
 
+
+    def optimize_containers_on_final_exam_mark(self, index):
+
+        delta = random.randint(0, self.containers_manager.get_number_of_containers())
+        first_index = delta % self.containers_manager.get_number_of_containers()
+        second_index = (delta + 1) % self.containers_manager.get_number_of_containers()
+
+        previous_std = self.containers_manager.get_std()
+
+        first_container_original = self.containers_manager.get_container_at_index(first_index)
+        first_container_copied = self.containers_manager.clone_container_at_index(first_index)
+        first_container_backup = self.containers_manager.clone_container_at_index(first_index)
+        second_container_original = self.containers_manager.get_container_at_index(second_index)
+        second_container_copied = self.containers_manager.clone_container_at_index(second_index)
+        second_container_backup = self.containers_manager.clone_container_at_index(second_index)
+
+        while True:
+            first_container_student = first_container_copied.get_random_student()
+            second_container_student = second_container_copied.get_random_student()
+
+            if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and not first_container_copied.has_desiderata(first_container_student) \
+                and not second_container_copied.has_desiderata(second_container_student):
+                    break
+
+        # swap them if possible
+        first_container_copied.remove_student(first_container_student)
+        second_container_copied.remove_student(second_container_student)
+
+        first_result = first_container_copied.add_student(second_container_student)
+        second_result = second_container_copied.add_student(first_container_student)
+
+        if first_result is None and second_result is None:
+            self.containers_manager.set_container_at_index(first_container_copied, first_index)
+            self.containers_manager.set_container_at_index(second_container_copied, second_index)
+            if self.containers_manager.get_std() >= previous_std:
+                self.containers_manager.set_container_at_index(first_container_backup, first_index)
+                self.containers_manager.set_container_at_index(second_container_backup, second_index)
+            else:
+                # print(f"STD: [{self.containers_manager.get_std()} - {previous_std}]")
+                pass
+
     def optimize(self):
 
-        def optimize_containers_on_final_exam_mark(index):
-
-            first_index = index % self.containers_manager.get_number_of_containers()
-            second_index = (index + 1) % self.containers_manager.get_number_of_containers()
-
-            previous_std = self.containers_manager.get_std()
-
-            first_container_original = self.containers_manager.get_container_at_index(first_index)
-            first_container_copied = self.containers_manager.clone_container_at_index(first_index)
-            first_container_backup = self.containers_manager.clone_container_at_index(first_index)
-            second_container_original = self.containers_manager.get_container_at_index(second_index)
-            second_container_copied = self.containers_manager.clone_container_at_index(second_index)
-            second_container_backup = self.containers_manager.clone_container_at_index(second_index)
-
-            while True:
-                first_container_student = first_container_copied.get_random_student()
-                second_container_student = second_container_copied.get_random_student()
-
-                if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
-                    and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
-                    and not first_container_copied.has_desiderata(first_container_student) \
-                    and not second_container_copied.has_desiderata(second_container_student):
-                        break
-
-            # swap them if possible
-            first_container_copied.remove_student(first_container_student)
-            second_container_copied.remove_student(second_container_student)
-
-            first_result = first_container_copied.add_student(second_container_student)
-            second_result = second_container_copied.add_student(first_container_student)
-
-            if first_result is None and second_result is None:
-                self.containers_manager.set_container_at_index(first_container_copied, first_index)
-                self.containers_manager.set_container_at_index(second_container_copied, second_index)
-                if self.containers_manager.get_std() >= previous_std:
-                    self.containers_manager.set_container_at_index(first_container_backup, first_index)
-                    self.containers_manager.set_container_at_index(second_container_backup, second_index)
-                else:
-                    # print(f"STD: [{self.containers_manager.get_std()} - {previous_std}]")
-                    pass
-
-
         current_optimize_index = 0
-        optimize_index_limit = min([self.total_number_of_students**2 // 2, 100000])
+        optimize_index_limit = min([self.total_number_of_students**2, 100000])
 
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
@@ -174,7 +175,7 @@ class CC:
 
             # optimize code init
 
-            optimize_containers_on_final_exam_mark(current_optimize_index)
+            self.optimize_containers_on_final_exam_mark(current_optimize_index)
 
             # optimize code end
 
