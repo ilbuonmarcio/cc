@@ -478,6 +478,7 @@ class ClassContainer:
         self.nationalities = {}
         self.students = []
         self.maxed_out = False
+        self.has_legge_104 = False
         self.marks_avg = 6
 
     def add_students(self, input_array):
@@ -527,6 +528,10 @@ class ClassContainer:
 
         if student.legge_104 and self.num_students -1 < 20:
             self.db_group_configuration.max_students = 20
+            self.has_legge_104 = True
+
+        if student.legge_104 and self.has_legge_104:
+            return student
 
         if self.num_students >= self.db_group_configuration.max_students:
             self.maxed_out = True
@@ -545,6 +550,10 @@ class ClassContainer:
 
     def can_add_desiderata(self, desiderata_students):
         self.refresh_statistics()
+
+        if desiderata_students[0].legge_104 or desiderata_students[1].legge_104:
+            if self.has_legge_104:
+                return False
 
         if desiderata_students[0].cap == desiderata_students[1].cap:
             if desiderata_students[0].cap in self.caps.keys():
@@ -656,6 +665,12 @@ class ClassContainer:
         self.nationalities = nationalities_with_num_of_students
 
         self.maxed_out = self.db_group_configuration.max_students == self.num_students
+
+        self.has_legge_104 = False
+        for student in self.students:
+            if student.legge_104:
+                self.has_legge_104 = True
+                break
 
         self.marks_avg = sum([student.voto for student in self.students]) / len(self.students) if len(self.students) > 0 else 6
 
