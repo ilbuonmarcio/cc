@@ -102,15 +102,22 @@ class CC:
             print("Next move is to implement student of different class' swapping...")
 
         print("BEFORE OPTIMIZATION:")
+        std_sum_before = 0
         for container in self.containers_manager.containers:
             print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
-
+            std_sum_before += container.get_avg()
+        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
         self.optimize()
 
         print("AFTER OPTIMIZATION:")
+        std_sum_after = 0
         for container in self.containers_manager.containers:
             print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            std_sum_after += container.get_avg()
+        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+
+        print(f"RESULTS: {std_sum_before} - {std_sum_after}")
 
         print("Done!")
 
@@ -159,7 +166,7 @@ class CC:
 
 
         current_optimize_index = 0
-        optimize_index_limit = min([self.total_number_of_students**2, 250000])
+        optimize_index_limit = min([self.total_number_of_students**2 // 2, 100000])
 
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
