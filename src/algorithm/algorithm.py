@@ -114,6 +114,8 @@ class CC:
 
             print(f"Containers indexes: [{first_index} - {second_index}]")
 
+            previous_std = self.containers_manager.get_std()
+
             first_container_original = self.containers_manager.get_container_at_index(first_index)
             first_container_copied = self.containers_manager.clone_container_at_index(first_index)
             second_container_original = self.containers_manager.get_container_at_index(second_index)
@@ -130,11 +132,21 @@ class CC:
                         break
 
             # swap them if possible
+            first_container_copied.remove_student(first_container_student)
+            second_container_copied.remove_student(second_container_student)
 
-            # check if std is better now than before for both containers
+            first_result = first_container_copied.add_student(second_container_student)
+            second_result = second_container_copied.add_student(first_container_student)
 
-            # if so, substitute the two new containers to the old containers
-
+            if first_result is None and second_result is None:
+                print("Student swapping worked as intended!")
+                print("Hey", self.containers_manager.get_std(), previous_std)
+                if self.containers_manager.get_std() < previous_std:
+                    print("SWAPPINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
+                    self.containers_manager.set_container_at_index(first_container_copied, first_index)
+                    self.containers_manager.set_container_at_index(second_container_copied, second_index)
+            else:
+                print(f"One or more students cannot be reinserted into cloned containers! [{first_result}, {second_result}]")
 
 
         current_optimize_index = 0
@@ -359,6 +371,14 @@ class ContainersManager:
     def get_number_of_containers(self):
         return len(self.containers)
 
+    def get_std(self):
+        containers_avg = self.get_avg()
+        return math.sqrt(sum([math.pow(container.marks_avg - containers_avg, 2) for container in self.containers]) / len(self.containers))
+
+
+    def get_avg(self):
+        return sum([container.marks_avg for container in self.containers]) / len(self.containers)
+
     def distribute_sex_prioritized_groups_randomly_into_containers(self, input_array):
         print("Distributing sex prioritized groups randomly into containers...")
 
@@ -433,7 +453,6 @@ class ContainersManager:
     def get_container_at_index(self, index):
         return self.containers[index]
 
-
     def clone_container_at_index(self, index):
         return copy.copy(self.get_container_at_index(index))
 
@@ -461,6 +480,7 @@ class ClassContainer:
         self.nationalities = {}
         self.students = []
         self.maxed_out = False
+        self.marks_avg = 6
 
     def add_students(self, input_array):
         self.refresh_statistics()
@@ -519,6 +539,10 @@ class ClassContainer:
 
         print("Done!")
 
+        self.refresh_statistics()
+
+    def remove_student(self, student):
+        self.students.remove(student)
         self.refresh_statistics()
 
     def can_add_desiderata(self, desiderata_students):
@@ -634,6 +658,8 @@ class ClassContainer:
         self.nationalities = nationalities_with_num_of_students
 
         self.maxed_out = self.db_group_configuration.max_students == self.num_students
+
+        self.marks_avg = sum([student.voto for student in self.students]) / len(self.students) if len(self.students) > 0 else 6
 
     def show_container_statistics(self):
         print("\n[*] Showing container statistics...")
