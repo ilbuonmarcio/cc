@@ -101,23 +101,23 @@ class CC:
         else:
             print("Next move is to implement student of different class' swapping...")
 
-        print("BEFORE OPTIMIZATION:")
-        std_sum_before = 0
-        for container in self.containers_manager.containers:
-            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
-            std_sum_before += container.get_avg()
-        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+        # print("BEFORE OPTIMIZATION:")
+        # std_sum_before = 0
+        # for container in self.containers_manager.containers:
+            # print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            # std_sum_before += container.get_avg()
+        # print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
         self.optimize()
 
-        print("AFTER OPTIMIZATION:")
-        std_sum_after = 0
-        for container in self.containers_manager.containers:
-            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
-            std_sum_after += container.get_avg()
-        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+        # print("AFTER OPTIMIZATION:")
+        # std_sum_after = 0
+        # for container in self.containers_manager.containers:
+            # print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            # std_sum_after += container.get_avg()
+        # print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
-        print(f"RESULTS: {std_sum_before} - {std_sum_after}")
+        # print(f"RESULTS: {std_sum_before} - {std_sum_after}")
 
         print("Done!")
 
@@ -171,7 +171,6 @@ class CC:
 
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
-            # print(f"OPTCYCLE: {current_optimize_index + 1}")
 
             # optimize code init
 
@@ -179,10 +178,13 @@ class CC:
 
             # optimize code end
 
+            if current_optimize_index % 250 == 0:
+                print(f"{current_optimize_index} optimization cycles done")
+
             current_optimize_index += 1
             if current_optimize_index == optimize_index_limit:
                 break
-        print("Finished optimizing!\nIt should be done!")
+        print(f"Finished optimizing with {optimize_index_limit} passes!\nIt should be done!")
 
     def check_sex_prioritized_array(self, configured_sex_priority_array):
         print("Checking sex-prioritized array...")
