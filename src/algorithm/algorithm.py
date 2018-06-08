@@ -140,7 +140,7 @@ class CC:
 
             return math.sqrt(
                 (
-                    math.pow(first_container_avg - containers_avg, 2) + 
+                    math.pow(first_container_avg - containers_avg, 2) +
                     math.pow(second_container_avg - containers_avg, 2)
                 ) / 2)
 
@@ -158,7 +158,7 @@ class CC:
                 and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
                 and not first_container_copied.has_desiderata(first_container_student) \
                 and not second_container_copied.has_desiderata(second_container_student):
-                    
+
 
                     first_container_copied.remove_student(first_container_student)
                     second_container_copied.remove_student(second_container_student)
@@ -177,7 +177,7 @@ class CC:
                             second_result = second_container_copied.add_student(second_container_student)
                             return 0
                         else:
-                            return 1 
+                            return 1
 
                 return 0
 
@@ -188,7 +188,7 @@ class CC:
         num_of_effective_optimizations = 0
         for i in range(0, num_of_optimizations):
             if i % 250 == 0:
-                print(f"{i} optcycle")
+                print(f"{round(i / num_of_optimizations * 100, 2)}%\t\t{i} \toptcycle")
             num_of_effective_optimizations += _optimize_random_couple_of_containers_fixed_cycles(25)
 
         print(f"Effective swaps done: {num_of_effective_optimizations}")
