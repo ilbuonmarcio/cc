@@ -13,15 +13,20 @@ from components.ContainersManager import ContainersManager
 
 def create_cc_instance(process_id, group_id, config_id):
     cc = CC(process_id, group_id, config_id)
-    result_json = cc.run()
-    if result_json is not None:
-        return result_json
-    else:
-        error_json = {
-            "Status" : "bad",
-            "Message" : "None result on CC run & optimization!"
+    result_value = cc.run()
+    if result_value:
+        good_status_json = {
+            "Status" : "good",
+            "Message" : "Composizione Classi completata!"
         }
-        return json.dumps(error_json)
+
+        return json.dumps(good_status_json)
+    else:
+        bad_status_json = {
+            "Status" : "bad",
+            "Message" : "Errore nella Composizione Classi! Contattare l'amministratore."
+        }
+        return json.dumps(bad_status_json)
 
 
 class CC:
@@ -128,12 +133,7 @@ class CC:
 
         print("Done!")
 
-        result_json = {
-            "Status" : "good",
-            "Data" : "MyData"
-        }
-
-        return json.dumps(result_json)
+        return True
 
     def optimize(self):
 
