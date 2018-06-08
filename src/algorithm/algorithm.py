@@ -122,6 +122,13 @@ class CC:
         print("Done!")
 
     def optimize(self):
+
+        def _optimize_random_couple_of_containers_cartesian_product():
+            pass
+
+        def _optimize_random_couple_of_containers_fixed_cycles(num_of_cycles):
+            pass
+
         print("Optimizing...")
 
     def check_sex_prioritized_array(self, configured_sex_priority_array):
