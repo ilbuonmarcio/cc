@@ -3,6 +3,7 @@ import math
 import time
 import mysql.connector
 import copy
+import json
 
 from components.DBConfig import DBConfig
 from components.Configuration import Configuration
@@ -12,6 +13,8 @@ from components.ContainersManager import ContainersManager
 
 def create_cc_instance(process_id, group_id, config_id):
     cc = CC(process_id, group_id, config_id)
+    result_json = cc.run()
+    print(result_json)
 
 
 class CC:
@@ -26,8 +29,6 @@ class CC:
             math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
             self.configuration
         )
-
-        self.run()
 
     def run(self):
         print("Running CC...")
@@ -119,6 +120,13 @@ class CC:
         print(f"RESULTS: {std_sum_before} - {std_sum_after}")
 
         print("Done!")
+
+        result_json = {
+            "Status" : "good",
+            "Data" : "MyData"
+        }
+
+        return json.dumps(result_json)
 
     def optimize(self):
 
