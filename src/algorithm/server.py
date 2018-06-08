@@ -1,6 +1,12 @@
-import multiprocessing
 import CC
+import flask
+from multiprocessing.pool import ThreadPool
 
-if __name__ == "__main__":
-    p = multiprocessing.Process(target=CC.create_cc_instance, args=(0, 1, 1))
-    p.start()
+app = flask.Flask(__name__)
+
+@app.route('/get_cc_result')
+def get_cc_result():
+    pool = ThreadPool(processes=1)
+    async_result = pool.apply_async(CC.create_cc_instance, (0, 1, 1))
+    return_val = async_result.get()
+    return return_val

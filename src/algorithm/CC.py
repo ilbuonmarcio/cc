@@ -14,7 +14,14 @@ from components.ContainersManager import ContainersManager
 def create_cc_instance(process_id, group_id, config_id):
     cc = CC(process_id, group_id, config_id)
     result_json = cc.run()
-    print(result_json)
+    if result_json is not None:
+        return result_json
+    else:
+        error_json = {
+            "Status" : "bad",
+            "Message" : "None result on CC run & optimization!"
+        }
+        return json.dumps(error_json)
 
 
 class CC:
