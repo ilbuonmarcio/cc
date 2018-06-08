@@ -124,10 +124,22 @@ class CC:
     def optimize(self):
 
         def _optimize_random_couple_of_containers_cartesian_product():
-            pass
+            while True:
+                first_container = random.choice(self.containers_manager.containers)
+                second_container = random.choice(self.containers_manager.containers)
+                if first_container is not second_container:
+                    break
+
+            print(f"Containers selected! {id(first_container)} - {id(second_container)}")
 
         def _optimize_random_couple_of_containers_fixed_cycles(num_of_cycles):
             pass
+
+        num_of_optimizations = min([50000, self.total_number_of_students**2])
+        for i in range(0, num_of_optimizations):
+            print(f"{i} cycle")
+            # _optimize_random_couple_of_containers_cartesian_product()
+            _optimize_random_couple_of_containers_fixed_cycles(25)
 
         print("Optimizing...")
 
