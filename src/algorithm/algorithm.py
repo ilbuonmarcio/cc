@@ -160,21 +160,25 @@ class CC:
             if self.containers_manager.get_std() >= previous_std:
                 self.containers_manager.set_container_at_index(first_container_backup, first_index)
                 self.containers_manager.set_container_at_index(second_container_backup, second_index)
+                return 0
             else:
-                # print(f"STD: [{self.containers_manager.get_std()} - {previous_std}]")
+                print(f"Global STD went down to: {self.containers_manager.get_std()}")
+                return 1
                 pass
+
+        return 0
 
     def optimize(self):
 
         current_optimize_index = 0
         optimize_index_limit = min([self.total_number_of_students**2, 100000])
-
+        num_good_optimizations = 0
         print(f"Optimizing in {optimize_index_limit} passes...")
         while True:
 
             # optimize code init
 
-            self.optimize_containers_on_final_exam_mark(current_optimize_index)
+            num_good_optimizations += self.optimize_containers_on_final_exam_mark(current_optimize_index)
 
             # optimize code end
 
@@ -184,7 +188,7 @@ class CC:
             current_optimize_index += 1
             if current_optimize_index == optimize_index_limit:
                 break
-        print(f"Finished optimizing with {optimize_index_limit} passes!\nIt should be done!")
+        print(f"Finished optimizing with {optimize_index_limit} passes!\nNumber of good optimizations: {num_good_optimizations}\nIt should be done!")
 
     def check_sex_prioritized_array(self, configured_sex_priority_array):
         print("Checking sex-prioritized array...")
