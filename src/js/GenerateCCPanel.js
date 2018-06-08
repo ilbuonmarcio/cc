@@ -16,11 +16,9 @@ class GenerateCCPanel extends Panel {
   loadFieldsData(){
 
     var data = {
-      groupID : document.querySelector("#generatecc-groupid").value,
-      configID : document.querySelector('#generatecc-configid').value
+      groupid : document.querySelector("#generatecc-groupid").value,
+      configid : document.querySelector('#generatecc-configid').value
     }
-
-    console.log(data);
 
     return data;
   }
@@ -70,11 +68,17 @@ class GenerateCCPanel extends Panel {
   }
 
   static selectReload(){
-    /*$.post("components/groupname_select.php", { ajaxrefreshrequest : true }, function(data){
-      document.querySelector('#uploadcsv-groupname').innerHTML = data;
-      M.FormSelect.getInstance(document.querySelector('#uploadcsv-groupname')).destroy();
-      M.FormSelect.init(document.querySelector('#uploadcsv-groupname'));
-    });*/
+    $.get("http://localhost:5000/refresh_configurecc_groupid_select", function(data){
+      document.querySelector('#generatecc-groupid').innerHTML = data;
+      M.FormSelect.getInstance(document.querySelector('#generatecc-groupid')).destroy();
+      M.FormSelect.init(document.querySelector('#generatecc-groupid'));
+    });
+
+    $.get("http://localhost:5000/refresh_configurecc_configid_select", function(data){
+      document.querySelector('#generatecc-configid').innerHTML = data;
+      M.FormSelect.getInstance(document.querySelector('#generatecc-configid')).destroy();
+      M.FormSelect.init(document.querySelector('#generatecc-configid'));
+    });
   }
 
   openPanel(){

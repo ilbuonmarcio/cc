@@ -1,18 +1,19 @@
 import CC
-import flask
+from flask import Flask, request
 import json
 import mysql.connector
 from flask_cors import CORS
 from multiprocessing.pool import ThreadPool
 from components.DBConfig import DBConfig
 
-app = flask.Flask(__name__)
+app = Flask(__name__)
 CORS(app)
 
 @app.route('/get_cc_result', methods=['POST'])
 def get_cc_result():
+    post_data = request.form
     pool = ThreadPool(processes=1)
-    async_result = pool.apply_async(CC.create_cc_instance, (0, 1, 1))
+    async_result = pool.apply_async(CC.create_cc_instance, (0, post_data["groupid"], post_data["configid"]))
     return_val = async_result.get()
     return return_val
 
