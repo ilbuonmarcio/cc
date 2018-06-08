@@ -390,7 +390,7 @@
 
     <div class="modal-content">
 
-      <h4 class="center-align">Carica CSV Alunni</h4>
+      <h4 class="center-align">Genera CC</h4>
 
       <div class="col s12">
          <div class="row">
