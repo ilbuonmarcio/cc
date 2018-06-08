@@ -21,8 +21,6 @@ class CC:
         self.config_id = config_id
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
-        global configuration
-        configuration = self.configuration
         self.containers_manager = ContainersManager(
             math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
             self.configuration
