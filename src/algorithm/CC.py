@@ -16,15 +16,15 @@ def create_cc_instance(process_id, group_id, config_id):
     result_value = cc.run()
     if result_value:
         good_status_json = {
-            "Status" : "good",
-            "Message" : "Composizione Classi completata!"
+            "querystatus" : "good",
+            "message" : "Composizione Classi completata!"
         }
 
         return json.dumps(good_status_json)
     else:
         bad_status_json = {
-            "Status" : "bad",
-            "Message" : "Errore nella Composizione Classi! Contattare l'amministratore."
+            "querystatus" : "bad",
+            "message" : "Errore nella Composizione Classi! Contattare l'amministratore."
         }
         return json.dumps(bad_status_json)
 
