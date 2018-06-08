@@ -101,47 +101,97 @@ class CC:
         else:
             print("Next move is to implement student of different class' swapping...")
 
-        # print("BEFORE OPTIMIZATION:")
-        # std_sum_before = 0
-        # for container in self.containers_manager.containers:
-            # print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
-            # std_sum_before += container.get_avg()
-        # print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+        print("BEFORE OPTIMIZATION:")
+        std_sum_before = 0
+        for container in self.containers_manager.containers:
+            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            std_sum_before += container.get_avg()
+        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
         self.optimize()
 
-        # print("AFTER OPTIMIZATION:")
-        # std_sum_after = 0
-        # for container in self.containers_manager.containers:
-            # print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
-            # std_sum_after += container.get_avg()
-        # print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+        print("AFTER OPTIMIZATION:")
+        std_sum_after = 0
+        for container in self.containers_manager.containers:
+            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            std_sum_after += container.get_avg()
+        print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
-        # print(f"RESULTS: {std_sum_before} - {std_sum_after}")
+        print(f"RESULTS: {std_sum_before} - {std_sum_after}")
 
         print("Done!")
 
     def optimize(self):
 
-        def _optimize_random_couple_of_containers_cartesian_product():
+        def _get_two_random_containers():
             while True:
                 first_container = random.choice(self.containers_manager.containers)
                 second_container = random.choice(self.containers_manager.containers)
                 if first_container is not second_container:
                     break
 
-            print(f"Containers selected! {id(first_container)} - {id(second_container)}")
+            return first_container, second_container
+
+        def _get_std_of_two_containers(first_container, second_container):
+            first_container_avg = first_container.get_avg()
+            second_container_avg = second_container.get_avg()
+
+            containers_avg = (first_container_avg + second_container_avg) / 2
+
+            return math.sqrt(
+                (
+                    math.pow(first_container_avg - containers_avg, 2) + 
+                    math.pow(second_container_avg - containers_avg, 2)
+                ) / 2)
 
         def _optimize_random_couple_of_containers_fixed_cycles(num_of_cycles):
-            pass
+            first_container_copied, second_container_copied = _get_two_random_containers()
 
-        num_of_optimizations = min([50000, self.total_number_of_students**2])
-        for i in range(0, num_of_optimizations):
-            print(f"{i} cycle")
-            # _optimize_random_couple_of_containers_cartesian_product()
-            _optimize_random_couple_of_containers_fixed_cycles(25)
+            previous_swap_std = _get_std_of_two_containers(first_container_copied, second_container_copied)
+
+            for _ in range(num_of_cycles):
+
+                first_container_student = first_container_copied.get_random_student()
+                second_container_student = second_container_copied.get_random_student()
+
+                if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and not first_container_copied.has_desiderata(first_container_student) \
+                and not second_container_copied.has_desiderata(second_container_student):
+                    
+
+                    first_container_copied.remove_student(first_container_student)
+                    second_container_copied.remove_student(second_container_student)
+
+                    first_result = first_container_copied.add_student(second_container_student)
+                    second_result = second_container_copied.add_student(first_container_student)
+
+                    after_swap_std =  _get_std_of_two_containers(first_container_copied, second_container_copied)
+
+                    if first_result is None and second_result is None:
+                        if after_swap_std >= previous_swap_std:
+                            first_container_copied.remove_student(second_container_student)
+                            second_container_copied.remove_student(first_container_student)
+
+                            first_result = first_container_copied.add_student(first_container_student)
+                            second_result = second_container_copied.add_student(second_container_student)
+                            return 0
+                        else:
+                            return 1 
+
+                return 0
+
 
         print("Optimizing...")
+
+        num_of_optimizations = min([15000, self.total_number_of_students**2])
+        num_of_effective_optimizations = 0
+        for i in range(0, num_of_optimizations):
+            if i % 250 == 0:
+                print(f"{i} optcycle")
+            num_of_effective_optimizations += _optimize_random_couple_of_containers_fixed_cycles(25)
+
+        print(f"Effective swaps done: {num_of_effective_optimizations}")
 
     def check_sex_prioritized_array(self, configured_sex_priority_array):
         print("Checking sex-prioritized array...")
@@ -350,7 +400,6 @@ class ContainersManager:
     def get_std(self):
         containers_avg = self.get_avg()
         return math.sqrt(sum([math.pow(container.marks_avg - containers_avg, 2) for container in self.containers]) / len(self.containers))
-
 
     def get_avg(self):
         return sum([container.marks_avg for container in self.containers]) / len(self.containers)
