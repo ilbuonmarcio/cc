@@ -18,9 +18,10 @@ CREATE TABLE classi(
 );
 
 CREATE TABLE classi_composte(
-  classe INT NOT NULL,
-  alunno INT NOT NULL,
-  PRIMARY KEY (classe, alunno)
+  groupid INT NOT NULL,
+  configid INT NOT NULL,
+  studentid INT NOT NULL,
+  PRIMARY KEY (groupid, configid, studentid)
 );
 
 CREATE TABLE indirizzi(
