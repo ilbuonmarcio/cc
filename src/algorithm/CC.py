@@ -14,13 +14,19 @@ from components.ContainersManager import ContainersManager
 def create_cc_instance(process_id, group_id, config_id):
     cc = CC(process_id, group_id, config_id)
     result_value = cc.run()
-    if result_value:
+    if result_value == True:
         good_status_json = {
             "querystatus" : "good",
             "message" : "Composizione Classi completata!"
         }
 
         return json.dumps(good_status_json)
+    elif result_value == "ZeroStudentsIntoGroup":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Gruppo vuoto, non e' possibile generare alcuna configurazione!"
+        }
+        return json.dumps(bad_status_json)
     else:
         bad_status_json = {
             "querystatus" : "bad",
@@ -47,6 +53,8 @@ class CC:
 
         self.total_number_of_students = self.students_manager.get_number_of_students()
 
+        if self.total_number_of_students == 0:
+            return "ZeroStudentsIntoGroup"
 
         print(f"Loaded students from db with id {self.students_manager.group_id}:",
               self.total_number_of_students)
@@ -63,7 +71,19 @@ class CC:
             self.configuration.num_sex_priority
         )
 
-        self.check_sex_prioritized_array(configured_sex_priority_array)
+        print("Checking sex-prioritized array...")
+        for student_group in configured_sex_priority_array:
+            print(f"Student group length: {len(student_group)}", end="")
+
+            num_males, num_females = 0, 0
+            for student in student_group:
+                if student.sesso == "m":
+                    num_males += 1
+                if student.sesso == "f":
+                    num_females += 1
+
+            print(f" - M: {num_males} - F: {num_females}")
+        print("Finished checking sex-prioritized array...")
 
         if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
             print('<---WARNING---> Sex prioritized groups are more than possible containers!')
@@ -206,18 +226,3 @@ class CC:
             num_of_effective_optimizations += _optimize_random_couple_of_containers_fixed_cycles(25)
 
         print(f"Effective swaps done: {num_of_effective_optimizations}")
-
-    def check_sex_prioritized_array(self, configured_sex_priority_array):
-        print("Checking sex-prioritized array...")
-        for student_group in configured_sex_priority_array:
-            print(f"Student group length: {len(student_group)}", end="")
-
-            num_males, num_females = 0, 0
-            for student in student_group:
-                if student.sesso == "m":
-                    num_males += 1
-                if student.sesso == "f":
-                    num_females += 1
-
-            print(f" - M: {num_males} - F: {num_females}")
-        print("Finished checking sex-prioritized array...")
