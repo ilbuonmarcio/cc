@@ -1,12 +1,12 @@
 import math
 import random
+import copy
 
 class ClassContainer:
 
     def __init__(self, configuration):
         self.db_group_configuration = configuration
         self.num_students = 0
-        self.num_max_students = 0
         self.num_girls = 0
         self.num_boys = 0
         self.num_104 = 0
@@ -17,6 +17,9 @@ class ClassContainer:
         self.maxed_out = False
         self.has_legge_104 = False
         self.marks_avg = 6
+
+    def __str__(self):
+        return "ContainerID: " + str(id(self)) + " - Num of students: " + str(len(self.students))
 
     def get_std(self):
         container_avg = self.get_avg()
@@ -41,7 +44,7 @@ class ClassContainer:
     def add_student(self, student):
         self.refresh_statistics()
 
-        # print(f"Adding student with matricola [{student.matricola}]...", end=" ")
+        # print(f"Adding student with matricola [{student.matricola}]...")
 
         if student.cap in self.caps.keys():
             if self.caps[student.cap] >= self.db_group_configuration.max_for_cap:
@@ -70,11 +73,13 @@ class ClassContainer:
                 # print(f"Reached max number of boys [{self.num_boys}] in this container!")
                 return student
 
-        if student.legge_104 and self.num_students -1 < 20:
+        if student.legge_104 == "s" and self.num_students -1 < 20 and self.has_legge_104 is False:
+            # print("Changed group type to legge_104 viable")
             self.db_group_configuration.max_students = 20
             self.has_legge_104 = True
 
-        if student.legge_104 and self.has_legge_104:
+        if student.legge_104 == "s" and self.has_legge_104 is True:
+            # print("Reached max number of legge_104 in this container!")
             return student
 
         if self.num_students >= self.db_group_configuration.max_students:
@@ -84,7 +89,7 @@ class ClassContainer:
 
         self.students.append(student)
 
-        # print("Done!")
+        # print(f"Student [{student.matricola}] inserted!")
 
         self.refresh_statistics()
 

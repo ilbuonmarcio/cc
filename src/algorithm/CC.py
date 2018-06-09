@@ -102,6 +102,7 @@ class CC:
             print("No students need to be reinserted, this is a good sign! :))")
 
         # self.containers_manager.show_containers_statistics()
+        self.containers_manager.print_all_containers_current_dimensions()
 
         print("Pairing and getting remaining students, matching by desiderata when possible...")
 

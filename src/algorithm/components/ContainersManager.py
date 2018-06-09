@@ -8,6 +8,10 @@ class ContainersManager:
         self.containers = [ClassContainer(configuration) for _ in range(0, num_of_containers)]
         self.configuration = configuration
 
+    def print_all_containers_current_dimensions(self):
+        for container in self.containers:
+            print(container)
+
     def get_number_of_containers(self):
         return len(self.containers)
 
@@ -30,8 +34,9 @@ class ContainersManager:
                     students_not_inserted = container_to_fill.add_students(students_array)
 
                     if len(students_not_inserted) > 0:
-                        print("Warning! Student to reinsert found!")
+                        print("Warning! Students to reinsert found!")
                         for student in students_not_inserted:
+                            print(f"- Student to reinsert: [{student.matricola}]")
                             students_to_reinsert.append(student)
                     containers_already_filled.append(container_to_fill)
                     break
