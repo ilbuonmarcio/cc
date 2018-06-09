@@ -11,12 +11,6 @@ CREATE TABLE utenti(
   diritti INT(1) NOT NULL
 );
 
-CREATE TABLE classi(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome CHAR(4) NOT NULL,
-  anno CHAR(9) NOT NULL
-);
-
 CREATE TABLE classi_composte(
   groupid INT NOT NULL,
   configid INT NOT NULL,
