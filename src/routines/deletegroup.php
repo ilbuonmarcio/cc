@@ -14,8 +14,9 @@
 
     $removeAlumni = "DELETE FROM alunni WHERE alunni.id_gruppo = " . $groupname . ";";
     $removeGroup = "DELETE FROM gruppi WHERE gruppi.id = " . $groupname . ";";
+    $removeCC = "DELETE FROM classi_composte WHERE groupid = " . $groupname . ";";
 
-    if($conn->query($removeAlumni) === true && $conn->query($removeGroup)){
+    if($conn->query($removeAlumni) === true && $conn->query($removeGroup) && $conn->query($removeCC)){
       echo "{
         status: 'Query Executed',
         querystatus : 'good'
