@@ -22,6 +22,9 @@ class ContainersManager:
     def get_avg(self):
         return sum([container.marks_avg for container in self.containers]) / len(self.containers)
 
+    def get_number_of_total_students_into_containers(self):
+        return sum([len(container.students) for container in self.containers])
+
     def distribute_sex_prioritized_groups_randomly_into_containers(self, input_array):
         print("Distributing sex prioritized groups randomly into containers...")
 

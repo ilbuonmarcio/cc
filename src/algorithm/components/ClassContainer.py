@@ -22,6 +22,13 @@ class ClassContainer:
     def __str__(self):
         return "ContainerID: " + str(self.containerid) + " - Num of students: " + str(len(self.students))
 
+    def get_students_id(self):
+        print(len(self.students))
+        students_id = []
+        for student in self.students:
+            students_id.append(str(student.id))
+        return students_id
+
     def get_std(self):
         container_avg = self.get_avg()
         return math.sqrt(sum([math.pow(student.voto - container_avg, 2) for student in self.students]) / len(self.students))
@@ -95,8 +102,12 @@ class ClassContainer:
         self.refresh_statistics()
 
     def remove_student(self, student):
-        self.students.remove(student)
         self.refresh_statistics()
+        for s in self.students:
+            if s.matricola == student.matricola:
+                self.students.remove(s)
+                self.refresh_statistics()
+                return
 
     def can_add_desiderata(self, desiderata_students):
         self.refresh_statistics()

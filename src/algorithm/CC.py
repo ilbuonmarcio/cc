@@ -108,17 +108,30 @@ class CC:
         if len(remaining_students_after_random_insert) == 0:
             print("Well done, there is no students to swap of classroom, there!")
         else:
-            print("Next move is to implement student of different class' swapping...")
+            print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere, TODO!")
 
+        # self.containers_manager.print_all_containers_current_dimensions()
+        number_of_students_before_optimization = self.containers_manager.get_number_of_total_students_into_containers()
+
+        """
         print("BEFORE OPTIMIZATION:")
         std_sum_before = 0
         for container in self.containers_manager.containers:
             print(f"ContainerID: {container.containerid} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
             std_sum_before += container.get_avg()
         print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
+        """
 
         self.optimize()
 
+
+        # self.containers_manager.print_all_containers_current_dimensions()
+        number_of_students_after_optimization = self.containers_manager.get_number_of_total_students_into_containers()
+
+        print(f"Number of students before optimization {number_of_students_before_optimization}")
+        print(f"Number of students after optimization {number_of_students_after_optimization}")
+
+        """
         print("AFTER OPTIMIZATION:")
         std_sum_after = 0
         for container in self.containers_manager.containers:
@@ -126,11 +139,11 @@ class CC:
             std_sum_after += container.get_avg()
         print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
-        print(f"RESULTS: {std_sum_before} - {std_sum_after}")
+        print(f"RESULTS: {std_sum_before} - {std_sum_after}")"""
 
         print("Saving CC to database...")
 
-        self.save_students_to_db()
+        # self.save_students_to_db()
 
         print("Done!")
 
@@ -138,7 +151,7 @@ class CC:
 
     def optimize(self):
 
-        def _get_two_random_containers():
+        def get_two_random_containers():
             while True:
                 first_container = random.choice(self.containers_manager.containers)
                 second_container = random.choice(self.containers_manager.containers)
@@ -147,7 +160,7 @@ class CC:
 
             return first_container, second_container
 
-        def _get_std_of_two_containers(first_container, second_container):
+        def get_std_of_two_containers(first_container, second_container):
             first_container_avg = first_container.get_avg()
             second_container_avg = second_container.get_avg()
 
@@ -159,58 +172,88 @@ class CC:
                     math.pow(second_container_avg - containers_avg, 2)
                 ) / 2)
 
-        def _optimize_random_couple_of_containers_fixed_cycles(num_of_cycles):
-            first_container_copied, second_container_copied = _get_two_random_containers()
+        def optimize_random_couple_of_containers_fixed_cycles(num_of_cycles):
+            first_container, second_container = get_two_random_containers()
 
-            previous_swap_std = _get_std_of_two_containers(first_container_copied, second_container_copied)
+            previous_swap_std = get_std_of_two_containers(first_container, second_container)
+
+            effective_changes = 0
 
             for _ in range(num_of_cycles):
 
-                first_container_student = first_container_copied.get_random_student()
-                second_container_student = second_container_copied.get_random_student()
+                first_container_student = first_container.get_random_student()
+                second_container_student = second_container.get_random_student()
+
+                first_container_student_copy = copy.deepcopy(first_container_student)
+                second_container_student_copy = copy.deepcopy(second_container_student)
 
                 if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
                 and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
-                and not first_container_copied.has_desiderata(first_container_student) \
-                and not second_container_copied.has_desiderata(second_container_student):
+                and not first_container.has_desiderata(first_container_student) \
+                and not second_container.has_desiderata(second_container_student):
 
+                    first_container.remove_student(first_container_student)
+                    second_container.remove_student(second_container_student)
 
-                    first_container_copied.remove_student(first_container_student)
-                    second_container_copied.remove_student(second_container_student)
+                    first_result = first_container.add_student(second_container_student)
+                    second_result = second_container.add_student(first_container_student)
 
-                    first_result = first_container_copied.add_student(second_container_student)
-                    second_result = second_container_copied.add_student(first_container_student)
+                    after_swap_std =  get_std_of_two_containers(first_container, second_container)
 
-                    after_swap_std =  _get_std_of_two_containers(first_container_copied, second_container_copied)
-
-                    if first_result is None and second_result is None:
+                    if first_result == None and second_result == None:
                         if after_swap_std >= previous_swap_std:
-                            first_container_copied.remove_student(second_container_student)
-                            second_container_copied.remove_student(first_container_student)
 
-                            first_result = first_container_copied.add_student(first_container_student)
-                            second_result = second_container_copied.add_student(second_container_student)
-                            return 0
+                            first_container.remove_student(second_container_student)
+                            second_container.remove_student(first_container_student)
+
+                            first_result = first_container.add_student(first_container_student_copy)
+                            second_result = second_container.add_student(second_container_student_copy)
+
                         else:
-                            return 1
+                            effective_changes += 1
 
-                return 0
+                    else:
+                        first_container.remove_student(second_container_student)
+                        second_container.remove_student(first_container_student)
+
+                        first_result = first_container.add_student(first_container_student_copy)
+                        second_result = second_container.add_student(second_container_student_copy)
+
+            return effective_changes
 
 
         print("Optimizing...")
 
-        num_of_optimizations = min([15000, self.total_number_of_students**2])
+        num_of_optimizations = self.total_number_of_students*2
         num_of_effective_optimizations = 0
         for i in range(0, num_of_optimizations):
-            if i % 250 == 0:
-                print(f"{round(i / num_of_optimizations * 100, 2)}%\t\t{i} \toptcycle")
-            num_of_effective_optimizations += _optimize_random_couple_of_containers_fixed_cycles(25)
+            num_of_effective_optimizations += optimize_random_couple_of_containers_fixed_cycles(25)
+            if i % 25 == 0:
+                print(f"{round(i / num_of_optimizations * 100, 2)}%\t\t{i} \toptcycle\toptsdone\t{num_of_effective_optimizations}\tstudents\t{self.containers_manager.get_number_of_total_students_into_containers()}")
 
-        print(f"Effective swaps done: {num_of_effective_optimizations}")
+        print(f"100%! Effective swaps done: {num_of_effective_optimizations}")
 
     def save_students_to_db(self):
+        connection = mysql.connector.connect(
+                        user=DBConfig.user,
+                        password=DBConfig.password,
+                        host=DBConfig.host,
+                        database=DBConfig.database)
+
+        cursor = connection.cursor()
+
         for container in self.containers_manager.containers:
-            pass
+            container_ids = container.get_students_id()
+            print(f'Inserting container {container.containerid} with ids {container_ids}')
+            for student_id in container_ids:
+                query = f"INSERT INTO classi_composte (`groupid`, `configid`, `studentid`) VALUES ({self.group_id}, {self.config_id}, {student_id})"
+                cursor.execute(query)
+                connection.commit()
+
+        cursor.close()
+
+        connection.close()
+
 
 
 def create_cc_instance(process_id, group_id, config_id):
