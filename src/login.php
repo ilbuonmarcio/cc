@@ -29,16 +29,14 @@
 
 <body>
 
-  <div class="row">
+  <div class="row title-area">
     <div class="col s12">
-      <h1 class="login-title center-align">CC -
-        <a href="https://github.com/marconivr/marconicc">marconicc</a>, but
-        <i>stronger</i>
+      <p class="center-align"><img class="center-align" src="images/logo.png"/></p>
       </h1>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container login-area">
 
     <div class="row">
       <form class="col s12 login-form" action="./utils/auth.php" method="post">
@@ -64,7 +62,7 @@
     </div>
   </div>
 
-  <div class="section footer">
+  <div class="section footer footer-area">
     <div class="row">
       <div class="col s12 m4 center-align">
         <h5>Development Team</h5>

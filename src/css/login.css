@@ -1,0 +1,15 @@
+.footer-area{
+  height: 15vh !important;
+}
+
+.login-area{
+  height: 40vh !important;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+}
+
+.title-area{
+  height: 8vh;
+  margin-top: 0vh;
+  margin-bottom: 15vh;
+}
