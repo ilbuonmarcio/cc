@@ -5,7 +5,7 @@ from .ClassContainer import ClassContainer
 class ContainersManager:
 
     def __init__(self, num_of_containers, configuration):
-        self.containers = [ClassContainer(configuration) for _ in range(0, num_of_containers)]
+        self.containers = [ClassContainer(configuration, containerid) for containerid in range(1, num_of_containers+1)]
         self.configuration = configuration
 
     def print_all_containers_current_dimensions(self):

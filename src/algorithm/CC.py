@@ -11,30 +11,6 @@ from components.StudentsManager import StudentsManager
 from components.ContainersManager import ContainersManager
 
 
-def create_cc_instance(process_id, group_id, config_id):
-    cc = CC(process_id, group_id, config_id)
-    result_value = cc.run()
-    if result_value == True:
-        good_status_json = {
-            "querystatus" : "good",
-            "message" : "Composizione Classi completata!"
-        }
-
-        return json.dumps(good_status_json)
-    elif result_value == "ZeroStudentsIntoGroup":
-        bad_status_json = {
-            "querystatus" : "bad",
-            "message" : "Gruppo vuoto, non e' possibile generare alcuna configurazione!"
-        }
-        return json.dumps(bad_status_json)
-    else:
-        bad_status_json = {
-            "querystatus" : "bad",
-            "message" : "Errore nella Composizione Classi! Contattare l'amministratore."
-        }
-        return json.dumps(bad_status_json)
-
-
 class CC:
 
     def __init__(self, process_id, group_id, config_id):
@@ -137,7 +113,7 @@ class CC:
         print("BEFORE OPTIMIZATION:")
         std_sum_before = 0
         for container in self.containers_manager.containers:
-            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            print(f"ContainerID: {container.containerid} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
             std_sum_before += container.get_avg()
         print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
@@ -146,11 +122,15 @@ class CC:
         print("AFTER OPTIMIZATION:")
         std_sum_after = 0
         for container in self.containers_manager.containers:
-            print(f"ContainerID: {id(container)} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
+            print(f"ContainerID: {container.containerid} - Container AVG: {container.get_avg()} - Container STD: {container.get_std()}")
             std_sum_after += container.get_avg()
         print(f"AVG: [{self.containers_manager.get_avg()}] - STD: [{self.containers_manager.get_std()}]")
 
         print(f"RESULTS: {std_sum_before} - {std_sum_after}")
+
+        print("Saving CC to database...")
+
+        self.save_students_to_db()
 
         print("Done!")
 
@@ -228,5 +208,30 @@ class CC:
 
         print(f"Effective swaps done: {num_of_effective_optimizations}")
 
-    def upload_students_to_db(self):
-        pass
+    def save_students_to_db(self):
+        for container in self.containers_manager.containers:
+            pass
+
+
+def create_cc_instance(process_id, group_id, config_id):
+    cc = CC(process_id, group_id, config_id)
+    result_value = cc.run()
+    if result_value == True:
+        good_status_json = {
+            "querystatus" : "good",
+            "message" : "Composizione Classi completata!"
+        }
+
+        return json.dumps(good_status_json)
+    elif result_value == "ZeroStudentsIntoGroup":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Gruppo vuoto, non e' possibile generare alcuna configurazione!"
+        }
+        return json.dumps(bad_status_json)
+    else:
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Errore nella Composizione Classi! Contattare l'amministratore."
+        }
+        return json.dumps(bad_status_json)

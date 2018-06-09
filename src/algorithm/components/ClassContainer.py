@@ -4,7 +4,8 @@ import copy
 
 class ClassContainer:
 
-    def __init__(self, configuration):
+    def __init__(self, configuration, containerid):
+        self.containerid = containerid
         self.db_group_configuration = configuration
         self.num_students = 0
         self.num_girls = 0
@@ -19,7 +20,7 @@ class ClassContainer:
         self.marks_avg = 6
 
     def __str__(self):
-        return "ContainerID: " + str(id(self)) + " - Num of students: " + str(len(self.students))
+        return "ContainerID: " + str(self.containerid) + " - Num of students: " + str(len(self.students))
 
     def get_std(self):
         container_avg = self.get_avg()
