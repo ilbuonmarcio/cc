@@ -23,7 +23,6 @@ class ClassContainer:
         return "ContainerID: " + str(self.containerid) + " - Num of students: " + str(len(self.students))
 
     def get_students_id(self):
-        print(len(self.students))
         students_id = []
         for student in self.students:
             students_id.append(str(student.id))

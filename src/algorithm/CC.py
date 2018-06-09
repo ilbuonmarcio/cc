@@ -38,6 +38,10 @@ class CC:
         print(f"Loaded config from db with id {self.configuration.config_id}:",
               self.configuration.config_name)
 
+        if self.is_already_generated():
+            print('Class Composition already generated! Exiting...')
+            return "CCAlreadyGenerated"
+
         print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
 
         print(f"Sex priority: {self.configuration.sex_priority}")
@@ -110,8 +114,6 @@ class CC:
         else:
             print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere, TODO!")
 
-        # self.containers_manager.print_all_containers_current_dimensions()
-        number_of_students_before_optimization = self.containers_manager.get_number_of_total_students_into_containers()
 
         """
         print("BEFORE OPTIMIZATION:")
@@ -123,13 +125,6 @@ class CC:
         """
 
         self.optimize()
-
-
-        # self.containers_manager.print_all_containers_current_dimensions()
-        number_of_students_after_optimization = self.containers_manager.get_number_of_total_students_into_containers()
-
-        print(f"Number of students before optimization {number_of_students_before_optimization}")
-        print(f"Number of students after optimization {number_of_students_after_optimization}")
 
         """
         print("AFTER OPTIMIZATION:")
@@ -143,7 +138,7 @@ class CC:
 
         print("Saving CC to database...")
 
-        # self.save_students_to_db()
+        self.save_students_to_db()
 
         print("Done!")
 
@@ -231,7 +226,7 @@ class CC:
             if i % 25 == 0:
                 print(f"{round(i / num_of_optimizations * 100, 2)}%\t\t{i} \toptcycle\toptsdone\t{num_of_effective_optimizations}\tstudents\t{self.containers_manager.get_number_of_total_students_into_containers()}")
 
-        print(f"100%! Effective swaps done: {num_of_effective_optimizations}")
+        print(f"100%! Effective swaps done: {num_of_effective_optimizations}\n")
 
     def save_students_to_db(self):
         connection = mysql.connector.connect(
@@ -254,6 +249,27 @@ class CC:
 
         connection.close()
 
+    def is_already_generated(self):
+        connection = mysql.connector.connect(
+                        user=DBConfig.user,
+                        password=DBConfig.password,
+                        host=DBConfig.host,
+                        database=DBConfig.database)
+
+        cursor = connection.cursor()
+
+        query = f"SELECT COUNT(*) FROM classi_composte WHERE groupid = {self.group_id} AND configid = {self.config_id}"
+
+        cursor.execute(query)
+
+        num_of_students_already_inserted = cursor.fetchall()[0][0]
+
+        cursor.close()
+
+        connection.close()
+
+        return num_of_students_already_inserted > 0
+
 
 
 def create_cc_instance(process_id, group_id, config_id):
@@ -270,6 +286,12 @@ def create_cc_instance(process_id, group_id, config_id):
         bad_status_json = {
             "querystatus" : "bad",
             "message" : "Gruppo vuoto, non e' possibile generare alcuna configurazione!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "CCAlreadyGenerated":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Composizione Classi già generata per questo gruppo e configurazione!"
         }
         return json.dumps(bad_status_json)
     else:
