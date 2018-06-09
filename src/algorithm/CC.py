@@ -226,3 +226,6 @@ class CC:
             num_of_effective_optimizations += _optimize_random_couple_of_containers_fixed_cycles(25)
 
         print(f"Effective swaps done: {num_of_effective_optimizations}")
+
+    def upload_students_to_db(self):
+        pass
