@@ -17,15 +17,19 @@ class CC:
         self.process_id = process_id
         self.group_id = group_id
         self.config_id = config_id
+
+    def run(self):
+        print("Running CC...")
+
+        if self.group_id == "" or self.config_id == "":
+            return "NoGroupOrConfigSelected"
+
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
         self.containers_manager = ContainersManager(
             math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
             self.configuration
         )
-
-    def run(self):
-        print("Running CC...")
 
         self.total_number_of_students = self.students_manager.get_number_of_students()
 
@@ -292,6 +296,12 @@ def create_cc_instance(process_id, group_id, config_id):
         bad_status_json = {
             "querystatus" : "bad",
             "message" : "Composizione Classi già generata per questo gruppo e configurazione!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "NoGroupOrConfigSelected":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Nessun gruppo e/o configurazione selezionato/a!"
         }
         return json.dumps(bad_status_json)
     else:
