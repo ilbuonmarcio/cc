@@ -151,18 +151,18 @@ class CC:
 
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
-        print("Saving CC to database...")
-
         uninserted_students_matricola = self.students_manager.get_uninserted_students(self.containers_manager)
 
         if len(uninserted_students_matricola) > 0:
-            print()
+            print(f"\nWe found {len(uninserted_students_matricola)} students not loaded, inserted and/or elaborated!")
+            print("Is it a correct number? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola)) 
             for matricola in uninserted_students_matricola:
-                print(f"Hey! Student with matricola {matricola} not inserted!")
+                print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
             print()
         else:
             print("All students were inserted and elaborated correctly, good work!")
 
+        print("Saving CC to database...")
         # self.save_students_to_db()
 
         print("Done!")
