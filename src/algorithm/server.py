@@ -53,7 +53,7 @@ def refresh_configurecc_groupid_select():
 
     cursor = connection.cursor()
 
-    query = "SELECT id, nome FROM gruppi;"
+    query = "SELECT id, nome, tipo FROM gruppi;"
 
     cursor.execute(query)
 
@@ -61,7 +61,8 @@ def refresh_configurecc_groupid_select():
 
     str_response = ""
     for group in groups:
-        str_response += '<option value="' + str(group[0]) + '">' + group[1] + '</option>'
+        group_type = " - Classi Terze" if group[2] == 3 else " - Classi Prime"
+        str_response += '<option value="' + str(group[0]) + '">' + group[1] + group_type + '</option>'
 
     cursor.close()
 
