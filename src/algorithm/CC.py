@@ -153,6 +153,16 @@ class CC:
 
         print("Saving CC to database...")
 
+        uninserted_students_matricola = self.students_manager.get_uninserted_students(self.containers_manager)
+
+        if len(uninserted_students_matricola) > 0:
+            print()
+            for matricola in uninserted_students_matricola:
+                print(f"Hey! Student with matricola {matricola} not inserted!")
+            print()
+        else:
+            print("All students were inserted and elaborated correctly, good work!")
+
         # self.save_students_to_db()
 
         print("Done!")

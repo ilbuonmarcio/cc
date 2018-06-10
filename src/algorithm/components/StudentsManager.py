@@ -1,4 +1,5 @@
 import random
+import copy
 import mysql.connector
 from .DBConfig import DBConfig
 from .Student import Student
@@ -10,6 +11,7 @@ class StudentsManager:
         self.students = []
         self._load_students_from_db(self.group_id)
         random.shuffle(self.students)
+        self.checkout_students = copy.deepcopy(self.students)
 
     def _load_students_from_db(self, group_id):
         connection = mysql.connector.connect(
@@ -31,6 +33,17 @@ class StudentsManager:
         cursor.close()
 
         connection.close()
+
+    def get_uninserted_students(self, containers_manager):
+        inserted_students_matricola = containers_manager.get_all_inserted_students_matricola()
+        all_students_matricola = set([student.matricola for student in self.checkout_students])
+
+        uninserted_students_matricola = []
+        for matricola in all_students_matricola:
+            if matricola not in inserted_students_matricola:
+                uninserted_students_matricola.append(matricola)
+
+        return set(uninserted_students_matricola)
 
     def get_number_of_students(self):
         return len(self.students)
@@ -129,9 +142,4 @@ class StudentsManager:
         return result_set
 
     def get_remaining_students_array(self):
-        result_set = []
-
-        for student in self.students:
-            result_set.append(student)
-
-        return result_set
+        return self.students
