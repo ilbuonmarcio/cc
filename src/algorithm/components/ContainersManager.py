@@ -1,4 +1,5 @@
 import math
+import copy
 import random
 from .ClassContainer import ClassContainer
 
@@ -95,6 +96,59 @@ class ContainersManager:
         print("\nFinished distributing remaining students randomly into containers!")
 
         return students_to_reinsert
+
+    def get_two_random_containers(self):
+        while True:
+            first_container = random.choice(self.containers)
+            second_container = random.choice(self.containers)
+            if first_container is not second_container:
+                break
+
+        return first_container, second_container
+
+    def fill_remaining_students_shuffling_classcontainers(self, input_array):
+
+        first_container, second_container = self.get_two_random_containers()
+
+        students_to_insert = len(input_array)
+
+        while students_to_insert > 0:
+
+            first_container_student = first_container.get_random_student()
+            second_container_student = second_container.get_random_student()
+
+            first_container_student_copy = copy.deepcopy(first_container_student)
+            second_container_student_copy = copy.deepcopy(second_container_student)
+
+            if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
+            and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
+            and not first_container.has_desiderata(first_container_student) \
+            and not second_container.has_desiderata(second_container_student):
+
+                first_container.remove_student(first_container_student)
+                second_container.remove_student(second_container_student)
+
+                first_result = first_container.add_student(second_container_student)
+                second_result = second_container.add_student(first_container_student)
+
+                if first_result == None and second_result == None:
+                    if first_container.add_student(input_array[students_to_insert-1]) == None:
+                        print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                        input_array.remove(input_array[students_to_insert-1])
+                        students_to_insert -= 1
+
+                    elif second_container.add_student(input_array[students_to_insert-1]) == None:
+                        print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                        input_array.remove(input_array[students_to_insert-1])
+                        students_to_insert -= 1
+
+                else:
+                    first_container.remove_student(second_container_student)
+                    second_container.remove_student(first_container_student)
+
+                    first_result = first_container.add_student(first_container_student_copy)
+                    second_result = second_container.add_student(second_container_student_copy)
+
 
 
     def get_container_at_index(self, index):

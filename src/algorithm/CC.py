@@ -122,7 +122,9 @@ class CC:
         if len(remaining_students_after_random_insert) == 0:
             print("Well done, there is no students to swap of classroom, there!")
         else:
-            print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere, TODO!")
+            print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere!")
+
+            self.containers_manager.fill_remaining_students_shuffling_classcontainers(remaining_students_after_random_insert)
 
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
