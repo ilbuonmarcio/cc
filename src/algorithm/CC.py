@@ -33,6 +33,8 @@ class CC:
 
         self.total_number_of_students = self.students_manager.get_number_of_students()
 
+        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+
         if self.total_number_of_students == 0:
             return "ZeroStudentsIntoGroup"
 
@@ -78,6 +80,8 @@ class CC:
             configured_sex_priority_array
         )
 
+        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+
         if len(students_not_inserted) > 0:
             print("Some students from prioritized group weren't inserted!")
             for student in students_not_inserted:
@@ -95,6 +99,8 @@ class CC:
         print(f"Found {len(remaining_desiderata_students_array)} paired students!")
 
         students_not_inserted = self.containers_manager.distribute_couples_randomly_into_containers(remaining_desiderata_students_array)
+
+        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
         if len(students_not_inserted) > 0:
             print("Some O-O desiderata couple weren't inserted!")
@@ -118,6 +124,7 @@ class CC:
         else:
             print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere, TODO!")
 
+        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
         """
         print("BEFORE OPTIMIZATION:")
@@ -140,9 +147,11 @@ class CC:
 
         print(f"RESULTS: {std_sum_before} - {std_sum_after}")"""
 
+        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+
         print("Saving CC to database...")
 
-        self.save_students_to_db()
+        # self.save_students_to_db()
 
         print("Done!")
 
