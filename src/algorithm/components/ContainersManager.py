@@ -66,7 +66,7 @@ class ContainersManager:
         return students_to_reinsert
 
     def distribute_remaining_students_randomly_into_containers(self, input_array):
-        print("Distributing remaining students randomly into containers...")
+        print(f"Distributing remaining students [{len(input_array)}] randomly into containers...")
 
         remaining_students = len(input_array)
 
@@ -107,12 +107,13 @@ class ContainersManager:
         return first_container, second_container
 
     def fill_remaining_students_shuffling_classcontainers(self, input_array):
-
-        first_container, second_container = self.get_two_random_containers()
+        print("\nDistributing remaining students shuffling classcontainers...")
 
         students_to_insert = len(input_array)
 
         while students_to_insert > 0:
+
+            first_container, second_container = self.get_two_random_containers()
 
             first_container_student = first_container.get_random_student()
             second_container_student = second_container.get_random_student()
@@ -148,6 +149,9 @@ class ContainersManager:
 
                     first_result = first_container.add_student(first_container_student_copy)
                     second_result = second_container.add_student(second_container_student_copy)
+
+
+        print("Distributing remaining students shuffling classcontainers done!")
 
 
 
