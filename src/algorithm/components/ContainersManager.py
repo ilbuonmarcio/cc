@@ -124,6 +124,8 @@ class ContainersManager:
     def fill_remaining_students_shuffling_classcontainers(self, input_array):
         print("\nDistributing remaining students shuffling classcontainers...")
 
+        students_to_remove_from_students_manager = []
+
         students_to_insert = len(input_array)
 
         while students_to_insert > 0:
@@ -150,11 +152,13 @@ class ContainersManager:
                 if first_result == None and second_result == None:
                     if first_container.add_student(input_array[students_to_insert-1]) == None:
                         print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                        students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
                         input_array.remove(input_array[students_to_insert-1])
                         students_to_insert -= 1
 
                     elif second_container.add_student(input_array[students_to_insert-1]) == None:
                         print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                        students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
                         input_array.remove(input_array[students_to_insert-1])
                         students_to_insert -= 1
 
@@ -165,9 +169,10 @@ class ContainersManager:
                     first_result = first_container.add_student(first_container_student_copy)
                     second_result = second_container.add_student(second_container_student_copy)
 
+        for student in students_to_remove_from_students_manager:
+            self.students_manager.students.remove(student)
 
         print("Distributing remaining students shuffling classcontainers done!")
-
 
 
     def get_container_at_index(self, index):
