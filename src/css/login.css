@@ -9,7 +9,11 @@
 }
 
 .title-area{
-  height: 8vh;
+  height: 5vh;
   margin-top: 0vh;
   margin-bottom: 15vh;
+}
+
+.title-image{
+	width: 100%;
 }

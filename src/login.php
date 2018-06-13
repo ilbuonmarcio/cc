@@ -30,9 +30,11 @@
 <body>
 
   <div class="row title-area">
-    <div class="col s12">
-      <p class="center-align"><img class="center-align" src="images/logo.png"/></p>
-      </h1>
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3 xl6 offset-xl3">
+        <img class="title-image" src="images/logo.png"/>
+        </h1>
+      </div>
     </div>
   </div>
 
