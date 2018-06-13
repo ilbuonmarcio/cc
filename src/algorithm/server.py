@@ -17,8 +17,16 @@ def get_cc_result():
     return_val = async_result.get()
     return return_val
 
-@app.route('/refresh_configurecc_configid_select', methods=['GET'])
-def refresh_configurecc_configid_select():
+@app.route('/get_cc_visualization', methods=['POST'])
+def get_cc_visualization():
+    post_data = request.form
+    group_id = post_data["groupid"]
+    config_id = post_data["configid"]
+    pass
+
+
+@app.route('/refresh_configid_select', methods=['GET'])
+def refresh_configid_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
                     password=DBConfig.password,
@@ -43,8 +51,8 @@ def refresh_configurecc_configid_select():
 
     return str_response
 
-@app.route('/refresh_configurecc_groupid_select', methods=['GET'])
-def refresh_configurecc_groupid_select():
+@app.route('/refresh_groupid_select', methods=['GET'])
+def refresh_groupid_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
                     password=DBConfig.password,

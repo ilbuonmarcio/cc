@@ -68,7 +68,7 @@
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
+      <a onclick="visualizeccpanel.openPanel();" class="waves-effect">
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
@@ -425,10 +425,47 @@
     </div>
 
   </div>
+  
 
+  <div id="visualizecc-panel" class="modal modal-fixed-footer">
 
+    <div class="modal-content">
 
+      <h4 class="center-align">Visualizza CC</h4>
 
+      <div class="col s12">
+         <div class="row">
+
+           <div class="input-field col s12">
+             <select id="visualizecc-groupid" name="visualizecc-groupid">
+
+             </select>
+             <label>Seleziona Gruppo</label>
+           </div>
+
+           <div class="input-field col s12">
+             <select id="visualizecc-configid" name="visualizecc-configid">
+
+             </select>
+             <label>Seleziona Configurazione</label>
+           </div>
+
+           <div class="input-field col s12 center-align">
+             <button class="btn waves-effect waves-light" onclick="visualizeccpanel.submit();">
+               Visualizza Composizione Classi
+             </button>
+           </div>
+
+         </div>
+       </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
 
 
   <h3 class="center-align">Benvenuto,
@@ -498,6 +535,7 @@
   <script src="js/UploadCSVPanel.js"></script>
   <script src="js/ConfigureCCPanel.js"></script>
   <script src="js/GenerateCCPanel.js"></script>
+  <script src="js/VisualizeCCPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 

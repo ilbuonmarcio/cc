@@ -68,13 +68,13 @@ class GenerateCCPanel extends Panel {
   }
 
   static selectReload(){
-    $.get("http://localhost:5000/refresh_configurecc_groupid_select", function(data){
+    $.get("http://localhost:5000/refresh_groupid_select", function(data){
       document.querySelector('#generatecc-groupid').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#generatecc-groupid')).destroy();
       M.FormSelect.init(document.querySelector('#generatecc-groupid'));
     });
 
-    $.get("http://localhost:5000/refresh_configurecc_configid_select", function(data){
+    $.get("http://localhost:5000/refresh_configid_select", function(data){
       document.querySelector('#generatecc-configid').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#generatecc-configid')).destroy();
       M.FormSelect.init(document.querySelector('#generatecc-configid'));
