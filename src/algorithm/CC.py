@@ -155,7 +155,7 @@ class CC:
 
         if len(uninserted_students_matricola) > 0:
             print(f"\nWe found {len(uninserted_students_matricola)} students not loaded, inserted and/or elaborated!")
-            print("Is it a correct number? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola))
+            print("Is it a correct number (TotalStudents == StudentsIntoContainers + UninsertedStudents)? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola))
             for matricola in uninserted_students_matricola:
                 print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
             print()
