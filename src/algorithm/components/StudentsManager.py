@@ -143,3 +143,6 @@ class StudentsManager:
 
     def get_remaining_students_array(self):
         return self.students
+
+    def get_number_of_remaining_students(self):
+        return len(self.students)

@@ -158,7 +158,7 @@ class CC:
             print("Is it a correct number (TotalStudents == StudentsIntoContainers + UninsertedStudents)? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola))
             for matricola in uninserted_students_matricola:
                 print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
-            print()
+            print("Remaining students into StudentsManager:", self.students_manager.get_number_of_remaining_students())
         else:
             print("All students were inserted and elaborated correctly, good work!")
 
