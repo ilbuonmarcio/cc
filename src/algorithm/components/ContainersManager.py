@@ -5,9 +5,10 @@ from .ClassContainer import ClassContainer
 
 class ContainersManager:
 
-    def __init__(self, num_of_containers, configuration):
+    def __init__(self, num_of_containers, configuration, students_manager):
         self.containers = [ClassContainer(configuration, containerid) for containerid in range(1, num_of_containers+1)]
         self.configuration = configuration
+        self.students_manager = students_manager
 
     def print_all_containers_current_dimensions(self):
         for container in self.containers:
@@ -78,6 +79,8 @@ class ContainersManager:
 
         remaining_students = len(input_array)
 
+        students_to_remove_from_students_manager = []
+
         students_to_reinsert = []
         for student in input_array:
             print("Remaining students:", remaining_students)
@@ -93,6 +96,7 @@ class ContainersManager:
                         if student_not_inserted is not None:
                             containers_already_filled.append(container_to_fill)
                         else:
+                            students_to_remove_from_students_manager.append(student)
                             remaining_students -= 1
                             break
                     else:
@@ -102,6 +106,9 @@ class ContainersManager:
                     students_to_reinsert.append(student)
                     break
         print("\nFinished distributing remaining students randomly into containers!")
+
+        for student in students_to_remove_from_students_manager:
+            self.students_manager.students.remove(student)
 
         return students_to_reinsert
 
