@@ -155,7 +155,7 @@ class CC:
 
         if len(uninserted_students_matricola) > 0:
             print(f"\nWe found {len(uninserted_students_matricola)} students not loaded, inserted and/or elaborated!")
-            print("Is it a correct number? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola)) 
+            print("Is it a correct number? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola))
             for matricola in uninserted_students_matricola:
                 print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
             print()
@@ -244,7 +244,7 @@ class CC:
 
         print("Optimizing...")
 
-        num_of_optimizations = self.total_number_of_students*2
+        num_of_optimizations = self.total_number_of_students
         num_of_effective_optimizations = 0
         for i in range(0, num_of_optimizations):
             num_of_effective_optimizations += optimize_random_couple_of_containers_fixed_cycles(25)
