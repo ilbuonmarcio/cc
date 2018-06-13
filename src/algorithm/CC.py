@@ -81,6 +81,9 @@ class CC:
             configured_sex_priority_array
         )
 
+
+        print("Remaining students into StudentsManager:", self.students_manager.get_number_of_remaining_students())
+
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
         if len(students_not_inserted) > 0:

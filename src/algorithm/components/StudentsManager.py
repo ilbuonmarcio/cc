@@ -61,24 +61,33 @@ class StudentsManager:
             self.students.remove(student)
 
         sex_priority_students_groupped = {
+            "female-only" : [],
             "female-female" : {},
             "female-male" : {}
         }
 
+        sex_priority_students_without_desiderata = []
         for student in sex_priority_students:
+            has_desiderata = False
             for other in sex_priority_students:
                 if student.check_desiderata(other):
+                    has_desiderata = True
                     if other.matricola + "-" + student.matricola \
                         not in sex_priority_students_groupped["female-female"].keys():
                         print(f"Matched S-S! {student.matricola} <--> {other.matricola}")
                         sex_priority_students_groupped["female-female"][
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
+            if not has_desiderata:
+                sex_priority_students_without_desiderata.append(student)
+
 
         othersex_to_remove_from_students = []
         for student in sex_priority_students:
+            has_desiderata = False
             for other in othersex_students:
                 if student.check_desiderata(other):
+                    has_desiderata = True
                     if other.matricola + "-" + student.matricola \
                         not in sex_priority_students_groupped["female-male"].keys():
                         print(f"Matched S-O! {student.matricola} <--> {other.matricola}")
@@ -87,10 +96,15 @@ class StudentsManager:
                         ] = [student, other]
                         othersex_to_remove_from_students.append(student)
                         othersex_to_remove_from_students.append(other)
+            if has_desiderata and student in sex_priority_students_without_desiderata:
+                sex_priority_students_without_desiderata.remove(student)
+
 
         for student in othersex_to_remove_from_students:
             if student in self.students:
                 self.students.remove(student)
+
+        random.shuffle(sex_priority_students_without_desiderata)
 
         index = 0
         arranged_students_based_on_config = [[]]
@@ -109,6 +123,26 @@ class StudentsManager:
             arranged_students_based_on_config.append([])
             arranged_students_based_on_config[index].append(student_couple[0])
             arranged_students_based_on_config[index].append(student_couple[1])
+
+        index = 0
+        sex_priority_students_without_desiderata_coupled = [[]]
+        for student in sex_priority_students_without_desiderata:
+            if len(sex_priority_students_without_desiderata_coupled[index]) >= 2:
+                sex_priority_students_without_desiderata_coupled.append([])
+                index += 1
+            sex_priority_students_without_desiderata_coupled[index].append(student)
+
+        index = 0
+        for student_couple in sex_priority_students_without_desiderata_coupled:
+            while len(arranged_students_based_on_config[index]) + 2 > num_sex_priority:
+                arranged_students_based_on_config.append([])
+                index += 1
+
+            arranged_students_based_on_config[index].append(student_couple[0])
+            try:
+                arranged_students_based_on_config[index].append(student_couple[1])
+            except: 
+                pass # odd number of sex_priority_students_without_desiderata
 
         result_set = []
         for array in arranged_students_based_on_config:
