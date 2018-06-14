@@ -167,7 +167,7 @@ class CC:
             print("All students were inserted and elaborated correctly, good work!")
 
         print("Saving CC to database...")
-        # self.save_students_to_db()
+        self.save_students_to_db()
 
         print("Done!")
 
