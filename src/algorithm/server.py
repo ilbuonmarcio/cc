@@ -90,7 +90,7 @@ def refresh_visualizecc_table():
 
     cursor = connection.cursor()
 
-    query = "SELECT gruppi.nome, configurazioni.nome, groupid, configid, COUNT(*) FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
+    query = "SELECT gruppi.nome, configurazioni.nome, COUNT(*), groupid, configid FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
 
     cursor.execute(query)
 
@@ -115,11 +115,12 @@ def refresh_visualizecc_table():
     for generation in generations:
         str_response += "<tr>"
 
-        for field in generation:
-            str_response += "<td>" + str(field) + "</td>"
+        str_response += "<td>" + str(generation[0]) + "</td>"
+        str_response += "<td>" + str(generation[1]) + "</td>"
+        str_response += "<td>" + str(generation[2]) + "</td>"
 
         str_response += '<td><a target="_blank">Visualizza</a></td>'
-        str_response += f'<td><a href="http://{server_ip}:5000/export_generatedcc_to_csv?groupid={generation[2]}&configid={generation[3]}">Esporta</a></td>'
+        str_response += f'<td><a href="http://{server_ip}:5000/export_generatedcc_to_csv?groupid={generation[3]}&configid={generation[4]}">Esporta</a></td>'
 
         str_response += "</tr>"
 
