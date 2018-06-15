@@ -155,7 +155,7 @@ def export_generatedcc_to_csv():
 
     generator = (
         str(record)
-        .replace(',', ';')
+        .replace(', ', ';')
         .replace("'", "")
         .replace('(', '')
         .replace(')', '') + "\n"
