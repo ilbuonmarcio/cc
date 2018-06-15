@@ -116,8 +116,8 @@ def refresh_visualizecc_table():
         for field in generation:
             str_response += "<td>" + str(field) + "</td>"
 
-        str_response += "<td><a href="">Visualizza</a></td>"
-        str_response += "<td><a href="">Esporta</a></td>"
+        str_response += '<td><a target="_blank">Visualizza</a></td>'
+        str_response += '<td><a target="_blank">Esporta</a></td>'
 
         str_response += "</tr>"
 
