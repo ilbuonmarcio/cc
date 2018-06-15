@@ -14,6 +14,10 @@
   margin-bottom: 15vh;
 }
 
-.title-image{
-	width: 100%;
+.login-title{
+  font-family: 'Indie Flower', cursive;
+  margin-top: 8vh;
+  margin-bottom: 5vh;
+	font-size: 7.5em;
+  text-align: center;
 }

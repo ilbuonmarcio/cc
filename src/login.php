@@ -18,10 +18,11 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts custom font for logo -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
   <link href="css/login.css" type="text/css" rel="stylesheet" />
 
@@ -32,8 +33,7 @@
   <div class="row title-area">
     <div class="row">
       <div class="col s12 m8 offset-m2 l6 offset-l3 xl6 offset-xl3">
-        <img class="title-image" src="images/logo.png"/>
-        </h1>
+        <h4 class="login-title">cc-gestionelle</h4>
       </div>
     </div>
   </div>
