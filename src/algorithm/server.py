@@ -6,6 +6,8 @@ from flask_cors import CORS
 from multiprocessing.pool import ThreadPool
 from components.DBConfig import DBConfig
 
+server_ip = "127.0.0.1"
+
 app = Flask(__name__)
 CORS(app)
 
@@ -88,7 +90,7 @@ def refresh_visualizecc_table():
 
     cursor = connection.cursor()
 
-    query = "SELECT gruppi.nome, configurazioni.nome, COUNT(*) FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
+    query = "SELECT gruppi.nome, configurazioni.nome, groupid, configid, COUNT(*) FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
 
     cursor.execute(query)
 
@@ -117,7 +119,7 @@ def refresh_visualizecc_table():
             str_response += "<td>" + str(field) + "</td>"
 
         str_response += '<td><a target="_blank">Visualizza</a></td>'
-        str_response += '<td><a target="_blank">Esporta</a></td>'
+        str_response += f'<td><a href="http://{server_ip}:5000/export_generatedcc_to_csv?groupid={generation[2]}&configid={generation[3]}">Esporta</a></td>'
 
         str_response += "</tr>"
 
