@@ -74,10 +74,6 @@
           <li>Daniele Fava - 5CI 17/18</li>
 
           <li>Damiano Visentini - 5CI 17/18</li>
-
-          <li>Mattia Carra - 5CI 17/18</li>
-
-          <li>Leonardo Bonomi - 5CI 17/18</li>
         </ul>
       </div>
       <div class="col s12 m4 center-align">
