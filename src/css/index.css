@@ -61,7 +61,7 @@ a#sidenav-trigger-button {
   margin: 28px;
 }
 
-#createuser-table>table>tbody, #managegroups-table>tbody {
+#createuser-table>table>tbody, #managegroups-table>table>tbody {
   display: block;
   max-height: 300px;
   overflow: auto;

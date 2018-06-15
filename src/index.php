@@ -72,10 +72,6 @@
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
-      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
-        <i class="material-icons">file_download</i>Scarica CC</a>
-    </li>
-    <li>
       <a href="login.php" class="waves-effect">
         <i class="material-icons">exit_to_app</i>Esci</a>
     </li>
@@ -83,8 +79,6 @@
   <a id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green">
     <i class="material-icons">menu</i>
   </a>
-
-
 
 
 
@@ -425,7 +419,7 @@
     </div>
 
   </div>
-  
+
 
   <div id="visualizecc-panel" class="modal modal-fixed-footer">
 
@@ -436,24 +430,9 @@
       <div class="col s12">
          <div class="row">
 
-           <div class="input-field col s12">
-             <select id="visualizecc-groupid" name="visualizecc-groupid">
+           <h6 class="panel-subtitle center-align">Lista Configurazioni Generate</h6>
+           <div id="visualizecc-table" class="col s12 center-align">
 
-             </select>
-             <label>Seleziona Gruppo</label>
-           </div>
-
-           <div class="input-field col s12">
-             <select id="visualizecc-configid" name="visualizecc-configid">
-
-             </select>
-             <label>Seleziona Configurazione</label>
-           </div>
-
-           <div class="input-field col s12 center-align">
-             <button class="btn waves-effect waves-light" onclick="visualizeccpanel.submit();">
-               Visualizza Composizione Classi
-             </button>
            </div>
 
          </div>
