@@ -93,3 +93,54 @@ a#sidenav-trigger-button {
 #configureccsave-switchtitle {
   margin: 0;
 }
+
+/* Color Templating */
+.input-field input:focus + label {
+  color: #0F2058 !important;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #0F2058 !important;
+  box-shadow: 0 1px 0 0 #0F2058 !important;
+}
+
+.active{
+  color: #0F2058 !important;
+}
+
+.btn{
+  background-color: #0F2058 !important;
+}
+
+li > span{
+  color: #0F2058 !important;
+}
+
+.noUi-handle{
+  background: #0F2058 !important;
+}
+
+.noUi-tooltip{
+  background: #0F2058 !important;
+}
+
+.noUi-connect{
+  background: #4E5C84 !important;
+}
+
+.switch label input[type=checkbox]:checked + .lever:after {
+  background: #0F2058 !important;
+}
+
+.switch label input[type=checkbox]:checked + .lever{
+  background-color: #4E5C84 !important;
+}
+
+input[type=checkbox]:checked:not(:disabled) ~ .lever:active::before,
+
+input[type=checkbox]:checked:not(:disabled).tabbed:focus ~ .lever::before {
+  -webkit-transform: scale(2.4);
+          transform: scale(2.4);
+   background-color: rgba(38, 54, 104, 0.4);
+}
+/* End Color Templating */
