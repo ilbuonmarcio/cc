@@ -33,7 +33,7 @@
   <div class="row title-area">
     <div class="row">
       <div class="col s12 m8 offset-m2 l6 offset-l3 xl6 offset-xl3">
-        <h4 class="login-title">cc-gestionelle</h4>
+        <h4 class="login-title">cc-gestionnelle</h4>
       </div>
     </div>
   </div>
