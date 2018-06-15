@@ -41,13 +41,13 @@ def refresh_configid_select():
 
     configurations = cursor.fetchall()
 
-    str_response = ""
-    for configuration in configurations:
-        str_response += '<option value="' + str(configuration[0]) + '">' + configuration[1] + '</option>'
-
     cursor.close()
 
     connection.close()
+
+    str_response = ""
+    for configuration in configurations:
+        str_response += '<option value="' + str(configuration[0]) + '">' + configuration[1] + '</option>'
 
     return str_response
 
@@ -67,13 +67,61 @@ def refresh_groupid_select():
 
     groups = cursor.fetchall()
 
+    cursor.close()
+
+    connection.close()
+
     str_response = ""
     for group in groups:
         group_type = " - Classi Terze" if group[2] == 3 else " - Classi Prime"
         str_response += '<option value="' + str(group[0]) + '">' + group[1] + group_type + '</option>'
 
+    return str_response
+
+@app.route('/refresh_visualizecc_table', methods=['GET'])
+def refresh_visualizecc_table():
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = "SELECT gruppi.nome, configurazioni.nome, COUNT(*) FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
+
+    cursor.execute(query)
+
+    generations = cursor.fetchall()
+
     cursor.close()
 
     connection.close()
+
+    str_response = '''<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
+                        <thead>
+                         <tr>
+                             <th>Nome Gruppo</th>
+                             <th>Nome Configurazione</th>
+                             <th>Numero di Studenti</th>
+                             <th>Visualizzazione</th>
+                             <th>Export CSV</th>
+                         </tr>
+                        </thead>
+
+                        <tbody>'''
+    for generation in generations:
+        str_response += "<tr>"
+
+        for field in generation:
+            str_response += "<td>" + str(field) + "</td>"
+
+        str_response += "<td><a href="">Visualizza</a></td>"
+        str_response += "<td><a href="">Esporta</a></td>"
+
+        str_response += "</tr>"
+
+
+    str_response += "</tbody></table>"
 
     return str_response
