@@ -15,6 +15,7 @@ CREATE TABLE classi_composte(
   groupid INT NOT NULL,
   configid INT NOT NULL,
   studentid INT NOT NULL,
+  classid INT NOT NULL,
   PRIMARY KEY (groupid, configid, studentid)
 );
 
@@ -109,9 +110,9 @@ INSERT INTO gruppi (
   nome,
   tipo
 ) VALUES (
-  NULL, 'Gruppo 1', 3
+  NULL, 'Gruppo 1', 1
 ), (
   NULL, 'Gruppo 2', 1
 ), (
-  NULL, 'Gruppo 3', 3
+  NULL, 'Gruppo 3', 1
 );
