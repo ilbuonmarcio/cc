@@ -61,19 +61,15 @@
         <i class="material-icons">settings</i>Configura Parametri CC</a>
     </li>
     <li>
-      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
+      <a onclick="generateccpanel.openPanel();" class="waves-effect">
         <i class="material-icons">control_point</i>Genera CC</a>
     </li>
     <li>
       <div class="divider"></div>
     </li>
     <li>
-      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
+      <a onclick="visualizeccpanel.openPanel();" class="waves-effect">
         <i class="material-icons">visibility</i>Visualizza CC</a>
-    </li>
-    <li>
-      <a onclick="M.toast({html: 'Funzione non ancora implementata!', classes: 'rounded'});" class="waves-effect">
-        <i class="material-icons">file_download</i>Scarica CC</a>
     </li>
     <li>
       <a href="login.php" class="waves-effect">
@@ -83,8 +79,6 @@
   <a id="sidenav-trigger-button" data-target="slide-out" class="sidenav-trigger show-on-large btn btn-floating btn-large green">
     <i class="material-icons">menu</i>
   </a>
-
-
 
 
 
@@ -386,9 +380,71 @@
 
   </div>
 
+  <div id="generatecc-panel" class="modal modal-fixed-footer">
+
+    <div class="modal-content">
+
+      <h4 class="center-align">Genera CC</h4>
+
+      <div class="col s12">
+         <div class="row">
+
+           <div class="input-field col s12">
+             <select id="generatecc-groupid" name="generatecc-groupid">
+
+             </select>
+             <label>Seleziona Gruppo</label>
+           </div>
+
+           <div class="input-field col s12">
+             <select id="generatecc-configid" name="generatecc-configid">
+
+             </select>
+             <label>Seleziona Configurazione</label>
+           </div>
+
+           <div class="input-field col s12 center-align">
+             <button class="btn waves-effect waves-light" onclick="generateccpanel.submit();">
+               Genera Composizione Classi
+             </button>
+           </div>
+
+         </div>
+       </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
 
 
+  <div id="visualizecc-panel" class="modal modal-fixed-footer">
 
+    <div class="modal-content">
+
+      <h4 class="center-align">Visualizza CC</h4>
+
+      <div class="col s12">
+         <div class="row">
+
+           <h6 class="panel-subtitle center-align">Lista Configurazioni Generate</h6>
+           <div id="visualizecc-table" class="col s12 center-align">
+
+           </div>
+
+         </div>
+       </div>
+
+    </div>
+
+    <div class="modal-footer">
+      <a class="modal-action modal-close waves-effect waves-green btn-flat">Chiudi</a>
+    </div>
+
+  </div>
 
 
   <h3 class="center-align">Benvenuto,
@@ -457,6 +513,8 @@
   <script src="js/ManageGroupsPanel.js"></script>
   <script src="js/UploadCSVPanel.js"></script>
   <script src="js/ConfigureCCPanel.js"></script>
+  <script src="js/GenerateCCPanel.js"></script>
+  <script src="js/VisualizeCCPanel.js"></script>
 
   <script src="js/PanelController.js"></script>
 

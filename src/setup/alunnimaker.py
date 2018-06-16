@@ -5,7 +5,7 @@ nomi = ['Antonio', 'Lucia', 'Tiziano', 'Roberto', 'Fabio', 'Valentina', 'Alex', 
 cognomi = ['Rossi', 'Verdi', 'Bianchi', 'Russo', 'Valentini', 'Roberti', 'Giannini', 'Scalco', 'Mirandola']
 cf_list = []
 
-num_campioni = 10
+num_campioni = 300
 
 alunni = []
 
@@ -40,8 +40,8 @@ if __name__ == "__main__":
             ]
         )
 
-        c_legge_107 = choice(['s', 'n'])
-        c_legge_104 = choice(['s', 'n'])
+        c_legge_107 = choice(['n', 'n'])
+        c_legge_104 = choice(['n', 'n'])
         c_classe_precedente = None
         c_classe_successiva = None
         c_anno_scolastico = None

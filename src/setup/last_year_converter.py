@@ -13,7 +13,10 @@ with open('last_year.csv', 'r') as input_file:
 
         output_record += ",NULL,"
         output_record += f"{random.randint(1, 5)},NULL,"
-        output_record += line[15] if line[15] in range(1, 11) else "6"
+        if line[15] != "":
+            output_record += line[15] if int(line[15]) in range(1, 11) else "6"
+        else:
+            output_record += "6"
 
         output_record += "\n"
 

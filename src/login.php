@@ -18,10 +18,11 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-
   <!--Let browser know website is optimized for mobile-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts custom font for logo -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
 
   <link href="css/login.css" type="text/css" rel="stylesheet" />
 
@@ -29,16 +30,15 @@
 
 <body>
 
-  <div class="row">
-    <div class="col s12">
-      <h1 class="login-title center-align">CC -
-        <a href="https://github.com/marconivr/marconicc">marconicc</a>, but
-        <i>stronger</i>
-      </h1>
+  <div class="row title-area">
+    <div class="row">
+      <div class="col s12 m8 offset-m2 l6 offset-l3 xl6 offset-xl3">
+        <h4 class="login-title">cc-gestionnelle</h4>
+      </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container login-area">
 
     <div class="row">
       <form class="col s12 login-form" action="./utils/auth.php" method="post">
@@ -64,7 +64,7 @@
     </div>
   </div>
 
-  <div class="section footer">
+  <div class="section footer footer-area">
     <div class="row">
       <div class="col s12 m4 center-align">
         <h5>Development Team</h5>
@@ -74,10 +74,6 @@
           <li>Daniele Fava - 5CI 17/18</li>
 
           <li>Damiano Visentini - 5CI 17/18</li>
-
-          <li>Mattia Carra - 5CI 17/18</li>
-
-          <li>Leonardo Bonomi - 5CI 17/18</li>
         </ul>
       </div>
       <div class="col s12 m4 center-align">

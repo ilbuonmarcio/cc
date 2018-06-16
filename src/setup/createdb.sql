@@ -11,16 +11,12 @@ CREATE TABLE utenti(
   diritti INT(1) NOT NULL
 );
 
-CREATE TABLE classi(
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nome CHAR(4) NOT NULL,
-  anno CHAR(9) NOT NULL
-);
-
 CREATE TABLE classi_composte(
-  classe INT NOT NULL,
-  alunno INT NOT NULL,
-  PRIMARY KEY (classe, alunno)
+  groupid INT NOT NULL,
+  configid INT NOT NULL,
+  studentid INT NOT NULL,
+  classid INT NOT NULL,
+  PRIMARY KEY (groupid, configid, studentid)
 );
 
 CREATE TABLE indirizzi(
@@ -114,9 +110,9 @@ INSERT INTO gruppi (
   nome,
   tipo
 ) VALUES (
-  NULL, 'Gruppo 1', 3
+  NULL, 'Gruppo 1', 1
 ), (
   NULL, 'Gruppo 2', 1
 ), (
-  NULL, 'Gruppo 3', 3
+  NULL, 'Gruppo 3', 1
 );
