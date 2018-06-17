@@ -72,6 +72,10 @@
         <i class="material-icons">visibility</i>Visualizza CC</a>
     </li>
     <li>
+      <a class="waves-effect" href="mailto:marciozgaming@gmail.com?Subject=Contatta%20l'Amministatore%20-%20cc-gestionnelle" target="_top">
+        <i class="material-icons">email</i>Contatta l'Amministratore
+      </a>
+    <li>
       <a href="login.php" class="waves-effect">
         <i class="material-icons">exit_to_app</i>Esci</a>
     </li>
