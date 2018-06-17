@@ -453,43 +453,47 @@
   <!-- Contenitore con le informazioni per l'utilizzo -->
   <div class="container">
     <div class="row">
-      <div class="col s12 center-align feature-block">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">person_add</i>
         <h5>Aggiungi Nuovo Account</h5>
         <br>
         <em class="feature-block-text">
-          Aggiungi nuovi account con tipologia di account: Amministratore generale, Editor e Visualizzatore per le famiglie.
+          Aggiungi nuovi account con tipologia di account: Amministratore generale, Editor e Visualizzatore.
         </em>
       </div>
-      <div class="col s12 center-align feature-block">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">group</i>
         <h5>Gestisci Gruppi</h5>
         <br>
         <em class="feature-block-text"> Visualizza i gruppi disponibili, creane di nuovi e cancellali a piacimento.
         </em>
       </div>
-      <div class="col s12 center-align feature-block">
+    </div>
+    <div class="row">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">cloud_upload</i>
         <h5>Carica CSV Alunni</h5>
         <br>
         <em class="feature-block-text"> Carica attraverso file in formato CSV i dati relativi agli studenti da gestire nel container apposito.
         </em>
       </div>
-      <div class="col s12 center-align feature-block">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">settings</i>
         <h5>Configura Parametri CC</h5>
         <br>
         <em class="feature-block-text"> Modifica una configurazione algoritmica esistente o creane una nuova in base alle esigenze.
         </em>
       </div>
-      <div class="col s12 center-align feature-block">
+    </div>
+    <div class="row">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">control_point</i>
         <h5>Genera CC</h5>
         <br>
         <em class="feature-block-text"> Seleziona il container da elaborare, la relativa configurazione e genera la composizione classi!
         </em>
       </div>
-      <div class="col s12 center-align feature-block">
+      <div class="col s12 m6 center-align feature-block">
         <i class="large material-icons">visibility</i>
         <h5>Visualizza CC</h5>
         <br>
