@@ -26,6 +26,13 @@
   }
 }
 
+.feature-block{
+  box-shadow: 12px 14px 3px #F1F1F1;
+  background-color: #FAFAFA;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
 #toast-container {
   display: block;
   position: fixed;
