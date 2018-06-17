@@ -33,6 +33,11 @@
   margin-top: 15px;
 }
 
+.feature-block-text{
+  text-align: center;
+  color: #333333;
+}
+
 #toast-container {
   display: block;
   position: fixed;

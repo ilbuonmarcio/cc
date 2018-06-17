@@ -457,49 +457,43 @@
         <i class="large material-icons">person_add</i>
         <h5>Aggiungi Nuovo Account</h5>
         <br>
-        <em> Modulo che permette di creare un nuovo account, inserendo un nome utente, una password e la tipologia desiderata
+        <em class="feature-block-text">
+          Aggiungi nuovi account con tipologia di account: Amministratore generale, Editor e Visualizzatore per le famiglie.
         </em>
       </div>
       <div class="col s12 center-align feature-block">
         <i class="large material-icons">group</i>
         <h5>Gestisci Gruppi</h5>
         <br>
-        <em> Modulo che permette di visualizzare i gruppi, di crearne, inserendo un nome, una descrizione, se desiderata, e la tipologia, ed infine l'eliminazione, selezionando l'apposito gruppo
+        <em class="feature-block-text"> Visualizza i gruppi disponibili, creane di nuovi e cancellali a piacimento.
         </em>
       </div>
       <div class="col s12 center-align feature-block">
         <i class="large material-icons">cloud_upload</i>
         <h5>Carica CSV Alunni</h5>
         <br>
-        <em> Modulo che permette di caricare un file in formato .csv contenente i dati relativi agli alunni in un determinato gruppo, selezionabile nell'apposito box
+        <em class="feature-block-text"> Carica attraverso file in formato CSV i dati relativi agli studenti da gestire nel container apposito.
         </em>
       </div>
       <div class="col s12 center-align feature-block">
         <i class="large material-icons">settings</i>
         <h5>Configura Parametri CC</h5>
         <br>
-        <em> Modulo che permette di creare una configurazione, inserendo dei parametri (numero alunni per classe, numero maschi, femmine, numero cap per gruppo, numero alunni con legge 170, numero massimo di nazionalità e numero massimo di alunni con la stessa nazionalità)
+        <em class="feature-block-text"> Modifica una configurazione algoritmica esistente o creane una nuova in base alle esigenze.
         </em>
       </div>
       <div class="col s12 center-align feature-block">
         <i class="large material-icons">control_point</i>
         <h5>Genera CC</h5>
         <br>
-        <em> Modulo che permette di generare l'algoritmo di composizione classi, selezionando la configurazione ed il gruppo desiderati
+        <em class="feature-block-text"> Seleziona il container da elaborare, la relativa configurazione e genera la composizione classi!
         </em>
       </div>
       <div class="col s12 center-align feature-block">
         <i class="large material-icons">visibility</i>
         <h5>Visualizza CC</h5>
         <br>
-        <em> Modulo che permette di visualizzare e modificare le classi generate automaticamente in precedenza
-        </em>
-      </div>
-      <div class="col s12 center-align feature-block">
-        <i class="large material-icons">file_download</i>
-        <h5>Scarica CC</h5>
-        <br>
-        <em> Modulo che permette di scaricare un file in formato .cc contenente le classi composte
+        <em class="feature-block-text"> Visualizza le composizioni classi appena generate attraverso una tabella o esportando un file CSV.
         </em>
       </div>
     </div>
