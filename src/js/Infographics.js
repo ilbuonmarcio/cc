@@ -13,11 +13,11 @@ for(let i = 0; i < 6; i++){
 }
 
 var data = {
-  labels: ["17219", "17130", "17111"],
+  labels: ["17219", "17130", "17111", "1", "2", "3", "4", "5", "2", "4"],
   datasets: [
     {
       label: 'Voto Uscita Scuole Medie',
-      data: [8.4, 8.7, 8.1],
+      data: [8.4, 8.7, 8.1, 9.3, 6.6, 7.3, 6.8, 6.1, 6.7, 8.8],
       backgroundColor: color_palette
     }
   ]
