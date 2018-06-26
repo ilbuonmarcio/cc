@@ -167,3 +167,34 @@ def export_generatedcc_to_csv():
                        mimetype="text/plain",
                        headers={"Content-Disposition":
                                     "attachment;filename=test.csv"})
+
+
+def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = f"SELECT classid, matricola, voto FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.voto;"
+
+    cursor.execute(query)
+
+    students = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    output_dict = {"1" : {}}
+    current_index = 1
+    for student in students:
+        if student[0] != current_index:
+            current_index += 1
+            output_dict[str(current_index)] = {}
+
+        output_dict[str(current_index)][student[1]] = student[2]
+
+    return json.dumps(output_dict)
