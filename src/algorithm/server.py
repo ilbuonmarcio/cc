@@ -166,7 +166,7 @@ def export_generatedcc_to_csv():
     return Response(generator,
                        mimetype="text/plain",
                        headers={"Content-Disposition":
-                                    "attachment;filename=test.csv"})
+                                    f"attachment;filename=EXPORT_GROUPID_{groupid}_CONFIGID_{configid}.csv"})
 
 
 def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
