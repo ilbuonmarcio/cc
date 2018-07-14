@@ -48,7 +48,7 @@ class ManageGroupsPanel extends Panel {
       return;
     }
 
-    $.post('routines/creategroup.php', data, this.callbackOnCreateSubmit);
+    $.post('http://127.0.0.1:5000/routine_creategroup', data, this.callbackOnCreateSubmit);
   }
 
   submitDelete(){

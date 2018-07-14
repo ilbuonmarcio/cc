@@ -423,6 +423,57 @@ def routine_createconfig():
         )
 
 
+@app.route('/routine_creategroup', methods=['POST'])
+def routine_creategroup():
+    post_data = request.form
+    
+    groupname = post_data["groupname"]
+    groupdesc = post_data["groupdesc"]
+    grouptype = post_data["grouptype"]
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        query = f"INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '{groupname}', {grouptype}, '{groupdesc}');"
+
+        try:
+            cursor.execute(query)
+
+            connection.commit()
+
+            return json.dumps(
+                {
+                    "status" : "Insert Query Executed",
+                    "querystatus" : "good"
+                }
+            )
+
+        except mysql.connector.errors.IntegrityError:
+            
+            return json.dumps(
+                {
+                    "status" : "Insert Query Executed",
+                    "querystatus" : "bad",
+                    "executedquery" : query
+                }
+            )
+
+    else:
+        return json.dumps(
+            {
+                "status" : "No Database Connection",
+                "querystatus" : "bad"
+            }
+        )
+
+
 def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
     connection = mysql.connector.connect(
                     user=DBConfig.user,
