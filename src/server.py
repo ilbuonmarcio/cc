@@ -1,16 +1,18 @@
-import CC
-from flask import Flask, request, Response
+from algorithm import CC
+from flask import Flask, request, Response, render_template, redirect, send_from_directory, session
 import json
 import mysql.connector
 import authenticator
 from flask_cors import CORS
 from multiprocessing.pool import ThreadPool
-from components.DBConfig import DBConfig
+from algorithm.components.DBConfig import DBConfig
+import os
 
 server_ip = "127.0.0.1"
 server_port = "5000"
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="")
+app.secret_key = os.urandom(24)
 CORS(app)
 
 @app.route('/get_cc_result', methods=['POST'])
@@ -596,6 +598,45 @@ def routine_createuser():
                 "querystatus" : "bad"
             }
         )
+
+
+@app.route('/authenticate', methods=["POST"])
+def authenticate():
+    post_data = request.form
+    
+    username = post_data["username"]
+    password = post_data["password"]
+
+    user_authenticated = authenticator.authenticate_user(username, password)
+
+    print(f"User {username} authenticated: {user_authenticated}")
+
+    if user_authenticated:
+        session['username'] = username
+        return render_template('index.html')
+    else:
+        return redirect(f'http://{server_ip}:{server_port}/index')
+
+
+@app.route('/')
+def root():
+    return redirect(f'http://{server_ip}:{server_port}/login')
+
+@app.route('/login')
+def login():
+    return render_template('login.html', server_ip=server_ip, server_port=server_port)
+
+@app.route('/index')
+def index():
+    return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('js', path)
+
+@app.route('/css/<path:path>')
+def send_css(path):
+    return send_from_directory('css', path)
 
 
 def get_chart_data_orderby_classid_matricola_voto(groupid, configid):

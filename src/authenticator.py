@@ -1,5 +1,5 @@
 import mysql.connector
-from components.DBConfig import DBConfig
+from algorithm.components.DBConfig import DBConfig
 import hashlib
 
 
