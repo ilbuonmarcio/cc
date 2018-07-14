@@ -527,6 +527,74 @@ def routine_deletegroup():
         )
 
 
+@app.route('/routine_createuser', methods=['POST'])
+def routine_createuser():
+    post_data = request.form
+    
+    username = post_data["username"]
+    password = post_data["password"]
+    priviledges = post_data["priviledges"]
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        query = f"SELECT * FROM utenti WHERE username = '{username}';"
+
+        cursor.execute(query)
+
+        rows = cursor.fetchall()
+
+        if len(rows) > 0:
+            return json.dumps(
+                {
+                    "status" : "Username already present!",
+                    "querystatus" : "bad"
+                }
+            )
+
+        else:
+
+            query = f"INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '{username}', '{password}', {priviledges});"
+
+            try:
+
+                cursor.execute(query)
+
+                connection.commit()
+
+                return json.dumps(
+                    {
+                        "status" : "Insert Query Executed",
+                        "querystatus" : "good"
+                    }
+                )
+
+            except mysql.connector.errors.IntegrityError:
+                
+                return json.dumps(
+                    {
+                        "status" : "Insert Query Executed",
+                        "querystatus" : "bad",
+                        "executedquery" : query
+                    }
+                )
+
+    else:
+        return json.dumps(
+            {
+                "status" : "No Database Connection",
+                "querystatus" : "bad"
+            }
+        )
+
+
 def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
     connection = mysql.connector.connect(
                     user=DBConfig.user,

@@ -37,7 +37,7 @@ class CreateUserPanel extends Panel {
       return;
     }
 
-    $.post('routines/createuser.php', data, this.callbackOnSubmit);
+    $.post('http://127.0.0.1:5000/routine_createuser', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
