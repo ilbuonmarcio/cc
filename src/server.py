@@ -607,27 +607,39 @@ def authenticate():
     username = post_data["username"]
     password = post_data["password"]
 
-    user_authenticated = authenticator.authenticate_user(username, password)
-
-    print(f"User {username} authenticated: {user_authenticated}")
+    try:
+        user_authenticated = authenticator.authenticate_user(username, password)
+    except Exception as e:
+        return redirect(f'http://{server_ip}:{server_port}/')
 
     if user_authenticated:
         session['username'] = username
-        return render_template('index.html')
-    else:
+        session['authenticated'] = True
         return redirect(f'http://{server_ip}:{server_port}/index')
+    else:
+        session['authenticated'] = False
+        return redirect(f'http://{server_ip}:{server_port}/')
 
 
 @app.route('/')
 def root():
+    session['authenticated'] = False
     return redirect(f'http://{server_ip}:{server_port}/login')
 
 @app.route('/login')
 def login():
+    session['authenticated'] = False
     return render_template('login.html', server_ip=server_ip, server_port=server_port)
+
+@app.route('/logout')
+def logout():
+    session['authenticated'] = False
+    return redirect(f'http://{server_ip}:{server_port}/')
 
 @app.route('/index')
 def index():
+    if not session['authenticated']:
+        return redirect(f'http://{server_ip}:{server_port}/')
     return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
 
 @app.route('/js/<path:path>')
