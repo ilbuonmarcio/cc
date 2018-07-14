@@ -7,7 +7,8 @@ USE composizioneclassi;
 CREATE TABLE utenti(
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
-  password CHAR(255) NOT NULL,
+  hashed_password CHAR(64) NOT NULL,
+  salt CHAR(32) NOT NULL,
   diritti INT(1) NOT NULL
 );
 
@@ -73,9 +74,10 @@ CREATE TABLE configurazioni(
 INSERT INTO utenti (
   id,
   username,
-  password,
+  hashed_password,
+  salt,
   diritti
-) VALUES (1, 'root', '$2y$10$Zl0xCv5YSf/6HFF53VxJlORx5APtdmAZBJTdy3ciAnwF68AdKabtG', 0);
+) VALUES (1, 'root', '1fc3e9ca719a6bab55da2d84e1e2c6246b3e6972e570b17f5de227f84693fc62', '123740234b2f923gf9223gru23rf', 0);
 
 INSERT INTO `configurazioni` (
   `id`,
