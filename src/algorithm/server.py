@@ -140,6 +140,57 @@ def refresh_groupname_select():
 
     return str_response
 
+@app.route('/refresh_managegroups_table', methods=['GET'])
+def refresh_managegroups_table():
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = "SELECT gruppi.id, gruppi.nome, gruppi.descrizione, gruppi.tipo, COUNT(alunni.id_gruppo) as numero_alunni FROM alunni RIGHT JOIN gruppi ON alunni.id_gruppo = gruppi.id GROUP BY gruppi.id;"
+
+    cursor.execute(query)
+
+    rows = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    str_response = '''<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
+         <thead>
+           <tr>
+               <th>Nome</th>
+               <th>Descrizione</th>
+               <th>Tipo</th>
+               <th>Numero Alunni</th>
+               <th>Link</th>
+           </tr>
+         </thead>
+
+         <tbody>'''
+    for row in rows:
+        group_type = "Classi Terze" if row[3] == 3 else "Classi Prime"
+
+        str_response += "<tr>"
+
+        str_response += "<td>" + str(row[1]) + "</td>"
+        str_response += "<td>" + str(row[2]) + "</td>"
+        str_response += "<td>" + group_type + "</td>"
+        str_response += "<td>" + str(row[4]) + "</td>"
+
+        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}">Visualizza</a></td>'
+
+        str_response += "</tr>"
+
+
+    str_response += "</tbody></table>"
+
+    return str_response
+
 @app.route('/refresh_visualizecc_table', methods=['GET'])
 def refresh_visualizecc_table():
     connection = mysql.connector.connect(

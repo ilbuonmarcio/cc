@@ -114,7 +114,7 @@ class ManageGroupsPanel extends Panel {
   }
 
   static tableReload(){
-    $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_managegroups_table", function(data){
       document.querySelector('#managegroups-table').innerHTML = data;
     });
   }
