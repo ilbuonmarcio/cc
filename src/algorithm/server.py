@@ -329,6 +329,100 @@ def export_generatedcc_to_csv():
                                     f"attachment;filename=EXPORT_GROUPID_{groupid}_CONFIGID_{configid}.csv"})
 
 
+@app.route('/routine_createconfig', methods=['POST'])
+def routine_createconfig():
+    post_data = request.form
+    
+    configname = post_data["configname"]
+    rangeslider_down = post_data["rangeslider_down"]
+    rangeslider_up = post_data["rangeslider_up"]
+    nummales = post_data["nummales"]
+    numfemales = post_data["numfemales"]
+    numcap = post_data["numcap"]
+    num170 = post_data["num170"]
+    numnaz = post_data["numnaz"]
+    nummaxforeachnaz = post_data["nummaxforeachnaz"]
+
+    if nummales == "":
+        nummales = 'NULL'
+
+    if numfemales == "":
+        numfemales = 'NULL'
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        query = f"SELECT * FROM configurazioni WHERE nome = '{configname}'";
+
+        cursor.execute(query)
+
+        if len(cursor.fetchall()) > 0:
+
+            query = f"""UPDATE configurazioni
+                        SET
+                            min_alunni = {rangeslider_down},
+                            max_alunni = {rangeslider_up},
+                            numero_femmine = {numfemales},
+                            numero_maschi = {nummales},
+                            max_per_cap = {numcap},
+                            max_per_naz = {nummaxforeachnaz},
+                            max_naz = {numnaz},
+                            num_170 = {num170}
+                        WHERE nome = '{configname}';"""
+
+            cursor.execute(query)
+
+            connection.commit()
+
+            return json.dumps(
+                {
+                    "status" : "Update Query Executed",
+                    "querystatus" : "good"
+                }
+            )
+        
+        else:
+            query = f"""INSERT INTO configurazioni VALUES (
+                            NULL,
+                            '{configname}',
+                            {rangeslider_down},
+                            {rangeslider_up},
+                            {numfemales},
+                            {nummales},
+                            {numcap},
+                            {nummaxforeachnaz},
+                            {numnaz},
+                            {num170}
+                        );"""
+            
+            cursor.execute(query)
+
+            connection.commit()
+
+            return json.dumps(
+                {
+                    "status" : "Insert Query Executed",
+                    "querystatus" : "good"
+                }
+            )
+
+    else:
+        return json.dumps(
+            {
+                "status" : "No Database Connection",
+                "querystatus" : "bad"
+            }
+        )
+
+
 def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
     connection = mysql.connector.connect(
                     user=DBConfig.user,

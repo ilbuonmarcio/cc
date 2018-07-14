@@ -151,7 +151,7 @@ class ConfigureCCPanel extends Panel {
       return;
     }
 
-    $.post('routines/createconfig.php', data, this.callbackOnSubmit);
+    $.post('http://127.0.0.1:5000/routine_createconfig', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
@@ -178,6 +178,13 @@ class ConfigureCCPanel extends Panel {
         html: 'Errore di query del database!',
         classes: 'rounded'
       });
+
+      M.toast({
+        html: 'query: ' + response.executedquery,
+        classes: 'rounded'
+      });
+
+      console.log(response.executedquery);
     }
   }
 
