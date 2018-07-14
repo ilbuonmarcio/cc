@@ -182,7 +182,7 @@ class ConfigureCCPanel extends Panel {
   }
 
   static selectReload(){
-    $.post("components/configname_select.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_configname_select", function(data){
       document.querySelector('#configureccload-configname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#configureccload-configname')).destroy();
       M.FormSelect.init(document.querySelector('#configureccload-configname'));

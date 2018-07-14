@@ -54,6 +54,35 @@ def refresh_configid_select():
 
     return str_response
 
+@app.route('/refresh_configname_select', methods=['GET'])
+def refresh_configname_select():
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = "SELECT id, nome FROM configurazioni;"
+
+    cursor.execute(query)
+
+    confignames = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    if len(confignames) > 0:
+        str_response = ""
+        for row in confignames:
+            str_response += '<option value="' + str(row[0]) + '">' + row[1] + '</option>'
+    else:
+        str_response = '<option value="0" disabled>Impossibile connettersi al database.</option>'
+    
+    return str_response
+
 @app.route('/refresh_groupid_select', methods=['GET'])
 def refresh_groupid_select():
     connection = mysql.connector.connect(
