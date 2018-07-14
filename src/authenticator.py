@@ -1,9 +1,11 @@
 import mysql.connector
 from algorithm.components.DBConfig import DBConfig
 import hashlib
+from random import choice
+from string import hexdigits
 
 
-default_smasher = hashlib.sha3_256()
+default_smasher = hashlib.sha256()
 
 
 def get_digest(password, salt):
@@ -36,9 +38,6 @@ def get_hashed_password_and_salt_by_username(username):
 
 
 def generate_hashed_password_and_salt_by_password(password):
-    from random import choice
-    from string import hexdigits
-
     random_salt = (''.join(choice(hexdigits) for _ in range(32)))
     hashed_password = get_digest(password, random_salt).hex()
 
@@ -57,9 +56,9 @@ if __name__ == "__main__":
     right_password = "123"
     wrong_password = "aaa"
 
+    # print(generate_hashed_password_and_salt_by_password(right_password))
+    
     print(authenticate_user('root', right_password))
     print(authenticate_user('root', wrong_password))
-
-    print(generate_hashed_password_and_salt_by_password(right_password))
 
 

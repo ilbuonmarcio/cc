@@ -77,7 +77,7 @@ INSERT INTO utenti (
   hashed_password,
   salt,
   diritti
-) VALUES (1, 'root', '1fc3e9ca719a6bab55da2d84e1e2c6246b3e6972e570b17f5de227f84693fc62', '123740234b2f923gf9223gru23rf', 0);
+) VALUES (1, 'root', '3631b5650abe0943a1690c4a99192859245ee01ebae60a89f872d7a5dea55066', '4BfdD94b0b4BA9448bEB3cbab2a8AbBF', 0);
 
 INSERT INTO `configurazioni` (
   `id`,

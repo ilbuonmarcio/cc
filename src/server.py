@@ -609,6 +609,7 @@ def authenticate():
 
     try:
         user_authenticated = authenticator.authenticate_user(username, password)
+        print(f"User {username} authenticated: {user_authenticated}")
     except Exception as e:
         return redirect(f'http://{server_ip}:{server_port}/')
 
