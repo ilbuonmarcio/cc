@@ -6,8 +6,7 @@ class VisualizeCCPanel extends Panel {
   static tableReload(){
     $.get("http://localhost:5000/refresh_visualizecc_table", function(data){
       document.querySelector('#visualizecc-table').innerHTML = data;
-      M.FormSelect.getInstance(document.querySelector('#visualizecc-table')).destroy();
-      M.FormSelect.init(document.querySelector('#visualizecc-table'));
+      M.FormSelect.getInstance(document.querySelector('#visualizecc-table'));
     });
   }
 

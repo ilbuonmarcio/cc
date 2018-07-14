@@ -140,6 +140,7 @@ def refresh_groupname_select():
 
     return str_response
 
+
 @app.route('/refresh_managegroups_table', methods=['GET'])
 def refresh_managegroups_table():
     connection = mysql.connector.connect(
@@ -190,6 +191,7 @@ def refresh_managegroups_table():
     str_response += "</tbody></table>"
 
     return str_response
+
 
 @app.route('/refresh_visualizecc_table', methods=['GET'])
 def refresh_visualizecc_table():
