@@ -120,7 +120,7 @@ class ManageGroupsPanel extends Panel {
   }
 
   static selectReload(){
-    $.post("components/groupname_select.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_groupname_select", function(data){
       document.querySelector('#managegroupsdelete-groupname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#managegroupsdelete-groupname')).destroy();
       M.FormSelect.init(document.querySelector('#managegroupsdelete-groupname'));

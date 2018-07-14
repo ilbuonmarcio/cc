@@ -110,6 +110,36 @@ def refresh_groupid_select():
 
     return str_response
 
+@app.route('/refresh_groupname_select', methods=['GET'])
+def refresh_groupname_select():
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = "SELECT id, nome, tipo FROM gruppi;"
+
+    cursor.execute(query)
+
+    groups = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    if len(groups) > 0:
+        str_response = ""
+        for group in groups:
+            group_type = " - Classi Terze" if group[2] == 3 else " - Classi Prime"
+            str_response += '<option value="' + str(group[0]) + '">' + group[1] + group_type + '</option>'
+    else:
+        str_response = '<option value="0" disabled>Impossibile connettersi al database.</option>'
+
+    return str_response
+
 @app.route('/refresh_visualizecc_table', methods=['GET'])
 def refresh_visualizecc_table():
     connection = mysql.connector.connect(
