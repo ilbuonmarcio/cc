@@ -68,7 +68,7 @@ class CreateUserPanel extends Panel {
   }
 
   static tableReload(){
-    $.post("components/usertableview.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_users_table", function(data){
       document.querySelector('#createuser-table').innerHTML = data;
     });
   }

@@ -141,6 +141,54 @@ def refresh_groupname_select():
     return str_response
 
 
+@app.route('/refresh_users_table', methods=['GET'])
+def refresh_users_table():
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = "SELECT id, username, diritti FROM utenti;"
+
+    cursor.execute(query)
+
+    rows = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    str_response = '''<table style="box-shadow: 1px 1px 10px #BBBBBB;" class="striped centered">
+         <thead>
+           <tr>
+               <th>ID</th>
+               <th>Username</th>
+               <th>Tipologia</th>
+           </tr>
+         </thead>
+
+         <tbody>'''
+    
+    for row in rows:
+        user_type = "Amministratore" if row[2] == 0 else str("Editor" if row[2] == 1 else "Visualizzatore")
+
+        str_response += "<tr>"
+
+        str_response += "<td>" + str(row[0]) + "</td>"
+        str_response += "<td>" + str(row[1]) + "</td>"
+        str_response += "<td>" + user_type + "</td>"
+
+        str_response += "</tr>"
+
+
+    str_response += "</tbody></table>"
+
+    return str_response
+
+
 @app.route('/refresh_managegroups_table', methods=['GET'])
 def refresh_managegroups_table():
     connection = mysql.connector.connect(
