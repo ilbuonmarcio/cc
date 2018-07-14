@@ -2,6 +2,7 @@ import CC
 from flask import Flask, request, Response
 import json
 import mysql.connector
+import authenticator
 from flask_cors import CORS
 from multiprocessing.pool import ThreadPool
 from components.DBConfig import DBConfig
@@ -561,7 +562,9 @@ def routine_createuser():
 
         else:
 
-            query = f"INSERT INTO utenti (id, username, password, diritti) VALUES (NULL, '{username}', '{password}', {priviledges});"
+            hashed_password, salt = authenticator.generate_hashed_password_and_salt_by_password(password)
+
+            query = f"INSERT INTO utenti (id, username, hashed_password, salt, diritti) VALUES (NULL, '{username}', '{hashed_password}', '{salt}', {priviledges});"
 
             try:
 
