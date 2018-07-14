@@ -456,12 +456,65 @@ def routine_creategroup():
             )
 
         except mysql.connector.errors.IntegrityError:
-            
+
             return json.dumps(
                 {
                     "status" : "Insert Query Executed",
                     "querystatus" : "bad",
                     "executedquery" : query
+                }
+            )
+
+    else:
+        return json.dumps(
+            {
+                "status" : "No Database Connection",
+                "querystatus" : "bad"
+            }
+        )
+
+
+@app.route('/routine_deletegroup', methods=['POST'])
+def routine_deletegroup():
+    post_data = request.form
+    
+    groupid = post_data["groupname"]
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        removeAlumniQuery = f"DELETE FROM alunni WHERE alunni.id_gruppo = {groupid};"
+        removeGroupQuery = f"DELETE FROM gruppi WHERE gruppi.id = {groupid};"
+        removeCCQuery = f"DELETE FROM classi_composte WHERE groupid = {groupid};"
+
+        try:
+            cursor.execute(removeAlumniQuery)
+            cursor.execute(removeGroupQuery)
+            cursor.execute(removeCCQuery)
+
+            connection.commit()
+
+            return json.dumps(
+                {
+                    "status" : "Insert Query Executed",
+                    "querystatus" : "good"
+                }
+            )
+
+        except mysql.connector.errors.IntegrityError:
+            
+            return json.dumps(
+                {
+                    "status" : "Insert Query Executed",
+                    "querystatus" : "bad",
+                    "executedquery" : removeAlumniQuery + " " + removeGroupQuery + " " + removeCCQuery
                 }
             )
 

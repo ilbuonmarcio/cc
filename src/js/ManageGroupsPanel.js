@@ -54,7 +54,7 @@ class ManageGroupsPanel extends Panel {
   submitDelete(){
     var data = this.loadFieldsDeleteData();
 
-    $.post('routines/deletegroup.php', data, this.callbackOnDeleteSubmit);
+    $.post('http://127.0.0.1:5000/routine_deletegroup', data, this.callbackOnDeleteSubmit);
   }
 
   callbackOnCreateSubmit(data){
