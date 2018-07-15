@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS composizioneclassi;
 
-CREATE DATABASE composizioneclassi DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;
+CREATE DATABASE composizioneclassi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE composizioneclassi;
 

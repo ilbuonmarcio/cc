@@ -5,14 +5,9 @@ from random import choice
 from string import hexdigits
 
 
-default_smasher = hashlib.sha256()
-
-
 def get_digest(password, salt):
-    smasher = default_smasher
-    smasher.update(bytes(password.encode('UTF-8')))
-    smasher.update(bytes(salt.encode('UTF-8')))
-    digest = smasher.digest()
+    full_password = password + salt
+    digest = hashlib.sha256(full_password.encode()).hexdigest()
     return digest
 
 
@@ -39,14 +34,14 @@ def get_hashed_password_and_salt_by_username(username):
 
 def generate_hashed_password_and_salt_by_password(password):
     random_salt = (''.join(choice(hexdigits) for _ in range(32)))
-    hashed_password = get_digest(password, random_salt).hex()
+    hashed_password = get_digest(password, random_salt)
 
     return hashed_password, random_salt
 
 
 def authenticate_user(username, password):
     hashed_password, salt = get_hashed_password_and_salt_by_username(username)
-    calculated_hashed_password = get_digest(password, salt).hex()
+    calculated_hashed_password = get_digest(password, salt)
 
     return hashed_password == calculated_hashed_password
 
@@ -57,8 +52,7 @@ if __name__ == "__main__":
     wrong_password = "aaa"
 
     # print(generate_hashed_password_and_salt_by_password(right_password))
-    
+
     print(authenticate_user('root', right_password))
     print(authenticate_user('root', wrong_password))
-
-
+    # print(authenticate_user('root', wrong_password))

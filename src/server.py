@@ -83,7 +83,7 @@ def refresh_configname_select():
             str_response += '<option value="' + str(row[0]) + '">' + row[1] + '</option>'
     else:
         str_response = '<option value="0" disabled>Impossibile connettersi al database.</option>'
-    
+
     return str_response
 
 @app.route('/refresh_groupid_select', methods=['GET'])
@@ -174,7 +174,7 @@ def refresh_users_table():
          </thead>
 
          <tbody>'''
-    
+
     for row in rows:
         user_type = "Amministratore" if row[2] == 0 else str("Editor" if row[2] == 1 else "Visualizzatore")
 
@@ -335,7 +335,7 @@ def export_generatedcc_to_csv():
 @app.route('/routine_createconfig', methods=['POST'])
 def routine_createconfig():
     post_data = request.form
-    
+
     configname = post_data["configname"]
     rangeslider_down = post_data["rangeslider_down"]
     rangeslider_up = post_data["rangeslider_up"]
@@ -391,7 +391,7 @@ def routine_createconfig():
                     "querystatus" : "good"
                 }
             )
-        
+
         else:
             query = f"""INSERT INTO configurazioni VALUES (
                             NULL,
@@ -405,7 +405,7 @@ def routine_createconfig():
                             {numnaz},
                             {num170}
                         );"""
-            
+
             cursor.execute(query)
 
             connection.commit()
@@ -429,7 +429,7 @@ def routine_createconfig():
 @app.route('/routine_creategroup', methods=['POST'])
 def routine_creategroup():
     post_data = request.form
-    
+
     groupname = post_data["groupname"]
     groupdesc = post_data["groupdesc"]
     grouptype = post_data["grouptype"]
@@ -480,7 +480,7 @@ def routine_creategroup():
 @app.route('/routine_deletegroup', methods=['POST'])
 def routine_deletegroup():
     post_data = request.form
-    
+
     groupid = post_data["groupname"]
 
     connection = mysql.connector.connect(
@@ -512,7 +512,7 @@ def routine_deletegroup():
             )
 
         except mysql.connector.errors.IntegrityError:
-            
+
             return json.dumps(
                 {
                     "status" : "Insert Query Executed",
@@ -533,7 +533,7 @@ def routine_deletegroup():
 @app.route('/routine_createuser', methods=['POST'])
 def routine_createuser():
     post_data = request.form
-    
+
     username = post_data["username"]
     password = post_data["password"]
     priviledges = post_data["priviledges"]
@@ -582,7 +582,7 @@ def routine_createuser():
                 )
 
             except mysql.connector.errors.IntegrityError:
-                
+
                 return json.dumps(
                     {
                         "status" : "Insert Query Executed",
@@ -603,7 +603,7 @@ def routine_createuser():
 @app.route('/authenticate', methods=["POST"])
 def authenticate():
     post_data = request.form
-    
+
     username = post_data["username"]
     password = post_data["password"]
 
