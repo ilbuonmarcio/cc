@@ -241,7 +241,7 @@ def refresh_managegroups_table():
         str_response += "<td>" + group_type + "</td>"
         str_response += "<td>" + str(row[4]) + "</td>"
 
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}">Visualizza</a></td>'
+        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}&groupname={row[1]}">Visualizza</a></td>'
 
         str_response += "</tr>"
 
@@ -249,6 +249,96 @@ def refresh_managegroups_table():
     str_response += "</tbody></table>"
 
     return str_response
+
+
+@app.route('/groupviewer', methods=['GET'])
+def groupviewer():
+    groupid = request.args.get('groupid')
+    groupname = request.args.get('groupname')
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        query = f"SELECT * FROM alunni WHERE id_gruppo = {groupid} ORDER BY sesso;"
+
+        cursor.execute(query)
+
+        rows = cursor.fetchall()
+
+        group_table = '''<table class="striped centered box-shadow">
+      						<thead>
+      						  <tr>
+      							  <th>Cognome</th>
+      							  <th>Nome</th>
+      							  <th>Matricola</th>
+      							  <th>Codice Fiscale</th>
+      							  <th>Desiderata</th>
+      							  <th>Sesso</th>
+      							  <th>Data di nascita</th>
+      							  <th>Cap</th>
+      							  <th>Nazionalita</th>
+      							  <th>Legge 170</th>
+      							  <th>Legge 104</th>
+      							  <th>Classe precedente</th>
+      							  <th>Classe sucessiva</th>
+      							  <th>Scelta indirizzo</th>
+      							  <th>Codice catastale</th>
+      							  <th>Voto</th>
+      							  <th>Id gruppo</th>
+      						  </tr>
+      						</thead>
+      					<tbody>'''
+
+        if len(rows) > 0:
+
+            for row in rows:
+                if row[6] == "m" or row[6] == "M":
+                    group_table += '<tr style="background-color: #99ffff;">'
+                else:
+                    group_table += '<tr style="background-color: #ff9999;">'
+
+                group_table += f'''
+                                        <td>{row[1]}</td>
+                                        <td>{row[2]}</td>
+                                        <td>{row[3]}</td>
+                                        <td>{row[4]}</td>
+                                        <td>{row[5]}</td>
+                                        <td>{row[6]}</td>
+                                        <td>{row[7]}</td>
+                                        <td>{row[8]}</td>
+                                        <td>{row[9]}</td>
+                                        <td>{row[10]}</td>
+                                        <td>{row[11]}</td>
+                                        <td>{row[12]}</td>
+                                        <td>{row[13]}</td>
+                                        <td>{row[14]}</td>
+                                        <td>{row[15]}</td>
+                                        <td>{row[16]}</td>
+                                        <td>{row[17]}</td>
+                                    </tr>'''
+
+            group_table += f'''</tbody>
+                                </table>
+
+
+                                <div id="group-label">
+                                    <p id="label">{groupname}</p>
+                                </div>'''
+
+        else:
+            group_table = '<h2 style="color: red;" class="center-align">Tabella vuota!</h2>'
+    
+    else:
+        group_table = '<h2 style="color: red;" class="center-align">Tabella non disponibile! Errore di connessione al database.</h2>'
+
+    return render_template('viewer.html', group_table=group_table)
 
 
 @app.route('/refresh_visualizecc_table', methods=['GET'])
