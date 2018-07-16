@@ -639,7 +639,9 @@ def logout():
 
 @app.route('/index')
 def index():
-    if not session['authenticated'] or 'authenticated' not in session:
+    if 'authenticated' not in session:
+        return redirect(f'http://{server_ip}:{server_port}/')
+    elif not session['authenticated']:
         return redirect(f'http://{server_ip}:{server_port}/')
     return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
 
