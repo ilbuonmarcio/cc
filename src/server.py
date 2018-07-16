@@ -921,7 +921,12 @@ def send_css(path):
     return send_from_directory('css', path)
 
 
-def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
+@app.route('/get_charts_data', methods=["GET"])
+def get_charts_data():
+
+    groupid = request.args.get('groupid')
+    configid = request.args.get('configid')
+    
     connection = mysql.connector.connect(
                     user=DBConfig.user,
                     password=DBConfig.password,
