@@ -241,7 +241,7 @@ def refresh_managegroups_table():
         str_response += "<td>" + group_type + "</td>"
         str_response += "<td>" + str(row[4]) + "</td>"
 
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}&groupname={row[1]}">Visualizza</a></td>'
+        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}&groupname={row[1]}" target="_blank">Visualizza</a></td>'
 
         str_response += "</tr>"
 
