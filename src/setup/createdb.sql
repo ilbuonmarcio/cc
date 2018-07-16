@@ -1,13 +1,14 @@
 DROP DATABASE IF EXISTS composizioneclassi;
 
-CREATE DATABASE composizioneclassi DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_unicode_ci;
+CREATE DATABASE composizioneclassi CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 USE composizioneclassi;
 
 CREATE TABLE utenti(
   id INT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(64) NOT NULL,
-  password CHAR(255) NOT NULL,
+  hashed_password CHAR(64) NOT NULL,
+  salt CHAR(32) NOT NULL,
   diritti INT(1) NOT NULL
 );
 
@@ -73,9 +74,10 @@ CREATE TABLE configurazioni(
 INSERT INTO utenti (
   id,
   username,
-  password,
+  hashed_password,
+  salt,
   diritti
-) VALUES (1, 'root', '$2y$10$Zl0xCv5YSf/6HFF53VxJlORx5APtdmAZBJTdy3ciAnwF68AdKabtG', 0);
+) VALUES (1, 'root', '3631b5650abe0943a1690c4a99192859245ee01ebae60a89f872d7a5dea55066', '4BfdD94b0b4BA9448bEB3cbab2a8AbBF', 0);
 
 INSERT INTO `configurazioni` (
   `id`,

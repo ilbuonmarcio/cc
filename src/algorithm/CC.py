@@ -5,10 +5,10 @@ import mysql.connector
 import copy
 import json
 
-from components.DBConfig import DBConfig
-from components.Configuration import Configuration
-from components.StudentsManager import StudentsManager
-from components.ContainersManager import ContainersManager
+from .components.DBConfig import DBConfig
+from .components.Configuration import Configuration
+from .components.StudentsManager import StudentsManager
+from .components.ContainersManager import ContainersManager
 
 
 class CC:

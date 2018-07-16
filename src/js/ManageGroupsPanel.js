@@ -48,13 +48,13 @@ class ManageGroupsPanel extends Panel {
       return;
     }
 
-    $.post('routines/creategroup.php', data, this.callbackOnCreateSubmit);
+    $.post('http://127.0.0.1:5000/routine_creategroup', data, this.callbackOnCreateSubmit);
   }
 
   submitDelete(){
     var data = this.loadFieldsDeleteData();
 
-    $.post('routines/deletegroup.php', data, this.callbackOnDeleteSubmit);
+    $.post('http://127.0.0.1:5000/routine_deletegroup', data, this.callbackOnDeleteSubmit);
   }
 
   callbackOnCreateSubmit(data){
@@ -114,13 +114,13 @@ class ManageGroupsPanel extends Panel {
   }
 
   static tableReload(){
-    $.post("components/grouptableview.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_managegroups_table", function(data){
       document.querySelector('#managegroups-table').innerHTML = data;
     });
   }
 
   static selectReload(){
-    $.post("components/groupname_select.php", { ajaxrefreshrequest : true }, function(data){
+    $.get("http://127.0.0.1:5000/refresh_groupname_select", function(data){
       document.querySelector('#managegroupsdelete-groupname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#managegroupsdelete-groupname')).destroy();
       M.FormSelect.init(document.querySelector('#managegroupsdelete-groupname'));

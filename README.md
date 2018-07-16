@@ -21,10 +21,9 @@ It's an evolution of [marconicc](https://github.com/marconivr/marconicc), provid
 - jQuery
 - CSS3
 - materializecss
-- PHP7
 - MySQL
-- Python3.5+
-- [sanic](https://github.com/channelcat/sanic), an asynchronous Python library
+- Python3.6+
+- Flask
 
 ### License
 
