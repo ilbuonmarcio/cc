@@ -530,6 +530,67 @@ def routine_deletegroup():
         )
 
 
+@app.route('/routine_loadconfig', methods=['POST'])
+def routine_loadconfig():
+    post_data = request.form
+
+    configid = post_data["configid"]
+
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    if connection:
+
+        cursor = connection.cursor()
+
+        query = f"SELECT * FROM configurazioni WHERE id = '{configid}';"
+
+        cursor.execute(query)
+
+        try:
+            row = cursor.fetchall()[0]
+
+            return json.dumps(
+                {
+                    "status" : 'Query Executed',
+                    "querystatus" : 'good',
+                    "values" : {
+                        "configid" : row[0],
+                        "configname" : row[1],
+                        "min_alunni" : row[2],
+                        "max_alunni" : row[3],
+                        "numero_femmine" : row[4] if row[4] != None else "",
+                        "numero_maschi" : row[5] if row[5] != None else "",
+                        "max_per_cap" : row[6],
+                        "max_per_naz" : row[7],
+                        "max_naz" : row[8],
+                        "num_170" : row[9]
+                    }
+                }
+            )
+
+        except:
+            return json.dumps(
+                {
+                    "status" : "Query Executed",
+                    "querystatus" : "bad",
+                    "executedquery" : query
+                }
+            )
+
+    else:
+        return json.dumps(
+            {
+                "status" : "No Database Connection",
+                "querystatus" : "bad"
+            }
+        )
+
+
+
 @app.route('/routine_createuser', methods=['POST'])
 def routine_createuser():
     post_data = request.form

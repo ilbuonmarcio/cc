@@ -53,7 +53,7 @@ class ConfigureCCPanel extends Panel {
       classes: 'rounded'
     })
 
-    $.post('routines/loadconfig.php', data, this.fillFieldsDataFromDBCallback);
+    $.post('http://127.0.0.1:5000/routine_loadconfig', data, this.fillFieldsDataFromDBCallback);
   }
 
   fillFieldsDataFromDBCallback(data){
