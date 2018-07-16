@@ -7,11 +7,18 @@ from flask_cors import CORS
 from multiprocessing.pool import ThreadPool
 from algorithm.components.DBConfig import DBConfig
 import os
+from werkzeug.utils import secure_filename
+import csv
+import io
 
 server_ip = "127.0.0.1"
 server_port = "5000"
 
+UPLOAD_FOLDER = './uploads'
+ALLOWED_EXTENSIONS = set(['csv'])
+
 app = Flask(__name__, template_folder="")
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.urandom(24)
 CORS(app)
 
@@ -529,6 +536,105 @@ def routine_deletegroup():
             }
         )
 
+    
+
+
+@app.route('/routine_uploadcsv', methods=['POST'])
+def routine_uploadcsv():
+    if request.method == 'POST':
+
+        post_data = request.form
+
+        groupname = post_data["groupname"]
+
+        if 'filepath' not in request.files:
+            return json.dumps(
+                {
+                    "status" : "No File in POST request",
+                    "querystatus" : "bad"
+                }
+            )
+
+        csv_file = request.files['filepath']
+
+        if csv_file.filename == '':
+            return json.dumps(
+                {
+                    "status" : "File with no name uploaded",
+                    "querystatus" : "bad"
+                }
+            )
+        if csv_file and allowed_file(csv_file.filename):
+
+            stream = io.StringIO(csv_file.stream.read().decode("UTF8"), newline=None)
+            csv_file = csv.reader(stream)
+
+            connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+            right, wrong = 0, 0
+
+            if connection:
+
+                cursor = connection.cursor()
+
+                stringarraypositions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14]
+
+                for row in csv_file:
+
+                    query = "INSERT INTO alunni VALUES"
+                    query += "(NULL, "
+
+                    for i in range(0, len(row)):
+                        if row[i] == "":
+                            query += "NULL, "
+                            continue
+                        
+                        if i in stringarraypositions:
+                            query += "'" + row[i] + "', "
+                        else:
+                            query += row[i] + ", "
+
+                    query += groupname + ");"
+
+                    try:
+                        cursor.execute(query)
+                        connection.commit()
+
+                        right += 1
+                    except:
+                        wrong += 1
+
+                query = "UPDATE alunni SET sesso = LOWER(sesso);"
+
+                cursor.execute(query)
+                connection.commit()
+
+                return json.dumps(
+                    {
+                        "status" : "Query Executed!",
+                        "querystatus" : "good",
+                        "right" : right,
+                        "wrong" : wrong
+                    }
+                )
+
+            else: 
+                return json.dumps(
+                    {
+                        "status" : "No Database Connection",
+                        "querystatus" : "bad",
+                        "right" : right,
+                        "wrong" : wrong
+                    }
+                )
+
+
+
+
 
 @app.route('/routine_loadconfig', methods=['POST'])
 def routine_loadconfig():
@@ -744,3 +850,8 @@ def get_chart_data_orderby_classid_matricola_voto(groupid, configid):
         output_dict[str(current_index)][student[1]] = student[2]
 
     return json.dumps(output_dict)
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
