@@ -341,6 +341,16 @@ def groupviewer():
     return render_template('viewer.html', group_table=group_table)
 
 
+@app.route('/infographics')
+def infographics():
+    return json.dumps(
+        {
+            'you are' : 'really dumb!',
+            'magic_number' : 42
+        }
+    )
+
+
 @app.route('/refresh_visualizecc_table', methods=['GET'])
 def refresh_visualizecc_table():
     connection = mysql.connector.connect(
@@ -380,7 +390,7 @@ def refresh_visualizecc_table():
         str_response += "<td>" + str(generation[1]) + "</td>"
         str_response += "<td>" + str(generation[2]) + "</td>"
 
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/infographics.html?groupid={generation[3]}&configid={generation[4]}" target="_blank">Visualizza</a></td>'
+        str_response += f'<td><a href="http://{server_ip}:{server_port}/infographics?groupid={generation[3]}&configid={generation[4]}" target="_blank">Visualizza</a></td>'
         str_response += f'<td><a href="http://{server_ip}:{server_port}/export_generatedcc_to_csv?groupid={generation[3]}&configid={generation[4]}">Esporta</a></td>'
 
         str_response += "</tr>"
