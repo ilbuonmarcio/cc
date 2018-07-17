@@ -7,21 +7,75 @@ for(let i = 0; i < 100; i++){
   color_palette[i] = generateRandomColor();
 }
 
-var class_chart_canvases = Array(5);
-for(let i = 0; i < 6; i++){
-  class_chart_canvases[i] = document.getElementById('class-chart-' + String(i+1)).getContext('2d');
+
+
+$.ajaxSetup({
+   async: false
+});
+
+var studentId = null;
+$.getJSON("http://127.0.0.1:5000/get_charts_data?groupid=1&configid=1", function(result){
+    studentId = result;
+});
+
+$.ajaxSetup({
+   async: true
+});
+
+function getValues(json_data){
+	var class_array = [];
+	var serials_array = [];
+	var marks_array = [];
+	
+	$.each(json_data, function(class_id, value){
+		//console.log(class_id);
+		var serial_array = [];
+		var mark_array = [];
+			
+		class_array.push(class_id);
+			
+		$.each(value, function(serial, mark){
+			//console.log(serial, mark);
+			serial_array.push(serial);
+			mark_array.push(mark);
+		});
+		serials_array.push(serial_array);
+		marks_array.push(mark_array);
+		//console.log(serials_array);
+	});
+	var all_array = [];
+	all_array.push(class_array, serials_array, marks_array);
+	return all_array;
 }
 
-var data = {
-  labels: ["17219", "17130", "17111", "1", "2", "3", "4", "5", "2", "4"],
-  datasets: [
-    {
-      label: 'Voto Uscita Scuole Medie',
-      data: [8.4, 8.7, 8.1, 9.3, 6.6, 7.3, 6.8, 6.1, 6.7, 8.8],
-      backgroundColor: color_palette
-    }
-  ]
-};
+var json_data = getValues(studentId);
+
+
+
+
+var class_chart_canvases = Array(json_data[0].length);
+for(let i = 0; i < json_data[0].length; i++){
+	class_chart_canvases[i] = document.getElementById('class-chart-' + String(i+1)).getContext('2d');
+}
+
+var data_array = Array(json_data[0].length);
+for(let i = 0; i < json_data[0].length; i++){
+	//console.log(json_data[1][i]);
+	var data = {
+	  labels: json_data[1][i], // ["17219", "17130"],
+	  datasets: [
+		{
+		  label: "Classe " + (i + 1), // 'Voto Uscita Scuole Medie',
+		  data: json_data[2][i], // [8.4, 8.7],
+		  backgroundColor: color_palette
+		}
+	  ]
+	};
+	data_array.push(data);
+}
+
+//console.log(data_array[14]);
+
 
 var options = {
   scales: {
@@ -36,11 +90,11 @@ var options = {
     }
 };
 
-var classes_charts = Array(5);
-for(let i = 0; i < 6; i++){
-  classes_charts[i] = new Chart(class_chart_canvases[i], {
-      type: 'bar',
-      data: data,
-      options: options
-  });
+var classes_charts = Array(json_data[0].length);
+for(let i = 0; i < json_data[0].length; i++){
+	classes_charts[i] = new Chart(class_chart_canvases[i], {
+        type: 'bar',
+        data: data_array[14 + i],
+        options: options
+    });
 };
