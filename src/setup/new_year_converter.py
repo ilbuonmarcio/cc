@@ -30,7 +30,7 @@ with open("spaggiari_output_elab.csv", 'w') as output_file:
             'NULL',
             random.randint(1, 5),
             'NULL',
-            random.randint(6, 10)
+            line[76] if line[76] in ["6", "7", "8", "9", "10"] else "6"
         ]
         print(i, record, end="\n\n")
         if i == 1:
