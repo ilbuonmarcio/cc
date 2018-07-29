@@ -343,12 +343,7 @@ def groupviewer():
 
 @app.route('/infographics')
 def infographics():
-    return json.dumps(
-        {
-            'you are' : 'really dumb!',
-            'magic_number' : 42
-        }
-    )
+    return render_template('infographics.html')
 
 
 @app.route('/refresh_visualizecc_table', methods=['GET'])
@@ -675,7 +670,7 @@ def routine_uploadcsv():
                     host=DBConfig.host,
                     database=DBConfig.database)
 
-            right, wrong = 0, 0
+            right, wrong = 0, {}
 
             if connection:
 
@@ -683,7 +678,9 @@ def routine_uploadcsv():
 
                 stringarraypositions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 13, 14]
 
+                index = 0
                 for row in csv_file:
+                    index += 1
 
                     query = "INSERT INTO alunni VALUES"
                     query += "(NULL, "
@@ -706,7 +703,7 @@ def routine_uploadcsv():
 
                         right += 1
                     except:
-                        wrong += 1
+                        wrong[str(index)] = f"Error on line {index}!"
 
                 query = "UPDATE alunni SET sesso = LOWER(sesso);"
 
@@ -718,7 +715,7 @@ def routine_uploadcsv():
                         "status" : "Query Executed!",
                         "querystatus" : "good",
                         "right" : right,
-                        "wrong" : wrong
+                        "wrong" : json.dumps(wrong)
                     }
                 )
 
@@ -728,7 +725,7 @@ def routine_uploadcsv():
                         "status" : "No Database Connection",
                         "querystatus" : "bad",
                         "right" : right,
-                        "wrong" : wrong
+                        "wrong" : json.dumps(wrong)
                     }
                 )
 

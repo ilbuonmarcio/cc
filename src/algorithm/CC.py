@@ -268,7 +268,7 @@ class CC:
 
         for container in self.containers_manager.containers:
             container_ids = container.get_students_id()
-            print(f'Inserting container {container.containerid} with ids {container_ids}')
+            # print(f'Inserting container {container.containerid} with ids {container_ids}')
             for student_id in container_ids:
                 query = f"INSERT INTO classi_composte (`groupid`, `configid`, `studentid`, `classid`) VALUES ({self.group_id}, {self.config_id}, {student_id}, {container.containerid})"
                 cursor.execute(query)
