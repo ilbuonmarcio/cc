@@ -487,6 +487,15 @@ def routine_createconfig():
 
             connection.commit()
 
+            query = f"""DELETE FROM classi_composte
+                        WHERE configid = (
+                            SELECT id FROM configurazioni WHERE nome = "{configname}"
+                        );"""
+
+            cursor.execute(query)
+
+            connection.commit()
+
             return json.dumps(
                 {
                     "status" : "Update Query Executed",
@@ -944,7 +953,7 @@ def get_charts_data():
 
     output_dict = {"1" : {}}
     current_index = 1
-    
+
     for student in students:
         if student[0] != current_index:
             current_index += 1
