@@ -66,15 +66,46 @@ for(let i = 0; i < json_data[0].length; i++){
 	class_chart_canvases[i] = document.getElementById('class-chart-' + String(i+1)).getContext('2d');
 }
 
+function orderStudentsByMark(students, marks){
+	var studentsByMarks = {
+		"6" : [],
+		"7" : [],
+		"8" : [],
+		"9" : [],
+		"10" : []
+	};
+
+	for(var i = 0; i < students.length; i++) {
+		studentsByMarks[String(marks[i])].push(students[i]);
+	}
+
+	var resultObject = {
+		"students" : [],
+		"marks" : []
+	}
+
+	for(var i = 6; i <= 10; i++) {
+		studentsByMarks[String(i)].forEach(studentid => {
+			resultObject["students"].push(studentid);
+			resultObject["marks"].push(i);
+		});
+	}
+
+	return resultObject;
+}
+
 var data_array = Array(json_data[0].length);
 for(let i = 0; i < json_data[0].length; i++){
-	//console.log(json_data[1][i]);
+	var orderedData = orderStudentsByMark(json_data[1][i], json_data[2][i]);
+	var studentIDs = orderedData["students"];
+	var studentMarks = orderedData["marks"];
+
 	var data = {
-	  labels: json_data[1][i], // ["17219", "17130"],
+	  labels: studentIDs, // ["17219", "17130"],
 	  datasets: [
 		{
 		  label: "Classe " + (i + 1), // 'Voto Uscita Scuole Medie',
-		  data: json_data[2][i], // [8.4, 8.7],
+		  data: studentMarks, // [8.4, 8.7],
 		  backgroundColor: color_palette
 		}
 	  ]
