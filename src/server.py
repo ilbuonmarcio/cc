@@ -356,7 +356,7 @@ def refresh_visualizecc_table():
 
     cursor = connection.cursor()
 
-    query = "SELECT gruppi.nome, configurazioni.nome, COUNT(*), groupid, configid FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id"
+    query = "SELECT gruppi.nome, configurazioni.nome, COUNT(*), groupid, configid FROM classi_composte LEFT JOIN gruppi ON classi_composte.groupid = gruppi.id LEFT JOIN configurazioni ON classi_composte.configid = configurazioni.id GROUP BY gruppi.id, configurazioni.id"
 
     cursor.execute(query)
 
