@@ -7,14 +7,22 @@ for(let i = 0; i < 100; i++){
   color_palette[i] = generateRandomColor();
 }
 
-
+function getParamFromURL(name) {
+    return (location.search.split(name + '=')[1] || '').split('&')[0];
+}
 
 $.ajaxSetup({
    async: false
 });
 
 var studentId = null;
-$.getJSON("http://127.0.0.1:5000/get_charts_data?groupid=1&configid=1", function(result){
+$.getJSON(
+	"http://127.0.0.1:5000/get_charts_data?groupid=" 
+	+ getParamFromURL('groupid') 
+	+ "&configid="
+	+ getParamFromURL('configid'), 
+	
+	function(result){
     studentId = result;
 });
 
