@@ -133,7 +133,7 @@ var classes_charts = Array(json_data[0].length);
 for(let i = 0; i < json_data[0].length; i++){
 	classes_charts[i] = new Chart(class_chart_canvases[i], {
         type: 'bar',
-        data: data_array[14 + i],
+        data: data_array[json_data[0].length + i],
         options: options
     });
 };
