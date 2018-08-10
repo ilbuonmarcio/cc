@@ -11,25 +11,6 @@ function getParamFromURL(name) {
     return (location.search.split(name + '=')[1] || '').split('&')[0];
 }
 
-$.ajaxSetup({
-   async: false
-});
-
-var studentId = null;
-$.getJSON(
-	"http://127.0.0.1:5000/get_charts_data?groupid=" 
-	+ getParamFromURL('groupid') 
-	+ "&configid="
-	+ getParamFromURL('configid'), 
-	
-	function(result){
-    studentId = result;
-});
-
-$.ajaxSetup({
-   async: true
-});
-
 function getValues(json_data){
 	var class_array = [];
 	var serials_array = [];
@@ -56,16 +37,6 @@ function getValues(json_data){
 	return all_array;
 }
 
-var json_data = getValues(studentId);
-
-
-
-
-var class_chart_canvases = Array(json_data[0].length);
-for(let i = 0; i < json_data[0].length; i++){
-	class_chart_canvases[i] = document.getElementById('class-chart-' + String(i+1)).getContext('2d');
-}
-
 function orderStudentsByMark(students, marks){
 	var studentsByMarks = {
 		"6" : [],
@@ -85,21 +56,102 @@ function orderStudentsByMark(students, marks){
 	}
 
 	for(var i = 6; i <= 10; i++) {
-		studentsByMarks[String(i)].forEach(studentid => {
-			resultObject["students"].push(studentid);
+		studentsByMarks[String(i)].forEach(studentMark => {
+			resultObject["students"].push(studentMark);
 			resultObject["marks"].push(i);
 		});
 	}
+	console.log(resultObject);
 
 	return resultObject;
 }
 
-var data_array = Array(json_data[0].length);
-for(let i = 0; i < json_data[0].length; i++){
-	var orderedData = orderStudentsByMark(json_data[1][i], json_data[2][i]);
+function getNumberOfValuesJson(json_data) {
+	var result = {};
+	
+	for(var i = 0; i < json_data.length; i++){
+		
+		if(!result[json_data[i]]){
+			result[json_data[i]] = 1;
+		}else{
+			result[json_data[i]] = result[json_data[i]] + 1;
+		}
+	}
+	
+	return result;
+}
+
+$.ajaxSetup({
+   async: false
+});
+
+var studentMark = null;
+$.getJSON(
+	"http://127.0.0.1:5000/get_charts_data?groupid=" 
+	+ getParamFromURL('groupid') 
+	+ "&configid="
+	+ getParamFromURL('configid'), 
+	
+	function(result){
+    studentMark = result;
+});
+
+var studentCap = null;
+$.getJSON(
+	"http://127.0.0.1:5000/get_charts_data_cap?groupid=" 
+	+ getParamFromURL('groupid') 
+	+ "&configid="
+	+ getParamFromURL('configid'), 
+	
+	function(result){
+    studentCap = result;
+});
+
+var studentNaz = null;
+$.getJSON(
+	"http://127.0.0.1:5000/get_charts_data_naz?groupid=" 
+	+ getParamFromURL('groupid') 
+	+ "&configid="
+	+ getParamFromURL('configid'), 
+	
+	function(result){
+    studentNaz = result;
+});
+
+$.ajaxSetup({
+   async: true
+});
+
+// Get usable json
+var json_data_mark = getValues(studentMark);
+var json_data_cap = getValues(studentCap);
+var json_data_naz = getValues(studentNaz);
+
+// Get the number of total classes
+var number_of_classes = json_data_mark[0].length;
+
+// Writing on the canvases of the html
+var class_chart_canvases_mark = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	class_chart_canvases_mark[i] = document.getElementById('class-chart-' + String(i+1)).getContext('2d');
+}
+
+var class_chart_canvases_cap = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	class_chart_canvases_cap[i] = document.getElementById('class-chart-' + String(i+1+number_of_classes)).getContext('2d');
+}
+
+var class_chart_canvases_naz = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	class_chart_canvases_naz[i] = document.getElementById('class-chart-' + String(i+1+(number_of_classes*2))).getContext('2d');
+}
+
+// Creating the data to use in charts
+var data_array_mark = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	var orderedData = orderStudentsByMark(json_data_mark[1][i], json_data_mark[2][i]);
 	var studentIDs = orderedData["students"];
 	var studentMarks = orderedData["marks"];
-
 	var data = {
 	  labels: studentIDs, // ["17219", "17130"],
 	  datasets: [
@@ -110,12 +162,43 @@ for(let i = 0; i < json_data[0].length; i++){
 		}
 	  ]
 	};
-	data_array.push(data);
+	data_array_mark.push(data);
 }
 
-//console.log(data_array[14]);
 
+var data_array_cap = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	var dataCaps = getNumberOfValuesJson(json_data_cap[2][i]);
+	var data = {
+	  labels: Object.keys(dataCaps), // ["17219", "17130"],
+	  datasets: [
+		{
+		  label: "Classe " + (i + 1), // 'Cap per Classe',
+		  data: Object.values(dataCaps), // [21234, 31312],
+		  backgroundColor: color_palette
+		}
+	  ]
+	};
+	data_array_cap.push(data);
+}
 
+var data_array_naz = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	var dataNazs = getNumberOfValuesJson(json_data_naz[2][i]);
+	var data = {
+	  labels: Object.keys(dataNazs), // ["17219", "17130"],
+	  datasets: [
+		{
+		  label: "Classe " + (i + 1), // 'Cap per Classe',
+		  data: Object.values(dataNazs), // [21234, 31312],
+		  backgroundColor: color_palette
+		}
+	  ]
+	};
+	data_array_naz.push(data);
+}
+
+// Option of the charts
 var options = {
   scales: {
         yAxes: [{
@@ -129,11 +212,30 @@ var options = {
     }
 };
 
-var classes_charts = Array(json_data[0].length);
-for(let i = 0; i < json_data[0].length; i++){
-	classes_charts[i] = new Chart(class_chart_canvases[i], {
+// Creating the chart
+var classes_charts_mark = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	classes_charts_mark[i] = new Chart(class_chart_canvases_mark[i], {
         type: 'bar',
-        data: data_array[json_data[0].length + i],
+        data: data_array_mark[number_of_classes + i],
+        options: options
+    });
+};
+
+var classes_charts_cap = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	classes_charts_cap[i] = new Chart(class_chart_canvases_cap[i], {
+        type: 'bar',
+        data: data_array_cap[number_of_classes + i],
+        options: options
+    });
+};
+
+var classes_charts_naz = Array(number_of_classes);
+for(let i = 0; i < number_of_classes; i++){
+	classes_charts_naz[i] = new Chart(class_chart_canvases_naz[i], {
+        type: 'bar',
+        data: data_array_naz[number_of_classes + i],
         options: options
     });
 };
