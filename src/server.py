@@ -343,6 +343,10 @@ def groupviewer():
 
 @app.route('/infographics')
 def infographics():
+    if 'authenticated' not in session:
+        return redirect(f'http://{server_ip}:{server_port}/')
+    elif not session['authenticated']:
+        return redirect(f'http://{server_ip}:{server_port}/')
     return render_template('infographics.html')
 
 
