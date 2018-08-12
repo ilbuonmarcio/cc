@@ -256,18 +256,34 @@ var data_array_classes_mark;
 console.log(json_data_mark);
 var average = Array();
 
+
 for(let i = 0; i < number_of_classes; i++){
 	var sum = 0;
 	
 	for(var l = 0; l < json_data_mark[2][i].length; l++){
 		
 		sum += json_data_mark[2][i][l]
+		
 	}
 	
 	average.push(sum/json_data_mark[2][i].length);
 }
 
-console.log(average);
+var data_array_classes_mark_min_thresold = 10;
+var data_array_classes_mark_max_thresold = 0;
+
+for(avg of average) {
+	if(avg < data_array_classes_mark_min_thresold) {
+		data_array_classes_mark_min_thresold = avg;
+	}
+	if(avg > data_array_classes_mark_max_thresold) {
+		data_array_classes_mark_max_thresold = avg;
+	}
+}
+
+data_array_classes_mark_min_thresold -= 0.1;
+data_array_classes_mark_max_thresold += 0.1;
+
 
 var data = {
 		labels: json_data_mark[0], // ["17219", "17130"],
@@ -332,6 +348,18 @@ for(let i = 0; i < number_of_classes; i++){
         options: Chart.defaults.pie
     });
 };
+
+var options = {
+	scales: {
+		  yAxes: [{
+			  display: true,
+			  ticks: {
+				  suggestedMin: data_array_classes_mark_min_thresold,
+				  suggestedMax: data_array_classes_mark_max_thresold
+			  }
+		  }]
+	  }
+  };
 
 var classes_charts_classes_mark = new Chart(class_chart_canvases_classes_mark, {
     type: 'bar',
