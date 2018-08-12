@@ -1034,6 +1034,43 @@ def get_charts_data_naz():
         output_dict[str(current_index)][student[1]] = student[2]
 
     return json.dumps(output_dict)
+	
+@app.route('/get_charts_data_male_female', methods=["GET"])
+def get_charts_data_male_female():
+
+    groupid = request.args.get('groupid')
+    configid = request.args.get('configid')
+    
+    connection = mysql.connector.connect(
+                    user=DBConfig.user,
+                    password=DBConfig.password,
+                    host=DBConfig.host,
+                    database=DBConfig.database)
+
+    cursor = connection.cursor()
+
+    query = f"SELECT classid, matricola, sesso FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.sesso;"
+
+    cursor.execute(query)
+
+    students = cursor.fetchall()
+
+    cursor.close()
+
+    connection.close()
+
+    output_dict = {"1" : {}}
+    current_index = 1
+
+    for student in students:
+        if student[0] != current_index:
+            current_index += 1
+            output_dict[str(current_index)] = {}
+
+        output_dict[str(current_index)][student[1]] = student[2]
+
+    return json.dumps(output_dict)
+
 
 def allowed_file(filename):
     return '.' in filename and \
