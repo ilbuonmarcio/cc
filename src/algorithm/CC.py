@@ -75,7 +75,7 @@ class CC:
         if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
             print('<---WARNING---> Sex prioritized groups are more than possible containers!')
             print('ABORT!')
-            return False # TODO change return value
+            return "TooManySexPrioritizedPeople"
 
         students_not_inserted = self.containers_manager.distribute_sex_prioritized_groups_randomly_into_containers(
             configured_sex_priority_array
@@ -128,7 +128,8 @@ class CC:
         else:
             print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere!")
 
-            self.containers_manager.fill_remaining_students_shuffling_classcontainers(remaining_students_after_random_insert)
+            if not self.containers_manager.fill_remaining_students_shuffling_classcontainers(remaining_students_after_random_insert):
+                return "CannotShuffleStudents"
 
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
@@ -327,6 +328,18 @@ def create_cc_instance(process_id, group_id, config_id):
         bad_status_json = {
             "querystatus" : "bad",
             "message" : "Nessun gruppo e/o configurazione selezionato/a!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "CannotShuffleStudents":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Impossibile distribuire gli studenti con questa configurazione!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "TooManySexPrioritizedPeople":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Troppi utenti con priorità di sesso per questa richiesta!"
         }
         return json.dumps(bad_status_json)
     else:

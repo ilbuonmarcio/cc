@@ -130,49 +130,62 @@ class ContainersManager:
 
         while students_to_insert > 0:
 
-            first_container, second_container = self.get_two_random_containers()
+            remaining_attempts_before_trowing_message = 5000
 
-            first_container_student = first_container.get_random_student()
-            second_container_student = second_container.get_random_student()
+            while remaining_attempts_before_trowing_message > 0:
 
-            first_container_student_copy = copy.deepcopy(first_container_student)
-            second_container_student_copy = copy.deepcopy(second_container_student)
+                first_container, second_container = self.get_two_random_containers()
 
-            if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
-            and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
-            and not first_container.has_desiderata(first_container_student) \
-            and not second_container.has_desiderata(second_container_student):
+                first_container_student = first_container.get_random_student()
+                second_container_student = second_container.get_random_student()
 
-                first_container.remove_student(first_container_student)
-                second_container.remove_student(second_container_student)
+                first_container_student_copy = copy.deepcopy(first_container_student)
+                second_container_student_copy = copy.deepcopy(second_container_student)
 
-                first_result = first_container.add_student(second_container_student)
-                second_result = second_container.add_student(first_container_student)
+                if first_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and second_container_student.eligible_to_swap(self.configuration.sex_priority) \
+                and not first_container.has_desiderata(first_container_student) \
+                and not second_container.has_desiderata(second_container_student):
 
-                if first_result == None and second_result == None:
-                    if first_container.add_student(input_array[students_to_insert-1]) == None:
-                        print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
-                        students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
-                        input_array.remove(input_array[students_to_insert-1])
-                        students_to_insert -= 1
+                    first_container.remove_student(first_container_student)
+                    second_container.remove_student(second_container_student)
 
-                    elif second_container.add_student(input_array[students_to_insert-1]) == None:
-                        print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
-                        students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
-                        input_array.remove(input_array[students_to_insert-1])
-                        students_to_insert -= 1
+                    first_result = first_container.add_student(second_container_student)
+                    second_result = second_container.add_student(first_container_student)
 
-                else:
-                    first_container.remove_student(second_container_student)
-                    second_container.remove_student(first_container_student)
+                    if first_result == None and second_result == None:
+                        if first_container.add_student(input_array[students_to_insert-1]) == None:
+                            print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                            students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
+                            input_array.remove(input_array[students_to_insert-1])
+                            students_to_insert -= 1
+                            break
 
-                    first_result = first_container.add_student(first_container_student_copy)
-                    second_result = second_container.add_student(second_container_student_copy)
+                        elif second_container.add_student(input_array[students_to_insert-1]) == None:
+                            print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                            students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
+                            input_array.remove(input_array[students_to_insert-1])
+                            students_to_insert -= 1
+                            break
+
+                    else:
+                        first_container.remove_student(second_container_student)
+                        second_container.remove_student(first_container_student)
+
+                        first_result = first_container.add_student(first_container_student_copy)
+                        second_result = second_container.add_student(second_container_student_copy)
+                
+                remaining_attempts_before_trowing_message -= 1
+                
+            if remaining_attempts_before_trowing_message == 0:
+                return False
 
         for student in students_to_remove_from_students_manager:
             self.students_manager.students.remove(student)
 
         print("Distributing remaining students shuffling classcontainers done!")
+
+        return True
 
 
     def get_container_at_index(self, index):
