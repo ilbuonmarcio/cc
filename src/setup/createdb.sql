@@ -41,7 +41,7 @@ CREATE TABLE alunni(
   cf CHAR(16) NOT NULL,
   desiderata CHAR(16) DEFAULT NULL,
   sesso CHAR(1) NOT NULL,
-  data_nascita VARCHAR(15) NOT NULL,
+  data_nascita VARCHAR(32) NOT NULL,
   cap VARCHAR(5) NOT NULL,
   nazionalita VARCHAR(25) NOT NULL,
   legge_170 CHAR(1) DEFAULT NULL,
