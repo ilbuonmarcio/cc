@@ -112,6 +112,40 @@ class ContainersManager:
 
         return students_to_reinsert
 
+    def rebalance_students_to_reach_minimum_number_of_students_per_container(self):
+        print("Rebalancing students to reach minimum number of students per container...")
+
+        rebalancing_cycles_left = 10000
+        while rebalancing_cycles_left > 0:
+            containers_to_rebalance = [container for container in self.containers if not container.minned_out]
+            containers_already_balanced = [container for container in self.containers if container.minned_out]
+            if len(containers_to_rebalance) == 0:
+                break
+
+            # print(f"{rebalancing_cycles_left}\tbalanced: {len(containers_already_balanced)}\tunbalanced: {len(containers_to_rebalance)}")
+
+            for container in containers_to_rebalance:
+
+                attempts_left = 50
+                while attempts_left > 0:
+                    if len(containers_already_balanced) == 0:
+                        attempts_left = 0
+                        break
+
+                    possible_student_container = random.choice(containers_already_balanced)
+                    possible_student_insert = possible_student_container.get_random_student()
+
+                    student = container.add_student(possible_student_insert)
+                    if student is None:
+                        possible_student_container.remove_student(possible_student_insert)
+                        break
+
+            rebalancing_cycles_left -= 1
+
+        print("Rebalancing done!")
+        return len([container for container in self.containers if not container.minned_out]) == 0
+
+
     def get_two_random_containers(self):
         while True:
             first_container = random.choice(self.containers)

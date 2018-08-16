@@ -134,6 +134,13 @@ class CC:
 
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
+        minimum_balancing_status = self.containers_manager.rebalance_students_to_reach_minimum_number_of_students_per_container()
+        if minimum_balancing_status:
+            print("Now classes are minimum balanced!")
+        else:
+            print("Cannot balance by mininum amount!")
+            return "CannotBalanceClassesByMininumValue"
+
         """
         print("BEFORE OPTIMIZATION:")
         std_sum_before = 0
@@ -168,6 +175,8 @@ class CC:
             return "StudentsNotInsertedAfterShuffling"
         else:
             print("All students were inserted and elaborated correctly, good work!")
+
+        self.containers_manager.print_all_containers_current_dimensions()
 
         print("Saving CC to database...")
         self.save_students_to_db()
@@ -312,7 +321,6 @@ def create_cc_instance(process_id, group_id, config_id):
             "querystatus" : "good",
             "message" : "Composizione Classi completata!"
         }
-
         return json.dumps(good_status_json)
     elif result_value == "ZeroStudentsIntoGroup":
         bad_status_json = {
@@ -348,6 +356,12 @@ def create_cc_instance(process_id, group_id, config_id):
         bad_status_json = {
             "querystatus" : "bad",
             "message" : "Inserimento degli studenti tramite shuffling non possibile!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "CannotBalanceClassesByMininumValue":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Non è possibile bilanciare classi con un numero minimo di studenti così alto!"
         }
         return json.dumps(bad_status_json)
     else:

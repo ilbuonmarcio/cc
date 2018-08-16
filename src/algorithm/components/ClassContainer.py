@@ -16,6 +16,7 @@ class ClassContainer:
         self.nationalities = {}
         self.students = []
         self.maxed_out = False
+        self.minned_out = False
         self.has_legge_104 = False
         self.marks_avg = 6
 
@@ -233,6 +234,8 @@ class ClassContainer:
                 break
 
         self.marks_avg = sum([student.voto for student in self.students]) / len(self.students) if len(self.students) > 0 else 6
+
+        self.minned_out = len(self.students) >= self.db_group_configuration.min_students
 
     def show_container_statistics(self):
         print("\n[*] Showing container statistics...")
