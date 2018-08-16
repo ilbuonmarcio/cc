@@ -176,8 +176,6 @@ class CC:
         else:
             print("All students were inserted and elaborated correctly, good work!")
 
-        self.containers_manager.print_all_containers_current_dimensions()
-
         print("Saving CC to database...")
         self.save_students_to_db()
 
