@@ -27,7 +27,8 @@ class CC:
         self.students_manager = StudentsManager(self.group_id)
         self.configuration = Configuration(self.config_id)
         self.containers_manager = ContainersManager(
-            math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students + 1),
+            14, # TODO: Set dynamic num of containers based on db configuration
+            # math.ceil(self.students_manager.get_number_of_students() / self.configuration.max_students),
             self.configuration,
             self.students_manager
         )
@@ -156,14 +157,15 @@ class CC:
 
         print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
 
-        uninserted_students_matricola = self.students_manager.get_uninserted_students(self.containers_manager)
+        uninserted_students_by_matricola = self.students_manager.get_uninserted_students(self.containers_manager)
 
-        if len(uninserted_students_matricola) > 0:
-            print(f"\nWe found {len(uninserted_students_matricola)} students not loaded, inserted and/or elaborated!")
-            print("Is it a correct number (TotalStudents == StudentsIntoContainers + UninsertedStudents)? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_matricola))
-            for matricola in uninserted_students_matricola:
+        if len(uninserted_students_by_matricola) > 0:
+            print(f"\nWe found {len(uninserted_students_by_matricola)} students not loaded, inserted and/or elaborated!")
+            print("Is it a correct number (TotalStudents == StudentsIntoContainers + UninsertedStudents)? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_by_matricola))
+            for matricola in uninserted_students_by_matricola:
                 print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
             print("Remaining students into StudentsManager:", self.students_manager.get_number_of_remaining_students())
+            return "StudentsNotInsertedAfterShuffling"
         else:
             print("All students were inserted and elaborated correctly, good work!")
 
@@ -340,6 +342,12 @@ def create_cc_instance(process_id, group_id, config_id):
         bad_status_json = {
             "querystatus" : "bad",
             "message" : "Troppi utenti con priorità di sesso per questa richiesta!"
+        }
+        return json.dumps(bad_status_json)
+    elif result_value == "StudentsNotInsertedAfterShuffling":
+        bad_status_json = {
+            "querystatus" : "bad",
+            "message" : "Inserimento degli studenti tramite shuffling non possibile!"
         }
         return json.dumps(bad_status_json)
     else:
