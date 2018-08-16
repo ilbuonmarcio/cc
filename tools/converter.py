@@ -5,11 +5,17 @@ import random
 
 def show_usage():
     print(
-        "Metodo di utilizzo:\n\npython converter.py {INPUT_FILE} {DESIDERATA_FILE} {OUTPUT_FILE}"
+        """
+        Metodo di utilizzo:\n\n
+        
+        python converter.py {INPUT_FILE} {DESIDERATA_FILE} {OUTPUT_FILE} [UNIQUE_STUDENT_IDENTIFIER_COLUMN_INDEX]\n\n
+
+        con parametro UNIQUE_STUDENT_IDENTIFIER_COLUMN_INDEX facoltativo, default --> colonna 1.
+        """
     )
 
 
-def filter_input_file(input_file, unique_school_identifier_column=0):
+def filter_input_file(input_file, unique_school_identifier_column=1):
     filtered_input_file = []
 
     headline = True
@@ -22,7 +28,7 @@ def filter_input_file(input_file, unique_school_identifier_column=0):
         record = [
             line[1].replace("'", "`"),
             line[2].replace("'", "`"),
-            line[unique_school_identifier_column],
+            line[unique_school_identifier_column-1],
             line[13],
             "",
             line[5],
@@ -82,6 +88,10 @@ if __name__ == "__main__":
         input_filename = sys.argv[1]
         desiderata_filename = sys.argv[2]
         output_filename = sys.argv[3]
+        try:
+            column_index = int(sys.argv[4])
+        except:
+            column_index = 1
     except:
         show_usage()
         exit(-1)
@@ -95,7 +105,7 @@ if __name__ == "__main__":
         desiderata_file = [line.replace('"', '').replace("'", '`').split(',')[0:2] for line in f]
 
 
-    input_file = filter_input_file(input_file)
+    input_file = filter_input_file(input_file, column_index)
     input_file = insert_desiderata_into_input_file(input_file, desiderata_file)
     with open(output_filename, 'w', encoding="utf-8") as f:
         for line in input_file:
