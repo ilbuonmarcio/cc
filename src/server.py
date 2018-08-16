@@ -716,7 +716,7 @@ def routine_uploadcsv():
 
                         right += 1
                     except:
-                        wrong[str(index)] = f"Error on line {index}!"
+                        wrong[str(index)] = f"Error on line index {index}!"
 
                 query = "UPDATE alunni SET sesso = LOWER(sesso);"
 
