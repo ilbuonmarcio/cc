@@ -11,8 +11,8 @@ from werkzeug.utils import secure_filename
 import csv
 import io
 
-server_ip = "127.0.0.1"
-server_port = "8080"
+server_ip = "217.182.78.79"
+server_port = "80"
 server_prefix = "/cc"
 
 UPLOAD_FOLDER = './uploads'

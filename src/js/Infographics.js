@@ -103,7 +103,7 @@ $.ajaxSetup({
 
 var studentMark = null;
 $.getJSON(
-	"http://127.0.0.1:8080/get_charts_data?groupid=" 
+	"http://217.182.78.79:80/get_charts_data?groupid=" 
 	+ getParamFromURL('groupid') 
 	+ "&configid="
 	+ getParamFromURL('configid'), 
@@ -114,7 +114,7 @@ $.getJSON(
 
 var studentCap = null;
 $.getJSON(
-	"http://127.0.0.1:8080/get_charts_data_cap?groupid=" 
+	"http://217.182.78.79:80/get_charts_data_cap?groupid=" 
 	+ getParamFromURL('groupid') 
 	+ "&configid="
 	+ getParamFromURL('configid'), 
@@ -125,7 +125,7 @@ $.getJSON(
 
 var studentNaz = null;
 $.getJSON(
-	"http://127.0.0.1:8080/get_charts_data_naz?groupid=" 
+	"http://217.182.78.79:80/get_charts_data_naz?groupid=" 
 	+ getParamFromURL('groupid') 
 	+ "&configid="
 	+ getParamFromURL('configid'), 
@@ -136,7 +136,7 @@ $.getJSON(
 
 var studentMaleFemale = null;
 $.getJSON(
-	"http://127.0.0.1:8080/get_charts_data_male_female?groupid=" 
+	"http://217.182.78.79:80/get_charts_data_male_female?groupid=" 
 	+ getParamFromURL('groupid') 
 	+ "&configid="
 	+ getParamFromURL('configid'), 

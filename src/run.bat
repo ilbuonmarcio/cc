@@ -1,2 +1,2 @@
 set FLASK_APP=server
-flask run --port 8080
+flask run --port 80
