@@ -11,6 +11,8 @@ def show_usage():
         python converter.py {INPUT_FILE} {DESIDERATA_FILE} {OUTPUT_FILE} [UNIQUE_STUDENT_IDENTIFIER_COLUMN_INDEX]\n\n
 
         con parametro UNIQUE_STUDENT_IDENTIFIER_COLUMN_INDEX facoltativo, default --> colonna 1.
+
+        Per informazioni: marciozgaming@gmail.com
         """
     )
 
