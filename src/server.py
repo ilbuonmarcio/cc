@@ -11,7 +11,7 @@ from werkzeug.utils import secure_filename
 import csv
 import io
 
-server_ip = "217.182.78.79"
+server_ip = "127.0.0.1"
 server_port = "80"
 server_prefix = "/cc"
 
@@ -241,7 +241,7 @@ def refresh_managegroups_table():
         str_response += "<td>" + group_type + "</td>"
         str_response += "<td>" + str(row[4]) + "</td>"
 
-        str_response += '<td><a href="http:// + ' + server_ip + ':' + server_port + '/groupviewer?groupid=' + str(row[0]) + '&groupname=' + str(row[1]) + '" target="_blank">Visualizza</a></td>'
+        str_response += '<td><a href="http://' + server_ip + ':' + server_port + server_prefix + '/groupviewer?groupid=' + str(row[0]) + '&groupname=' + str(row[1]) + '" target="_blank">Visualizza</a></td>'
 
         str_response += "</tr>"
 
@@ -343,9 +343,9 @@ def groupviewer():
 @app.route(server_prefix + '/infographics')
 def infographics():
     if 'authenticated' not in session:
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
     elif not session['authenticated']:
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
     return render_template('infographics.html')
 
 
@@ -388,8 +388,8 @@ def refresh_visualizecc_table():
         str_response += "<td>" + str(generation[1]) + "</td>"
         str_response += "<td>" + str(generation[2]) + "</td>"
 
-        str_response += '<td><a href="http://' + server_ip + ':' + server_port + '/infographics?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '" target="_blank">Visualizza</a></td>'
-        str_response += '<td><a href="http://' + server_ip + ':' + server_port + '/export_generatedcc_to_csv?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '">Esporta</a></td>'
+        str_response += '<td><a href="http://' + server_ip + ':' + server_port + server_prefix + '/infographics?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '" target="_blank">Visualizza</a></td>'
+        str_response += '<td><a href="http://' + server_ip + ':' + server_port + server_prefix + '/export_generatedcc_to_csv?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '">Esporta</a></td>'
 
         str_response += "</tr>"
 
@@ -887,7 +887,7 @@ def authenticate():
         user_authenticated = authenticator.authenticate_user(username, password)
         # print("User " + username + " authenticated: " + user_authenticated)
     except Exception as e:
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
 
     if user_authenticated:
         session['username'] = username
@@ -895,7 +895,7 @@ def authenticate():
         return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/index')
     else:
         session['authenticated'] = False
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
 
 
 @app.route(server_prefix + '/')
@@ -906,20 +906,20 @@ def root():
 @app.route(server_prefix + '/login')
 def login():
     session['authenticated'] = False
-    return render_template('login.html', server_ip=server_ip, server_port=server_port)
+    return render_template('login.html', server_ip=server_ip, server_port=server_port, server_prefix=server_prefix)
 
 @app.route(server_prefix + '/logout')
 def logout():
     session['authenticated'] = False
-    return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+    return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
 
 @app.route(server_prefix + '/index')
 def index():
     if 'authenticated' not in session:
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
     elif not session['authenticated']:
-        return redirect('http://' + server_ip + ':' + server_port + '/' + server_prefix)
-    return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
+    return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port, server_prefix=server_prefix)
 
 @app.route(server_prefix + '/js/<path:path>')
 def send_js(path):
