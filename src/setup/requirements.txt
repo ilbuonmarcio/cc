@@ -1,0 +1,5 @@
+Flask
+Flask-Cors
+Flask-Session
+mysql-connector
+Werkzeug
