@@ -48,13 +48,13 @@ class ManageGroupsPanel extends Panel {
       return;
     }
 
-    $.post('http://217.182.78.79:80/routine_creategroup', data, this.callbackOnCreateSubmit);
+    $.post('http://' + server_ip + ':' + server_port + server_prefix + '/routine_creategroup', data, this.callbackOnCreateSubmit);
   }
 
   submitDelete(){
     var data = this.loadFieldsDeleteData();
 
-    $.post('http://217.182.78.79:80/routine_deletegroup', data, this.callbackOnDeleteSubmit);
+    $.post('http://' + server_ip + ':' + server_port + server_prefix + '/routine_deletegroup', data, this.callbackOnDeleteSubmit);
   }
 
   callbackOnCreateSubmit(data){
@@ -114,13 +114,13 @@ class ManageGroupsPanel extends Panel {
   }
 
   static tableReload(){
-    $.get("http://217.182.78.79:80/refresh_managegroups_table", function(data){
+    $.get('http://' + server_ip + ':' + server_port + server_prefix + '/refresh_managegroups_table', function(data){
       document.querySelector('#managegroups-table').innerHTML = data;
     });
   }
 
   static selectReload(){
-    $.get("http://217.182.78.79:80/refresh_groupname_select", function(data){
+    $.get('http://' + server_ip + ':' + server_port + server_prefix + '/refresh_groupname_select', function(data){
       document.querySelector('#managegroupsdelete-groupname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#managegroupsdelete-groupname')).destroy();
       M.FormSelect.init(document.querySelector('#managegroupsdelete-groupname'));

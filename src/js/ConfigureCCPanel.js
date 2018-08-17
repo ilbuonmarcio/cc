@@ -53,7 +53,7 @@ class ConfigureCCPanel extends Panel {
       classes: 'rounded'
     })
 
-    $.post('http://217.182.78.79:80/routine_loadconfig', data, this.fillFieldsDataFromDBCallback);
+    $.post('http://' + server_ip + ':' + server_port + server_prefix + '/routine_loadconfig', data, this.fillFieldsDataFromDBCallback);
   }
 
   fillFieldsDataFromDBCallback(data){
@@ -151,7 +151,7 @@ class ConfigureCCPanel extends Panel {
       return;
     }
 
-    $.post('http://217.182.78.79:80/routine_createconfig', data, this.callbackOnSubmit);
+    $.post('http://' + server_ip + ':' + server_port + server_prefix + '/routine_createconfig', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
@@ -189,7 +189,7 @@ class ConfigureCCPanel extends Panel {
   }
 
   static selectReload(){
-    $.get("http://217.182.78.79:80/refresh_configname_select", function(data){
+    $.get('http://' + server_ip + ':' + server_port + server_prefix + '/refresh_configname_select', function(data){
       document.querySelector('#configureccload-configname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#configureccload-configname')).destroy();
       M.FormSelect.init(document.querySelector('#configureccload-configname'));
