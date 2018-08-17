@@ -1,7 +1,7 @@
 # cc - Class Composition's gestionnelle
 
 cc is a software useful for schools that replaces manual class compositions.
-It's an evolution of [marconicc](https://github.com/marconivr/marconicc), providing a simple single-page application and an headless class generation service, in order to extend his evolution across different applications.
+It's an evolution of [marconicc](https://github.com/marconivr/marconicc), providing a simple single-page application to let schools efficiently provide classes at the right time.
 
 ### Development Team
 
@@ -17,9 +17,7 @@ It's an evolution of [marconicc](https://github.com/marconivr/marconicc), provid
 ### Development Technologies
 
 - HTML5
-- JavaScript
-- jQuery
-- CSS3
+- JavaScript & jQuery
 - materializecss
 - MySQL
 - Python3.6+
