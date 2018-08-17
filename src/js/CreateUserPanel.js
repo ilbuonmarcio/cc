@@ -37,7 +37,7 @@ class CreateUserPanel extends Panel {
       return;
     }
 
-    $.post('http://127.0.0.1:5000/routine_createuser', data, this.callbackOnSubmit);
+    $.post('http://127.0.0.1:8080/routine_createuser', data, this.callbackOnSubmit);
   }
 
   callbackOnSubmit(data){
@@ -68,7 +68,7 @@ class CreateUserPanel extends Panel {
   }
 
   static tableReload(){
-    $.get("http://127.0.0.1:5000/refresh_users_table", function(data){
+    $.get("http://127.0.0.1:8080/refresh_users_table", function(data){
       document.querySelector('#createuser-table').innerHTML = data;
     });
   }

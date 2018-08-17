@@ -45,7 +45,7 @@ class UploadCSVPanel extends Panel {
     });
 
     $.ajax({
-        url: 'http://127.0.0.1:5000/routine_uploadcsv',
+        url: 'http://127.0.0.1:8080/routine_uploadcsv',
         data: data,
         type: 'POST',
         contentType: false,
@@ -91,7 +91,7 @@ class UploadCSVPanel extends Panel {
   }
 
   static selectReload(){
-    $.get("http://127.0.0.1:5000/refresh_groupname_select", function(data){
+    $.get("http://127.0.0.1:8080/refresh_groupname_select", function(data){
       document.querySelector('#uploadcsv-groupname').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#uploadcsv-groupname')).destroy();
       M.FormSelect.init(document.querySelector('#uploadcsv-groupname'));

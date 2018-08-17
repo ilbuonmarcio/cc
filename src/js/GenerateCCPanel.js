@@ -42,7 +42,7 @@ class GenerateCCPanel extends Panel {
     });
 
     $.ajax({
-        url: 'http://localhost:5000/get_cc_result',
+        url: 'http://localhost:8080/get_cc_result',
         data: data,
         type: 'POST',
     }).always(
@@ -68,13 +68,13 @@ class GenerateCCPanel extends Panel {
   }
 
   static selectReload(){
-    $.get("http://localhost:5000/refresh_groupid_select", function(data){
+    $.get("http://localhost:8080/refresh_groupid_select", function(data){
       document.querySelector('#generatecc-groupid').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#generatecc-groupid')).destroy();
       M.FormSelect.init(document.querySelector('#generatecc-groupid'));
     });
 
-    $.get("http://localhost:5000/refresh_configid_select", function(data){
+    $.get("http://localhost:8080/refresh_configid_select", function(data){
       document.querySelector('#generatecc-configid').innerHTML = data;
       M.FormSelect.getInstance(document.querySelector('#generatecc-configid')).destroy();
       M.FormSelect.init(document.querySelector('#generatecc-configid'));

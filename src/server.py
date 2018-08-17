@@ -12,7 +12,7 @@ import csv
 import io
 
 server_ip = "127.0.0.1"
-server_port = "5000"
+server_port = "8080"
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['csv'])
