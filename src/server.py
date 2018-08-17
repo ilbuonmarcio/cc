@@ -13,7 +13,6 @@ import io
 
 server_ip = "217.182.78.79"
 server_port = "80"
-server_prefix = "/cc"
 
 UPLOAD_FOLDER = './uploads'
 ALLOWED_EXTENSIONS = set(['csv'])
@@ -22,7 +21,7 @@ app = Flask(__name__, template_folder="")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.urandom(24)
 
-@app.route(server_prefix + '/get_cc_result', methods=['POST'])
+@app.route('/get_cc_result', methods=['POST'])
 def get_cc_result():
     post_data = request.form
     pool = ThreadPool(processes=1)
@@ -30,7 +29,7 @@ def get_cc_result():
     return_val = async_result.get()
     return return_val
 
-@app.route(server_prefix + '/get_cc_visualization', methods=['POST'])
+@app.route('/get_cc_visualization', methods=['POST'])
 def get_cc_visualization():
     post_data = request.form
     group_id = post_data["groupid"]
@@ -38,7 +37,7 @@ def get_cc_visualization():
     pass
 
 
-@app.route(server_prefix + '/refresh_configid_select', methods=['GET'])
+@app.route('/refresh_configid_select', methods=['GET'])
 def refresh_configid_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -64,7 +63,7 @@ def refresh_configid_select():
 
     return str_response
 
-@app.route(server_prefix + '/refresh_configname_select', methods=['GET'])
+@app.route('/refresh_configname_select', methods=['GET'])
 def refresh_configname_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -93,7 +92,7 @@ def refresh_configname_select():
 
     return str_response
 
-@app.route(server_prefix + '/refresh_groupid_select', methods=['GET'])
+@app.route('/refresh_groupid_select', methods=['GET'])
 def refresh_groupid_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -120,7 +119,7 @@ def refresh_groupid_select():
 
     return str_response
 
-@app.route(server_prefix + '/refresh_groupname_select', methods=['GET'])
+@app.route('/refresh_groupname_select', methods=['GET'])
 def refresh_groupname_select():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -151,7 +150,7 @@ def refresh_groupname_select():
     return str_response
 
 
-@app.route(server_prefix + '/refresh_users_table', methods=['GET'])
+@app.route('/refresh_users_table', methods=['GET'])
 def refresh_users_table():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -199,7 +198,7 @@ def refresh_users_table():
     return str_response
 
 
-@app.route(server_prefix + '/refresh_managegroups_table', methods=['GET'])
+@app.route('/refresh_managegroups_table', methods=['GET'])
 def refresh_managegroups_table():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -251,7 +250,7 @@ def refresh_managegroups_table():
     return str_response
 
 
-@app.route(server_prefix + '/groupviewer', methods=['GET'])
+@app.route('/groupviewer', methods=['GET'])
 def groupviewer():
     groupid = request.args.get('groupid')
     groupname = request.args.get('groupname')
@@ -340,7 +339,7 @@ def groupviewer():
     return render_template('viewer.html', group_table=group_table)
 
 
-@app.route(server_prefix + '/infographics')
+@app.route('/infographics')
 def infographics():
     if 'authenticated' not in session:
         return redirect('http://' + server_ip + ':' + server_port + '/')
@@ -349,7 +348,7 @@ def infographics():
     return render_template('infographics.html')
 
 
-@app.route(server_prefix + '/refresh_visualizecc_table', methods=['GET'])
+@app.route('/refresh_visualizecc_table', methods=['GET'])
 def refresh_visualizecc_table():
     connection = mysql.connector.connect(
                     user=DBConfig.user,
@@ -398,7 +397,7 @@ def refresh_visualizecc_table():
 
     return str_response
 
-@app.route(server_prefix + '/export_generatedcc_to_csv', methods=['GET'])
+@app.route('/export_generatedcc_to_csv', methods=['GET'])
 def export_generatedcc_to_csv():
 
     connection = mysql.connector.connect(
@@ -437,7 +436,7 @@ def export_generatedcc_to_csv():
                                     "attachment;filename=EXPORT_GROUPID_" + groupid + "_CONFIGID_" + configid + ".csv"})
 
 
-@app.route(server_prefix + '/routine_createconfig', methods=['POST'])
+@app.route('/routine_createconfig', methods=['POST'])
 def routine_createconfig():
     post_data = request.form
 
@@ -540,7 +539,7 @@ def routine_createconfig():
         )
 
 
-@app.route(server_prefix + '/routine_creategroup', methods=['POST'])
+@app.route('/routine_creategroup', methods=['POST'])
 def routine_creategroup():
     post_data = request.form
 
@@ -591,7 +590,7 @@ def routine_creategroup():
         )
 
 
-@app.route(server_prefix + '/routine_deletegroup', methods=['POST'])
+@app.route('/routine_deletegroup', methods=['POST'])
 def routine_deletegroup():
     post_data = request.form
 
@@ -646,7 +645,7 @@ def routine_deletegroup():
     
 
 
-@app.route(server_prefix + '/routine_uploadcsv', methods=['POST'])
+@app.route('/routine_uploadcsv', methods=['POST'])
 def routine_uploadcsv():
     if request.method == 'POST':
 
@@ -745,7 +744,7 @@ def routine_uploadcsv():
 
 
 
-@app.route(server_prefix + '/routine_loadconfig', methods=['POST'])
+@app.route('/routine_loadconfig', methods=['POST'])
 def routine_loadconfig():
     post_data = request.form
 
@@ -806,7 +805,7 @@ def routine_loadconfig():
 
 
 
-@app.route(server_prefix + '/routine_createuser', methods=['POST'])
+@app.route('/routine_createuser', methods=['POST'])
 def routine_createuser():
     post_data = request.form
 
@@ -876,7 +875,7 @@ def routine_createuser():
         )
 
 
-@app.route(server_prefix + '/authenticate', methods=["POST"])
+@app.route('/authenticate', methods=["POST"])
 def authenticate():
     post_data = request.form
 
@@ -898,22 +897,22 @@ def authenticate():
         return redirect('http://' + server_ip + ':' + server_port + '/')
 
 
-@app.route(server_prefix + '/')
+@app.route('/')
 def root():
     session['authenticated'] = False
     return redirect('http://' + server_ip + ':' + server_port + '/login')
 
-@app.route(server_prefix + '/login')
+@app.route('/login')
 def login():
     session['authenticated'] = False
     return render_template('login.html', server_ip=server_ip, server_port=server_port)
 
-@app.route(server_prefix + '/logout')
+@app.route('/logout')
 def logout():
     session['authenticated'] = False
     return redirect('http://' + server_ip + ':' + server_port + '/')
 
-@app.route(server_prefix + '/index')
+@app.route('/index')
 def index():
     if 'authenticated' not in session:
         return redirect('http://' + server_ip + ':' + server_port + '/')
@@ -921,16 +920,16 @@ def index():
         return redirect('http://' + server_ip + ':' + server_port + '/')
     return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
 
-@app.route(server_prefix + '/js/<path:path>')
+@app.route('/js/<path:path>')
 def send_js(path):
     return send_from_directory('js', path)
 
-@app.route(server_prefix + '/css/<path:path>')
+@app.route('/css/<path:path>')
 def send_css(path):
     return send_from_directory('css', path)
 
 
-@app.route(server_prefix + '/get_charts_data', methods=["GET"])
+@app.route('/get_charts_data', methods=["GET"])
 def get_charts_data():
 
     groupid = request.args.get('groupid')
@@ -966,7 +965,7 @@ def get_charts_data():
 
     return json.dumps(output_dict)
 	
-@app.route(server_prefix + '/get_charts_data_cap', methods=["GET"])
+@app.route('/get_charts_data_cap', methods=["GET"])
 def get_charts_data_cap():
 
     groupid = request.args.get('groupid')
@@ -1002,7 +1001,7 @@ def get_charts_data_cap():
 
     return json.dumps(output_dict)
 
-@app.route(server_prefix + '/get_charts_data_naz', methods=["GET"])
+@app.route('/get_charts_data_naz', methods=["GET"])
 def get_charts_data_naz():
 
     groupid = request.args.get('groupid')
@@ -1038,7 +1037,7 @@ def get_charts_data_naz():
 
     return json.dumps(output_dict)
 	
-@app.route(server_prefix + '/get_charts_data_male_female', methods=["GET"])
+@app.route('/get_charts_data_male_female', methods=["GET"])
 def get_charts_data_male_female():
 
     groupid = request.args.get('groupid')
