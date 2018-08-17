@@ -49,7 +49,7 @@ class ContainersManager:
                     if len(students_not_inserted) > 0:
                         print("Warning! Students to reinsert found!")
                         for student in students_not_inserted:
-                            print(f"- Student to reinsert: [{student.matricola}]")
+                            print("- Student to reinsert: [" + student.matricola + "]")
                             students_to_reinsert.append(student)
                     containers_already_filled.append(container_to_fill)
                     break
@@ -66,7 +66,7 @@ class ContainersManager:
             while True:
                 container_to_fill = random.choice(self.containers)
                 if container_to_fill.can_add_desiderata(students_array):
-                    print(f'Trying to add students [{students_array[0].matricola}, {students_array[1].matricola}] ...')
+                    print('Trying to add students [' + students_array[0].matricola + ', ' + students_array[1].matricola + '] ...')
                     container_to_fill.add_students(students_array)
                     break
 
@@ -75,7 +75,7 @@ class ContainersManager:
         return students_to_reinsert
 
     def distribute_remaining_students_randomly_into_containers(self, input_array):
-        print(f"Distributing remaining students [{len(input_array)}] randomly into containers...")
+        print("Distributing remaining students [" + str(len(input_array)) + "] randomly into containers...")
 
         remaining_students = len(input_array)
 
@@ -102,7 +102,7 @@ class ContainersManager:
                     else:
                         containers_already_filled.append(container_to_fill)
                 else:
-                    print(f"Cannot fill this student [{student.matricola}]! Need shuffle!")
+                    print("Cannot fill this student [" + student.matricola + "]! Need shuffle!")
                     students_to_reinsert.append(student)
                     break
         print("\nFinished distributing remaining students randomly into containers!")
@@ -189,14 +189,14 @@ class ContainersManager:
 
                     if first_result == None and second_result == None:
                         if first_container.add_student(input_array[students_to_insert-1]) == None:
-                            print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                            print("Student [" + input_array[students_to_insert-1].matricola + "] inserted with shuffling!")
                             students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
                             input_array.remove(input_array[students_to_insert-1])
                             students_to_insert -= 1
                             break
 
                         elif second_container.add_student(input_array[students_to_insert-1]) == None:
-                            print(f"Student [{input_array[students_to_insert-1].matricola}] inserted with shuffling!")
+                            print("Student [" + input_array[students_to_insert-1].matricola + "] inserted with shuffling!")
                             students_to_remove_from_students_manager.append(input_array[students_to_insert-1])
                             input_array.remove(input_array[students_to_insert-1])
                             students_to_insert -= 1

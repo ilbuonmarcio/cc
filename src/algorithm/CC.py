@@ -35,24 +35,24 @@ class CC:
 
         self.total_number_of_students = self.students_manager.get_number_of_students()
 
-        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+        print("\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: " + str(self.containers_manager.get_number_of_total_students_into_containers()) + "\n\n")
 
         if self.total_number_of_students == 0:
             return "ZeroStudentsIntoGroup"
 
-        print(f"Loaded students from db with id {self.students_manager.group_id}:",
+        print("Loaded students from db with id " + self.students_manager.group_id + ":",
               self.total_number_of_students)
 
-        print(f"Loaded config from db with id {self.configuration.config_id}:",
+        print("Loaded config from db with id " + self.configuration.config_id + ":",
               self.configuration.config_name)
 
         if self.is_already_generated():
             print('Class Composition already generated! Exiting...')
             return "CCAlreadyGenerated"
 
-        print(f"Created {self.containers_manager.get_number_of_containers()} empty classes")
+        print("Created " + str(self.containers_manager.get_number_of_containers()) + " empty classes")
 
-        print(f"Sex priority: {self.configuration.sex_priority}")
+        print("Sex priority: " + self.configuration.sex_priority)
 
         configured_sex_priority_array = self.students_manager.get_sex_prioritized_students_array(
             self.configuration.sex_priority,
@@ -61,7 +61,7 @@ class CC:
 
         print("Checking sex-prioritized array...")
         for student_group in configured_sex_priority_array:
-            print(f"Student group length: {len(student_group)}", end="")
+            print("Student group length: " + str(len(student_group)), end="")
 
             num_males, num_females = 0, 0
             for student in student_group:
@@ -70,7 +70,7 @@ class CC:
                 if student.sesso == "f":
                     num_females += 1
 
-            print(f" - M: {num_males} - F: {num_females}")
+            print(" - M: " + str(num_males) + " - F: " + str(num_females))
         print("Finished checking sex-prioritized array...")
 
         if len(configured_sex_priority_array) > self.containers_manager.get_number_of_containers():
@@ -85,12 +85,12 @@ class CC:
 
         print("Remaining students into StudentsManager:", self.students_manager.get_number_of_remaining_students())
 
-        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+        print("\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: " + str(self.containers_manager.get_number_of_total_students_into_containers()) + "\n\n")
 
         if len(students_not_inserted) > 0:
             print("Some students from prioritized group weren't inserted!")
             for student in students_not_inserted:
-                print(f"Student with matricola {student.matricola} was not inserted!")
+                print("Student with matricola " + student.matricola + " was not inserted!")
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
@@ -101,18 +101,18 @@ class CC:
 
         remaining_desiderata_students_array = self.students_manager.get_remaining_desiderata_students_array()
 
-        print(f"Found {len(remaining_desiderata_students_array)} paired students!")
+        print("Found " + str(len(remaining_desiderata_students_array)) + " paired students!")
 
         students_not_inserted = self.containers_manager.distribute_couples_randomly_into_containers(remaining_desiderata_students_array)
 
-        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+        print("\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: " + str(self.containers_manager.get_number_of_total_students_into_containers()) + "\n\n")
 
         if len(students_not_inserted) > 0:
             print("Some O-O desiderata couple weren't inserted!")
             for couple in students_not_inserted:
                 for student in couple:
-                    print(f"Student with matricola {student.matricola} was not inserted!")
-            print(f"In total there are {len(remaining_desiderata_students_array)} paired students to be reinserted!")
+                    print("Student with matricola " + student.matricola + " was not inserted!")
+            print("In total there are " + str(len(remaining_desiderata_students_array)) + " paired students to be reinserted!")
         else:
             print("No students need to be reinserted, this is a good sign! :))")
 
@@ -122,17 +122,17 @@ class CC:
 
         remaining_students_after_random_insert = self.containers_manager.distribute_remaining_students_randomly_into_containers(remaining_students_array)
 
-        print(f"After random fill of remaining students, there are {len(remaining_students_after_random_insert)} students to fill, still!")
+        print("After random fill of remaining students, there are " + str(len(remaining_students_after_random_insert)) + " students to fill, still!")
 
         if len(remaining_students_after_random_insert) == 0:
             print("Well done, there is no students to swap of classroom, there!")
         else:
-            print(f"We need to fill these {len(remaining_students_after_random_insert)} students somewhere!")
+            print("We need to fill these " + str(len(remaining_students_after_random_insert)) + " students somewhere!")
 
             if not self.containers_manager.fill_remaining_students_shuffling_classcontainers(remaining_students_after_random_insert):
                 return "CannotShuffleStudents"
 
-        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+        print("\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: " + str(self.containers_manager.get_number_of_total_students_into_containers()) + "\n\n")
 
         minimum_balancing_status = self.containers_manager.rebalance_students_to_reach_minimum_number_of_students_per_container()
         if minimum_balancing_status:
@@ -162,15 +162,15 @@ class CC:
 
         print(f"RESULTS: {std_sum_before} - {std_sum_after}")"""
 
-        print(f"\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: {self.containers_manager.get_number_of_total_students_into_containers()}\n\n")
+        print("\n\nCURRENT NUMBER OF STUDENTS INTO CONTAINERS: " + str(self.containers_manager.get_number_of_total_students_into_containers()) + "\n\n")
 
         uninserted_students_by_matricola = self.students_manager.get_uninserted_students(self.containers_manager)
 
         if len(uninserted_students_by_matricola) > 0:
-            print(f"\nWe found {len(uninserted_students_by_matricola)} students not loaded, inserted and/or elaborated!")
+            print("\nWe found " + str(len(uninserted_students_by_matricola)) + " students not loaded, inserted and/or elaborated!")
             print("Is it a correct number (TotalStudents == StudentsIntoContainers + UninsertedStudents)? -->", self.total_number_of_students == self.containers_manager.get_number_of_total_students_into_containers() + len(uninserted_students_by_matricola))
             for matricola in uninserted_students_by_matricola:
-                print(f"Hey! Student with matricola {matricola} not loaded, inserted and/or elaborated!")
+                print("Hey! Student with matricola " + matricola + " not loaded, inserted and/or elaborated!")
             print("Remaining students into StudentsManager:", self.students_manager.get_number_of_remaining_students())
             return "StudentsNotInsertedAfterShuffling"
         else:
@@ -263,9 +263,9 @@ class CC:
         for i in range(0, num_of_optimizations):
             num_of_effective_optimizations += optimize_random_couple_of_containers_fixed_cycles(25)
             if i % 25 == 0:
-                print(f"{round(i / num_of_optimizations * 100, 2)}%\t\t{i} \toptcycle\toptsdone\t{num_of_effective_optimizations}\tstudents\t{self.containers_manager.get_number_of_total_students_into_containers()}")
+                print(str(round(i / num_of_optimizations * 100, 2)) + "%\t\t" + str(i) + "\toptcycle\toptsdone\t" + str(num_of_effective_optimizations) + "\tstudents\t" + str(self.containers_manager.get_number_of_total_students_into_containers()))
 
-        print(f"100%! Effective swaps done: {num_of_effective_optimizations}\n")
+        print("100%! Effective swaps done: " + str(num_of_effective_optimizations) + "\n")
 
     def save_students_to_db(self):
         connection = mysql.connector.connect(
@@ -280,7 +280,7 @@ class CC:
             container_ids = container.get_students_id()
             # print(f'Inserting container {container.containerid} with ids {container_ids}')
             for student_id in container_ids:
-                query = f"INSERT INTO classi_composte (`groupid`, `configid`, `studentid`, `classid`) VALUES ({self.group_id}, {self.config_id}, {student_id}, {container.containerid})"
+                query = "INSERT INTO classi_composte (`groupid`, `configid`, `studentid`, `classid`) VALUES (" + str(self.group_id) + ", " + str(self.config_id) + ", " + str(student_id) + ", " + str(container.containerid) + ")"
                 cursor.execute(query)
                 connection.commit()
 
@@ -297,7 +297,7 @@ class CC:
 
         cursor = connection.cursor()
 
-        query = f"SELECT COUNT(*) FROM classi_composte WHERE groupid = {self.group_id} AND configid = {self.config_id}"
+        query = "SELECT COUNT(*) FROM classi_composte WHERE groupid = " + self.group_id + " AND configid = " + self.config_id
 
         cursor.execute(query)
 

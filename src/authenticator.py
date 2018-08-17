@@ -20,7 +20,7 @@ def get_hashed_password_and_salt_by_username(username):
 
     cursor = connection.cursor()
 
-    query = f"SELECT hashed_password, salt FROM utenti WHERE username = '{username}';"
+    query = "SELECT hashed_password, salt FROM utenti WHERE username = '" + username + "';"
     cursor.execute(query)
 
     row = cursor.fetchall()[0]

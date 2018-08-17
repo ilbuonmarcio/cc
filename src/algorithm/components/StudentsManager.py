@@ -22,7 +22,7 @@ class StudentsManager:
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM alunni WHERE id_gruppo = {group_id};"
+        query = "SELECT * FROM alunni WHERE id_gruppo = " + group_id + ";"
 
         cursor.execute(query)
 
@@ -74,7 +74,7 @@ class StudentsManager:
                     has_desiderata = True
                     if other.matricola + "-" + student.matricola \
                         not in sex_priority_students_groupped["female-female"].keys():
-                        print(f"Matched S-S! {student.matricola} <--> {other.matricola}")
+                        print("Matched S-S! " + student.matricola + " <--> " + other.matricola)
                         sex_priority_students_groupped["female-female"][
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
@@ -90,7 +90,7 @@ class StudentsManager:
                     has_desiderata = True
                     if other.matricola + "-" + student.matricola \
                         not in sex_priority_students_groupped["female-male"].keys():
-                        print(f"Matched S-O! {student.matricola} <--> {other.matricola}")
+                        print("Matched S-O! " + student.matricola + " <--> " + other.matricola)
                         sex_priority_students_groupped["female-male"][
                             student.matricola + "-" + other.matricola
                         ] = [student, other]
@@ -161,7 +161,7 @@ class StudentsManager:
                 if student.check_desiderata(other):
                     if other.matricola + "-" + student.matricola \
                         not in result_set.keys():
-                        print(f"Matched O-O! {student.matricola} <--> {other.matricola}")
+                        print("Matched O-O! " + student.matricola + " <--> " + other.matricola)
                         result_set[
                             student.matricola + "-" + other.matricola
                         ] = [student, other]

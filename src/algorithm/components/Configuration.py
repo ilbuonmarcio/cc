@@ -16,7 +16,7 @@ class Configuration:
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM configurazioni WHERE id = {config_id};"
+        query = "SELECT * FROM configurazioni WHERE id = " + config_id + ";"
 
         cursor.execute(query)
 

@@ -241,7 +241,7 @@ def refresh_managegroups_table():
         str_response += "<td>" + group_type + "</td>"
         str_response += "<td>" + str(row[4]) + "</td>"
 
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/groupviewer?groupid={row[0]}&groupname={row[1]}" target="_blank">Visualizza</a></td>'
+        str_response += '<td><a href="http:// + ' + server_ip + ':' + server_port + '/groupviewer?groupid=' + str(row[0]) + '&groupname=' + str(row[1]) + '" target="_blank">Visualizza</a></td>'
 
         str_response += "</tr>"
 
@@ -266,7 +266,7 @@ def groupviewer():
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM alunni WHERE id_gruppo = {groupid} ORDER BY sesso;"
+        query = "SELECT * FROM alunni WHERE id_gruppo = '" + groupid + "' ORDER BY sesso;"
 
         cursor.execute(query)
 
@@ -304,32 +304,31 @@ def groupviewer():
                 else:
                     group_table += '<tr style="background-color: #ff9999;">'
 
-                group_table += f'''
-                                        <td>{row[1]}</td>
-                                        <td>{row[2]}</td>
-                                        <td>{row[3]}</td>
-                                        <td>{row[4]}</td>
-                                        <td>{row[5]}</td>
-                                        <td>{row[6]}</td>
-                                        <td>{row[7]}</td>
-                                        <td>{row[8]}</td>
-                                        <td>{row[9]}</td>
-                                        <td>{row[10]}</td>
-                                        <td>{row[11]}</td>
-                                        <td>{row[12]}</td>
-                                        <td>{row[13]}</td>
-                                        <td>{row[14]}</td>
-                                        <td>{row[15]}</td>
-                                        <td>{row[16]}</td>
-                                        <td>{row[17]}</td>
+                group_table += '''<td>''' + row[1] + '''</td>
+                                        <td>''' + row[2] + '''</td>
+                                        <td>''' + row[3] + '''</td>
+                                        <td>''' + row[4] + '''</td>
+                                        <td>''' + row[5] + '''</td>
+                                        <td>''' + row[6] + '''</td>
+                                        <td>''' + row[7] + '''</td>
+                                        <td>''' + row[8] + '''</td>
+                                        <td>''' + row[9] + '''</td>
+                                        <td>''' + row[10] + '''</td>
+                                        <td>''' + row[11] + '''</td>
+                                        <td>''' + row[12] + '''</td>
+                                        <td>''' + row[13] + '''</td>
+                                        <td>''' + row[14] + '''</td>
+                                        <td>''' + row[15] + '''</td>
+                                        <td>''' + row[16] + '''</td>
+                                        <td>''' + row[17] + '''</td>
                                     </tr>'''
 
-            group_table += f'''</tbody>
+            group_table += '''</tbody>
                                 </table>
 
 
                                 <div id="group-label">
-                                    <p id="label">{groupname}</p>
+                                    <p id="label">''' + groupname + '''</p>
                                 </div>'''
 
         else:
@@ -344,9 +343,9 @@ def groupviewer():
 @app.route('/infographics')
 def infographics():
     if 'authenticated' not in session:
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
     elif not session['authenticated']:
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
     return render_template('infographics.html')
 
 
@@ -389,8 +388,8 @@ def refresh_visualizecc_table():
         str_response += "<td>" + str(generation[1]) + "</td>"
         str_response += "<td>" + str(generation[2]) + "</td>"
 
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/infographics?groupid={generation[3]}&configid={generation[4]}" target="_blank">Visualizza</a></td>'
-        str_response += f'<td><a href="http://{server_ip}:{server_port}/export_generatedcc_to_csv?groupid={generation[3]}&configid={generation[4]}">Esporta</a></td>'
+        str_response += '<td><a href="http://' + server_ip + ':' + server_port + '/infographics?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '" target="_blank">Visualizza</a></td>'
+        str_response += '<td><a href="http://' + server_ip + ':' + server_port + '/export_generatedcc_to_csv?groupid=' + str(generation[3]) + '&configid=' + str(generation[4]) + '">Esporta</a></td>'
 
         str_response += "</tr>"
 
@@ -413,7 +412,7 @@ def export_generatedcc_to_csv():
     groupid = request.args.get('groupid')
     configid = request.args.get('configid')
 
-    query = f"SELECT classid, matricola, cognome, nome, sesso, voto FROM classi_composte LEFT JOIN alunni ON alunni.id = classi_composte.studentid WHERE groupid = {groupid} AND configid = {configid} ORDER BY classid, cognome, nome;"
+    query = "SELECT classid, matricola, cognome, nome, sesso, voto FROM classi_composte LEFT JOIN alunni ON alunni.id = classi_composte.studentid WHERE groupid = " + groupid + " AND configid = " + configid + " ORDER BY classid, cognome, nome;"
 
     cursor.execute(query)
 
@@ -435,7 +434,7 @@ def export_generatedcc_to_csv():
     return Response(generator,
                        mimetype="text/plain",
                        headers={"Content-Disposition":
-                                    f"attachment;filename=EXPORT_GROUPID_{groupid}_CONFIGID_{configid}.csv"})
+                                    "attachment;filename=EXPORT_GROUPID_" + groupid + "_CONFIGID_" + configid + ".csv"})
 
 
 @app.route('/routine_createconfig', methods=['POST'])
@@ -469,31 +468,31 @@ def routine_createconfig():
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM configurazioni WHERE nome = '{configname}'";
+        query = "SELECT * FROM configurazioni WHERE nome = '" + configname + "'"
 
         cursor.execute(query)
 
         if len(cursor.fetchall()) > 0:
 
-            query = f"""UPDATE configurazioni
+            query = """UPDATE configurazioni
                         SET
-                            min_alunni = {rangeslider_down},
-                            max_alunni = {rangeslider_up},
-                            numero_femmine = {numfemales},
-                            numero_maschi = {nummales},
-                            max_per_cap = {numcap},
-                            max_per_naz = {nummaxforeachnaz},
-                            max_naz = {numnaz},
-                            num_170 = {num170}
-                        WHERE nome = '{configname}';"""
+                            min_alunni = """ + rangeslider_down + """,
+                            max_alunni = """ + rangeslider_up + """,
+                            numero_femmine = """ + numfemales + """,
+                            numero_maschi = """ + nummales + """,
+                            max_per_cap = """ + numcap + """,
+                            max_per_naz = """ + nummaxforeachnaz + """,
+                            max_naz = """ + numnaz + """,
+                            num_170 = """ + num170 + """
+                        WHERE nome = '""" + configname + """';"""
 
             cursor.execute(query)
 
             connection.commit()
 
-            query = f"""DELETE FROM classi_composte
+            query = """DELETE FROM classi_composte
                         WHERE configid = (
-                            SELECT id FROM configurazioni WHERE nome = "{configname}"
+                            SELECT id FROM configurazioni WHERE nome = '""" + configname + """'
                         );"""
 
             cursor.execute(query)
@@ -508,17 +507,17 @@ def routine_createconfig():
             )
 
         else:
-            query = f"""INSERT INTO configurazioni VALUES (
+            query = """INSERT INTO configurazioni VALUES (
                             NULL,
-                            '{configname}',
-                            {rangeslider_down},
-                            {rangeslider_up},
-                            {numfemales},
-                            {nummales},
-                            {numcap},
-                            {nummaxforeachnaz},
-                            {numnaz},
-                            {num170}
+                            '""" + configname + """',
+                            """ + rangeslider_down + """,
+                            """ + rangeslider_up + """,
+                            """ + numfemales + """,
+                            """ + nummales + """,
+                            """ + numcap + """,
+                            """ + nummaxforeachnaz + """,
+                            """ + numnaz + """,
+                            """ + num170 + """
                         );"""
 
             cursor.execute(query)
@@ -559,7 +558,7 @@ def routine_creategroup():
 
         cursor = connection.cursor()
 
-        query = f"INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '{groupname}', {grouptype}, '{groupdesc}');"
+        query = "INSERT INTO gruppi (id, nome, tipo,  descrizione) VALUES (NULL, '" + groupname + "', " + grouptype + ", '" + groupdesc + "');"
 
         try:
             cursor.execute(query)
@@ -608,9 +607,9 @@ def routine_deletegroup():
 
         cursor = connection.cursor()
 
-        removeAlumniQuery = f"DELETE FROM alunni WHERE alunni.id_gruppo = {groupid};"
-        removeGroupQuery = f"DELETE FROM gruppi WHERE gruppi.id = {groupid};"
-        removeCCQuery = f"DELETE FROM classi_composte WHERE groupid = {groupid};"
+        removeAlumniQuery = "DELETE FROM alunni WHERE alunni.id_gruppo = " + groupid + ";"
+        removeGroupQuery = "DELETE FROM gruppi WHERE gruppi.id = " + groupid + ";"
+        removeCCQuery = "DELETE FROM classi_composte WHERE groupid = " + groupid + ";"
 
         try:
             cursor.execute(removeAlumniQuery)
@@ -716,7 +715,7 @@ def routine_uploadcsv():
 
                         right += 1
                     except:
-                        wrong[str(index)] = f"Error on line index {index}!"
+                        wrong[str(index)] = "Error on line index " + index + "!"
 
                 query = "UPDATE alunni SET sesso = LOWER(sesso);"
 
@@ -762,7 +761,7 @@ def routine_loadconfig():
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM configurazioni WHERE id = '{configid}';"
+        query = "SELECT * FROM configurazioni WHERE id = '" + configid + "';"
 
         cursor.execute(query)
 
@@ -825,7 +824,7 @@ def routine_createuser():
 
         cursor = connection.cursor()
 
-        query = f"SELECT * FROM utenti WHERE username = '{username}';"
+        query = "SELECT * FROM utenti WHERE username = '" + username + "';"
 
         cursor.execute(query)
 
@@ -843,7 +842,7 @@ def routine_createuser():
 
             hashed_password, salt = authenticator.generate_hashed_password_and_salt_by_password(password)
 
-            query = f"INSERT INTO utenti (id, username, hashed_password, salt, diritti) VALUES (NULL, '{username}', '{hashed_password}', '{salt}', {priviledges});"
+            query = "INSERT INTO utenti (id, username, hashed_password, salt, diritti) VALUES (NULL, '" + username + "', '" + hashed_password + "', '" + salt + "', " + priviledges + ");"
 
             try:
 
@@ -886,23 +885,23 @@ def authenticate():
 
     try:
         user_authenticated = authenticator.authenticate_user(username, password)
-        print(f"User {username} authenticated: {user_authenticated}")
+        # print("User " + username + " authenticated: " + user_authenticated)
     except Exception as e:
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
 
     if user_authenticated:
         session['username'] = username
         session['authenticated'] = True
-        return redirect(f'http://{server_ip}:{server_port}/index')
+        return redirect('http://' + server_ip + ':' + server_port + '/index')
     else:
         session['authenticated'] = False
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
 
 
 @app.route('/')
 def root():
     session['authenticated'] = False
-    return redirect(f'http://{server_ip}:{server_port}/login')
+    return redirect('http://' + server_ip + ':' + server_port + '/login')
 
 @app.route('/login')
 def login():
@@ -912,14 +911,14 @@ def login():
 @app.route('/logout')
 def logout():
     session['authenticated'] = False
-    return redirect(f'http://{server_ip}:{server_port}/')
+    return redirect('http://' + server_ip + ':' + server_port + '/')
 
 @app.route('/index')
 def index():
     if 'authenticated' not in session:
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
     elif not session['authenticated']:
-        return redirect(f'http://{server_ip}:{server_port}/')
+        return redirect('http://' + server_ip + ':' + server_port + '/')
     return render_template('index.html', username=session["username"], server_ip=server_ip, server_port=server_port)
 
 @app.route('/js/<path:path>')
@@ -945,7 +944,7 @@ def get_charts_data():
 
     cursor = connection.cursor()
 
-    query = f"SELECT classid, matricola, voto FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.voto;"
+    query = "SELECT classid, matricola, voto FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = " + groupid + " AND classi_composte.configid = " + configid + " ORDER BY classi_composte.classid, alunni.voto;"
 
     cursor.execute(query)
 
@@ -981,7 +980,7 @@ def get_charts_data_cap():
 
     cursor = connection.cursor()
 
-    query = f"SELECT classid, matricola, cap FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.cap;"
+    query = "SELECT classid, matricola, cap FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = " + groupid + " AND classi_composte.configid = " + configid + " ORDER BY classi_composte.classid, alunni.cap;"
 
     cursor.execute(query)
 
@@ -1017,7 +1016,7 @@ def get_charts_data_naz():
 
     cursor = connection.cursor()
 
-    query = f"SELECT classid, matricola, nazionalita FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.nazionalita;"
+    query = "SELECT classid, matricola, nazionalita FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = " + groupid + " AND classi_composte.configid = " + configid + " ORDER BY classi_composte.classid, alunni.nazionalita;"
 
     cursor.execute(query)
 
@@ -1053,7 +1052,7 @@ def get_charts_data_male_female():
 
     cursor = connection.cursor()
 
-    query = f"SELECT classid, matricola, sesso FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = {groupid} AND classi_composte.configid = {configid} ORDER BY classi_composte.classid, alunni.sesso;"
+    query = "SELECT classid, matricola, sesso FROM classi_composte LEFT JOIN alunni on classi_composte.studentid = alunni.id WHERE classi_composte.groupid = " + groupid + " AND classi_composte.configid = " + configid + " ORDER BY classi_composte.classid, alunni.sesso;"
 
     cursor.execute(query)
 
