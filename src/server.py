@@ -20,7 +20,6 @@ ALLOWED_EXTENSIONS = set(['csv'])
 app = Flask(__name__, template_folder="")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = os.urandom(24)
-CORS(app)
 
 @app.route('/get_cc_result', methods=['POST'])
 def get_cc_result():
@@ -1078,3 +1077,6 @@ def get_charts_data_male_female():
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+if __name__ == "__main__":
+    CORS(app)
