@@ -20,7 +20,9 @@ ALLOWED_EXTENSIONS = set(['csv'])
 
 app = Flask(__name__, template_folder="")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = os.urandom(24)
+app.secret_key = os.urandom(24) # Set to a fixed value when putting into production environment
+app.config['SESSION_COOKIE_NAME'] = 'session_cc'
+app.config['SESSION_COOKIE_PATH'] = server_prefix
 
 @app.route(server_prefix + '/get_cc_result', methods=['POST'])
 def get_cc_result():
