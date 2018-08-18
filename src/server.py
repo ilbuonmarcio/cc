@@ -255,6 +255,11 @@ def refresh_managegroups_table():
 
 @app.route(server_prefix + '/groupviewer', methods=['GET'])
 def groupviewer():
+    if 'authenticated' not in session:
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
+    elif not session['authenticated']:
+        return redirect('http://' + server_ip + ':' + server_port + server_prefix + '/')
+    
     groupid = request.args.get('groupid')
     groupname = request.args.get('groupname')
 
