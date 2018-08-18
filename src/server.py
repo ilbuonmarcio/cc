@@ -306,23 +306,23 @@ def groupviewer():
                 else:
                     group_table += '<tr style="background-color: #ff9999;">'
 
-                group_table += '''<td>''' + row[1] + '''</td>
-                                        <td>''' + row[2] + '''</td>
-                                        <td>''' + row[3] + '''</td>
-                                        <td>''' + row[4] + '''</td>
-                                        <td>''' + row[5] + '''</td>
-                                        <td>''' + row[6] + '''</td>
-                                        <td>''' + row[7] + '''</td>
-                                        <td>''' + row[8] + '''</td>
-                                        <td>''' + row[9] + '''</td>
-                                        <td>''' + row[10] + '''</td>
-                                        <td>''' + row[11] + '''</td>
-                                        <td>''' + row[12] + '''</td>
-                                        <td>''' + row[13] + '''</td>
-                                        <td>''' + row[14] + '''</td>
-                                        <td>''' + row[15] + '''</td>
-                                        <td>''' + row[16] + '''</td>
-                                        <td>''' + row[17] + '''</td>
+                group_table += '''<td>''' + str(row[1]) + '''</td>
+                                        <td>''' + str(row[2]) + '''</td>
+                                        <td>''' + str(row[3]) + '''</td>
+                                        <td>''' + str(row[4]) + '''</td>
+                                        <td>''' + str(row[5]) + '''</td>
+                                        <td>''' + str(row[6]) + '''</td>
+                                        <td>''' + str(row[7]) + '''</td>
+                                        <td>''' + str(row[8]) + '''</td>
+                                        <td>''' + str(row[9]) + '''</td>
+                                        <td>''' + str(row[10]) + '''</td>
+                                        <td>''' + str(row[11]) + '''</td>
+                                        <td>''' + str(row[12]) + '''</td>
+                                        <td>''' + str(row[13]) + '''</td>
+                                        <td>''' + str(row[14]) + '''</td>
+                                        <td>''' + str(row[15]) + '''</td>
+                                        <td>''' + str(row[16]) + '''</td>
+                                        <td>''' + str(row[17]) + '''</td>
                                     </tr>'''
 
             group_table += '''</tbody>
@@ -717,7 +717,7 @@ def routine_uploadcsv():
 
                         right += 1
                     except:
-                        wrong[str(index)] = "Error on line index " + index + "!"
+                        wrong[str(index)] = "Error on line index " + str(index) + "!"
 
                 query = "UPDATE alunni SET sesso = LOWER(sesso);"
 
