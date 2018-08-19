@@ -78,7 +78,7 @@ class UploadCSVPanel extends Panel {
       });
 
       M.toast({
-        html: 'Record inseriti erratamente: ' + response.wrong,
+        html: 'Record inseriti erratamente: ' + Object.keys(JSON.parse(response.wrong)).length,
         classes: 'rounded'
       });
 
