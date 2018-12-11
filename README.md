@@ -6,11 +6,11 @@ It's an evolution of [marconicc](https://github.com/marconivr/marconicc), provid
 ### Development Team
 
 - Alessandro Marchioro (Maintainer) - [marcioz98](https://github.com/marcioz98)
-- Damiano Visentini - [Spollo](https://github.com/Spollo)
-- Daniele Fava - [DanyFv](https://github.com/DanyFv)
 
 ### Previous Collaborators
 
+- Damiano Visentini - [Spollo](https://github.com/Spollo)
+- Daniele Fava - [DanyFv](https://github.com/DanyFv)
 - Leonardo Bonomi - [lbonomi99](https://github.com/lbonomi99)
 - Mattia Carra - [mcarra99](https://github.com/mcarra99)
 
